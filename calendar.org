@@ -1,0 +1,15 @@
+#+SETUPFILE: setup.org
+#+TITLE: Course calendar
+
+| Week                                | Topics                       | Homework      |
+|-------------------------------------+------------------------------+---------------|
+| 1 (June 11, 12, 13, 14)             | GPS, Turing test, etc.       | Homework 1    |
+| 2 (June 18, 19, 20, 21)             | Search                       | Homework 2    |
+| 3 (June 25, 26, 27, 28)             | Knowledge representation     | Homework 3    |
+| 4 (July 2, 3, 5)                    | Midterm, Multi-agent systems | Midterm guide |
+| 5 (July 9, 10, 11, 12)              | Multi-agent systems          | Homework 4    |
+| 6 (July 16, 17, 18, 19)             | Machine learning             | Homework 5    |
+| 7 (July 23, 24, 25, 26)             | Machine learning, philosophy | Homework 6    |
+| Final (Monday July 29, 4:00-5:45pm) |                              | Final guide   |
+
+#+INCLUDE: footer.org

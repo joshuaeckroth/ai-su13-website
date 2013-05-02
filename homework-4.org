@@ -1,0 +1,90 @@
+#+SETUPFILE: setup.org
+#+TITLE: Homework 4
+
+* Task (100 pts)
+
+  1. (10pts) Build truth tables for the following formulas:
+
+     1. $\neg (A \wedge C) \vee B$
+
+     2. $(A \rightarrow \neg B) \vee (B \leftrightarrow C)$
+
+  2. (10pts) Find variable assignments that satisfy the following
+     formulas, or state that no such assignment exists:
+
+     1. $\neg (A \vee B) \wedge (\neg A \wedge B \wedge \neg C)$
+
+     2. $C \leftrightarrow (\neg C \vee \neg A)$
+
+  3. (10pts) Express the following statements in propositional logic:
+
+     1. $B$ or $C$ is true whenever $A$ is true.
+
+     2. $B$ is known to be true when $A$ is true.
+
+     3. At most one of $R$, $S$, and $T$ can be true.
+
+     4. The grass is wet if either it rained or the sprinkler was
+        on. (Create propositional symbols, and give their
+        definitions.)
+
+  4. (20pts) We have a knowledge base that contains:
+
+     - $(R \rightarrow S) \wedge Q$
+
+     - $(J \wedge Q) \rightarrow P$
+
+     - $Q \rightarrow Z$
+
+     - $P \rightarrow \neg Q$
+
+     - $(R \rightarrow S) \rightarrow (\neg H \rightarrow J)$
+
+     Derive each of the following using inference rules for
+     propositional logic:
+
+     1. $Z$
+
+     2. $\neg P$
+
+     3. $\neg (J \wedge Q)$
+
+     4. $\neg J$
+
+     5. $H$
+
+  5. (40pts) Rewrite the following statements in first-order logic,
+     stating definitions for the predicates you use. (Note, some of
+     these are /hard/; make an attempt...)
+
+     1. James is a dolphin.
+
+     2. Dolphins are mammals.
+
+     3. Mammals have hair and three middle ear bones.
+
+     4. Not all dolphins live in the ocean.
+
+     5. Some mammals have sweat glands and specialized teeth.
+
+     6. Vignesh stopped by his house before going to the party.
+
+     7. The result of firing a loaded gun at a person is that the
+        person dies.
+
+     8. The /usual/ result of firing a loaded gun at a person is that
+        the person dies (unless, the person has a bulletproof vest, or
+        the gun misfires, or...)
+
+     9. One of the teachers on this campus always gets spitballs
+        launched at him whenever he turns around.
+
+     10. The only mammals that lay eggs are the monotremes, and all
+         but the playtpus are extinct. (You may need multiple
+         logic "sentences" for this one.)
+
+     11. I'm hungry.
+
+     12. This sentence is false.
+
+#+INCLUDE: footer.org
