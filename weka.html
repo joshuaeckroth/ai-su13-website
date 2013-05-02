@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Weka</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="Weka"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-05-02 09:09:47 EDT"/>
+<meta name="author" content="Joshua Eckroth"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="css/worg.css" type="text/css" media="screen" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+<a href="index.html">Home</a> &nbsp; &nbsp;
+          <!-- Plupper Button -->
+          <div id="plupperButton" style="display: inline;"></div>
+          <!-- End of Plupper Button Code -->
+
+</div>
+
+<div id="content">
+<h1 class="title">Weka</h1>
+
+<p>Download from the <a href="http://www.cs.waikato.ac.nz/ml/weka/">Weka website</a>, click &ldquo;Download&rdquo; on the left, and
+select one of the &ldquo;Stable book 3rd ed.&rdquo; versions for your machine.
+</p>
+<p>
+You may need to increase the memory available to Weka. On Windows,
+check out <a href="http://weka.wikispaces.com/Java+Virtual+Machine">Weka&rsquo;s page on the topic</a>. On a Mac, use this command in the
+Terminal:
+</p>
+
+
+
+<pre class="example">java -Xmx4096m -jar /Applications/weka-3-6-8.app/Contents/Resources/Java/weka.jar
+</pre>
+
+
+
+<div id="table-of-contents">
+<h2>TOC</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">k-means clustering</a></li>
+<li><a href="#sec-2">k-nearest neighbor classification</a></li>
+<li><a href="#sec-3">Preprocessing text</a>
+<ul>
+<li><a href="#sec-3-1">Strings to binary feature vectors</a></li>
+<li><a href="#sec-3-2">Strings to frequency vectors</a></li>
+<li><a href="#sec-3-3">Strings to tf-idf vectors</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">k-means clustering</h2>
+<div class="outline-text-2" id="text-1">
+
+
+
+<div class="figure">
+<p><img src="./images/weka-cluster-1.png"  alt="./images/weka-cluster-1.png" /></p>
+<p>Click &ldquo;Choose&rdquo; to choose the clustering algorithm.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-cluster-2.png"  alt="./images/weka-cluster-2.png" /></p>
+<p>Choose &ldquo;SimpleKMeans.&rdquo;</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-cluster-3.png"  alt="./images/weka-cluster-3.png" /></p>
+<p>Click the name of the algorithm to get more options.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-cluster-4.png"  alt="./images/weka-cluster-4.png" /></p>
+<p>Possibly change the number of clusters or distance function.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-cluster-5.png"  alt="./images/weka-cluster-5.png" /></p>
+<p>For evaluation (including the confusion matrix), choose Classes to clusters evaluation and make sure &ldquo;(Nom) class&rdquo; (nominal variable called &ldquo;class&rdquo;) is selected for comparison.</p>
+</div>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">k-nearest neighbor classification</h2>
+<div class="outline-text-2" id="text-2">
+
+
+
+<div class="figure">
+<p><img src="./images/weka-classify-1.png"  alt="./images/weka-classify-1.png" /></p>
+<p>Click &ldquo;Choose&rdquo; to choose the classification algorithm.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-classify-2.png"  alt="./images/weka-classify-2.png" /></p>
+<p>Choose &ldquo;IBk.&rdquo;</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-classify-3.png"  alt="./images/weka-classify-3.png" /></p>
+<p>Click the name of the algorithm to get more options.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-classify-4.png"  alt="./images/weka-classify-4.png" /></p>
+<p>Possibly change the number of clusters.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-classify-5.png"  alt="./images/weka-classify-5.png" /></p>
+<p>For evaluation (including the confusion matrix), choose &ldquo;Cross-validation&rdquo; with 10 folds.</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Preprocessing text</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+As discussed in the <a href="./text-classification.html">text classification</a> notes, text files typically
+need to be converted into &ldquo;feature vectors&rdquo; before machine learning
+algorithms can be applied. The most common feature vector is a vector
+where each dimension is a different word, and the value in that
+dimension is either 0/1 binary value (yes or no the word is in that
+document), an integer count (the frequency of the word in that
+document), or a real value (often the tf-idf score of that word in
+that document).
+</p>
+<p>
+The ARFF files we will be working with will always look like this:
+</p>
+
+
+
+<pre class="example">@relation some-description-of-the-data
+@attribute contents string
+@attribute class {ham,spam}
+
+@data
+'Go until jurong point, crazy.. Available only in bugis n great world la e buffet... Cine there got amore wat...',ham
+'Ok lar... Joking wif u oni...',ham
+'Free entry in 2 a wkly comp to win FA Cup final tkts 21st May 2005. Text FA to 87121 to receive entry question(std txt rate)T&amp;Cs apply 08452810075over18s',spam
+'U dun say so early hor... U c already then say...',ham
+'Nah I dont think he goes to usf, he lives around here though',ham
+...
+</pre>
+
+
+<p>
+Of course, the classes (ham/spam) may change. These files are very
+easy to generate, should you actually wish to use text classification
+for your own purposes.
+</p>
+<p>
+We&rsquo;ll practice with the <a href="./sms-spam.arff">sms-spam.arff</a> file, which has examples of SMS
+text msg ham and spam. This collection was produced by Tiago
+A. Almeida from the Federal University of Sao Carlos and José María
+Gómez Hidalgo from the R&amp;D Department of Optenet. More information
+<a href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">available here</a>. You may find <a href="http://dl.acm.org/citation.cfm?id=2034742">their paper</a> interesting; it examines the
+performance of various machine learning algorithms on this data set.
+</p>
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">Strings to binary feature vectors</h3>
+<div class="outline-text-3" id="text-3-1">
+
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-1.png"  alt="./images/weka-preprocess-1.png" /></p>
+<p>Load the ARFF file and choose a filter.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-2.png"  alt="./images/weka-preprocess-2.png" /></p>
+<p>Choose the StringToWordVector filter, in the Unsupervised &gt; Attribute section.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-3.png"  alt="./images/weka-preprocess-3.png" /></p>
+<p>Click the filter name to get more options.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-4.png"  alt="./images/weka-preprocess-4.png" /></p>
+<p>Change &ldquo;attributeIndices&rdquo; to &ldquo;1&rdquo; to just select the first attribute (the contents of the SMS message). Change &ldquo;attributeNamePrefix&rdquo; to &ldquo;word-&rdquo; so that all the new features look like &ldquo;word-foo&rdquo; and &ldquo;word-bar&rdquo;, etc. Change &ldquo;wordsToKeep&rdquo; to &ldquo;100000&rdquo; to keep them all.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-5.png"  alt="./images/weka-preprocess-5.png" /></p>
+<p>Click &ldquo;Apply&rdquo;</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-6.png"  alt="./images/weka-preprocess-6.png" /></p>
+<p>Now you&rsquo;ll have lots more attributes. You can click &ldquo;Undo&rdquo; if you don&rsquo;t like it.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-7.png"  alt="./images/weka-preprocess-7.png" /></p>
+<p>Everything works better if the class (ham/spam) is last. After our filter, it&rsquo;s not anymore. Let&rsquo;s fix that. Choose a new filter, &ldquo;Reorder,&rdquo; under Unsupervised &gt; Attribute. Click the filter name to change its properties. Type &ldquo;2-last,1&rdquo; to make the new order the second-to-last attributes followed by the first attribute. This puts the first attribute at the end.</p>
+</div>
+
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-8.png"  alt="./images/weka-preprocess-8.png" /></p>
+<p>Click &ldquo;Apply.&rdquo; Now the class (ham/spam) should be the last attribute again.</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">Strings to frequency vectors</h3>
+<div class="outline-text-3" id="text-3-2">
+
+
+<p>
+Follow the steps above (&ldquo;Strings to binary feature vectors&rdquo;) except
+use the following changes in the StringToWordVector filter:
+</p>
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-9.png"  alt="./images/weka-preprocess-9.png" /></p>
+<p>Change &ldquo;outputWordCounts&rdquo; to &ldquo;True.&rdquo;</p>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3">Strings to tf-idf vectors</h3>
+<div class="outline-text-3" id="text-3-3">
+
+
+<p>
+Follow the steps above (&ldquo;Strings to binary feature vectors&rdquo;) except
+use the following changes in the StringToWordVector filter:
+</p>
+
+<div class="figure">
+<p><img src="./images/weka-preprocess-10.png"  alt="./images/weka-preprocess-10.png" /></p>
+<p>Change &ldquo;IDFTransform&rdquo; to &ldquo;True&rdquo; and &ldquo;TFTransform&rdquo; to &ldquo;True,&rdquo; as well as &ldquo;normalizeDocLength&rdquo; to &ldquo;Normalize all data.&rdquo;</p>
+</div>
+
+
+
+<div style="font-size: 80%; clear: both;">
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">CSE 3521 material</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://cse3521.artifice.cc" property="cc:attributionName" rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. Source code for this website available at <a href="https://github.com/joshuaeckroth/cse3521-website">GitHub</a>.
+</div>
+
+<!-- Plupper Tracking Code -->
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript"
+    src="https://static.plupper.com/js/plupper.js"></script>
+<script type="text/javascript">
+    plupper.init("joshuaeckroth@plupper.com");
+    plupper.enableCobrowsing();
+</script>
+<!-- End of Plupper Tracking Code -->
+
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

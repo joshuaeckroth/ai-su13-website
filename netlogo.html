@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>NetLogo</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="NetLogo"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-05-02 09:09:57 EDT"/>
+<meta name="author" content="Joshua Eckroth"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="css/worg.css" type="text/css" media="screen" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+<a href="index.html">Home</a> &nbsp; &nbsp;
+          <!-- Plupper Button -->
+          <div id="plupperButton" style="display: inline;"></div>
+          <!-- End of Plupper Button Code -->
+
+</div>
+
+<div id="content">
+<h1 class="title">NetLogo</h1>
+
+<p>You&rsquo;ll find the <a href="http://ccl.northwestern.edu/netlogo/docs/">NetLogo Manual</a> to be useful.
+</p>
+
+<p>
+<a href="http://ccl.northwestern.edu/netlogo/5.0.2/">Download NetLogo 5.0.2</a> (Windows, Linux, OS X)
+</p>
+<p>
+<a href="http://ccl.northwestern.edu/netlogo/mountain-lion.shtml">Note for OS X 10.8 (Mountain Lion) users.</a>
+</p>
+
+
+<div id="table-of-contents">
+<h2>TOC</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Building the &ldquo;ant brood sorting&rdquo; model</a>
+<ul>
+<li><a href="#sec-1-1">NetLogo code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Building the &ldquo;ant brood sorting&rdquo; model</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+The model is described in the <a href="./ant-intelligence.html">Ant intelligence</a> notes.
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">NetLogo code</h3>
+<div class="outline-text-3" id="text-1-1">
+
+
+
+<div style="text-align: center">
+<p><img src="./images/netlogo-ant-brood-sorting.png"  alt="./images/netlogo-ant-brood-sorting.png" />
+</p>
+</div>
+
+<p>
+Each turtle will have a <code>seen</code> variable that will be a list.
+</p>
+
+
+
+<pre class="src src-netlogo">turtles-own [ seen ]
+</pre>
+
+
+<p>
+Each patch will have a <code>barrier?</code> variable that will be true or false
+depending on whether the patch is a barrier.
+</p>
+
+
+
+<pre class="src src-netlogo">patches-own [ barrier? ]
+</pre>
+
+
+<p>
+The &ldquo;setup&rdquo; button will run this procedure. First, the NetLogo
+procedure <code>clear-all</code> clears the screen. Then, the <code>setup-patches</code> and
+<code>setup-turtles</code> procedures (which we&rsquo;ll create) are executed.
+</p>
+
+
+
+<pre class="src src-netlogo">to setup
+  clear-all
+  setup-patches
+  setup-turtles
+end
+</pre>
+
+
+<p>
+The patches will have colors or be black if they are blank space. The
+probability of being some color or black depends on sliders. All
+patches by default are not barriers.
+</p>
+
+
+
+<pre class="src src-netlogo">to setup-patches
+  ask patches ;; make each patch do the following
+  [ set barrier? false ;; all start as non-barriers
+    ifelse random-float 1.0 &lt; red-prob ;; possibly turn red
+    [ set pcolor red ]
+    [ ifelse random-float 1.0 &lt; (red-prob + green-prob) ;; possibly turn green
+      [ set pcolor green ]
+      [ ifelse random-float 1.0 &lt; (red-prob + green-prob + blue-prob) ;; possibly turn blue
+        [ set pcolor blue ]
+        [ set pcolor black ] ] ] ] ;; otherwise, not red, green, or blue
+end
+</pre>
+
+
+<p>
+Now we set up the turtles (ants):
+</p>
+
+
+
+<pre class="src src-netlogo">to setup-turtles
+  create-turtles population ;; this is a slider variable
+  ask turtles 
+  [ setxy 0 0 ;; put each turtle (ant) in the middle
+    set seen [] ;; set its <span style="color: #8b2252;">"seen"</span> list to the empty list
+    set color white ] ;; make it white
+end
+</pre>
+
+
+<p>
+The &ldquo;go&rdquo; button moves each ant around the space, avoiding barriers
+(how to draw barriers is described below). An ant may choose to pickup
+or drop a colored object if appropriate. But first we &ldquo;look&rdquo; by
+updating the ant&rsquo;s &ldquo;seen&rdquo; list.
+</p>
+
+
+
+<pre class="src src-netlogo">to go
+  ask turtles
+  [ look
+    drop
+    pickup
+    avoid-barrier ]
+end
+</pre>
+
+
+<p>
+This is how the ant &ldquo;looks&rdquo; (note that the <code>memory-size</code> variable is
+set by a slider):
+</p>
+
+
+
+<pre class="src src-netlogo">to look
+  if pcolor != black and memory-size &gt; 0 ;; if the ant is on a color, and it has a memory
+  [ if length seen &gt;= memory-size ;; if the seen list is full...
+    [ set seen but-last seen ] ;; drop the last item in the list
+    set seen fput pcolor seen ] ;; put the item seen now at the front of the list (fput)
+end
+</pre>
+
+
+<p>
+The ant may choose to &ldquo;pickup&rdquo; an object. Picking up an object
+actually just turns the patch to black, and turns the ant to the color
+that it &ldquo;picked up.&rdquo;
+</p>
+
+
+
+<pre class="src src-netlogo">to pickup
+  ;; if the ant is white (not holding an object),
+  ;; and the patch color (pcolor) is not black,
+  ;; and the patch color is not white (which is a barrier)
+  if color = white and pcolor != black and pcolor != white
+  ;; then let f be the value (number of items in 'seen' list matching this color)
+  ;; divided by the size of seen list;
+  ;; we use 'filter [? = pcolor] seen' to reduce the 'seen' list to only
+  ;; those items that equal the patch color
+  [ let f (length (filter [? = pcolor] seen)) / (length seen)
+    ;; now choose a random number, and see if it is less than
+    ;; the value (K+ / (K+ + F))^2 where K+ is a constant set by a slider
+    if random-float 1.0 &lt; (k-plus / (k-plus + f)) ^ 2
+    [ set color pcolor ;; set ant color to patch color
+      set pcolor black ] ] ;; set patch color to black
+end
+</pre>
+
+
+<p>
+Dropping is the opposite:
+</p>
+
+
+
+<pre class="src src-netlogo">to drop
+  ;; if the ant is not white (i.e., if it is holding an object),
+  ;; and the patch color is black
+  if color != white and pcolor = black
+  ;; figure out how many seen objects have the same color as the ant
+  [ let f (length (filter [? = color] seen)) / (length seen)
+    ;; calculate (F / (K- + F))^2 where K- is a constant set by a slider
+    if random-float 1.0 &lt; (f / (k-minus + f)) ^ 2
+    [ set pcolor color ;; set patch color to color of ant
+      set color white ] ] ;; change ant color back to white
+end
+</pre>
+
+
+<p>
+Now we just need to make the ant move:
+</p>
+
+
+
+<pre class="src src-netlogo">to avoid-barrier
+  ;; if there exists a patch ahead (in whatever direction the ant is facing)
+  ;; and the patch ahead is not a barrier
+  ;; (the code ([barrier?] of patch-ahead 1) gets the value of the barrier?
+  ;; variable for the patch)
+  if (nobody != patch-ahead 1) and ([barrier?] of patch-ahead 1)
+    [right 90 + random 180] ;; then turn 90-degrees plus a random amount more
+  right random 40 ;; turn a random amount
+  forward 1 ;; move forward; note, we may have turned towards a different barrier; oh well
+end
+</pre>
+
+
+<p>
+The &ldquo;make-barrier&rdquo; and &ldquo;remove-barrier&rdquo; buttons on the interface call
+these two procedures. These procedures figure out where you click your
+mouse and set the <code>barrier?</code> variable to true/false on those patches
+(and turn them white/black):
+</p>
+
+
+
+<pre class="src src-netlogo">to make-barrier
+  if mouse-down? ;; continually ask if the mouse is being clicked
+  [ ask patches ;; for all patches that are under the mouse, ...
+    [ if ((abs (pxcor - mouse-xcor)) &lt; 1) and ((abs (pycor - mouse-ycor)) &lt; 1)
+      [ set pcolor white ;; turn white
+        set barrier? true ] ] ] ;; and set barrier? to true
+end
+
+to remove-barrier
+  if mouse-down?
+  [ ask patches
+    [ if ((abs (pxcor - mouse-xcor)) &lt; 1) and ((abs (pycor - mouse-ycor)) &lt; 1)
+      [ set pcolor black
+        set barrier? false ] ] ]
+end
+</pre>
+
+
+<div style="font-size: 80%; clear: both;">
+<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">CSE 3521 material</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://cse3521.artifice.cc" property="cc:attributionName" rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. Source code for this website available at <a href="https://github.com/joshuaeckroth/cse3521-website">GitHub</a>.
+</div>
+
+<!-- Plupper Tracking Code -->
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript"
+    src="https://static.plupper.com/js/plupper.js"></script>
+<script type="text/javascript">
+    plupper.init("joshuaeckroth@plupper.com");
+    plupper.enableCobrowsing();
+</script>
+<!-- End of Plupper Tracking Code -->
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
