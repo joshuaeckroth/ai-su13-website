@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>General Problem Solver (GPS)</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta name="title" content="General Problem Solver (GPS)"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-05-22 18:32:26 EDT"/>
+<meta name="author" content="Joshua Eckroth"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="css/worg.css" type="text/css" media="screen" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+<a href="index.html">Home</a> &nbsp; &nbsp;
+          <!-- Plupper Button -->
+          <div id="plupperButton" style="display: inline;"></div>
+          <!-- End of Plupper Button Code -->
+
+</div>
+
+<div id="content">
+<h1 class="title">General Problem Solver (GPS)</h1>
+
+<blockquote>
+
+<p><b>We deliberate not about ends, but about means.</b> For a doctor does not
+deliberate whether he shall heal, nor an orator whether he shall
+persuade, nor a statesman whether he shall produce law and order, nor
+does any one else deliberate about his end. <b>They assume the end and consider how and by what means it is attained</b>; and if it seems to be
+produced by several means they consider by which it is most easily and
+best produced, while if it is achieved by one only they consider how
+it will be achieved by this and by what means <i>this</i> will be achieved,
+<b>till they come to the first cause, which in the order of discovery is last</b>&hellip; and what is last in the order of analysis seems to be first
+in the order of becoming. <b>And if we come on an impossibility, we give up the search</b>, e.g., if we need money and this cannot be got; but if
+a thing appears possible we try to do it. &mdash; Aristotle, <i>Nicomachean Ethics</i> (<a href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0054:bekker page=1112b:bekker line=1">Book III.3,1112b</a>)
+</p>
+</blockquote>
+
+
+<blockquote>
+
+<p>I want to take my son to nursery school. What&rsquo;s the difference between
+what I have and what I want? One of distance. What changes distance?
+My automobile. My automobile won&rsquo;t work.  What is needed to make it
+work? A new battery. What has new batteries? An auto repair shop. I
+want the repair shop to put in a new battery; but the shop doesn&rsquo;t
+know I need one. What is the difficulty? One of communication. What
+allows communication?  A telephone&hellip; and so on. &mdash; Newell and
+Simon&rsquo;s example from their 1972 book <i>Human Problem Solving</i>
+</p>
+</blockquote>
+
+
+
+<div id="table-of-contents">
+<h2>TOC</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Basic structuring of a problem</a></li>
+<li><a href="#sec-2">The driving to school problem</a></li>
+<li><a href="#sec-3">The monkey and banana problem</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Basic structuring of a problem</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<ul>
+<li>define the goals
+
+<ul>
+<li>e.g., take my son to nursery school 
+
+</li>
+</ul>
+
+</li>
+<li>define preconditions for the goals
+
+<ul>
+<li>e.g., the precondition for dropping my son off at nursery school
+    is that my son is at home and the car works
+
+</li>
+</ul>
+
+</li>
+<li>define the means (&ldquo;operators&rdquo;) for turning one set of conditions
+  into another
+
+<ul>
+<li>e.g., to ensure the car repair shop has my money, we can define an
+    operator &ldquo;give shop money&rdquo; that changes the world so that &ldquo;shop
+    has money&rdquo; is true and &ldquo;I have money&rdquo; is false.
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+<p>
+We&rsquo;ll say that an operator is made up of:
+</p>
+<ul>
+<li>the action (e.g., &ldquo;give shop money&rdquo;)
+
+</li>
+<li>the preconditions (e.g., &ldquo;have money&rdquo;)
+
+</li>
+<li>the change of conditions resulting from taking the action; we
+  specify this as conditions added and conditions deleted:
+
+<ul>
+<li>giving the shop money adds the condition &ldquo;shop has money&rdquo;
+
+</li>
+<li>giving the shop money deletes the condition &ldquo;have money&rdquo; (which is
+    also the precondition)
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">The driving to school problem</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+Let&rsquo;s write the goal, starting conditions, and some operators in a
+more symbolic form:
+</p>
+
+
+
+<pre class="src src-python"><span style="color: #a0522d;">problem</span> = {
+    <span style="color: #8b2252;">"start"</span>: [<span style="color: #8b2252;">"son at home"</span>, <span style="color: #8b2252;">"have money"</span>, <span style="color: #8b2252;">"have phone book"</span>, <span style="color: #8b2252;">"car needs battery"</span>],
+    <span style="color: #8b2252;">"finish"</span>: [<span style="color: #8b2252;">"son at school"</span>],
+    <span style="color: #8b2252;">"ops"</span>: [
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"drive son to school"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"son at home"</span>, <span style="color: #8b2252;">"car works"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"son at school"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"son at home"</span>]
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"shop installs battery"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"car needs battery"</span>, <span style="color: #8b2252;">"shop knows problem"</span>, <span style="color: #8b2252;">"shop has money"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"car works"</span>],
+            <span style="color: #8b2252;">"delete"</span>: []
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"tell shop problem"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"in communication with shop"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"shop knows problem"</span>],
+            <span style="color: #8b2252;">"delete"</span>: []
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"telephone shop"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"know phone number"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"in communication with shop"</span>],
+            <span style="color: #8b2252;">"delete"</span>: []
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"look up number"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"have phone book"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"know phone number"</span>],
+            <span style="color: #8b2252;">"delete"</span>: []
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"give shop money"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"have money"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"shop has money"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"have money"</span>]
+        }
+    ]
+}
+</pre>
+
+
+<div style="text-align: center">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+WIDTH="523" HEIGHT="738"
+CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
+<PARAM NAME="MOVIE" VALUE="./flash/school-gps.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="best">
+<PARAM NAME="LOOP" VALUE="true">
+<EMBED SRC="./flash/school-gps.swf" WIDTH="523" HEIGHT="738" PLAY="true" LOOP="true" QUALITY="best" 
+PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+</EMBED>
+</OBJECT>
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">The monkey and banana problem</h2>
+<div class="outline-text-2" id="text-3">
+
+
+
+
+
+<pre class="src src-python"><span style="color: #a0522d;">problem</span> = {
+    <span style="color: #8b2252;">"start"</span>: [<span style="color: #8b2252;">"at door"</span>, <span style="color: #8b2252;">"on floor"</span>, <span style="color: #8b2252;">"has ball"</span>, <span style="color: #8b2252;">"hungry"</span>, <span style="color: #8b2252;">"chair at door"</span>],
+    <span style="color: #8b2252;">"finish"</span>: [<span style="color: #8b2252;">"not hungry"</span>],
+    <span style="color: #8b2252;">"ops"</span>: [
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"climb on chair"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"chair at middle room"</span>, <span style="color: #8b2252;">"at middle room"</span>, <span style="color: #8b2252;">"on floor"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"at bananas"</span>, <span style="color: #8b2252;">"on chair"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"at middle room"</span>, <span style="color: #8b2252;">"on floor"</span>]
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"push chair from door to middle room"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"chair at door"</span>, <span style="color: #8b2252;">"at door"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"chair at middle room"</span>, <span style="color: #8b2252;">"at middle room"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"chair at door"</span>, <span style="color: #8b2252;">"at door"</span>]
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"walk from door to middle room"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"at door"</span>, <span style="color: #8b2252;">"on floor"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"at middle room"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"at door"</span>]
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"grasp bananas"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"at bananas"</span>, <span style="color: #8b2252;">"empty handed"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"has bananas"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"empty handed"</span>]
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"drop ball"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"has ball"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"empty handed"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"has ball"</span>]
+        },
+        {
+            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"eat bananas"</span>,
+            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"has bananas"</span>],
+            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"empty handed"</span>, <span style="color: #8b2252;">"not hungry"</span>],
+            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"has bananas"</span>, <span style="color: #8b2252;">"hungry"</span>]
+        }
+    ]
+}
+</pre>
+
+
+<div style="text-align: center">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+WIDTH="668" HEIGHT="672"
+CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
+<PARAM NAME="MOVIE" VALUE="./flash/monkey-gps.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="best">
+<PARAM NAME="LOOP" VALUE="true">
+<EMBED SRC="./flash/monkey-gps.swf" WIDTH="668" HEIGHT="672" PLAY="true" LOOP="true" QUALITY="best" 
+PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+</EMBED>
+</OBJECT>
+</div>
+
+<div style="text-align: center">
+<iframe width="420" height="315"
+src="http://www.youtube.com/embed/mDntbGRPeEU?rel=0" frameborder="0"
+allowfullscreen></iframe>
+</div>
+
+<blockquote>
+
+<p>[As delivered in a lecture by an ape who learned to act like a human.]
+It was certainly a victory for [my teacher] and for me when one
+evening in front of a large circle of onlookers &mdash; perhaps it was a
+celebration, a gramophone was playing, an officer was wandering around
+among the people &mdash; when on this evening, at a moment when no one was
+watching, I grabbed a bottle of alcohol which had been inadvertently
+left standing in front of my cage, uncorked it just as I had been
+taught, amid the rising attention of the group, set it against my
+mouth and, without hesitating, with my mouth making no grimace, like
+an expert drinker, with my eyes rolling around, splashing the liquid
+in my throat, I really and truly drank the bottle empty, and then
+threw it away, no longer in despair, but like an artist. Well, I did
+forget to scratch my belly. But instead of that, because I couldn&rsquo;t do
+anything else, because I had to, because my senses were roaring, I
+cried out a short and good &ldquo;Hello!&rdquo; breaking out into human
+sounds. And with this cry I sprang into the community of human beings,
+and I felt its echo &mdash; &ldquo;Just listen. He&rsquo;s talking!&rdquo; &mdash; like a kiss
+on my entire sweat-soaked body. &mdash; Franz Kafka, <i>A Report for An Academy</i> (<a href="http://records.viu.ca/~johnstoi/kafka/reportforacademy.htm">read online</a>).
+</p>
+</blockquote>
+
+
+<blockquote>
+
+<p>Remember GPS? By now, &ldquo;GPS&rdquo; is a colorless term denoting a
+particularly stupid program to solve puzzles. But it originally meant
+&ldquo;General Problem Solver,&rdquo; which caused everybody a lot of needless
+excitement and distraction. It should have been called LFGNS ---
+&ldquo;Local-Feature-Guided Network Searcher.&rdquo; &mdash; Drew McDermott,
+<i>Artificial Intelligence Meets Natural Stupidity</i>
+</p>
+</blockquote>
+
+
+
+
+
+<div style="font-size: 80%; clear: both;"> <span
+xmlns:dct="http://purl.org/dc/terms/"
+href="http://purl.org/dc/dcmitype/Text" property="dct:title"
+rel="dct:type">AI Su13 material</span> by <a
+xmlns:cc="http://creativecommons.org/ns#"
+href="http://ai-su13.artifice.cc" property="cc:attributionName"
+rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a
+rel="license"
+href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+Attribution-ShareAlike 3.0 Unported License</a>. Source code for this
+website available at <a
+href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
+</div>
+
+<!-- Plupper Tracking Code -->
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript"
+    src="https://static.plupper.com/js/plupper.js"></script>
+<script type="text/javascript">
+    plupper.init("joshuaeckroth@plupper.com");
+    plupper.enableCobrowsing();
+</script>
+<!-- End of Plupper Tracking Code -->
+
+
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

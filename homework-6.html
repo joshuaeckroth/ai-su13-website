@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Homework 6"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-05-02 09:10:02 EDT"/>
+<meta name="generated" content="2013-06-05 00:34:15 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -105,10 +145,10 @@
 <ul>
 <li><a href="#sec-1">Task 1 (25 pts)</a></li>
 <li><a href="#sec-2">Task 2 (25 pts)</a></li>
-<li><a href="#sec-3">Task 3 (25 pts)</a></li>
-<li><a href="#sec-4">Task 4 (25 pts)</a></li>
-<li><a href="#sec-5">Extra credit 1 (20 pts)</a></li>
-<li><a href="#sec-6">Extra credit 2 (20 pts)</a></li>
+<li><a href="#sec-3">Task 3 (10 pts)</a></li>
+<li><a href="#sec-4">Task 4 (10 pts)</a></li>
+<li><a href="#sec-5">Task 5 (30 pts)</a></li>
+<li><a href="#sec-6">Task 1 (100 pts)</a></li>
 </ul>
 </div>
 </div>
@@ -119,24 +159,19 @@
 
 
 <p>
-Read/skim <a href="http://natcomp.liacs.nl/SWI/papers/cooperative.transport/cooperative.transport.by.ants.and.robots.pdf">Cooperative transport by ants and robots</a> (PDF) by Kube and
-Bonabeau (2000) (<a href="http://jmvidal.cse.sc.edu/lib/kube00a.html">full citation</a>). Answer the following questions:
+Refer to the <a href="./bayesian-inference.html">Bayesian inference notes</a>.
 </p>
-<ol>
-<li>What is a suggested solution to the problem of many robots
-     communicating with each other?
+<ul>
+<li>Compute \(P(fire=T|smoke=T)\).
 
 </li>
-<li>What are two problems with robot swarms?
+<li>Compute \(P(alarm=T|smoke=T)\).
 
 </li>
-<li>How does an ant decide that &ldquo;group transport&rdquo; is needed?
-
+<li>Compute the probability that there is a fire if somebody reports
+    it and you are certain the fire alarm has not been tampered with.
 </li>
-<li>How was the &ldquo;stagnation&rdquo; problem solved in experiments with
-     robots?
-</li>
-</ol>
+</ul>
 
 
 </div>
@@ -149,28 +184,58 @@ Bonabeau (2000) (<a href="http://jmvidal.cse.sc.edu/lib/kube00a.html">full citat
 
 
 <p>
-Load the AIDS model in NetLogo. Read about it on the Info tab, play
-with simulations. Then, answer these questions (as found in the
-&ldquo;Things to try&rdquo; section of the Info tab):
+Using the näive Bayesian assumption, calculate the most likely
+explanation (i.e., which of \(a\), \(b\), or \(c\) is true) given that the
+following has been observed: \(x=false\), \(y=true\), \(z=true\).
 </p>
-<ol>
-<li>Run a number of experiments with the GO button to find out the
-     effects of different variables on the spread of HIV. Try using
-     good controls in your experiment. Good controls are when only one
-     variable is changed between trials. For instance, to find out
-     what effect the average duration of a relationship has, run four
-     experiments with the AVERAGE-COMMITMENT slider set at 1 the first
-     time, 2 the second time, 10 the third time, and 50 the last. <b>How      much does the prevalence of HIV increase in each case?</b> <b>Does      this match your expectations?</b>
+<p>
+Recall that the näive Bayesian assumption says that \(x\), \(y\), \(z\) are
+independent of each other given the cause \(a\), \(b\), or \(c\). In other
+words, \(P(x,y,z|a)=P(x|a)P(y|a)P(z|a)\) (for \(b\) and \(c\) also).
+</p>
+
+<div style="text-align: center">
+<p><img src="./images/bayes-map.png"  alt="./images/bayes-map.png" />
+</p>
+</div>
+
+<ul>
+<li>\(P(x=true|a=true) = 0.1\)
 
 </li>
-<li><b>Are the effects of some slider variables mediated by the effects      of others?</b> For instance, if lower AVERAGE-COMMITMENT values seem
-     to increase the spread of HIV when all other sliders are set at
-     0, does the same thing occur if all other sliders are set at 10?
-     You can run many experiments to test different hypotheses
-     regarding the emergent public health effects associated with
-     individual sexual behaviors.
+<li>\(P(x=true|b=true) = 0.3\)
+
 </li>
-</ol>
+<li>\(P(x=true|c=true) = 0.7\)
+
+</li>
+<li>\(P(y=true|a=true) = 0.3\)
+
+</li>
+<li>\(P(y=true|b=true) = 0.5\)
+
+</li>
+<li>\(P(y=true|c=true) = 0.8\)
+
+</li>
+<li>\(P(z=true|a=true) = 0.6\)
+
+</li>
+<li>\(P(z=true|b=true) = 0.4\)
+
+</li>
+<li>\(P(z=true|c=true) = 0.6\)
+
+</li>
+<li>\(P(a) = 0.3\)
+
+</li>
+<li>\(P(b) = 0.7\)
+
+</li>
+<li>\(P(c) = 0.5\)
+</li>
+</ul>
 
 
 </div>
@@ -178,23 +243,25 @@ with simulations. Then, answer these questions (as found in the
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Task 3 (25 pts)</h2>
+<h2 id="sec-3">Task 3 (10 pts)</h2>
 <div class="outline-text-2" id="text-3">
 
 
 <p>
-Load the PD N-Person Iterated model in NetLogo. Answer these
-questions:
+Write binary vectors and frequency vectors for the following
+documents:
 </p>
-<ol>
-<li>Observe the results of running the model with a variety of
-     populations and population sizes. For example, <b>can you get      cooperate’s average payoff to be higher than defect’s?</b> <b>Can you      get Tit-for-Tat’s average payoff higher than cooperate’s?</b> <b>What      do these experiments suggest about an optimal strategy?</b>
+<blockquote>
 
-</li>
-<li>Relate your observations from this model to real life
-     events. <b>Where might you find yourself in a similar situation?      How might the knowledge obtained from the model influence your      actions in such a situation? Why?</b>
-</li>
-</ol>
+<p>Document 1: &ldquo;the cat in the hat seuss the cat hat hat seuss the hat&rdquo;
+</p>
+<p>
+Document 2: &ldquo;green eggs and ham seuss the ham green and the ham and&rdquo;
+</p>
+<p>
+Document 3: &ldquo;horton hears who seuss and in the horton the who hears&rdquo;
+</p>
+</blockquote>
 
 
 </div>
@@ -202,92 +269,97 @@ questions:
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Task 4 (25 pts)</h2>
+<h2 id="sec-4">Task 4 (10 pts)</h2>
 <div class="outline-text-2" id="text-4">
 
 
 <p>
-Load the Wolf Sheep Predation model in NetLogo. Run a BehaviorSpace
-experiment (Tools menu, BehaviorSpace). The goal is to find conditions
-where the populations are stable. Set some parameter ranges and more
-than one repetition. Measure <code>count wolves</code> and <code>count sheep</code>. Be sure
-to add a &ldquo;Stop condition&rdquo; like <code>count turtles &gt; 5000</code> to avoid
-explosions of sheep. Also add a time limit like 3000. Create a
-spreadsheet of the results. Include this spreadsheet in your homework
-submission as well as a written summary of what you observed (5-7
-sentences).
+Compute (by hand) the <i>tf-idf</i> scores for each of the words in the
+documents from Task 3.
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Extra credit 1 (20 pts)</h2>
+<h2 id="sec-5">Task 5 (30 pts)</h2>
 <div class="outline-text-2" id="text-5">
 
 
 <p>
-Read/skim &ldquo;Strong and Weak Emergence&rdquo; by David Chalmers from 2006
-(<a href="./Chalmers-Emergence.pdf">PDF</a>; <a href="http://scholar.google.com/scholar.bib?q=info:j3WRL72mFMkJ:scholar.google.com/&amp;output=citation&amp;hl=en&amp;as_sdt=1,36&amp;scfhb=1&amp;ct=citation&amp;cd=1">full citation</a>). Answer these questions:
+Report the best (in terms of average F-score) classification algorithm
+and feature vector pairing for the <a href="./sms-spam.arff">sms-spam.arff</a> dataset. Use <a href="./weka.html">Weka</a> to
+do this. Be sure to try:
 </p>
-<ol>
-<li>Chalmers writes, &ldquo;We can think of strongly emergent phenomena as
-     being systematically determined by low-level facts without being
-     deducible from those facts.&rdquo; Give an example that may possibly
-     satisfy this definition of strong emergence.
+<ul>
+<li>k-nearest neighbor with \(k=1,2,3\) and,
+<ul>
+<li>Binary feature vectors
+</li>
+<li>Frequency feature vectors
+</li>
+<li>tf-idf feature vectors
 
 </li>
-<li>Are the NetLogo models we have been using examples of strong or
-     weak emergence?
+</ul>
 
 </li>
-<li>This question of emergence is a generalization of the question of
-     whether the higher-level sciences like chemistry and biology (not
-     to mention psychology, sociology) are &ldquo;reducible&rdquo; in principle to
-     just physics. Or, do the different sciences each have an
-     essential nature that cannot be reduced &mdash; that, say, chemistry
-     is the study of laws that cannot be deduced from laws of
-     physics. You can imagine that some people are uncomfortable with
-     the idea that physics is the only &ldquo;real&rdquo; science. What is your
-     opinion? Is physics the foundation of all science, and if only
-     physical laws are understood perfectly then all phenomena
-     (chemical, biological, pyschological, etc.) can be predicted and
-     explained?
+<li>Naïve Bayes with binary feature vectors
 </li>
-</ol>
+</ul>
 
 
-
-<div style="text-align: center">
-<p><img src="./images/purity.png"  alt="./images/purity.png" />
+<p>
+Use 10-fold cross-validation.
 </p>
-</div>
-
 </div>
 
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Extra credit 2 (20 pts)</h2>
+<h2 id="sec-6">Task 1 (100 pts)</h2>
 <div class="outline-text-2" id="text-6">
 
 
 <p>
-Read/skim &ldquo;Strong and Weak Emergence&rdquo; by David Chalmers (<a href="./Chalmers-Emergence.pdf">PDF</a>). Answer
-one question:
+These are Asimov&rsquo;s &ldquo;Three Laws of Robotics&rdquo;:
 </p>
 <ol>
-<li>What is the relation between weak emergence, as described by
-     Chalmers (second half of the reading) and <a href="./knowledge-level.html">the knowledge level</a>?
-     This is a &ldquo;compare and contrast&rdquo; type of question.
+<li>A robot may not injure a human being or, through inaction, allow a
+   human being to come to harm.
+
+</li>
+<li>A robot must obey the orders given to it by human beings, except
+   where such orders would conflict with the First Law.
+
+</li>
+<li>A robot must protect its own existence as long as such protection
+   does not conflict with the First or Second Laws.
 </li>
 </ol>
 
 
+<p>
+Give your opinion about whether these are good &ldquo;laws,&rdquo; how they might
+be improved, and whether we could build systems that respect
+them. (1-2 paragraphs)
+</p>
 
 
-<div style="font-size: 80%; clear: both;">
-<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">CSE 3521 material</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://cse3521.artifice.cc" property="cc:attributionName" rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. Source code for this website available at <a href="https://github.com/joshuaeckroth/cse3521-website">GitHub</a>.
+
+
+<div style="font-size: 80%; clear: both;"> <span
+xmlns:dct="http://purl.org/dc/terms/"
+href="http://purl.org/dc/dcmitype/Text" property="dct:title"
+rel="dct:type">AI Su13 material</span> by <a
+xmlns:cc="http://creativecommons.org/ns#"
+href="http://ai-su13.artifice.cc" property="cc:attributionName"
+rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a
+rel="license"
+href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+Attribution-ShareAlike 3.0 Unported License</a>. Source code for this
+website available at <a
+href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
 </div>
 
 <!-- Plupper Tracking Code -->

@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Homework 5</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Homework 5"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-05-02 09:10:02 EDT"/>
+<meta name="generated" content="2013-06-05 00:34:15 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -103,178 +143,107 @@
 <h2>TOC</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Task 1 (30 pts)</a></li>
-<li><a href="#sec-2">Task 2 (50 pts)</a></li>
-<li><a href="#sec-3">Task 3 (10 pts)</a></li>
-<li><a href="#sec-4">Task 4 (10 pts)</a></li>
-<li><a href="#sec-5">Extra credit (10 pts)</a></li>
+<li><a href="#sec-1">Task 1 (20 pts)</a></li>
+<li><a href="#sec-2">Task 2 (20 pts)</a></li>
+<li><a href="#sec-3">Task 3 (20 pts)</a></li>
+<li><a href="#sec-4">Task 4 (20 pts)</a></li>
+<li><a href="#sec-5">Task 5 (20 pts)</a></li>
 <li><a href="#sec-6">Extra credit (10 pts)</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Task 1 (30 pts)</h2>
+<h2 id="sec-1">Task 1 (20 pts)</h2>
 <div class="outline-text-2" id="text-1">
 
 
 <p>
-Assume we have the following Prolog database:
+Execute the k-means algorithm by hand on the following data:
 </p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="right" /><col class="right" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="right">item #</th><th scope="col" class="right">w</th><th scope="col" class="right">x</th><th scope="col" class="right">y</th><th scope="col" class="right">z</th><th scope="col" class="left">true label</th></tr>
+</thead>
+<tbody>
+<tr><td class="right">1</td><td class="right">1.0</td><td class="right">1.0</td><td class="right">0.0</td><td class="right">1.0</td><td class="left">A</td></tr>
+<tr><td class="right">2</td><td class="right">0.0</td><td class="right">0.0</td><td class="right">1.0</td><td class="right">0.0</td><td class="left">B</td></tr>
+<tr><td class="right">3</td><td class="right">2.0</td><td class="right">2.0</td><td class="right">0.0</td><td class="right">2.0</td><td class="left">A</td></tr>
+<tr><td class="right">4</td><td class="right">0.0</td><td class="right">0.0</td><td class="right">1.0</td><td class="right">1.0</td><td class="left">B</td></tr>
+<tr><td class="right">5</td><td class="right">2.0</td><td class="right">2.0</td><td class="right">0.0</td><td class="right">2.0</td><td class="left">A</td></tr>
+<tr><td class="right">6</td><td class="right">0.0</td><td class="right">2.0</td><td class="right">1.0</td><td class="right">1.0</td><td class="left">B</td></tr>
+</tbody>
+</table>
 
 
-
-<pre class="src src-prolog"><span style="color: #0000ff;">parent</span>(tom, liz).
-<span style="color: #0000ff;">parent</span>(tim, bob).
-<span style="color: #0000ff;">parent</span>(bob, ann).
-<span style="color: #0000ff;">parent</span>(bob, pat).
-<span style="color: #0000ff;">parent</span>(pat, jim).
-
-<span style="color: #0000ff;">female</span>(pam).
-<span style="color: #0000ff;">male</span>(tim).
-<span style="color: #0000ff;">male</span>(tom).
-<span style="color: #0000ff;">male</span>(bob).
-<span style="color: #0000ff;">female</span>(liz).
-<span style="color: #0000ff;">female</span>(pat).
-<span style="color: #0000ff;">female</span>(ann).
-<span style="color: #0000ff;">male</span>(jim).
-
-<span style="color: #0000ff;">mother</span>(<span style="color: #a0522d;">X</span>) :- parent(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">_</span>), female(<span style="color: #a0522d;">X</span>).
-</pre>
-
-
-<ol>
-<li>Write Prolog queries for the following questions:
-
-<ol>
-<li>Who is Ann&rsquo;s parent?
-
-</li>
-<li>Is Jim Bob&rsquo;s child?
-
-</li>
-<li>Who is Jim&rsquo;s grandparent?
-
-</li>
-</ol>
-
-</li>
-<li>Write a rule that describes a child, so that <code>child(X, Y)</code> means
-   <code>X</code> is the child of <code>Y</code>. Don&rsquo;t allow a person to be his or her
-   own child.
-
-</li>
-<li>Define an ancestor rule. An ancestor is a parent of a person, a
-   grandparent, a great-grandparent, etc. Naturally, this rule is
-   recursive (like the <code>member</code> predicate in the notes).
-
-</li>
-<li>Define a descendant rule. This rule is the opposite of the ancestor
-   rule. A child is a descendant; so is a grandchild, great-grandchild,
-   etc.
-</li>
-</ol>
-
-
-
+<p>
+Use \(k=2\). Show the centroids as they change, and give the final
+centroids. You must choose random (or not so random) starting centroid
+values. Finally, give the confusion matrix.
+</p>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Task 2 (50 pts)</h2>
+<h2 id="sec-2">Task 2 (20 pts)</h2>
 <div class="outline-text-2" id="text-2">
 
 
 <p>
-Copy-paste the family database from the notes and the various predicates
-created to operate on that database. Now, look at the guidelines regarding
-poverty at the <a href="http://aspe.hhs.gov/poverty/12poverty.shtml">Dept. of Health &amp; Human Services</a> website (for the 48 states). These guidelines
-define the minimum amount of income, for a given household size, to be
-considered outside of poverty. Define a <code>family_in_poverty(FamilyID)</code>
-predicate that is only true when the family designated by <code>FamilyID</code>
-is in poverty according to the guidelines. Also, add some more family
-data so you have examples of families in poverty.
+Run the k-means algorithm in Weka using this dataset: <a href="./iris.arff">iris.arff</a> (iris
+species clustering).
 </p>
 <p>
-Additionally, provide a query or define a predicate that tells you the
-average household income of families in poverty.
+Choose \(k=3\) and \(k=4\). Give the confusion matrix for each value of
+\(k\). Also report the percent of correctly classified instances for
+each class, for each \(k\).
 </p>
-
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Task 3 (10 pts)</h2>
+<h2 id="sec-3">Task 3 (20 pts)</h2>
 <div class="outline-text-2" id="text-3">
 
 
 <p>
-Do the following unify, and if so, what are values for the variables (one set of values for each question), if any variables are involved, that make the unification work?
+Execute the k-nearest neighbor algorithm by hand on the clusters found
+from task 1 (or make up random clusters by labeling the points from
+task 1). Use \(k = 2\). Classify the data point: \(&lt;1, 3, 0, 2&gt;\).
 </p>
-<ul>
-<li><code>parent(tom, liz)</code> and <code>parent(tom, X)</code>
-
-</li>
-<li><code>parent(X, liz)</code> and <code>parent(liz, X)</code>
-
-</li>
-<li><code>parent(X, Y)</code> and <code>parent(Y, X)</code>
-
-</li>
-<li><code>head(X, [a, b, c])</code> and <code>head(b, [a, b, c])</code>
-
-</li>
-<li><code>head(foo(Y), X)</code> and <code>head(foo(Z), [foo(w)])</code>
-
-</li>
-<li><code>foo(bar(a, b), baz(c))</code> and <code>foo(bar(X), baz(Y))</code>
-</li>
-</ul>
-
-
 </div>
 
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Task 4 (10 pts)</h2>
+<h2 id="sec-4">Task 4 (20 pts)</h2>
 <div class="outline-text-2" id="text-4">
 
 
 <p>
-Draw a resolution tree for <code>mother(X)</code>. Note that there is a particular
-order by which Prolog creates subgoals (that is, the order that facts/rules
-are written in the knowledge base). You only need to show the tree
-until the first time the predicate is proved.
+Run the k-nearest neighbor in Weka using this dataset: <a href="./letter.arff">letter.arff</a>
+(handwritten letter classification). Find a good value of \(k\). Report
+the accuracy and give the confusion matrix for the best accuracy.
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Extra credit (10 pts)</h2>
+<h2 id="sec-5">Task 5 (20 pts)</h2>
 <div class="outline-text-2" id="text-5">
 
 
 <p>
-Combine some of your predicates about grandparents, ancestors, friends,
-enemies, etc. into the family database. Add some predicates that
-utilize this information; for example, do children in families below the
-poverty level make friends or enemies with children in families above
-the poverty level?
+Explain the differences between k-means and k-nearest neighbor
+algorithms. What does each accomplish, and when/why might you use
+both?
 </p>
-<p>
-Or, instead, define more predicates/queries about families and
-poverty. Which people working at OSU are in poverty? Are unemployed
-people more likely to be in families that are below the poverty line?
-(You can answer this by finding the length of the list of unemployed
-people in families that are below the poverty line, and compare that
-length (using <code>Length1 &gt; Length2</code>) to the length of the list of employed
-people in families that are below the poverty line.)
-</p>
-
 </div>
 
 </div>
@@ -285,24 +254,24 @@ people in families that are below the poverty line.)
 
 
 <p>
-Look at the <a href="./prolog-examples.html">Prolog examples</a> notes,
-specifically at the second example (the maze program). Extend the program
-in the following way.
+Play around with Weka; report which classifier algorithm performs best
+(or nearly best) for classifying the <a href="./letter.arff">letter.arff</a> data.
 </p>
-<ul>
-<li>Create another room that can only be accessed if switch 1 is toggled.
-
-</li>
-<li>Put a constraint on switch 1 so that it can only be toggled in the garden.
-</li>
-</ul>
 
 
 
-
-
-<div style="font-size: 80%; clear: both;">
-<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">CSE 3521 material</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://cse3521.artifice.cc" property="cc:attributionName" rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>. Source code for this website available at <a href="https://github.com/joshuaeckroth/cse3521-website">GitHub</a>.
+<div style="font-size: 80%; clear: both;"> <span
+xmlns:dct="http://purl.org/dc/terms/"
+href="http://purl.org/dc/dcmitype/Text" property="dct:title"
+rel="dct:type">AI Su13 material</span> by <a
+xmlns:cc="http://creativecommons.org/ns#"
+href="http://ai-su13.artifice.cc" property="cc:attributionName"
+rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a
+rel="license"
+href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+Attribution-ShareAlike 3.0 Unported License</a>. Source code for this
+website available at <a
+href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
 </div>
 
 <!-- Plupper Tracking Code -->
