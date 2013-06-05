@@ -18,13 +18,13 @@
    - [[file:search.org::#sec-2][initial state]]
 ** L
    - [[file:turing-test.org::#sec-1-3][Leibniz, G.]]
-   - [[file:turing-test.org::#sec-3][Loebner Prize]]
+   - [[file:turing-test.org::#sec-4][Loebner Prize]]
    - [[file:search.org::#sec-1][lookup table]]
 ** P
    - [[file:search.org::#sec-2][path cost]]
    - [[file:search.org::#sec-2][possible actions]]
 ** R
-   - [[file:turing-test.org::#sec-4][Radiolab]]
+   - [[file:turing-test.org::#sec-5][Radiolab]]
 ** S
    - [[file:search.org][Simon, H. A.]]
 ** T

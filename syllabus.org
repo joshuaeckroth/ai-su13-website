@@ -9,25 +9,23 @@ computation, philosophy, technology
 #+END_HTML
 
 * Text book
-The text book is not required. [[http://www.amazon.com/Artificial-Intelligence-Modern-Approach-Edition/dp/0136042597/ref=sr_1_1?s=books&ie=UTF8&qid=1332257784&sr=1-1][Artificial Intelligence: A Modern
-Approach]], by Russell and Norvig.
+The text book is not required. Everything you need to know is on this
+site. However, the official text book is [[http://www.amazon.com/Artificial-Intelligence-Modern-Approach-Edition/dp/0136042597/ref=sr_1_1?s=books&ie=UTF8&qid=1332257784&sr=1-1][Artificial Intelligence: A
+Modern Approach]], by Russell and Norvig.
 
 * Homework
 
-Homework must be submitted on the CSE Linux servers, using the
-~submit~ command. All programs must compile and execute without error
-on the Linux servers. Thus, be sure to test your code on those servers
-before submitting it.
-
-Instructions about the Linux servers are available in [[./linux.html][lecture notes]].
+Homework is submitted via the Carmen Dropbox. Your programs must build
+and execute without errors in order to receive full credit.
 
 * Grading
 
   - Homeworks: 40%
-  - Midterm: 30%
+  - Midterm: 25%
   - Final: 30%
+  - Attendance: 5%
 
-Late work is penalized 20 points, no matter how late it is. The last
+Late work is penalized 30 points, no matter how late it is. The last
 day to turn in late work is the day of the Final.
 
 Note that if I suspect you copied your homework solutions from someone
@@ -35,6 +33,9 @@ Note that if I suspect you copied your homework solutions from someone
 questions about those solutions. If you do not answer those questions
 to my satisfaction, I reserve the right to give you a 0% grade on that
 assignment.
+
+Attendance is calculated as the percent of days you attend class
+(ignoring excused absences).
 
 #+CAPTION: "Square," Kumi Yamashita, 1995; H36, W53, D15cm; aluminum, single light source, shadow
 [[./images/kumi-yamashita-square.jpg]]

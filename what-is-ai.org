@@ -159,15 +159,28 @@ motor skeleton. [[http://www.youtube.com/watch?v=T35A3g_GvSg][Elektro in action]
 ** Artificiality
 
 #+INDEX: Baudrillard, J.
-*Robots are not humans*. They are simulations, at best. Thus, typically,
-they are outside the purview of human rights, etc. Spielberg's film
-/A.I./ explores this issue (there, robots/androids are demolished in
-public stagings). However, whether a robot can become "more than it
-is," i.e., more than just the creation of the watchmaker, is an open
-question. For a sophisticated and quite provocative take on this,
-consider listening to a reading of Baudrillard's /Le Xerox et
-l'infini/ (read in English) from People Like Us ([[http://www.peoplelikeus.org/2010/jean_baudrillard_le_xerox_et_linfini_free_download.html][website]]; about 30
-minutes).
+*Robots are not humans*. They are simulations, at best. Thus,
+typically, they are outside the purview of human rights,
+etc. Spielberg's film /A.I./ explores this issue (there,
+robots/androids are demolished in public stagings). However, whether a
+robot can become "more than it is," i.e., more than just the creation
+of the watchmaker, is an open question.
+
+#+BEGIN_CENTER
+[[./images/ai-flesh-fair-1.jpg]]
+
+[[./images/ai-flesh-fair-2.jpg]]
+
+/A.I./, directed by Spielberg, has a scene in which robots are torn
+apart in a "flesh fair."
+#+END_CENTER
+
+For a sophisticated and quite provocative take on the difference
+between humans and AI, consider listening to a [[http://www.ubu.com/sound/plu_baudrillard.html][reading]] of
+Baudrillard's /Le Xerox et l'infini/ (read in English) from People
+Like Us (about 30 minutes).
+
+
 
 
 #+INCLUDE: footer.org

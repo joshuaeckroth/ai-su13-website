@@ -1,40 +1,43 @@
 #+SETUPFILE: setup.org
 #+TITLE: Homework 2
 
-* Task 1 (70 pts)
+* Task 1 (20 pts)
 
-  Code either breadth-first search or depth-first search in whatever
-  programming language you wish. Solve the "Routing from Dreese Labs
-  to Goodale Park" problem on the [[./search-practice.html][search practice]] notes. Ask the user
-  for a starting location and ending (goal) location, and print out
-  the path from the start to the end.
+(GPS)
 
-  Because I'm asking you to code BFS or DFS, which don't consider edge
-  weights (distance between road intersections in the map), you do not
-  need to include edge weights in your representation of the search
-  graph.
+* Task 2 (20 pts)
 
-* Task 2 (10 pts)
+show order of steps in hill-climbing search for goodale problem
+
+* Task 3 (20 pts)
+
+show order of steps in a* search for goodale problem
+
+* Task 4 (5 pts)
 
   The "Routing from Dreese Labs to Goodale Park" used road
-  intersection distance to find the minimal-time route (when informed
-  search was used). However, this distance ("as the crow flies") is
-  only one aspect of what makes one route better than another. What
-  other information should we use to find the truly minimal-time route
+  intersection distance to find the routes (when informed search was
+  used). However, this distance ("as the crow flies") is only one
+  aspect of what makes one route better than another. What other
+  information should we use to find the truly minimal-time route
   between these two locations?
 
-* Task 3 (10 pts)
+* Task 5 (5 pts)
 
   What are some /admissible/ heuristics for the 8-puzzle problem? Give
   at least two.
 
-* Task 4 (10 pts)
+* Task 6 (10 pts)
 
   For unweighted search graphs (equivalently, all weights equal 1.0),
   which of the following search algorithms are complete? Which are
-  optimal?  What about weighted graphs?
+  optimal? What about weighted graphs?
 
   - Breadth-first search, depth-first search, random search,
     best-first search, hill-climbing search, A* search
+
+* Task 7 (20 pts)
+
+show steps in minimax tic-tac-toe starting from a near-end board
 
 #+INCLUDE: footer.org

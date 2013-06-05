@@ -3,149 +3,200 @@
 
 * Task (100 pts)
 
-Code the minimax algorithm, as applied to connect-4. Here are the
-rules of connect-4:
+  1. (10pts) Build truth tables for the following formulas:
 
-  - The board is 6 rows by 7 columns.
+     1. $\neg (A \wedge C) \vee B$
 
-  - Two players, say H (human) and C (computer).
+     2. $(A \rightarrow \neg B) \vee (B \leftrightarrow C)$
 
-  - On a player's move, he/she/it can choose to put a token in one of
-    the 7 columns. The token falls to the lowest row that is
-    unoccupied in that column. A column is full and unplayable when it
-    has all rows filled (6 tokens).
+  2. (10pts) Find variable assignments that satisfy the following
+     formulas, or state that no such assignment exists:
 
-Winning condition:
+     1. $\neg (A \vee B) \wedge (\neg A \wedge B \wedge \neg C)$
 
-  - A player wins when he/she/it gets four tokens in a row:
-    diagonally, vertically, or horizontally.
+     2. $C \leftrightarrow (\neg C \vee \neg A)$
 
-  - A tie occurs when there are no free moves and neither player won.
+  3. (10pts) Express the following statements in propositional logic:
 
-Be sure to provide a simple user interface. Ask the human for a move,
-then show the board after the move. You can choose if the human or
-computer moves first.
+     1. $B$ or $C$ is true whenever $A$ is true.
 
-*Note:* This game has a huge search space. You cannot /just/ use
-minimax, and even alpha-beta pruning won't help you enough. You have
-to also *limit the search depth*. Recall that minimax is a recursive
-algorithm. You can keep track of the depth of your recursive calls by
-giving the depth as an input to each recursive function call. Each
-call gives the current depth + 1. Add a depth-limit parameter, or
-hard-code one. I found that a depth-limit of 6 works ok. Don't call
-the next recursive function if the depth would exceed this
-depth-limit.
+     2. $B$ is known to be true when $A$ is true.
 
+     3. At most one of $R$, $S$, and $T$ can be true.
 
-* Extra credit (20 pts)
+     4. The grass is wet if either it rained or the sprinkler was
+        on. (Create propositional symbols, and give their
+        definitions.)
 
-Code the alpha-beta pruning modification of the minimax algorithm
-(instead of just the minimax algorithm) for the same task described
-above. This extra credit gives you 120 pts overall. You do not have to
-code the game twice.
+  4. (20pts) We have a knowledge base that contains:
 
-* Example code
+     - $(R \rightarrow S) \wedge Q$
 
-To help you focus more on the interesting bits, here is some C++ code
-for checking diagonals (only down-left and down-right are required
-since up-right and up-left are equivalent), printing the grid, etc.
+     - $(J \wedge Q) \rightarrow P$
 
-#+BEGIN_SRC c++
-char grid[6][7];
+     - $Q \rightarrow Z$
 
-void initializeGrid()
-{
-    for(int i = 0; i < 6; i++)
-    {
-        for(int j = 0; j < 7; j++)
-        {
-            grid[i][j] = ' ';
-        }
-    }
-}
+     - $P \rightarrow \neg Q$
 
-void printGrid()
-{
-    for(int i = 0; i < 6; i++)
-    {
-        for(int j = 0; j < 7; j++)
-        {
-            cout << "--";
-        }
-        cout << "-" << endl;
+     - $(R \rightarrow S) \rightarrow (\neg H \rightarrow J)$
 
-        for(int j = 0; j < 7; j++)
-        {
-            cout << "|" << grid[i][j];
-        }
-        cout << "|" << endl;
-    }
-    for(int j = 0; j < 7; j++)
-    {
-        cout << "--";
-    }
-    cout << "-" << endl;
-    for(int j = 1; j <= 7; j++)
-    {
-        cout << " " << j;
-    }
-    cout << endl;
-}
+     Derive each of the following using inference rules for
+     propositional logic:
 
-bool checkDownLeft(int col, int row, char player)
-{
-    int count = 0;
-    for(int i = row, j = col; i < 6 && j >= 0; i++, j--)
-    {
-        if(grid[i][j] == player) count++;
-        else count = 0;
+     1. $Z$
 
-        if(count == 4) break;
-    }
-    return (count == 4);
-}
+     2. $\neg P$
 
-bool checkDownRight(int col, int row, char player)
-{
-    int count = 0;
-    for(int i = row, j = col; i < 6 && j < 7; i++, j++)
-    {
-        if(grid[i][j] == player) count++;
-        else count = 0;
+     3. $\neg (J \wedge Q)$
 
-        if(count == 4) break;
-    }
-    return (count == 4);
-}
+     4. $\neg J$
 
-bool checkHorizontal(int row, char player)
-{
-    // omitted
-}
+     5. $H$
 
-bool checkVertical(int col, char player)
-{
-    // omitted
-}
+  5. (40pts) Rewrite the following statements in first-order logic,
+     stating definitions for the predicates you use. (Note, some of
+     these are /hard/; make an attempt...)
 
-bool won(char player)
-{
-    for(int j = 0; j < 7; j++)
-    {
-        if(checkVertical(j, player)) return true;
-    }
-    for(int i = 0; i < 6; i++)
-    {
-        if(checkHorizontal(i, player)) return true;
+     1. James is a dolphin.
 
-        for(int j = 0; j < 7; j++)
-        {
-            if(checkDownLeft(j, i, player)) return true;
-            if(checkDownRight(j, i, player)) return true;
-        }
-    }
-    return false;
-}
+     2. Dolphins are mammals.
+
+     3. Mammals have hair and three middle ear bones.
+
+     4. Not all dolphins live in the ocean.
+
+     5. Some mammals have sweat glands and specialized teeth.
+
+     6. Vignesh stopped by his house before going to the party.
+
+     7. The result of firing a loaded gun at a person is that the
+        person dies.
+
+     8. The /usual/ result of firing a loaded gun at a person is that
+        the person dies (unless, the person has a bulletproof vest, or
+        the gun misfires, or...)
+
+     9. One of the teachers on this campus always gets spitballs
+        launched at him whenever he turns around.
+
+     10. The only mammals that lay eggs are the monotremes, and all
+         but the playtpus are extinct. (You may need multiple
+         logic "sentences" for this one.)
+
+     11. I'm hungry.
+
+     12. This sentence is false.
+
+* Task 1 (30 pts)
+
+Assume we have the following Prolog database:
+
+#+BEGIN_SRC prolog
+parent(tom, liz).
+parent(tim, bob).
+parent(bob, ann).
+parent(bob, pat).
+parent(pat, jim).
+
+female(pam).
+male(tim).
+male(tom).
+male(bob).
+female(liz).
+female(pat).
+female(ann).
+male(jim).
+
+mother(X) :- parent(X, _), female(X).
 #+END_SRC
+
+1. Write Prolog queries for the following questions:
+
+   1. Who is Ann's parent?
+
+   2. Is Jim Bob's child?
+
+   3. Who is Jim's grandparent?
+
+2. Write a rule that describes a child, so that ~child(X, Y)~ means
+   ~X~ is the child of ~Y~. Don't allow a person to be his or her
+   own child.
+
+4. Define an ancestor rule. An ancestor is a parent of a person, a
+   grandparent, a great-grandparent, etc. Naturally, this rule is
+   recursive (like the ~member~ predicate in the notes).
+
+5. Define a descendant rule. This rule is the opposite of the ancestor
+   rule. A child is a descendant; so is a grandchild, great-grandchild,
+   etc.
+
+
+* Task 2 (50 pts)
+
+Copy-paste the family database from the notes and the various predicates
+created to operate on that database. Now, look at the guidelines regarding
+poverty at the [[http://aspe.hhs.gov/poverty/12poverty.shtml][Dept. of
+Health & Human Services]] website (for the 48 states). These guidelines
+define the minimum amount of income, for a given household size, to be
+considered outside of poverty. Define a ~family_in_poverty(FamilyID)~
+predicate that is only true when the family designated by ~FamilyID~
+is in poverty according to the guidelines. Also, add some more family
+data so you have examples of families in poverty.
+
+Additionally, provide a query or define a predicate that tells you the
+average household income of families in poverty.
+
+
+* Task 3 (10 pts)
+
+Do the following unify, and if so, what are values for the variables (one set of values for each question), if any variables are involved, that make the unification work?
+
+  - ~parent(tom, liz)~ and ~parent(tom, X)~
+
+  - ~parent(X, liz)~ and ~parent(liz, X)~
+
+  - ~parent(X, Y)~ and ~parent(Y, X)~
+
+  - ~head(X, [a, b, c])~ and ~head(b, [a, b, c])~
+
+  - ~head(foo(Y), X)~ and ~head(foo(Z), [foo(w)])~
+
+  - ~foo(bar(a, b), baz(c))~ and ~foo(bar(X), baz(Y))~
+
+* Task 4 (10 pts)
+
+Draw a resolution tree for ~mother(X)~. Note that there is a particular
+order by which Prolog creates subgoals (that is, the order that facts/rules
+are written in the knowledge base). You only need to show the tree
+until the first time the predicate is proved.
+
+* Extra credit (10 pts)
+
+Combine some of your predicates about grandparents, ancestors, friends,
+enemies, etc. into the family database. Add some predicates that
+utilize this information; for example, do children in families below the
+poverty level make friends or enemies with children in families above
+the poverty level?
+
+Or, instead, define more predicates/queries about families and
+poverty. Which people working at OSU are in poverty? Are unemployed
+people more likely to be in families that are below the poverty line?
+(You can answer this by finding the length of the list of unemployed
+people in families that are below the poverty line, and compare that
+length (using ~Length1 > Length2~) to the length of the list of employed
+people in families that are below the poverty line.)
+
+
+* Extra credit (10 pts)
+
+Look at the [[./prolog-examples.html][Prolog examples]] notes,
+specifically at the second example (the maze program). Extend the program
+in the following way.
+
+  - Create another room that can only be accessed if switch 1 is toggled.
+
+  - Put a constraint on switch 1 so that it can only be toggled in the garden.
+
+
 
 #+INCLUDE: footer.org

@@ -109,7 +109,7 @@ dimensions ($c$ dimensions).
 
 ** Binary features
 
-$$x_{ji} = \cases{1 & \quad \text{if $j$ is in $i$} \cr 0 & \quad \text{otherwise}}$$
+$$x_{ji} = \cases{1 & \text{if $j$ is in $i$} \cr 0 & \text{otherwise}}$$
 
 ** Frequency count features
 

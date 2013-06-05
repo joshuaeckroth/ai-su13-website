@@ -1,0 +1,234 @@
+#+SETUPFILE: setup.org
+#+TITLE: General Problem Solver (GPS)
+
+#+BEGIN_QUOTE
+*We deliberate not about ends, but about means.* For a doctor does not
+deliberate whether he shall heal, nor an orator whether he shall
+persuade, nor a statesman whether he shall produce law and order, nor
+does any one else deliberate about his end. *They assume the end and
+consider how and by what means it is attained*; and if it seems to be
+produced by several means they consider by which it is most easily and
+best produced, while if it is achieved by one only they consider how
+it will be achieved by this and by what means /this/ will be achieved,
+*till they come to the first cause, which in the order of discovery is
+last*... and what is last in the order of analysis seems to be first
+in the order of becoming. *And if we come on an impossibility, we give
+up the search*, e.g., if we need money and this cannot be got; but if
+a thing appears possible we try to do it. --- Aristotle, /Nicomachean
+Ethics/ ([[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0054%3Abekker%20page%3D1112b%3Abekker%20line%3D1][Book III.3,1112b]])
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+I want to take my son to nursery school. What's the difference between
+what I have and what I want? One of distance. What changes distance?
+My automobile. My automobile won't work.  What is needed to make it
+work? A new battery. What has new batteries? An auto repair shop. I
+want the repair shop to put in a new battery; but the shop doesn't
+know I need one. What is the difficulty? One of communication. What
+allows communication?  A telephone... and so on. --- Newell and
+Simon's example from their 1972 book /Human Problem Solving/
+#+END_QUOTE
+
+* Basic structuring of a problem
+
+- define the goals
+
+  - e.g., take my son to nursery school 
+
+- define preconditions for the goals
+
+  - e.g., the precondition for dropping my son off at nursery school
+    is that my son is at home and the car works
+
+- define the means ("operators") for turning one set of conditions
+  into another
+
+  - e.g., to ensure the car repair shop has my money, we can define an
+    operator "give shop money" that changes the world so that "shop
+    has money" is true and "I have money" is false.
+
+We'll say that an operator is made up of:
+
+- the action (e.g., "give shop money")
+
+- the preconditions (e.g., "have money")
+
+- the change of conditions resulting from taking the action; we
+  specify this as conditions added and conditions deleted:
+
+  - giving the shop money adds the condition "shop has money"
+
+  - giving the shop money deletes the condition "have money" (which is
+    also the precondition)
+
+* The driving to school problem
+
+Let's write the goal, starting conditions, and some operators in a
+more symbolic form:
+
+#+BEGIN_SRC python
+problem = {
+    "start": ["son at home", "have money", "have phone book", "car needs battery"],
+    "finish": ["son at school"],
+    "ops": [
+	{
+	    "action": "drive son to school",
+	    "preconds": ["son at home", "car works"],
+	    "add": ["son at school"],
+	    "delete": ["son at home"]
+	},
+	{
+	    "action": "shop installs battery",
+	    "preconds": ["car needs battery", "shop knows problem", "shop has money"],
+	    "add": ["car works"],
+	    "delete": []
+	},
+	{
+	    "action": "tell shop problem",
+	    "preconds": ["in communication with shop"],
+	    "add": ["shop knows problem"],
+	    "delete": []
+	},
+	{
+	    "action": "telephone shop",
+	    "preconds": ["know phone number"],
+	    "add": ["in communication with shop"],
+	    "delete": []
+	},
+	{
+	    "action": "look up number",
+	    "preconds": ["have phone book"],
+	    "add": ["know phone number"],
+	    "delete": []
+	},
+	{
+	    "action": "give shop money",
+	    "preconds": ["have money"],
+	    "add": ["shop has money"],
+	    "delete": ["have money"]
+	}
+    ]
+}
+#+END_SRC
+
+#+BEGIN_HTML
+<div style="text-align: center">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+WIDTH="523" HEIGHT="738"
+CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
+<PARAM NAME="MOVIE" VALUE="./flash/school-gps.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="best">
+<PARAM NAME="LOOP" VALUE="true">
+<EMBED SRC="./flash/school-gps.swf" WIDTH="523" HEIGHT="738" PLAY="true" LOOP="true" QUALITY="best" 
+PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+</EMBED>
+</OBJECT>
+</div>
+#+END_HTML
+
+* The monkey and banana problem
+
+#+BEGIN_SRC python
+problem = {
+    "start": ["at door", "on floor", "has ball", "hungry", "chair at door"],
+    "finish": ["not hungry"],
+    "ops": [
+	{
+	    "action": "climb on chair",
+	    "preconds": ["chair at middle room", "at middle room", "on floor"],
+	    "add": ["at bananas", "on chair"],
+	    "delete": ["at middle room", "on floor"]
+	},
+	{
+	    "action": "push chair from door to middle room",
+	    "preconds": ["chair at door", "at door"],
+	    "add": ["chair at middle room", "at middle room"],
+	    "delete": ["chair at door", "at door"]
+	},
+	{
+	    "action": "walk from door to middle room",
+	    "preconds": ["at door", "on floor"],
+	    "add": ["at middle room"],
+	    "delete": ["at door"]
+	},
+	{
+	    "action": "grasp bananas",
+	    "preconds": ["at bananas", "empty handed"],
+	    "add": ["has bananas"],
+	    "delete": ["empty handed"]
+	},
+	{
+	    "action": "drop ball",
+	    "preconds": ["has ball"],
+	    "add": ["empty handed"],
+	    "delete": ["has ball"]
+	},
+	{
+	    "action": "eat bananas",
+	    "preconds": ["has bananas"],
+	    "add": ["empty handed", "not hungry"],
+	    "delete": ["has bananas", "hungry"]
+	}
+    ]
+}
+#+END_SRC
+
+#+BEGIN_HTML
+<div style="text-align: center">
+<OBJECT CLASSID="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+WIDTH="668" HEIGHT="672"
+CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
+<PARAM NAME="MOVIE" VALUE="./flash/monkey-gps.swf">
+<PARAM NAME="PLAY" VALUE="true">
+<PARAM NAME="QUALITY" VALUE="best">
+<PARAM NAME="LOOP" VALUE="true">
+<EMBED SRC="./flash/monkey-gps.swf" WIDTH="668" HEIGHT="672" PLAY="true" LOOP="true" QUALITY="best" 
+PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
+</EMBED>
+</OBJECT>
+</div>
+#+END_HTML
+
+#+BEGIN_HTML
+<div style="text-align: center">
+<iframe width="420" height="315"
+src="http://www.youtube.com/embed/mDntbGRPeEU?rel=0" frameborder="0"
+allowfullscreen></iframe>
+</div>
+#+END_HTML
+
+#+BEGIN_QUOTE
+[As delivered in a lecture by an ape who learned to act like a human.]
+It was certainly a victory for [my teacher] and for me when one
+evening in front of a large circle of onlookers --- perhaps it was a
+celebration, a gramophone was playing, an officer was wandering around
+among the people --- when on this evening, at a moment when no one was
+watching, I grabbed a bottle of alcohol which had been inadvertently
+left standing in front of my cage, uncorked it just as I had been
+taught, amid the rising attention of the group, set it against my
+mouth and, without hesitating, with my mouth making no grimace, like
+an expert drinker, with my eyes rolling around, splashing the liquid
+in my throat, I really and truly drank the bottle empty, and then
+threw it away, no longer in despair, but like an artist. Well, I did
+forget to scratch my belly. But instead of that, because I couldn't do
+anything else, because I had to, because my senses were roaring, I
+cried out a short and good "Hello!" breaking out into human
+sounds. And with this cry I sprang into the community of human beings,
+and I felt its echo --- "Just listen. He's talking!" --- like a kiss
+on my entire sweat-soaked body. --- Franz Kafka, /A Report for An
+Academy/ ([[http://records.viu.ca/~johnstoi/kafka/reportforacademy.htm][read online]]).
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+Remember GPS? By now, "GPS" is a colorless term denoting a
+particularly stupid program to solve puzzles. But it originally meant
+"General Problem Solver," which caused everybody a lot of needless
+excitement and distraction. It should have been called LFGNS ---
+"Local-Feature-Guided Network Searcher." --- Drew McDermott,
+/Artificial Intelligence Meets Natural Stupidity/
+#+END_QUOTE
+
+
+#+INCLUDE: footer.org
+
