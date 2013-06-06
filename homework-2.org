@@ -7,37 +7,62 @@
 
 * Task 2 (20 pts)
 
-show order of steps in hill-climbing search for goodale problem
+Give the sequence of states visited in a hill-climbing search applied
+to the [[./search-practice.html][Goodale routing problem]], starting
+at Woodruff & Tuttle and ending at Goodale parking lot.
+
+Note, list the states visited, not just the states in the final route.
+There may (or may not) be some backtracking so the states visited may
+differ from the ultimate route.
 
 * Task 3 (20 pts)
 
-show order of steps in a* search for goodale problem
+Repeat task 2 but for A* search.
 
 * Task 4 (5 pts)
 
-  The "Routing from Dreese Labs to Goodale Park" used road
-  intersection distance to find the routes (when informed search was
-  used). However, this distance ("as the crow flies") is only one
-  aspect of what makes one route better than another. What other
-  information should we use to find the truly minimal-time route
-  between these two locations?
+The Goodale routing problem used road intersection distance to find
+the routes (when informed search was used). However, this distance
+("as the crow flies") is only one aspect of what makes one route
+better than another. What other information should we use to find the
+truly minimal-time route between these two locations?
 
 * Task 5 (5 pts)
 
-  What are some /admissible/ heuristics for the 8-puzzle problem? Give
-  at least two.
+What are some /admissible/ heuristics for the 8-puzzle problem? Give
+at least two.
 
-* Task 6 (10 pts)
+* Task 6 (15 pts)
 
-  For unweighted search graphs (equivalently, all weights equal 1.0),
-  which of the following search algorithms are complete? Which are
-  optimal? What about weighted graphs?
+Define breadth-first search in terms of the cost function $f(s) = g(s) + h(s)$
+where $g(s)$ is the cost of arriving at state $s$ and $h(s)$
+is the (estimated) cost of getting from $s$ to the goal state. That is
+to say, give simple definitions for $g(s)$ and $h(s)$ so that the
+[[./informed-search.html#sec-6][A search algorithm]] acts like
+breadth-first search.
 
-  - Breadth-first search, depth-first search, random search,
-    best-first search, hill-climbing search, A* search
+Also define depth-first search in terms of $f(s) = g(s) + h(s)$.
 
-* Task 7 (20 pts)
+* Task 7 (15 pts)
 
-show steps in minimax tic-tac-toe starting from a near-end board
+Show a graph of minimax operation for this tic-tac-toe board, where
+'x' is to make a move (and 'o' is the opponent). The graph should look
+similar to those in the [[./adversarial-search.html][adversarial
+search]] notes.
+
+#+BEGIN_HTML
+<table class="full">
+<tr>
+<td>x</td><td>o</td><td>x</td>
+</tr>
+<tr>
+<td></td><td></td><td>x</td>
+</tr>
+<tr>
+<td>x</td><td>o</td><td>o</td>
+</tr>
+</table>
+#+END_HTML
+
 
 #+INCLUDE: footer.org
