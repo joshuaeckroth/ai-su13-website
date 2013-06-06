@@ -1,11 +1,16 @@
 #+SETUPFILE: setup.org
 #+TITLE: Robot ethics
 
-#+BEGIN_CENTER
-[[./images/robotethics.jpg]]
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/robotethics.jpg" />
+</div>
 
-[[http://phys.org/news/2012-03-ethical-robots.html][How to make ethical robots]], Phys.org, March 12, 2012
-#+END_CENTER
+<a href="http://phys.org/news/2012-03-ethical-robots.html">How to make
+ethical robots</a>, Phys.org, March 12, 2012
+</div>
+#+END_HTML
 
 
 Your self-driving car is speeding along the highway. A school bus
@@ -330,11 +335,15 @@ better ethical theories cannot be computational in nature.
 
 * Nevada's actual laws regarding autonomous vehicles
 
-#+BEGIN_CENTER
-[[./images/google_car.jpg]]
-
-([[http://www.dmvnv.com/news/12005-autonomous-vehicle-licensed.htm][source]])
-#+END_CENTER
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/google_car.jpg" />
+</div>
+(<a
+href="http://www.dmvnv.com/news/12005-autonomous-vehicle-licensed.htm">source</a>)
+</div>
+#+END_HTML
 
 #+BEGIN_QUOTE
 As a Nevada Autonomous Vehicle Testing Company, I affirm to the best
