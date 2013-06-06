@@ -3,7 +3,13 @@
 
 * Task 1 (20 pts)
 
-(GPS)
+Define a GPS-type problem. Give the goal condition, initial
+conditions, and operations, where for each operation the action,
+preconditions, "add" conditions, and "delete" conditions are defined.
+At least five operators must be defined.
+
+Then, list a sequence of actions (in the correct order) that solve the
+problem. At least three operators must be used.
 
 * Task 2 (20 pts)
 
