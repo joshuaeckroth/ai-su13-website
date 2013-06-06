@@ -251,12 +251,15 @@ guilt. (Wikipedia)
 
 #+BEGIN_CENTER
 #+BEGIN_HTML
+<img src="./images/one-good-deed.jpg" /><br/>
 <iframe width="474" height="54" frameborder="0"
 src="http://www.radiolab.org/widgets/ondemand_player/#file=%2Faudio%2Fxspf%2F104010%2F;containerClass=radiolab"></iframe>
 #+END_HTML
 
 25 min / [[http://www.podtrac.com/pts/redirect.mp3/audio.wnyc.org/radiolab/radiolab121410c.mp3][Download MP3]] / [[http://www.radiolab.org/2010/dec/14/one-good-deed-deserves-another/][Radiolab website for this segment]]; this is
-from the episode [[http://www.radiolab.org/2010/dec/14/][The Good Show]].
+from the episode [[http://www.radiolab.org/2010/dec/14/][The Good
+Show]] / Image:
+[[http://www.flickr.com/photos/edri/3212445507/][Luca]]
 
 #+END_CENTER
 

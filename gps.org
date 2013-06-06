@@ -2,6 +2,7 @@
 #+TITLE: General Problem Solver (GPS)
 
 #+BEGIN_QUOTE
+
 *We deliberate not about ends, but about means.* For a doctor does not
 deliberate whether he shall heal, nor an orator whether he shall
 persuade, nor a statesman whether he shall produce law and order, nor
@@ -15,10 +16,14 @@ last*... and what is last in the order of analysis seems to be first
 in the order of becoming. *And if we come on an impossibility, we give
 up the search*, e.g., if we need money and this cannot be got; but if
 a thing appears possible we try to do it. --- Aristotle, /Nicomachean
-Ethics/ ([[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0054%3Abekker%20page%3D1112b%3Abekker%20line%3D1][Book III.3,1112b]])
+Ethics/
+([[http://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0054%3Abekker%20page%3D1112b%3Abekker%20line%3D1][Book
+III.3,1112b]])
+
 #+END_QUOTE
 
 #+BEGIN_QUOTE
+
 I want to take my son to nursery school. What's the difference between
 what I have and what I want? One of distance. What changes distance?
 My automobile. My automobile won't work.  What is needed to make it
@@ -27,6 +32,7 @@ want the repair shop to put in a new battery; but the shop doesn't
 know I need one. What is the difficulty? One of communication. What
 allows communication?  A telephone... and so on. --- Newell and
 Simon's example from their 1972 book /Human Problem Solving/
+
 #+END_QUOTE
 
 * Basic structuring of a problem
@@ -124,6 +130,8 @@ CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
 PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
 </EMBED>
 </OBJECT>
+<br/>
+<a href="./images/school-gps.png">View final image</a>
 </div>
 #+END_HTML
 
@@ -187,6 +195,8 @@ CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
 PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
 </EMBED>
 </OBJECT>
+<br/>
+<a href="./images/monkey-gps.png">View final image</a>
 </div>
 #+END_HTML
 
