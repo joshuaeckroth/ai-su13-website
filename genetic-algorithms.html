@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Genetic algorithms"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:20 EDT"/>
+<meta name="generated" content="2013-06-06 14:20:52 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -176,37 +176,37 @@ approach.
 
 
 
-<pre class="src src-python"><span style="color: #a020f0;">for</span> generation <span style="color: #a020f0;">in</span> <span style="color: #483d8b;">range</span>(MAX_GENERATIONS):
-    <span style="color: #b22222;"># calculate fitness values and put these values, along with</span>
-    <span style="color: #b22222;"># the individuals, in a new "weighted" list</span>
+<pre class="src src-python"><span style="font-weight: bold;">for</span> generation <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(MAX_GENERATIONS):
+    <span style="font-weight: bold; font-style: italic;"># calculate fitness values and put these values, along with</span>
+    <span style="font-weight: bold; font-style: italic;"># the individuals, in a new "weighted" list</span>
     weighted_population = []
-    <span style="color: #a020f0;">for</span> individual <span style="color: #a020f0;">in</span> population:
+    <span style="font-weight: bold;">for</span> individual <span style="font-weight: bold;">in</span> population:
         fitness_val = fitness(individual)
         weighted_population.append((individual, fitness_val))
 
-    <span style="color: #b22222;"># select two individuals to breed; individuals with higher</span>
-    <span style="color: #b22222;"># fitness values are more likely to be selected</span>
+    <span style="font-weight: bold; font-style: italic;"># select two individuals to breed; individuals with higher</span>
+    <span style="font-weight: bold; font-style: italic;"># fitness values are more likely to be selected</span>
     ind1 = weighted_choice(weighted_population)
     ind2 = weighted_choice(weighted_population)
 
-    ind3 = crossover(ind1, ind2) <span style="color: #b22222;"># breed, creating a new individual</span>
-    mutate(ind3) <span style="color: #b22222;"># do some random mutating</span>
+    ind3 = crossover(ind1, ind2) <span style="font-weight: bold; font-style: italic;"># breed, creating a new individual</span>
+    mutate(ind3) <span style="font-weight: bold; font-style: italic;"># do some random mutating</span>
     population.append(ind3)
 
-    <span style="color: #b22222;"># maybe the parents die? this is just one of many parameters in a</span>
-    <span style="color: #b22222;"># GA algorithm</span>
+    <span style="font-weight: bold; font-style: italic;"># maybe the parents die? this is just one of many parameters in a</span>
+    <span style="font-weight: bold; font-style: italic;"># GA algorithm</span>
     population.remove(ind1)
     population.remove(ind2)
 
-<span style="color: #b22222;"># generations are completed; find maximum fitness individual</span>
-<span style="color: #a0522d;">max_fit</span> = fitness(population[0])
-<span style="color: #a0522d;">max_fit_individual</span> = population[0]
-<span style="color: #a020f0;">for</span> individual <span style="color: #a020f0;">in</span> population:
+<span style="font-weight: bold; font-style: italic;"># generations are completed; find maximum fitness individual</span>
+<span style="font-weight: bold; font-style: italic;">max_fit</span> = fitness(population[0])
+<span style="font-weight: bold; font-style: italic;">max_fit_individual</span> = population[0]
+<span style="font-weight: bold;">for</span> individual <span style="font-weight: bold;">in</span> population:
     fitness_val = fitness(individual)
-    <span style="color: #a020f0;">if</span> fitness_val &gt; max_fit:
+    <span style="font-weight: bold;">if</span> fitness_val &gt; max_fit:
         max_fit = fitness_val
         max_fit_individual = individual
-<span style="color: #a020f0;">print</span> max_fit_individual
+<span style="font-weight: bold;">print</span> max_fit_individual
 </pre>
 
 

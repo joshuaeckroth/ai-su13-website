@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="General Problem Solver (GPS)"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:19 EDT"/>
+<meta name="generated" content="2013-06-06 13:57:22 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -100,7 +100,9 @@
 
 <blockquote>
 
-<p><b>We deliberate not about ends, but about means.</b> For a doctor does not
+
+<p>
+<b>We deliberate not about ends, but about means.</b> For a doctor does not
 deliberate whether he shall heal, nor an orator whether he shall
 persuade, nor a statesman whether he shall produce law and order, nor
 does any one else deliberate about his end. <b>They assume the end and consider how and by what means it is attained</b>; and if it seems to be
@@ -109,14 +111,18 @@ best produced, while if it is achieved by one only they consider how
 it will be achieved by this and by what means <i>this</i> will be achieved,
 <b>till they come to the first cause, which in the order of discovery is last</b>&hellip; and what is last in the order of analysis seems to be first
 in the order of becoming. <b>And if we come on an impossibility, we give up the search</b>, e.g., if we need money and this cannot be got; but if
-a thing appears possible we try to do it. &mdash; Aristotle, <i>Nicomachean Ethics</i> (<a href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0054:bekker page=1112b:bekker line=1">Book III.3,1112b</a>)
+a thing appears possible we try to do it. &mdash; Aristotle, <i>Nicomachean Ethics</i>
+(<a href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0054:bekker page=1112b:bekker line=1">Book III.3,1112b</a>)
 </p>
+
 </blockquote>
 
 
 <blockquote>
 
-<p>I want to take my son to nursery school. What&rsquo;s the difference between
+
+<p>
+I want to take my son to nursery school. What&rsquo;s the difference between
 what I have and what I want? One of distance. What changes distance?
 My automobile. My automobile won&rsquo;t work.  What is needed to make it
 work? A new battery. What has new batteries? An auto repair shop. I
@@ -125,6 +131,7 @@ know I need one. What is the difficulty? One of communication. What
 allows communication?  A telephone&hellip; and so on. &mdash; Newell and
 Simon&rsquo;s example from their 1972 book <i>Human Problem Solving</i>
 </p>
+
 </blockquote>
 
 
@@ -221,45 +228,45 @@ more symbolic form:
 
 
 
-<pre class="src src-python"><span style="color: #a0522d;">problem</span> = {
-    <span style="color: #8b2252;">"start"</span>: [<span style="color: #8b2252;">"son at home"</span>, <span style="color: #8b2252;">"have money"</span>, <span style="color: #8b2252;">"have phone book"</span>, <span style="color: #8b2252;">"car needs battery"</span>],
-    <span style="color: #8b2252;">"finish"</span>: [<span style="color: #8b2252;">"son at school"</span>],
-    <span style="color: #8b2252;">"ops"</span>: [
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">problem</span> = {
+    <span style="font-style: italic;">"start"</span>: [<span style="font-style: italic;">"son at home"</span>, <span style="font-style: italic;">"have money"</span>, <span style="font-style: italic;">"have phone book"</span>, <span style="font-style: italic;">"car needs battery"</span>],
+    <span style="font-style: italic;">"finish"</span>: [<span style="font-style: italic;">"son at school"</span>],
+    <span style="font-style: italic;">"ops"</span>: [
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"drive son to school"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"son at home"</span>, <span style="color: #8b2252;">"car works"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"son at school"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"son at home"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"drive son to school"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"son at home"</span>, <span style="font-style: italic;">"car works"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"son at school"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"son at home"</span>]
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"shop installs battery"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"car needs battery"</span>, <span style="color: #8b2252;">"shop knows problem"</span>, <span style="color: #8b2252;">"shop has money"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"car works"</span>],
-            <span style="color: #8b2252;">"delete"</span>: []
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"shop installs battery"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"car needs battery"</span>, <span style="font-style: italic;">"shop knows problem"</span>, <span style="font-style: italic;">"shop has money"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"car works"</span>],
+            <span style="font-style: italic;">"delete"</span>: []
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"tell shop problem"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"in communication with shop"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"shop knows problem"</span>],
-            <span style="color: #8b2252;">"delete"</span>: []
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"tell shop problem"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"in communication with shop"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"shop knows problem"</span>],
+            <span style="font-style: italic;">"delete"</span>: []
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"telephone shop"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"know phone number"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"in communication with shop"</span>],
-            <span style="color: #8b2252;">"delete"</span>: []
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"telephone shop"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"know phone number"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"in communication with shop"</span>],
+            <span style="font-style: italic;">"delete"</span>: []
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"look up number"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"have phone book"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"know phone number"</span>],
-            <span style="color: #8b2252;">"delete"</span>: []
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"look up number"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"have phone book"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"know phone number"</span>],
+            <span style="font-style: italic;">"delete"</span>: []
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"give shop money"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"have money"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"shop has money"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"have money"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"give shop money"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"have money"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"shop has money"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"have money"</span>]
         }
     ]
 }
@@ -278,6 +285,8 @@ CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
 PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
 </EMBED>
 </OBJECT>
+<br/>
+<a href="./images/school-gps.png">View final image</a>
 </div>
 
 </div>
@@ -292,45 +301,45 @@ PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Vers
 
 
 
-<pre class="src src-python"><span style="color: #a0522d;">problem</span> = {
-    <span style="color: #8b2252;">"start"</span>: [<span style="color: #8b2252;">"at door"</span>, <span style="color: #8b2252;">"on floor"</span>, <span style="color: #8b2252;">"has ball"</span>, <span style="color: #8b2252;">"hungry"</span>, <span style="color: #8b2252;">"chair at door"</span>],
-    <span style="color: #8b2252;">"finish"</span>: [<span style="color: #8b2252;">"not hungry"</span>],
-    <span style="color: #8b2252;">"ops"</span>: [
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">problem</span> = {
+    <span style="font-style: italic;">"start"</span>: [<span style="font-style: italic;">"at door"</span>, <span style="font-style: italic;">"on floor"</span>, <span style="font-style: italic;">"has ball"</span>, <span style="font-style: italic;">"hungry"</span>, <span style="font-style: italic;">"chair at door"</span>],
+    <span style="font-style: italic;">"finish"</span>: [<span style="font-style: italic;">"not hungry"</span>],
+    <span style="font-style: italic;">"ops"</span>: [
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"climb on chair"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"chair at middle room"</span>, <span style="color: #8b2252;">"at middle room"</span>, <span style="color: #8b2252;">"on floor"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"at bananas"</span>, <span style="color: #8b2252;">"on chair"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"at middle room"</span>, <span style="color: #8b2252;">"on floor"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"climb on chair"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"chair at middle room"</span>, <span style="font-style: italic;">"at middle room"</span>, <span style="font-style: italic;">"on floor"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"at bananas"</span>, <span style="font-style: italic;">"on chair"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"at middle room"</span>, <span style="font-style: italic;">"on floor"</span>]
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"push chair from door to middle room"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"chair at door"</span>, <span style="color: #8b2252;">"at door"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"chair at middle room"</span>, <span style="color: #8b2252;">"at middle room"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"chair at door"</span>, <span style="color: #8b2252;">"at door"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"push chair from door to middle room"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"chair at door"</span>, <span style="font-style: italic;">"at door"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"chair at middle room"</span>, <span style="font-style: italic;">"at middle room"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"chair at door"</span>, <span style="font-style: italic;">"at door"</span>]
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"walk from door to middle room"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"at door"</span>, <span style="color: #8b2252;">"on floor"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"at middle room"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"at door"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"walk from door to middle room"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"at door"</span>, <span style="font-style: italic;">"on floor"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"at middle room"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"at door"</span>]
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"grasp bananas"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"at bananas"</span>, <span style="color: #8b2252;">"empty handed"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"has bananas"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"empty handed"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"grasp bananas"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"at bananas"</span>, <span style="font-style: italic;">"empty handed"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"has bananas"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"empty handed"</span>]
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"drop ball"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"has ball"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"empty handed"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"has ball"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"drop ball"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"has ball"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"empty handed"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"has ball"</span>]
         },
         {
-            <span style="color: #8b2252;">"action"</span>: <span style="color: #8b2252;">"eat bananas"</span>,
-            <span style="color: #8b2252;">"preconds"</span>: [<span style="color: #8b2252;">"has bananas"</span>],
-            <span style="color: #8b2252;">"add"</span>: [<span style="color: #8b2252;">"empty handed"</span>, <span style="color: #8b2252;">"not hungry"</span>],
-            <span style="color: #8b2252;">"delete"</span>: [<span style="color: #8b2252;">"has bananas"</span>, <span style="color: #8b2252;">"hungry"</span>]
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"eat bananas"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"has bananas"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"empty handed"</span>, <span style="font-style: italic;">"not hungry"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"has bananas"</span>, <span style="font-style: italic;">"hungry"</span>]
         }
     ]
 }
@@ -349,6 +358,8 @@ CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
 PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
 </EMBED>
 </OBJECT>
+<br/>
+<a href="./images/monkey-gps.png">View final image</a>
 </div>
 
 <div style="text-align: center">

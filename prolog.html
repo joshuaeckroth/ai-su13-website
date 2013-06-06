@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Prolog"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:09 EDT"/>
+<meta name="generated" content="2013-06-06 14:20:41 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -220,18 +220,18 @@ Let&rsquo;s make a database by creating some facts:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">parent</span>(tom, liz).
-<span style="color: #0000ff;">parent</span>(bob, ann).
-<span style="color: #0000ff;">parent</span>(bob, pat).
-<span style="color: #0000ff;">parent</span>(pat, jim).
+<pre class="src src-prolog"><span style="font-weight: bold;">parent</span>(tom, liz).
+<span style="font-weight: bold;">parent</span>(bob, ann).
+<span style="font-weight: bold;">parent</span>(bob, pat).
+<span style="font-weight: bold;">parent</span>(pat, jim).
 
-<span style="color: #0000ff;">female</span>(pam).
-<span style="color: #0000ff;">male</span>(tom).
-<span style="color: #0000ff;">male</span>(bob).
-<span style="color: #0000ff;">female</span>(liz).
-<span style="color: #0000ff;">female</span>(pat).
-<span style="color: #0000ff;">female</span>(ann).
-<span style="color: #0000ff;">male</span>(jim).
+<span style="font-weight: bold;">female</span>(pam).
+<span style="font-weight: bold;">male</span>(tom).
+<span style="font-weight: bold;">male</span>(bob).
+<span style="font-weight: bold;">female</span>(liz).
+<span style="font-weight: bold;">female</span>(pat).
+<span style="font-weight: bold;">female</span>(ann).
+<span style="font-weight: bold;">male</span>(jim).
 </pre>
 
 
@@ -271,8 +271,8 @@ letters. Objects (like <code>pam</code>) must not.
 
 
 
-<pre class="src src-prolog">?- parent(<span style="color: #a0522d;">X</span>, ann).
-<span style="color: #a0522d;">X</span> = bob.
+<pre class="src src-prolog">?- parent(<span style="font-weight: bold; font-style: italic;">X</span>, ann).
+<span style="font-weight: bold; font-style: italic;">X</span> = bob.
 </pre>
 
 
@@ -288,15 +288,15 @@ Let&rsquo;s ask, &ldquo;Who are all the parents?&rdquo;
 
 
 
-<pre class="src src-prolog">?- parent(<span style="color: #a0522d;">P</span>, <span style="color: #a0522d;">C</span>).
-<span style="color: #a0522d;">P</span> = tom,
-<span style="color: #a0522d;">C</span> = liz <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">P</span> = bob,
-<span style="color: #a0522d;">C</span> = ann <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">P</span> = bob,
-<span style="color: #a0522d;">C</span> = pat <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">P</span> = pat,
-<span style="color: #a0522d;">C</span> = jim.
+<pre class="src src-prolog">?- parent(<span style="font-weight: bold; font-style: italic;">P</span>, <span style="font-weight: bold; font-style: italic;">C</span>).
+<span style="font-weight: bold; font-style: italic;">P</span> = tom,
+<span style="font-weight: bold; font-style: italic;">C</span> = liz <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">P</span> = bob,
+<span style="font-weight: bold; font-style: italic;">C</span> = ann <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">P</span> = bob,
+<span style="font-weight: bold; font-style: italic;">C</span> = pat <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">P</span> = pat,
+<span style="font-weight: bold; font-style: italic;">C</span> = jim.
 </pre>
 
 
@@ -310,11 +310,11 @@ If I don&rsquo;t actually care who the children are, I can replace <code>C</code
 
 
 
-<pre class="src src-prolog">?- parent(<span style="color: #a0522d;">P</span>, <span style="color: #a0522d;">_</span>).
-<span style="color: #a0522d;">P</span> = tom <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">P</span> = bob <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">P</span> = bob <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">P</span> = pat.
+<pre class="src src-prolog">?- parent(<span style="font-weight: bold; font-style: italic;">P</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
+<span style="font-weight: bold; font-style: italic;">P</span> = tom <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">P</span> = bob <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">P</span> = bob <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">P</span> = pat.
 </pre>
 
 
@@ -327,8 +327,8 @@ Now let&rsquo;s ask, &ldquo;Who are the female parents?&rdquo;
 
 
 
-<pre class="src src-prolog">?- parent(<span style="color: #a0522d;">P</span>, <span style="color: #a0522d;">_</span>), female(<span style="color: #a0522d;">P</span>).
-<span style="color: #a0522d;">P</span> = pat.
+<pre class="src src-prolog">?- parent(<span style="font-weight: bold; font-style: italic;">P</span>, <span style="font-weight: bold; font-style: italic;">_</span>), female(<span style="font-weight: bold; font-style: italic;">P</span>).
+<span style="font-weight: bold; font-style: italic;">P</span> = pat.
 </pre>
 
 
@@ -359,7 +359,7 @@ defines a &ldquo;mother.&rdquo; Let&rsquo;s make a rule (in our database file,
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">mother</span>(<span style="color: #a0522d;">X</span>) :- parent(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">_</span>), female(<span style="color: #a0522d;">X</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">mother</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- parent(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">_</span>), female(<span style="font-weight: bold; font-style: italic;">X</span>).
 </pre>
 
 
@@ -375,8 +375,8 @@ true.
 ?- mother(jim).
 false.
 
-?- mother(<span style="color: #a0522d;">X</span>).
-<span style="color: #a0522d;">X</span> = pat.
+?- mother(<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = pat.
 </pre>
 
 
@@ -386,7 +386,7 @@ Now for fathers. In the database, we add:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">father</span>(<span style="color: #a0522d;">X</span>) :- parent(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">_</span>), male(<span style="color: #a0522d;">X</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">father</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- parent(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">_</span>), male(<span style="font-weight: bold; font-style: italic;">X</span>).
 </pre>
 
 
@@ -396,10 +396,10 @@ And here is a query:
 
 
 
-<pre class="src src-prolog">?- father(<span style="color: #a0522d;">X</span>).
-<span style="color: #a0522d;">X</span> = tom <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = bob <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = bob <span style="color: #a020f0;">;</span>
+<pre class="src src-prolog">?- father(<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = tom <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = bob <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = bob <span style="font-weight: bold;">;</span>
 false.
 </pre>
 
@@ -419,9 +419,9 @@ effect:
 
 
 
-<pre class="src src-prolog">?- parent(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>), parent(<span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">_</span>).
-<span style="color: #a0522d;">X</span> = bob,
-<span style="color: #a0522d;">Y</span> = pat.
+<pre class="src src-prolog">?- parent(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>), parent(<span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = bob,
+<span style="font-weight: bold; font-style: italic;">Y</span> = pat.
 </pre>
 
 
@@ -431,7 +431,7 @@ See? <code>bob</code> is a grandparent. Let&rsquo;s make a rule:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">grandparent</span>(<span style="color: #a0522d;">X</span>) :- parent(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>), parent(<span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">_</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">grandparent</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- parent(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>), parent(<span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
 </pre>
 
 
@@ -455,7 +455,7 @@ Let&rsquo;s try defining the sister relationship:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">sister</span>(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>) :- parent(<span style="color: #a0522d;">Z</span>, <span style="color: #a0522d;">X</span>), parent(<span style="color: #a0522d;">Z</span>, <span style="color: #a0522d;">Y</span>), female(<span style="color: #a0522d;">X</span>), female(<span style="color: #a0522d;">Y</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">sister</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- parent(<span style="font-weight: bold; font-style: italic;">Z</span>, <span style="font-weight: bold; font-style: italic;">X</span>), parent(<span style="font-weight: bold; font-style: italic;">Z</span>, <span style="font-weight: bold; font-style: italic;">Y</span>), female(<span style="font-weight: bold; font-style: italic;">X</span>), female(<span style="font-weight: bold; font-style: italic;">Y</span>).
 </pre>
 
 
@@ -471,14 +471,14 @@ true.
 ?- sister(bob, pat).
 false.
 
-?- sister(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>).
-<span style="color: #a0522d;">X</span> = <span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">Y</span> = liz <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = <span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">Y</span> = ann <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = ann,
-<span style="color: #a0522d;">Y</span> = pat <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = pat,
-<span style="color: #a0522d;">Y</span> = ann <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = <span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">Y</span> = pat <span style="color: #a020f0;">;</span>
+?- sister(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">Y</span> = liz <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">Y</span> = ann <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = ann,
+<span style="font-weight: bold; font-style: italic;">Y</span> = pat <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = pat,
+<span style="font-weight: bold; font-style: italic;">Y</span> = ann <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">Y</span> = pat <span style="font-weight: bold;">;</span>
 false.
 </pre>
 
@@ -502,7 +502,7 @@ Let&rsquo;s prevent that by adding another clause to the <code>sister</code> pre
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">sister</span>(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>) :- parent(<span style="color: #a0522d;">Z</span>, <span style="color: #a0522d;">X</span>), parent(<span style="color: #a0522d;">Z</span>, <span style="color: #a0522d;">Y</span>), female(<span style="color: #a0522d;">X</span>), female(<span style="color: #a0522d;">Y</span>), <span style="color: #a0522d;">X</span> \= <span style="color: #a0522d;">Y</span>.
+<pre class="src src-prolog"><span style="font-weight: bold;">sister</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>) :- parent(<span style="font-weight: bold; font-style: italic;">Z</span>, <span style="font-weight: bold; font-style: italic;">X</span>), parent(<span style="font-weight: bold; font-style: italic;">Z</span>, <span style="font-weight: bold; font-style: italic;">Y</span>), female(<span style="font-weight: bold; font-style: italic;">X</span>), female(<span style="font-weight: bold; font-style: italic;">Y</span>), <span style="font-weight: bold; font-style: italic;">X</span> \= <span style="font-weight: bold; font-style: italic;">Y</span>.
 </pre>
 
 
@@ -515,11 +515,11 @@ Now, we get the correct behavior:
 <pre class="src src-prolog">?- sister(liz, liz).
 false.
 
-?- sister(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>).
-<span style="color: #a0522d;">X</span> = ann,
-<span style="color: #a0522d;">Y</span> = pat <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = pat,
-<span style="color: #a0522d;">Y</span> = ann <span style="color: #a020f0;">;</span>
+?- sister(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = ann,
+<span style="font-weight: bold; font-style: italic;">Y</span> = pat <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = pat,
+<span style="font-weight: bold; font-style: italic;">Y</span> = ann <span style="font-weight: bold;">;</span>
 false.
 </pre>
 
@@ -555,13 +555,13 @@ way to satisfy a rule. For example,
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">engineer</span>(<span style="color: #a0522d;">X</span>) :- mechanical_engineer(<span style="color: #a0522d;">X</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">engineer</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- mechanical_engineer(<span style="font-weight: bold; font-style: italic;">X</span>).
 
-<span style="color: #0000ff;">engineer</span>(<span style="color: #a0522d;">X</span>) :- chemical_engineer(<span style="color: #a0522d;">X</span>).
+<span style="font-weight: bold;">engineer</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- chemical_engineer(<span style="font-weight: bold; font-style: italic;">X</span>).
 
-<span style="color: #0000ff;">engineer</span>(<span style="color: #a0522d;">X</span>) :- electrical_engineer(<span style="color: #a0522d;">X</span>).
+<span style="font-weight: bold;">engineer</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- electrical_engineer(<span style="font-weight: bold; font-style: italic;">X</span>).
 
-<span style="color: #b22222;">% </span><span style="color: #b22222;">etc. etc.</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">etc. etc.</span>
 </pre>
 
 
@@ -602,7 +602,7 @@ by <i>failing</i> to prove that <code>jim</code> is a father (with our <code>fat
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">not_a_father</span>(<span style="color: #a0522d;">X</span>) :- \+father(<span style="color: #a0522d;">X</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">not_a_father</span>(<span style="font-weight: bold; font-style: italic;">X</span>) :- \+father(<span style="font-weight: bold; font-style: italic;">X</span>).
 </pre>
 
 
@@ -665,7 +665,7 @@ head (front) of a list:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">head</span>(<span style="color: #a0522d;">X</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">_</span><span style="color: #a020f0;">]</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">head</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">]</span>).
 </pre>
 
 
@@ -677,14 +677,14 @@ uses of this predicate:
 
 
 
-<pre class="src src-prolog">?- head(a, <span style="color: #a020f0;">[</span>a, b, c<span style="color: #a020f0;">]</span>).
+<pre class="src src-prolog">?- head(a, <span style="font-weight: bold;">[</span>a, b, c<span style="font-weight: bold;">]</span>).
 true.
 
-?- head(<span style="color: #a0522d;">X</span>, <span style="color: #a020f0;">[</span>a, b, c<span style="color: #a020f0;">]</span>).
-<span style="color: #a0522d;">X</span> = a.
+?- head(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold;">[</span>a, b, c<span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = a.
 
-?- head(a, <span style="color: #a0522d;">X</span>).
-<span style="color: #a0522d;">X</span> = <span style="color: #a020f0;">[</span>a<span style="color: #a020f0;">|</span><span style="color: #a0522d;">_G228</span><span style="color: #a020f0;">]</span>.
+?- head(a, <span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold;">[</span>a<span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_G228</span><span style="font-weight: bold;">]</span>.
 </pre>
 
 
@@ -700,17 +700,17 @@ membership predicate:
 
 
 
-<pre class="src src-prolog"><span style="color: #b22222;">% </span><span style="color: #b22222;">X is a member of a list if the list only has the element X in it</span>
-<span style="color: #0000ff;">member</span>(<span style="color: #a0522d;">X</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X</span><span style="color: #a020f0;">]</span>).
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">X is a member of a list if the list only has the element X in it</span>
+<span style="font-weight: bold;">member</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">% </span><span style="color: #b22222;">X is a member of a list if the list starts with X</span>
-<span style="color: #b22222;">% </span><span style="color: #b22222;">(technically, the above statement is not needed; this</span>
-<span style="color: #b22222;">% </span><span style="color: #b22222;">statement suffices)</span>
-<span style="color: #0000ff;">member</span>(<span style="color: #a0522d;">X</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">_</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">X is a member of a list if the list starts with X</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">(technically, the above statement is not needed; this</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">statement suffices)</span>
+<span style="font-weight: bold;">member</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">% </span><span style="color: #b22222;">Finally, X is a member of a list if it's a member of</span>
-<span style="color: #b22222;">% </span><span style="color: #b22222;">the tail of the list</span>
-<span style="color: #0000ff;">member</span>(<span style="color: #a0522d;">X</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">_</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">Tail</span><span style="color: #a020f0;">]</span>) :- member(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Tail</span>).
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">Finally, X is a member of a list if it's a member of</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">the tail of the list</span>
+<span style="font-weight: bold;">member</span>(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">Tail</span><span style="font-weight: bold;">]</span>) :- member(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Tail</span>).
 </pre>
 
 
@@ -721,23 +721,23 @@ want other possible answers):
 
 
 
-<pre class="src src-prolog">?- member(a, <span style="color: #a020f0;">[</span>a<span style="color: #a020f0;">]</span>).
+<pre class="src src-prolog">?- member(a, <span style="font-weight: bold;">[</span>a<span style="font-weight: bold;">]</span>).
 true .
 
-?- member(a, <span style="color: #a020f0;">[</span>a, b, c<span style="color: #a020f0;">]</span>).
+?- member(a, <span style="font-weight: bold;">[</span>a, b, c<span style="font-weight: bold;">]</span>).
 true .
 
-?- member(<span style="color: #a0522d;">X</span>, <span style="color: #a020f0;">[</span>a, b, c<span style="color: #a020f0;">]</span>).
-<span style="color: #a0522d;">X</span> = a <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = b <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = c .
+?- member(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold;">[</span>a, b, c<span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = a <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = b <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = c .
 
-?- member(a, <span style="color: #a0522d;">X</span>).
-<span style="color: #a0522d;">X</span> = <span style="color: #a020f0;">[</span>a<span style="color: #a020f0;">|</span><span style="color: #a0522d;">_G231</span><span style="color: #a020f0;">]</span> <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = <span style="color: #a020f0;">[</span><span style="color: #a0522d;">_G230</span>, a<span style="color: #a020f0;">|</span><span style="color: #a0522d;">_G234</span><span style="color: #a020f0;">]</span> <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = <span style="color: #a020f0;">[</span><span style="color: #a0522d;">_G230</span>, <span style="color: #a0522d;">_G233</span>, a<span style="color: #a020f0;">|</span><span style="color: #a0522d;">_G237</span><span style="color: #a020f0;">]</span> <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = <span style="color: #a020f0;">[</span><span style="color: #a0522d;">_G230</span>, <span style="color: #a0522d;">_G233</span>, <span style="color: #a0522d;">_G236</span>, a<span style="color: #a020f0;">|</span><span style="color: #a0522d;">_G240</span><span style="color: #a020f0;">]</span> <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = <span style="color: #a020f0;">[</span><span style="color: #a0522d;">_G230</span>, <span style="color: #a0522d;">_G233</span>, <span style="color: #a0522d;">_G236</span>, <span style="color: #a0522d;">_G239</span>, a<span style="color: #a020f0;">|</span><span style="color: #a0522d;">_G243</span><span style="color: #a020f0;">]</span> .
+?- member(a, <span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold;">[</span>a<span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_G231</span><span style="font-weight: bold;">]</span> <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_G230</span>, a<span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_G234</span><span style="font-weight: bold;">]</span> <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_G230</span>, <span style="font-weight: bold; font-style: italic;">_G233</span>, a<span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_G237</span><span style="font-weight: bold;">]</span> <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_G230</span>, <span style="font-weight: bold; font-style: italic;">_G233</span>, <span style="font-weight: bold; font-style: italic;">_G236</span>, a<span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_G240</span><span style="font-weight: bold;">]</span> <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_G230</span>, <span style="font-weight: bold; font-style: italic;">_G233</span>, <span style="font-weight: bold; font-style: italic;">_G236</span>, <span style="font-weight: bold; font-style: italic;">_G239</span>, a<span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">_G243</span><span style="font-weight: bold;">]</span> .
 </pre>
 
 
@@ -770,19 +770,19 @@ either unemployed or has a job with a particular salary.
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">family</span>(10392,
+<pre class="src src-prolog"><span style="font-weight: bold;">family</span>(10392,
        person(tom, fox, born(7, may, 1960), works(cnn, 152000)),
        person(ann, fox, born(19, april, 1961), works(nyu, 65000)),
-       <span style="color: #b22222;">% here are the children...</span>
-       <span style="color: #a020f0;">[</span>person(pat, fox, born(5, october, 1983), unemployed),
+       <span style="font-weight: bold; font-style: italic;">% here are the children...</span>
+       <span style="font-weight: bold;">[</span>person(pat, fox, born(5, october, 1983), unemployed),
         person(jim, fox, born(1, june, 1986), unemployed),
-        person(amy, fox, born(17, december, 1990), unemployed)<span style="color: #a020f0;">]</span>).
+        person(amy, fox, born(17, december, 1990), unemployed)<span style="font-weight: bold;">]</span>).
 
-<span style="color: #0000ff;">family</span>(38463, 
+<span style="font-weight: bold;">family</span>(38463, 
        person(susan, rothchild, born(13, september, 1972), works(osu, 75000)),
        person(jess, rothchild, born(20, july, 1975), works(nationwide, 123500)),
-       <span style="color: #b22222;">% here are the children...</span>
-       <span style="color: #a020f0;">[</span>person(ace, rothchild, born(2, january, 2010), unemployed)<span style="color: #a020f0;">]</span>).
+       <span style="font-weight: bold; font-style: italic;">% here are the children...</span>
+       <span style="font-weight: bold;">[</span>person(ace, rothchild, born(2, january, 2010), unemployed)<span style="font-weight: bold;">]</span>).
 </pre>
 
 
@@ -794,17 +794,17 @@ use the <code>family</code> predicate. Here are some examples:
 
 
 
-<pre class="src src-prolog">?- family(38463, <span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">Z</span>).
-<span style="color: #a0522d;">X</span> = person(susan, rothchild, born(13, september, 1972), works(osu, 75000)),
-<span style="color: #a0522d;">Y</span> = person(jess, rothchild, born(20, july, 1975), works(nationwide, 123500)),
-<span style="color: #a0522d;">Z</span> = <span style="color: #a020f0;">[</span>person(ace, rothchild, born(2, january, 2010), unemployed)<span style="color: #a020f0;">]</span>.
+<pre class="src src-prolog">?- family(38463, <span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">Z</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = person(susan, rothchild, born(13, september, 1972), works(osu, 75000)),
+<span style="font-weight: bold; font-style: italic;">Y</span> = person(jess, rothchild, born(20, july, 1975), works(nationwide, 123500)),
+<span style="font-weight: bold; font-style: italic;">Z</span> = <span style="font-weight: bold;">[</span>person(ace, rothchild, born(2, january, 2010), unemployed)<span style="font-weight: bold;">]</span>.
 
-?- family(38463, person(<span style="color: #a0522d;">FirstName</span>, <span style="color: #a0522d;">LastName</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>), <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>).
-<span style="color: #a0522d;">FirstName</span> = susan,
-<span style="color: #a0522d;">LastName</span> = rothchild.
+?- family(38463, person(<span style="font-weight: bold; font-style: italic;">FirstName</span>, <span style="font-weight: bold; font-style: italic;">LastName</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>), <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = susan,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = rothchild.
 
-?- family(<span style="color: #a0522d;">ID</span>, person(susan, rothchild, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>), <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>).
-<span style="color: #a0522d;">ID</span> = 38463.
+?- family(<span style="font-weight: bold; font-style: italic;">ID</span>, person(susan, rothchild, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>), <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
+<span style="font-weight: bold; font-style: italic;">ID</span> = 38463.
 </pre>
 
 
@@ -821,13 +821,13 @@ predicate that says if two people are married:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">married</span>(<span style="color: #a0522d;">FirstName1</span>, <span style="color: #a0522d;">LastName1</span>, <span style="color: #a0522d;">FirstName2</span>, <span style="color: #a0522d;">LastName2</span>) :-
-    family(<span style="color: #a0522d;">_</span>, person(<span style="color: #a0522d;">FirstName1</span>, <span style="color: #a0522d;">LastName1</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>),
-           person(<span style="color: #a0522d;">FirstName2</span>, <span style="color: #a0522d;">LastName2</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>), <span style="color: #a0522d;">_</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">married</span>(<span style="font-weight: bold; font-style: italic;">FirstName1</span>, <span style="font-weight: bold; font-style: italic;">LastName1</span>, <span style="font-weight: bold; font-style: italic;">FirstName2</span>, <span style="font-weight: bold; font-style: italic;">LastName2</span>) :-
+    family(<span style="font-weight: bold; font-style: italic;">_</span>, person(<span style="font-weight: bold; font-style: italic;">FirstName1</span>, <span style="font-weight: bold; font-style: italic;">LastName1</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>),
+           person(<span style="font-weight: bold; font-style: italic;">FirstName2</span>, <span style="font-weight: bold; font-style: italic;">LastName2</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>), <span style="font-weight: bold; font-style: italic;">_</span>).
 
-<span style="color: #0000ff;">married</span>(<span style="color: #a0522d;">FirstName1</span>, <span style="color: #a0522d;">LastName1</span>, <span style="color: #a0522d;">FirstName2</span>, <span style="color: #a0522d;">LastName2</span>) :-
-    family(<span style="color: #a0522d;">_</span>, person(<span style="color: #a0522d;">FirstName2</span>, <span style="color: #a0522d;">LastName2</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>),
-           person(<span style="color: #a0522d;">FirstName1</span>, <span style="color: #a0522d;">LastName1</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>), <span style="color: #a0522d;">_</span>).
+<span style="font-weight: bold;">married</span>(<span style="font-weight: bold; font-style: italic;">FirstName1</span>, <span style="font-weight: bold; font-style: italic;">LastName1</span>, <span style="font-weight: bold; font-style: italic;">FirstName2</span>, <span style="font-weight: bold; font-style: italic;">LastName2</span>) :-
+    family(<span style="font-weight: bold; font-style: italic;">_</span>, person(<span style="font-weight: bold; font-style: italic;">FirstName2</span>, <span style="font-weight: bold; font-style: italic;">LastName2</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>),
+           person(<span style="font-weight: bold; font-style: italic;">FirstName1</span>, <span style="font-weight: bold; font-style: italic;">LastName1</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>), <span style="font-weight: bold; font-style: italic;">_</span>).
 </pre>
 
 
@@ -840,19 +840,19 @@ And its use:
 <pre class="src src-prolog">?- married(tom, fox, ann, fox).
 true .
 
-?- married(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>, ann, fox).
-<span style="color: #a0522d;">X</span> = tom,
-<span style="color: #a0522d;">Y</span> = fox .
+?- married(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, ann, fox).
+<span style="font-weight: bold; font-style: italic;">X</span> = tom,
+<span style="font-weight: bold; font-style: italic;">Y</span> = fox .
 
-?- married(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>, <span style="color: #a0522d;">A</span>, <span style="color: #a0522d;">B</span>).
-<span style="color: #a0522d;">X</span> = tom,
-<span style="color: #a0522d;">Y</span> = fox,
-<span style="color: #a0522d;">A</span> = ann,
-<span style="color: #a0522d;">B</span> = fox <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = susan,
-<span style="color: #a0522d;">Y</span> = rothchild,
-<span style="color: #a0522d;">A</span> = jess,
-<span style="color: #a0522d;">B</span> = rothchild .
+?- married(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>, <span style="font-weight: bold; font-style: italic;">A</span>, <span style="font-weight: bold; font-style: italic;">B</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = tom,
+<span style="font-weight: bold; font-style: italic;">Y</span> = fox,
+<span style="font-weight: bold; font-style: italic;">A</span> = ann,
+<span style="font-weight: bold; font-style: italic;">B</span> = fox <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = susan,
+<span style="font-weight: bold; font-style: italic;">Y</span> = rothchild,
+<span style="font-weight: bold; font-style: italic;">A</span> = jess,
+<span style="font-weight: bold; font-style: italic;">B</span> = rothchild .
 </pre>
 
 
@@ -863,10 +863,10 @@ Here is a predicate for calculating household income. We can calculate
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">householdIncome</span>(<span style="color: #a0522d;">ID</span>, <span style="color: #a0522d;">Income</span>) :-
-    family(<span style="color: #a0522d;">ID</span>, person(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, works(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Income1</span>)),
-           person(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, works(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Income2</span>)), <span style="color: #a0522d;">_</span>),
-    <span style="color: #a0522d;">Income</span> is <span style="color: #a0522d;">Income1</span> + <span style="color: #a0522d;">Income2</span>.
+<pre class="src src-prolog"><span style="font-weight: bold;">householdIncome</span>(<span style="font-weight: bold; font-style: italic;">ID</span>, <span style="font-weight: bold; font-style: italic;">Income</span>) :-
+    family(<span style="font-weight: bold; font-style: italic;">ID</span>, person(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, works(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Income1</span>)),
+           person(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, works(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Income2</span>)), <span style="font-weight: bold; font-style: italic;">_</span>),
+    <span style="font-weight: bold; font-style: italic;">Income</span> is <span style="font-weight: bold; font-style: italic;">Income1</span> + <span style="font-weight: bold; font-style: italic;">Income2</span>.
 </pre>
 
 
@@ -876,20 +876,20 @@ And its use:
 
 
 
-<pre class="src src-prolog">?- householdIncome(38463, <span style="color: #a0522d;">X</span>).
-<span style="color: #a0522d;">X</span> = 198500.
+<pre class="src src-prolog">?- householdIncome(38463, <span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = 198500.
 
-?- householdIncome(<span style="color: #a0522d;">X</span>, 198500).
-<span style="color: #a0522d;">X</span> = 38463.
+?- householdIncome(<span style="font-weight: bold; font-style: italic;">X</span>, 198500).
+<span style="font-weight: bold; font-style: italic;">X</span> = 38463.
 
-?- householdIncome(<span style="color: #a0522d;">X</span>, 999).
+?- householdIncome(<span style="font-weight: bold; font-style: italic;">X</span>, 999).
 false.
 
-?- householdIncome(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Y</span>).
-<span style="color: #a0522d;">X</span> = 10392,
-<span style="color: #a0522d;">Y</span> = 217000 <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = 38463,
-<span style="color: #a0522d;">Y</span> = 198500.
+?- householdIncome(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Y</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = 10392,
+<span style="font-weight: bold; font-style: italic;">Y</span> = 217000 <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = 38463,
+<span style="font-weight: bold; font-style: italic;">Y</span> = 198500.
 </pre>
 
 
@@ -902,9 +902,9 @@ fact.
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">exists</span>(<span style="color: #a0522d;">Person</span>) :- family(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Person</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>).
-<span style="color: #0000ff;">exists</span>(<span style="color: #a0522d;">Person</span>) :- family(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Person</span>, <span style="color: #a0522d;">_</span>).
-<span style="color: #0000ff;">exists</span>(<span style="color: #a0522d;">Person</span>) :- family(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Children</span>), member(<span style="color: #a0522d;">Person</span>, <span style="color: #a0522d;">Children</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">exists</span>(<span style="font-weight: bold; font-style: italic;">Person</span>) :- family(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Person</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
+<span style="font-weight: bold;">exists</span>(<span style="font-weight: bold; font-style: italic;">Person</span>) :- family(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Person</span>, <span style="font-weight: bold; font-style: italic;">_</span>).
+<span style="font-weight: bold;">exists</span>(<span style="font-weight: bold; font-style: italic;">Person</span>) :- family(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Children</span>), member(<span style="font-weight: bold; font-style: italic;">Person</span>, <span style="font-weight: bold; font-style: italic;">Children</span>).
 </pre>
 
 
@@ -914,36 +914,36 @@ We can use it like so:
 
 
 
-<pre class="src src-prolog">?- exists(<span style="color: #a0522d;">X</span>).
-<span style="color: #a0522d;">X</span> = person(tom, fox, born(7, may, 1960), works(cnn, 152000)) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(susan, rothchild, born(13, september, 1972), works(osu, 75000)) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(ann, fox, born(19, april, 1961), works(nyu, 65000)) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(jess, rothchild, born(20, july, 1975), works(nationwide, 123500)) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(pat, fox, born(5, october, 1983), unemployed) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(jim, fox, born(1, june, 1986), unemployed) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(amy, fox, born(17, december, 1990), unemployed) <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = person(ace, rothchild, born(2, january, 2010), unemployed).
+<pre class="src src-prolog">?- exists(<span style="font-weight: bold; font-style: italic;">X</span>).
+<span style="font-weight: bold; font-style: italic;">X</span> = person(tom, fox, born(7, may, 1960), works(cnn, 152000)) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(susan, rothchild, born(13, september, 1972), works(osu, 75000)) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(ann, fox, born(19, april, 1961), works(nyu, 65000)) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(jess, rothchild, born(20, july, 1975), works(nationwide, 123500)) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(pat, fox, born(5, october, 1983), unemployed) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(jim, fox, born(1, june, 1986), unemployed) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(amy, fox, born(17, december, 1990), unemployed) <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = person(ace, rothchild, born(2, january, 2010), unemployed).
 
-?- exists(person(<span style="color: #a0522d;">X</span>, fox, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>)).
-<span style="color: #a0522d;">X</span> = tom <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = ann <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = pat <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = jim <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">X</span> = amy .
+?- exists(person(<span style="font-weight: bold; font-style: italic;">X</span>, fox, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>)).
+<span style="font-weight: bold; font-style: italic;">X</span> = tom <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = ann <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = pat <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = jim <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">X</span> = amy .
 
-?- exists(person(<span style="color: #a0522d;">FirstName</span>, <span style="color: #a0522d;">LastName</span>, born(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, 1972), <span style="color: #a0522d;">_</span>)).
-<span style="color: #a0522d;">FirstName</span> = susan,
-<span style="color: #a0522d;">LastName</span> = rothchild .
+?- exists(person(<span style="font-weight: bold; font-style: italic;">FirstName</span>, <span style="font-weight: bold; font-style: italic;">LastName</span>, born(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, 1972), <span style="font-weight: bold; font-style: italic;">_</span>)).
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = susan,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = rothchild .
 
-?- exists(person(<span style="color: #a0522d;">FirstName</span>, <span style="color: #a0522d;">LastName</span>, <span style="color: #a0522d;">_</span>, unemployed)).
-<span style="color: #a0522d;">FirstName</span> = pat,
-<span style="color: #a0522d;">LastName</span> = fox <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">FirstName</span> = jim,
-<span style="color: #a0522d;">LastName</span> = fox <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">FirstName</span> = amy,
-<span style="color: #a0522d;">LastName</span> = fox <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">FirstName</span> = ace,
-<span style="color: #a0522d;">LastName</span> = rothchild.
+?- exists(person(<span style="font-weight: bold; font-style: italic;">FirstName</span>, <span style="font-weight: bold; font-style: italic;">LastName</span>, <span style="font-weight: bold; font-style: italic;">_</span>, unemployed)).
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = pat,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = fox <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = jim,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = fox <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = amy,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = fox <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = ace,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = rothchild.
 </pre>
 
 
@@ -953,27 +953,27 @@ Let&rsquo;s get a little more sophisticated. Here is an interesting query:
 
 
 
-<pre class="src src-prolog"><span style="color: #b22222;">% </span><span style="color: #b22222;">Find all people born after 1980 who do not work at OSU</span>
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">Find all people born after 1980 who do not work at OSU</span>
 
-?- exists(person(<span style="color: #a0522d;">FirstName</span>, <span style="color: #a0522d;">LastName</span>, born(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Year</span>), <span style="color: #a0522d;">Job</span>)),
-      <span style="color: #a0522d;">Year</span> &gt; 1980, <span style="color: #a0522d;">Job</span> \= osu.
+?- exists(person(<span style="font-weight: bold; font-style: italic;">FirstName</span>, <span style="font-weight: bold; font-style: italic;">LastName</span>, born(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Year</span>), <span style="font-weight: bold; font-style: italic;">Job</span>)),
+      <span style="font-weight: bold; font-style: italic;">Year</span> &gt; 1980, <span style="font-weight: bold; font-style: italic;">Job</span> \= osu.
 
-<span style="color: #a0522d;">FirstName</span> = pat,
-<span style="color: #a0522d;">LastName</span> = fox,
-<span style="color: #a0522d;">Year</span> = 1983,
-<span style="color: #a0522d;">Job</span> = unemployed <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">FirstName</span> = jim,
-<span style="color: #a0522d;">LastName</span> = fox,
-<span style="color: #a0522d;">Year</span> = 1986,
-<span style="color: #a0522d;">Job</span> = unemployed <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">FirstName</span> = amy,
-<span style="color: #a0522d;">LastName</span> = fox,
-<span style="color: #a0522d;">Year</span> = 1990,
-<span style="color: #a0522d;">Job</span> = unemployed <span style="color: #a020f0;">;</span>
-<span style="color: #a0522d;">FirstName</span> = ace,
-<span style="color: #a0522d;">LastName</span> = rothchild,
-<span style="color: #a0522d;">Year</span> = 2010,
-<span style="color: #a0522d;">Job</span> = unemployed.
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = pat,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = fox,
+<span style="font-weight: bold; font-style: italic;">Year</span> = 1983,
+<span style="font-weight: bold; font-style: italic;">Job</span> = unemployed <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = jim,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = fox,
+<span style="font-weight: bold; font-style: italic;">Year</span> = 1986,
+<span style="font-weight: bold; font-style: italic;">Job</span> = unemployed <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = amy,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = fox,
+<span style="font-weight: bold; font-style: italic;">Year</span> = 1990,
+<span style="font-weight: bold; font-style: italic;">Job</span> = unemployed <span style="font-weight: bold;">;</span>
+<span style="font-weight: bold; font-style: italic;">FirstName</span> = ace,
+<span style="font-weight: bold; font-style: italic;">LastName</span> = rothchild,
+<span style="font-weight: bold; font-style: italic;">Year</span> = 2010,
+<span style="font-weight: bold; font-style: italic;">Job</span> = unemployed.
 </pre>
 
 
@@ -984,10 +984,10 @@ children and adds 2 (for the parents):
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">householdSize</span>(<span style="color: #a0522d;">ID</span>, <span style="color: #a0522d;">Size</span>) :-
-    family(<span style="color: #a0522d;">ID</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Children</span>),
-    length(<span style="color: #a0522d;">Children</span>, <span style="color: #a0522d;">ChildrenCount</span>),
-    <span style="color: #a0522d;">Size</span> is 2 + <span style="color: #a0522d;">ChildrenCount</span>.
+<pre class="src src-prolog"><span style="font-weight: bold;">householdSize</span>(<span style="font-weight: bold; font-style: italic;">ID</span>, <span style="font-weight: bold; font-style: italic;">Size</span>) :-
+    family(<span style="font-weight: bold; font-style: italic;">ID</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Children</span>),
+    length(<span style="font-weight: bold; font-style: italic;">Children</span>, <span style="font-weight: bold; font-style: italic;">ChildrenCount</span>),
+    <span style="font-weight: bold; font-style: italic;">Size</span> is 2 + <span style="font-weight: bold; font-style: italic;">ChildrenCount</span>.
 </pre>
 
 
@@ -997,15 +997,15 @@ E.g.,
 
 
 
-<pre class="src src-prolog">?- householdSize(38463, <span style="color: #a0522d;">Size</span>).
-<span style="color: #a0522d;">Size</span> = 3.
+<pre class="src src-prolog">?- householdSize(38463, <span style="font-weight: bold; font-style: italic;">Size</span>).
+<span style="font-weight: bold; font-style: italic;">Size</span> = 3.
 
-?- householdSize(<span style="color: #a0522d;">X</span>, 5).
-<span style="color: #a0522d;">X</span> = 10392 .
+?- householdSize(<span style="font-weight: bold; font-style: italic;">X</span>, 5).
+<span style="font-weight: bold; font-style: italic;">X</span> = 10392 .
 
-?- householdSize(<span style="color: #a0522d;">X</span>, <span style="color: #a0522d;">Size</span>), <span style="color: #a0522d;">Size</span> &gt; 3.
-<span style="color: #a0522d;">X</span> = 10392,
-<span style="color: #a0522d;">Size</span> = 5 .
+?- householdSize(<span style="font-weight: bold; font-style: italic;">X</span>, <span style="font-weight: bold; font-style: italic;">Size</span>), <span style="font-weight: bold; font-style: italic;">Size</span> &gt; 3.
+<span style="font-weight: bold; font-style: italic;">X</span> = 10392,
+<span style="font-weight: bold; font-style: italic;">Size</span> = 5 .
 </pre>
 
 
@@ -1016,11 +1016,11 @@ list of objects that match some &ldquo;goal.&rdquo; Here is its use in a query:
 
 
 
-<pre class="src src-prolog"><span style="color: #b22222;">% </span><span style="color: #b22222;">First part of findall is what to collect,</span>
-<span style="color: #b22222;">% </span><span style="color: #b22222;">second part is the </span><span style="color: #b22222;">"goal"</span><span style="color: #b22222;"> (a predicate),</span>
-<span style="color: #b22222;">% </span><span style="color: #b22222;">third part is the name of the resulting list</span>
-?- findall(<span style="color: #a0522d;">FirstName</span>, exists(person(<span style="color: #a0522d;">FirstName</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>)), <span style="color: #a0522d;">Result</span>).
-<span style="color: #a0522d;">Result</span> = <span style="color: #a020f0;">[</span>tom, susan, ann, jess, pat, jim, amy, ace<span style="color: #a020f0;">]</span>.
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">First part of findall is what to collect,</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">second part is the </span><span style="font-weight: bold; font-style: italic;">"goal"</span><span style="font-weight: bold; font-style: italic;"> (a predicate),</span>
+<span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">third part is the name of the resulting list</span>
+?- findall(<span style="font-weight: bold; font-style: italic;">FirstName</span>, exists(person(<span style="font-weight: bold; font-style: italic;">FirstName</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>)), <span style="font-weight: bold; font-style: italic;">Result</span>).
+<span style="font-weight: bold; font-style: italic;">Result</span> = <span style="font-weight: bold;">[</span>tom, susan, ann, jess, pat, jim, amy, ace<span style="font-weight: bold;">]</span>.
 </pre>
 
 
@@ -1030,10 +1030,10 @@ Of course, we can count the list:
 
 
 
-<pre class="src src-prolog">?- findall(<span style="color: #a0522d;">FirstName</span>, exists(person(<span style="color: #a0522d;">FirstName</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">_</span>)), <span style="color: #a0522d;">Result</span>),
-       length(<span style="color: #a0522d;">Result</span>, <span style="color: #a0522d;">N</span>).
-<span style="color: #a0522d;">Result</span> = <span style="color: #a020f0;">[</span>tom, susan, ann, jess, pat, jim, amy, ace<span style="color: #a020f0;">]</span>,
-<span style="color: #a0522d;">N</span> = 8.
+<pre class="src src-prolog">?- findall(<span style="font-weight: bold; font-style: italic;">FirstName</span>, exists(person(<span style="font-weight: bold; font-style: italic;">FirstName</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">_</span>)), <span style="font-weight: bold; font-style: italic;">Result</span>),
+       length(<span style="font-weight: bold; font-style: italic;">Result</span>, <span style="font-weight: bold; font-style: italic;">N</span>).
+<span style="font-weight: bold; font-style: italic;">Result</span> = <span style="font-weight: bold;">[</span>tom, susan, ann, jess, pat, jim, amy, ace<span style="font-weight: bold;">]</span>,
+<span style="font-weight: bold; font-style: italic;">N</span> = 8.
 </pre>
 
 
@@ -1044,12 +1044,12 @@ load a Prolog library, however. Here is some code in a database file:
 
 
 
-<pre class="src src-prolog">:- <span style="color: #483d8b;">use_module</span>(library(lists)). <span style="color: #b22222;">% load lists library for sumlist predicate</span>
+<pre class="src src-prolog">:- <span style="font-weight: bold;">use_module</span>(library(lists)). <span style="font-weight: bold; font-style: italic;">% load lists library for sumlist predicate</span>
 
-<span style="color: #0000ff;">average</span>(<span style="color: #a0522d;">List</span>, <span style="color: #a0522d;">Avg</span>) :-
-    sumlist(<span style="color: #a0522d;">List</span>, <span style="color: #a0522d;">Sum</span>),
-    length(<span style="color: #a0522d;">List</span>, <span style="color: #a0522d;">N</span>),
-    <span style="color: #a0522d;">Avg</span> is <span style="color: #a0522d;">Sum</span> / <span style="color: #a0522d;">N</span>.
+<span style="font-weight: bold;">average</span>(<span style="font-weight: bold; font-style: italic;">List</span>, <span style="font-weight: bold; font-style: italic;">Avg</span>) :-
+    sumlist(<span style="font-weight: bold; font-style: italic;">List</span>, <span style="font-weight: bold; font-style: italic;">Sum</span>),
+    length(<span style="font-weight: bold; font-style: italic;">List</span>, <span style="font-weight: bold; font-style: italic;">N</span>),
+    <span style="font-weight: bold; font-style: italic;">Avg</span> is <span style="font-weight: bold; font-style: italic;">Sum</span> / <span style="font-weight: bold; font-style: italic;">N</span>.
 </pre>
 
 
@@ -1059,8 +1059,8 @@ Here is a use:
 
 
 
-<pre class="src src-prolog">?- average(<span style="color: #a020f0;">[</span>1, 3, 4.2, 4.5<span style="color: #a020f0;">]</span>, <span style="color: #a0522d;">Avg</span>).
-<span style="color: #a0522d;">Avg</span> = 3.175.
+<pre class="src src-prolog">?- average(<span style="font-weight: bold;">[</span>1, 3, 4.2, 4.5<span style="font-weight: bold;">]</span>, <span style="font-weight: bold; font-style: italic;">Avg</span>).
+<span style="font-weight: bold; font-style: italic;">Avg</span> = 3.175.
 </pre>
 
 
@@ -1070,9 +1070,9 @@ Ok, now let&rsquo;s grab household incomes and average them. In query mode:
 
 
 
-<pre class="src src-prolog">?- findall(<span style="color: #a0522d;">Income</span>, householdIncome(<span style="color: #a0522d;">_</span>, <span style="color: #a0522d;">Income</span>), <span style="color: #a0522d;">Result</span>), average(<span style="color: #a0522d;">Result</span>, <span style="color: #a0522d;">Avg</span>).
-<span style="color: #a0522d;">Result</span> = <span style="color: #a020f0;">[</span>217000, 198500<span style="color: #a020f0;">]</span>,
-<span style="color: #a0522d;">Avg</span> = 207750.
+<pre class="src src-prolog">?- findall(<span style="font-weight: bold; font-style: italic;">Income</span>, householdIncome(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-weight: bold; font-style: italic;">Income</span>), <span style="font-weight: bold; font-style: italic;">Result</span>), average(<span style="font-weight: bold; font-style: italic;">Result</span>, <span style="font-weight: bold; font-style: italic;">Avg</span>).
+<span style="font-weight: bold; font-style: italic;">Result</span> = <span style="font-weight: bold;">[</span>217000, 198500<span style="font-weight: bold;">]</span>,
+<span style="font-weight: bold; font-style: italic;">Avg</span> = 207750.
 </pre>
 
 

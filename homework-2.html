@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Homework 2"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:19 EDT"/>
+<meta name="generated" content="2013-06-06 14:17:33 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -108,8 +148,8 @@
 <li><a href="#sec-3">Task 3 (20 pts)</a></li>
 <li><a href="#sec-4">Task 4 (5 pts)</a></li>
 <li><a href="#sec-5">Task 5 (5 pts)</a></li>
-<li><a href="#sec-6">Task 6 (10 pts)</a></li>
-<li><a href="#sec-7">Task 7 (20 pts)</a></li>
+<li><a href="#sec-6">Task 6 (15 pts)</a></li>
+<li><a href="#sec-7">Task 7 (15 pts)</a></li>
 </ul>
 </div>
 </div>
@@ -120,7 +160,14 @@
 
 
 <p>
-(GPS)
+Define a GPS-type problem. Give the goal condition, initial
+conditions, and operations, where for each operation the action,
+preconditions, &ldquo;add&rdquo; conditions, and &ldquo;delete&rdquo; conditions are defined.
+At least five operators must be defined.
+</p>
+<p>
+Then, list a sequence of actions (in the correct order) that solve the
+problem. At least three operators must be used.
 </p>
 </div>
 
@@ -132,7 +179,14 @@
 
 
 <p>
-show order of steps in hill-climbing search for goodale problem
+Give the sequence of states visited in a hill-climbing search applied
+to the <a href="./search-practice.html">Goodale routing problem</a>, starting
+at Woodruff &amp; Tuttle and ending at Goodale parking lot.
+</p>
+<p>
+Note, list the states visited, not just the states in the final route.
+There may (or may not) be some backtracking so the states visited may
+differ from the ultimate route.
 </p>
 </div>
 
@@ -144,7 +198,7 @@ show order of steps in hill-climbing search for goodale problem
 
 
 <p>
-show order of steps in a* search for goodale problem
+Repeat task 2 but for A* search.
 </p>
 </div>
 
@@ -156,12 +210,11 @@ show order of steps in a* search for goodale problem
 
 
 <p>
-  The &ldquo;Routing from Dreese Labs to Goodale Park&rdquo; used road
-  intersection distance to find the routes (when informed search was
-  used). However, this distance (&ldquo;as the crow flies&rdquo;) is only one
-  aspect of what makes one route better than another. What other
-  information should we use to find the truly minimal-time route
-  between these two locations?
+The Goodale routing problem used road intersection distance to find
+the routes (when informed search was used). However, this distance
+(&ldquo;as the crow flies&rdquo;) is only one aspect of what makes one route
+better than another. What other information should we use to find the
+truly minimal-time route between these two locations?
 </p>
 </div>
 
@@ -173,42 +226,56 @@ show order of steps in a* search for goodale problem
 
 
 <p>
-  What are some <i>admissible</i> heuristics for the 8-puzzle problem? Give
-  at least two.
+What are some <i>admissible</i> heuristics for the 8-puzzle problem? Give
+at least two.
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Task 6 (10 pts)</h2>
+<h2 id="sec-6">Task 6 (15 pts)</h2>
 <div class="outline-text-2" id="text-6">
 
 
 <p>
-  For unweighted search graphs (equivalently, all weights equal 1.0),
-  which of the following search algorithms are complete? Which are
-  optimal? What about weighted graphs?
+Define breadth-first search in terms of the cost function \(f(s) = g(s) + h(s)\)
+where \(g(s)\) is the cost of arriving at state \(s\) and \(h(s)\)
+is the (estimated) cost of getting from \(s\) to the goal state. That is
+to say, give simple definitions for \(g(s)\) and \(h(s)\) so that the
+<a href="./informed-search.html#sec-6">A search algorithm</a> acts like
+breadth-first search.
 </p>
-<ul>
-<li>Breadth-first search, depth-first search, random search,
-    best-first search, hill-climbing search, A* search
-</li>
-</ul>
-
-
+<p>
+Also define depth-first search in terms of \(f(s) = g(s) + h(s)\).
+</p>
 </div>
 
 </div>
 
 <div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Task 7 (20 pts)</h2>
+<h2 id="sec-7">Task 7 (15 pts)</h2>
 <div class="outline-text-2" id="text-7">
 
 
 <p>
-show steps in minimax tic-tac-toe starting from a near-end board
+Show a graph of minimax operation for this tic-tac-toe board, where
+&lsquo;x&rsquo; is to make a move (and &lsquo;o&rsquo; is the opponent). The graph should look
+similar to those in the <a href="./adversarial-search.html">adversarial search</a> notes.
 </p>
+
+
+<table class="full">
+<tr>
+<td>x</td><td>o</td><td>x</td>
+</tr>
+<tr>
+<td></td><td></td><td>x</td>
+</tr>
+<tr>
+<td>x</td><td>o</td><td>o</td>
+</tr>
+</table>
 
 
 <div style="font-size: 80%; clear: both;"> <span

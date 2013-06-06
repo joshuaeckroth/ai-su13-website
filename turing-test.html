@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="The Turing test"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:04 EDT"/>
+<meta name="generated" content="2013-06-06 14:13:04 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,47 +83,7 @@
  }
 /*]]>*///-->
 </script>
-<script type="text/javascript" src="MathJax/MathJax.js">
-<!--/*--><![CDATA[/*><!--*/
-    MathJax.Hub.Config({
-        // Only one of the two following lines, depending on user settings
-        // First allows browser-native MathML display, second forces HTML/CSS
-        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
-            jax: ["input/TeX", "output/HTML-CSS"],
-        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
-                     "TeX/noUndefined.js"],
-        tex2jax: {
-            inlineMath: [ ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
-            skipTags: ["script","noscript","style","textarea","pre","code"],
-            ignoreClass: "tex2jax_ignore",
-            processEscapes: false,
-            processEnvironments: true,
-            preview: "TeX"
-        },
-        showProcessingMessages: true,
-        displayAlign: "center",
-        displayIndent: "2em",
 
-        "HTML-CSS": {
-             scale: 100,
-             availableFonts: ["STIX","TeX"],
-             preferredFont: "TeX",
-             webFont: "TeX",
-             imageFont: "TeX",
-             showMathMenu: true,
-        },
-        MMLorHTML: {
-             prefer: {
-                 MSIE:    "MML",
-                 Firefox: "MML",
-                 Opera:   "HTML",
-                 other:   "HTML"
-             }
-        }
-    });
-/*]]>*///-->
-</script>
 </head>
 <body>
 
@@ -165,7 +125,7 @@ strong. Turing&rsquo;s original description can be found in his 1950 paper,
 <ul>
 <li><a href="#sec-1-1">What&rsquo;s happening?</a></li>
 <li><a href="#sec-1-2">Replace the man with a machine!</a></li>
-<li><a href="#sec-1-3">Two philosophical points</a></li>
+<li><a href="#sec-1-3">A historical note</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">The Turing test is quite strong</a>
@@ -317,13 +277,12 @@ human is begging for mercy, is an amazing thought!
 </div>
 
 <div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3">Two philosophical points</h3>
+<h3 id="sec-1-3">A historical note</h3>
 <div class="outline-text-3" id="text-1-3">
 
 
-
 <p>
-Firstly, Descartes somewhat &ldquo;predicted&rdquo; the usefulness of such a test,
+Descartes somewhat &ldquo;predicted&rdquo; the usefulness of such a test,
 even though he believed machines would never be able to pass it, in
 principle (because he thought machines could never respond to their
 environments):
@@ -349,27 +308,13 @@ whereas reason is a universal instrument, which can be used in all
 kinds of situations, these organs need some particular action; hence
 it is for all practical purposes impossible for a machine to have
 enough different organs to make it act in all the contingencies of
-life in the way in which our reason makes us act. &mdash; <a href="http://plato.stanford.edu/entries/turing-test/">Source</a>
+life in the way in which our reason makes us act. ---
+<a href="http://plato.stanford.edu/entries/turing-test/">Source</a>
 </p>
+
 </blockquote>
 
 
-
-<p>
-Secondly, Leibniz investigated what he called the &ldquo;identity of
-indiscernibles,&rdquo; (<a href="http://plato.stanford.edu/entries/identity-indiscernible/">source</a>) which is essentially the statement that two
-objects, \(x\) and \(y\), are identical if there does not exist any
-property that \(x\) has but \(y\) does not and vice versa.
-</p>
-<p>
-The Turing test is essentially making a similar, though weaker,
-statement: machine intelligence and human intelligence are equivalent
-if there does not exist any observable property (observable via a
-typewriter, and observable by a singular human interrogator) that
-differentiates machine and human intelligence. In other words, if
-there does not exist any tell-tale question that separates the two
-forms of intelligence, then they are identical.
-</p>
 </div>
 </div>
 
@@ -398,7 +343,6 @@ neighborhood.
 <p>
 [&hellip;]
 </p>
-
 <p>
 Terry Winograd, a leader in AI efforts to produce conversational
 ability in a computer, draws our attention to a pair of sentences.
@@ -564,7 +508,7 @@ Give each constentant problems like this one:
 
 <ul>
 <li>If there is a king in the hand, then there is an ace, or else if
-    there is not a king in the hand, then there is an ace.
+  there is not a king in the hand, then there is an ace.
 
 </li>
 <li>There is a king in the hand.
@@ -616,7 +560,10 @@ intelligent) mathematicians can solve them.
 
 
 <p>
-Finally, if both contestants solve the paradoxes, resort to asking each contestant to write short stories based on a prompt like, &ldquo;As Gregor Samsa awoke one morning from uneasy dreams he found himself transformed in his bed into a gigantic insect.&rdquo;
+Finally, if both contestants solve the paradoxes, resort to asking
+each contestant to write short stories based on a prompt like, &ldquo;As
+Gregor Samsa awoke one morning from uneasy dreams he found himself
+transformed in his bed into a gigantic insect.&rdquo;
 </p>
 
 <div class="figure">
@@ -637,11 +584,12 @@ Finally, if both contestants solve the paradoxes, resort to asking each contesta
 
 <p>
 Nobody actually practices with a real Turing test. It&rsquo;s too hard for
-the machine. Instead, the yearly <a href="http://www.loebner.net/Prizef/loebner-prize.html">Loebner Prize</a> experiments with a
-reduced form of this test. The judges simply estimate how &ldquo;closely&rdquo; a
-computer imitates a human, and judges are not allowed to attempt
-trickery (such as typing random symbols) or delve into deep
-conversation.
+the machine. Instead, the yearly
+<a href="http://www.loebner.net/Prizef/loebner-prize.html">Loebner Prize</a>
+experiments with a reduced form of this test. The judges simply
+estimate how &ldquo;closely&rdquo; a computer imitates a human, and judges are not
+allowed to attempt trickery (such as typing random symbols) or delve
+into deep conversation.
 </p>
 
 
@@ -672,7 +620,9 @@ allowfullscreen></iframe>
 
 <div style="text-align: center">
 
-<img src="./images/wire_head.jpg" /><br/>
+<div class="figure">
+<img src="./images/wire_head.jpg" />
+</div>
 <iframe width="474" height="54" frameborder="0" src="http://www.radiolab.org/widgets/ondemand_player/#file=http%3A%2F%2Fwww.radiolab.org%2Faudio%2Fxspf%2F137407%2F;containerClass=radiolab"></iframe>
 
 <p>
@@ -694,7 +644,9 @@ allowfullscreen></iframe>
 
 <div style="text-align: center">
 
-<img src="./images/turing_sculpture.jpg" /><br/>
+<div class="figure">
+<img src="./images/turing_sculpture.jpg" />
+</div>
 <iframe width="474" height="54" frameborder="0" src="http://www.radiolab.org/widgets/ondemand_player/#file=http%3A%2F%2Fwww.radiolab.org%2Faudio%2Fxspf%2F193037%2F;containerClass=radiolab"></iframe>
 
 <p>

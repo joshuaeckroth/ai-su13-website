@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Prolog examples"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:11 EDT"/>
+<meta name="generated" content="2013-06-06 14:20:44 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -124,9 +124,9 @@ First, we define the goal:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">goal</span>(<span style="color: #a020f0;">[</span>1,2,3,
+<pre class="src src-prolog"><span style="font-weight: bold;">goal</span>(<span style="font-weight: bold;">[</span>1,2,3,
       4,0,5,
-      6,7,8<span style="color: #a020f0;">]</span>).
+      6,7,8<span style="font-weight: bold;">]</span>).
 </pre>
 
 
@@ -136,75 +136,75 @@ Now, we define all the possible moves (a bit laboriously):
 
 
 
-<pre class="src src-prolog"><span style="color: #b22222;">%% </span><span style="color: #b22222;">From: http://www-module.cs.york.ac.uk/lpa/prac2009/prolog-lab-3.pdf</span>
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">From: http://www-module.cs.york.ac.uk/lpa/prac2009/prolog-lab-3.pdf</span>
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move left in the top row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,0,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span>0,<span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,0, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,0,<span style="color: #a0522d;">X2</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move left in the top row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,0,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span>0,<span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,0, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,0,<span style="font-weight: bold; font-style: italic;">X2</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move left in the middle row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X6</span>,<span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, 0,<span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X6</span>,<span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,0,<span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move left in the middle row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>,<span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, 0,<span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X6</span>,<span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,0,<span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move left in the bottom row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,0,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, 0,<span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,0<span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,0,<span style="color: #a0522d;">X8</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move left in the bottom row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,0,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, 0,<span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,0<span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,0,<span style="font-weight: bold; font-style: italic;">X8</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move right in the top row </span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span>0,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X2</span>,0,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,0,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X3</span>,0, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move right in the top row </span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span>0,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X2</span>,0,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,0,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X3</span>,0, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move right in the middle row </span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, 0,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X5</span>,0,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X6</span>,0, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move right in the middle row </span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, 0,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X5</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X6</span>,0, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move right in the bottom row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>,0,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>,<span style="color: #a0522d;">X8</span>,0,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>,<span style="color: #a0522d;">X7</span>,0,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>,<span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X9</span>,0<span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move right in the bottom row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>,0,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,0,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>,<span style="font-weight: bold; font-style: italic;">X7</span>,0,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>,<span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X9</span>,0<span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move up from the middle row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, 0,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span>0,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,0,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,0, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,0, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move up from the middle row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, 0,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span>0,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,0,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,0, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,0, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move up from the bottom row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,0,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,0<span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,0, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X6</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, 0,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, 0,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move up from the bottom row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,0,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,0<span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,0, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X6</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, 0,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, 0,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move up from the top row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span>0,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, 0,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,0,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,0, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,0, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move up from the top row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span>0,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, 0,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,0,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,0, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,0, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
 
-<span style="color: #b22222;">%% </span><span style="color: #b22222;">move down from the middle row</span>
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, 0,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X6</span>, 0,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,0,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X6</span>, <span style="color: #a0522d;">X7</span>,0,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">move</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,0, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,<span style="color: #a0522d;">X9</span><span style="color: #a020f0;">]</span>,
-     <span style="color: #a020f0;">[</span><span style="color: #a0522d;">X1</span>,<span style="color: #a0522d;">X2</span>,<span style="color: #a0522d;">X3</span>, <span style="color: #a0522d;">X4</span>,<span style="color: #a0522d;">X5</span>,<span style="color: #a0522d;">X9</span>, <span style="color: #a0522d;">X7</span>,<span style="color: #a0522d;">X8</span>,0<span style="color: #a020f0;">]</span>).
+<span style="font-weight: bold; font-style: italic;">%% </span><span style="font-weight: bold; font-style: italic;">move down from the middle row</span>
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, 0,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, 0,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,0,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X6</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,0,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">move</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,0, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,<span style="font-weight: bold; font-style: italic;">X9</span><span style="font-weight: bold;">]</span>,
+     <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">X1</span>,<span style="font-weight: bold; font-style: italic;">X2</span>,<span style="font-weight: bold; font-style: italic;">X3</span>, <span style="font-weight: bold; font-style: italic;">X4</span>,<span style="font-weight: bold; font-style: italic;">X5</span>,<span style="font-weight: bold; font-style: italic;">X9</span>, <span style="font-weight: bold; font-style: italic;">X7</span>,<span style="font-weight: bold; font-style: italic;">X8</span>,0<span style="font-weight: bold;">]</span>).
 </pre>
 
 
@@ -217,8 +217,8 @@ found (i.e., a move should be made).
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">dfsSimplest</span>(<span style="color: #a0522d;">S</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">S</span><span style="color: #a020f0;">]</span>) :- goal(<span style="color: #a0522d;">S</span>).
-<span style="color: #0000ff;">dfsSimplest</span>(<span style="color: #a0522d;">S</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">S</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">Rest</span><span style="color: #a020f0;">]</span>) :- move(<span style="color: #a0522d;">S</span>, <span style="color: #a0522d;">S2</span>), dfsSimplest(<span style="color: #a0522d;">S2</span>, <span style="color: #a0522d;">Rest</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">dfsSimplest</span>(<span style="font-weight: bold; font-style: italic;">S</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">S</span><span style="font-weight: bold;">]</span>) :- goal(<span style="font-weight: bold; font-style: italic;">S</span>).
+<span style="font-weight: bold;">dfsSimplest</span>(<span style="font-weight: bold; font-style: italic;">S</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">S</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">Rest</span><span style="font-weight: bold;">]</span>) :- move(<span style="font-weight: bold; font-style: italic;">S</span>, <span style="font-weight: bold; font-style: italic;">S2</span>), dfsSimplest(<span style="font-weight: bold; font-style: italic;">S2</span>, <span style="font-weight: bold; font-style: italic;">Rest</span>).
 </pre>
 
 
@@ -229,8 +229,8 @@ the goal.
 
 
 
-<pre class="src src-prolog">?- dfsSimplest(<span style="color: #a020f0;">[</span>1,2,3, 0,4,5, 6,7,8<span style="color: #a020f0;">]</span>, <span style="color: #a0522d;">Path</span>).
-<span style="color: #a0522d;">Path</span> = <span style="color: #a020f0;">[[</span>1, 2, 3, 0, 4, 5, 6, 7<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>1, 2, 3, 4, 0, 5, 6<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]]</span> .
+<pre class="src src-prolog">?- dfsSimplest(<span style="font-weight: bold;">[</span>1,2,3, 0,4,5, 6,7,8<span style="font-weight: bold;">]</span>, <span style="font-weight: bold; font-style: italic;">Path</span>).
+<span style="font-weight: bold; font-style: italic;">Path</span> = <span style="font-weight: bold;">[[</span>1, 2, 3, 0, 4, 5, 6, 7<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>1, 2, 3, 4, 0, 5, 6<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]]</span> .
 </pre>
 
 
@@ -245,10 +245,10 @@ the goal, &hellip;
 
 
 
-<pre class="src src-prolog">?- dfs(<span style="color: #a020f0;">[</span>1,2,3, 4,7,5, 6,0,8<span style="color: #a020f0;">]</span>, <span style="color: #a0522d;">Path</span>).
-.... <span style="color: #0000ff;">get</span> a cup of coffee now?
+<pre class="src src-prolog">?- dfs(<span style="font-weight: bold;">[</span>1,2,3, 4,7,5, 6,0,8<span style="font-weight: bold;">]</span>, <span style="font-weight: bold; font-style: italic;">Path</span>).
+.... <span style="font-weight: bold;">get</span> a cup of coffee now?
 
-<span style="color: #a0522d;">ERROR</span>: <span style="color: #a0522d;">Out</span> of local stack
+<span style="font-weight: bold; font-style: italic;">ERROR</span>: <span style="font-weight: bold; font-style: italic;">Out</span> of local stack
 </pre>
 
 
@@ -267,15 +267,15 @@ predicate:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">dfs</span>(<span style="color: #a0522d;">S</span>, <span style="color: #a0522d;">Path</span>, <span style="color: #a0522d;">Path</span>) :- goal(<span style="color: #a0522d;">S</span>).
+<pre class="src src-prolog"><span style="font-weight: bold;">dfs</span>(<span style="font-weight: bold; font-style: italic;">S</span>, <span style="font-weight: bold; font-style: italic;">Path</span>, <span style="font-weight: bold; font-style: italic;">Path</span>) :- goal(<span style="font-weight: bold; font-style: italic;">S</span>).
 
-<span style="color: #0000ff;">dfs</span>(<span style="color: #a0522d;">S</span>, <span style="color: #a0522d;">Checked</span>, <span style="color: #a0522d;">Path</span>) :-
-    <span style="color: #b22222;">% try a move</span>
-    move(<span style="color: #a0522d;">S</span>, <span style="color: #a0522d;">S2</span>),
-    <span style="color: #b22222;">% ensure the resulting state is new</span>
-    \+member(<span style="color: #a0522d;">S2</span>, <span style="color: #a0522d;">Checked</span>),
-    <span style="color: #b22222;">% and that this state leads to the goal</span>
-    dfs(<span style="color: #a0522d;">S2</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">S2</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">Checked</span><span style="color: #a020f0;">]</span>, <span style="color: #a0522d;">Path</span>).
+<span style="font-weight: bold;">dfs</span>(<span style="font-weight: bold; font-style: italic;">S</span>, <span style="font-weight: bold; font-style: italic;">Checked</span>, <span style="font-weight: bold; font-style: italic;">Path</span>) :-
+    <span style="font-weight: bold; font-style: italic;">% try a move</span>
+    move(<span style="font-weight: bold; font-style: italic;">S</span>, <span style="font-weight: bold; font-style: italic;">S2</span>),
+    <span style="font-weight: bold; font-style: italic;">% ensure the resulting state is new</span>
+    \+member(<span style="font-weight: bold; font-style: italic;">S2</span>, <span style="font-weight: bold; font-style: italic;">Checked</span>),
+    <span style="font-weight: bold; font-style: italic;">% and that this state leads to the goal</span>
+    dfs(<span style="font-weight: bold; font-style: italic;">S2</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">S2</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">Checked</span><span style="font-weight: bold;">]</span>, <span style="font-weight: bold; font-style: italic;">Path</span>).
 </pre>
 
 
@@ -285,8 +285,8 @@ Let&rsquo;s try it:
 
 
 
-<pre class="src src-prolog">?- dfs(<span style="color: #a020f0;">[</span>1,2,3, 0,4,5, 6,7,8<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[]</span>, <span style="color: #a0522d;">Path</span>).
-<span style="color: #a0522d;">Path</span> = <span style="color: #a020f0;">[[</span>1, 2, 3, 4, 0, 5, 6, 7<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]]</span> .
+<pre class="src src-prolog">?- dfs(<span style="font-weight: bold;">[</span>1,2,3, 0,4,5, 6,7,8<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[]</span>, <span style="font-weight: bold; font-style: italic;">Path</span>).
+<span style="font-weight: bold; font-style: italic;">Path</span> = <span style="font-weight: bold;">[[</span>1, 2, 3, 4, 0, 5, 6, 7<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]]</span> .
 </pre>
 
 
@@ -302,9 +302,9 @@ repeated states).
 
 
 
-<pre class="src src-prolog">?- dfs(<span style="color: #a020f0;">[</span>1,2,3, 4,7,5, 6,0,8<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[]</span>, <span style="color: #a0522d;">Path</span>), length(<span style="color: #a0522d;">Path</span>, <span style="color: #a0522d;">N</span>).
-<span style="color: #a0522d;">Path</span> = <span style="color: #a020f0;">[[</span>1, 2, 3, 4, 0, 5, 6, 7<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>1, 2, 3, 0, 4, 5, 6<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>0, 2, 3, 1, 4, 5<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>2, 0, 3, 1, 4<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>2, 3, 0, 1<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>2, 3, 5<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>2, 3<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>2<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span>...<span style="color: #a020f0;">|</span>...<span style="color: #a020f0;">]|</span>...<span style="color: #a020f0;">]</span>,
-<span style="color: #a0522d;">N</span> = 23759 .
+<pre class="src src-prolog">?- dfs(<span style="font-weight: bold;">[</span>1,2,3, 4,7,5, 6,0,8<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[]</span>, <span style="font-weight: bold; font-style: italic;">Path</span>), length(<span style="font-weight: bold; font-style: italic;">Path</span>, <span style="font-weight: bold; font-style: italic;">N</span>).
+<span style="font-weight: bold; font-style: italic;">Path</span> = <span style="font-weight: bold;">[[</span>1, 2, 3, 4, 0, 5, 6, 7<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>1, 2, 3, 0, 4, 5, 6<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>0, 2, 3, 1, 4, 5<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>2, 0, 3, 1, 4<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>2, 3, 0, 1<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>2, 3, 5<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>2, 3<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>2<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span>...<span style="font-weight: bold;">|</span>...<span style="font-weight: bold;">]|</span>...<span style="font-weight: bold;">]</span>,
+<span style="font-weight: bold; font-style: italic;">N</span> = 23759 .
 </pre>
 
 
@@ -334,19 +334,19 @@ monsters). Let&rsquo;s start with some room descriptions:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">room</span>(garden, <span style="color: #8b2252;">'Garden'</span>, <span style="color: #8b2252;">'You are in the Garden. The trees and shrubs appear...'</span>).
-<span style="color: #0000ff;">room</span>(hallway, <span style="color: #8b2252;">'Hallway'</span>, <span style="color: #8b2252;">'You are in the Hallway. Dusty broken lamps and flower pots...'</span>).
-<span style="color: #0000ff;">room</span>(kitchen, <span style="color: #8b2252;">'Kitchen'</span>, <span style="color: #8b2252;">'You are in the kitchen. Knives, pots, pans, ...'</span>).
-<span style="color: #0000ff;">room</span>(library, <span style="color: #8b2252;">'Library'</span>, <span style="color: #8b2252;">'You are among many books in the Library...'</span>).
-<span style="color: #0000ff;">room</span>(lair, <span style="color: #8b2252;">'Lair'</span>, <span style="color: #8b2252;">'You have found an apparently quite evil lair, of all things...'</span>).
-<span style="color: #0000ff;">connected</span>(north, library, hallway).
-<span style="color: #0000ff;">connected</span>(south, hallway, library).
-<span style="color: #0000ff;">connected</span>(down, library, lair).
-<span style="color: #0000ff;">connected</span>(up, lair, library).
-<span style="color: #0000ff;">connected</span>(west, library, garden).
-<span style="color: #0000ff;">connected</span>(east, garden, library).
-<span style="color: #0000ff;">connected</span>(west, hallway, kitchen).
-<span style="color: #0000ff;">connected</span>(east, kitchen, hallway).
+<pre class="src src-prolog"><span style="font-weight: bold;">room</span>(garden, <span style="font-style: italic;">'Garden'</span>, <span style="font-style: italic;">'You are in the Garden. The trees and shrubs appear...'</span>).
+<span style="font-weight: bold;">room</span>(hallway, <span style="font-style: italic;">'Hallway'</span>, <span style="font-style: italic;">'You are in the Hallway. Dusty broken lamps and flower pots...'</span>).
+<span style="font-weight: bold;">room</span>(kitchen, <span style="font-style: italic;">'Kitchen'</span>, <span style="font-style: italic;">'You are in the kitchen. Knives, pots, pans, ...'</span>).
+<span style="font-weight: bold;">room</span>(library, <span style="font-style: italic;">'Library'</span>, <span style="font-style: italic;">'You are among many books in the Library...'</span>).
+<span style="font-weight: bold;">room</span>(lair, <span style="font-style: italic;">'Lair'</span>, <span style="font-style: italic;">'You have found an apparently quite evil lair, of all things...'</span>).
+<span style="font-weight: bold;">connected</span>(north, library, hallway).
+<span style="font-weight: bold;">connected</span>(south, hallway, library).
+<span style="font-weight: bold;">connected</span>(down, library, lair).
+<span style="font-weight: bold;">connected</span>(up, lair, library).
+<span style="font-weight: bold;">connected</span>(west, library, garden).
+<span style="font-weight: bold;">connected</span>(east, garden, library).
+<span style="font-weight: bold;">connected</span>(west, hallway, kitchen).
+<span style="font-weight: bold;">connected</span>(east, kitchen, hallway).
 </pre>
 
 
@@ -357,12 +357,12 @@ printed:
 
 
 
-<pre class="src src-prolog"><span style="color: #b22222;">% </span><span style="color: #b22222;">this predicate has no inputs</span>
-<span style="color: #0000ff;">print_location</span> :-
-    current_room(<span style="color: #a0522d;">Current</span>),
-    room(<span style="color: #a0522d;">Current</span>, <span style="color: #a0522d;">Name</span>, <span style="color: #a0522d;">Description</span>),
-    <span style="color: #b22222;">% nl means </span><span style="color: #b22222;">"newline"</span>
-    print(<span style="color: #a0522d;">Name</span>), nl, print(<span style="color: #a0522d;">Description</span>), nl.    
+<pre class="src src-prolog"><span style="font-weight: bold; font-style: italic;">% </span><span style="font-weight: bold; font-style: italic;">this predicate has no inputs</span>
+<span style="font-weight: bold;">print_location</span> :-
+    current_room(<span style="font-weight: bold; font-style: italic;">Current</span>),
+    room(<span style="font-weight: bold; font-style: italic;">Current</span>, <span style="font-weight: bold; font-style: italic;">Name</span>, <span style="font-weight: bold; font-style: italic;">Description</span>),
+    <span style="font-weight: bold; font-style: italic;">% nl means </span><span style="font-weight: bold; font-style: italic;">"newline"</span>
+    print(<span style="font-weight: bold; font-style: italic;">Name</span>), nl, print(<span style="font-weight: bold; font-style: italic;">Description</span>), nl.    
 </pre>
 
 
@@ -387,7 +387,7 @@ so we put this in our file:
 
 
 
-<pre class="src src-prolog">:- <span style="color: #483d8b;">dynamic</span> <span style="color: #0000ff;">current_room/1</span>.
+<pre class="src src-prolog">:- <span style="font-weight: bold;">dynamic</span> <span style="font-weight: bold;">current_room/1</span>.
 </pre>
 
 
@@ -397,10 +397,10 @@ Now we can define a change room predicate:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">change_room</span>(<span style="color: #a0522d;">NewRoom</span>) :-
-    current_room(<span style="color: #a0522d;">Current</span>),
-    retract(current_room(<span style="color: #a0522d;">Current</span>)),
-    assertz(current_room(<span style="color: #a0522d;">NewRoom</span>)).
+<pre class="src src-prolog"><span style="font-weight: bold;">change_room</span>(<span style="font-weight: bold; font-style: italic;">NewRoom</span>) :-
+    current_room(<span style="font-weight: bold; font-style: italic;">Current</span>),
+    retract(current_room(<span style="font-weight: bold; font-style: italic;">Current</span>)),
+    assertz(current_room(<span style="font-weight: bold; font-style: italic;">NewRoom</span>)).
 </pre>
 
 
@@ -411,42 +411,42 @@ word &ldquo;go&rdquo; followed by a direction:
 
 
 
-<pre class="src src-prolog">:- <span style="color: #483d8b;">use_module</span>(library(readln)).
+<pre class="src src-prolog">:- <span style="font-weight: bold;">use_module</span>(library(readln)).
 
-:- prompt(<span style="color: #a0522d;">_</span>, <span style="color: #8b2252;">'Type a command (or '</span><span style="color: #8b2252;">'help</span><span style="color: #8b2252;">''</span><span style="color: #8b2252;">): '</span>).
+:- prompt(<span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-style: italic;">'Type a command (or '</span><span style="font-style: italic;">'help</span><span style="font-style: italic;">''</span><span style="font-style: italic;">): '</span>).
 
-<span style="color: #0000ff;">strip_punctuation</span>(<span style="color: #a020f0;">[]</span>, <span style="color: #a020f0;">[]</span>).
+<span style="font-weight: bold;">strip_punctuation</span>(<span style="font-weight: bold;">[]</span>, <span style="font-weight: bold;">[]</span>).
 
-<span style="color: #0000ff;">strip_punctuation</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">Word</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">Tail</span><span style="color: #a020f0;">]</span>, <span style="color: #a020f0;">[</span><span style="color: #a0522d;">Word</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">Result</span><span style="color: #a020f0;">]</span>) :-
-    \+(member(<span style="color: #a0522d;">Word</span>, <span style="color: #a020f0;">[</span><span style="color: #8b2252;">'.'</span>, <span style="color: #8b2252;">','</span>, <span style="color: #8b2252;">'?'</span>, <span style="color: #8b2252;">'!'</span><span style="color: #a020f0;">]</span>)),
-    strip_punctuation(<span style="color: #a0522d;">Tail</span>, <span style="color: #a0522d;">Result</span>).
+<span style="font-weight: bold;">strip_punctuation</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">Word</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">Tail</span><span style="font-weight: bold;">]</span>, <span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">Word</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">Result</span><span style="font-weight: bold;">]</span>) :-
+    \+(member(<span style="font-weight: bold; font-style: italic;">Word</span>, <span style="font-weight: bold;">[</span><span style="font-style: italic;">'.'</span>, <span style="font-style: italic;">','</span>, <span style="font-style: italic;">'?'</span>, <span style="font-style: italic;">'!'</span><span style="font-weight: bold;">]</span>)),
+    strip_punctuation(<span style="font-weight: bold; font-style: italic;">Tail</span>, <span style="font-weight: bold; font-style: italic;">Result</span>).
 
-<span style="color: #0000ff;">strip_punctuation</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">_</span><span style="color: #a020f0;">|</span><span style="color: #a0522d;">Tail</span><span style="color: #a020f0;">]</span>, <span style="color: #a0522d;">Result</span>) :-
-    strip_punctuation(<span style="color: #a0522d;">Tail</span>, <span style="color: #a0522d;">Result</span>).
+<span style="font-weight: bold;">strip_punctuation</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">|</span><span style="font-weight: bold; font-style: italic;">Tail</span><span style="font-weight: bold;">]</span>, <span style="font-weight: bold; font-style: italic;">Result</span>) :-
+    strip_punctuation(<span style="font-weight: bold; font-style: italic;">Tail</span>, <span style="font-weight: bold; font-style: italic;">Result</span>).
 
-<span style="color: #0000ff;">read_sentence</span>(<span style="color: #a0522d;">Input</span>) :-
-    <span style="color: #b22222;">% this is a special predicate from the readln library</span>
-    readln(<span style="color: #a0522d;">Input1</span>, <span style="color: #a0522d;">_</span>, <span style="color: #8b2252;">".!?"</span>, <span style="color: #8b2252;">"_0123456789"</span>, lowercase),
-    strip_punctuation(<span style="color: #a0522d;">Input1</span>, <span style="color: #a0522d;">Input</span>).
+<span style="font-weight: bold;">read_sentence</span>(<span style="font-weight: bold; font-style: italic;">Input</span>) :-
+    <span style="font-weight: bold; font-style: italic;">% this is a special predicate from the readln library</span>
+    readln(<span style="font-weight: bold; font-style: italic;">Input1</span>, <span style="font-weight: bold; font-style: italic;">_</span>, <span style="font-style: italic;">".!?"</span>, <span style="font-style: italic;">"_0123456789"</span>, lowercase),
+    strip_punctuation(<span style="font-weight: bold; font-style: italic;">Input1</span>, <span style="font-weight: bold; font-style: italic;">Input</span>).
 
-<span style="color: #0000ff;">get_input</span> :- read_sentence(<span style="color: #a0522d;">Input</span>), get_input(<span style="color: #a0522d;">Input</span>).
-<span style="color: #0000ff;">get_input</span>(<span style="color: #a020f0;">[</span>quit<span style="color: #a020f0;">]</span>).
-<span style="color: #0000ff;">get_input</span>(<span style="color: #a0522d;">Input</span>) :-
-    process_input(<span style="color: #a0522d;">Input</span>), print_location,
-    read_sentence(<span style="color: #a0522d;">Input1</span>), get_input(<span style="color: #a0522d;">Input1</span>).
+<span style="font-weight: bold;">get_input</span> :- read_sentence(<span style="font-weight: bold; font-style: italic;">Input</span>), get_input(<span style="font-weight: bold; font-style: italic;">Input</span>).
+<span style="font-weight: bold;">get_input</span>(<span style="font-weight: bold;">[</span>quit<span style="font-weight: bold;">]</span>).
+<span style="font-weight: bold;">get_input</span>(<span style="font-weight: bold; font-style: italic;">Input</span>) :-
+    process_input(<span style="font-weight: bold; font-style: italic;">Input</span>), print_location,
+    read_sentence(<span style="font-weight: bold; font-style: italic;">Input1</span>), get_input(<span style="font-weight: bold; font-style: italic;">Input1</span>).
 
-<span style="color: #0000ff;">process_input</span>(<span style="color: #a020f0;">[</span>help<span style="color: #a020f0;">]</span>) :- print(<span style="color: #8b2252;">'Help...'</span>), nl.
+<span style="font-weight: bold;">process_input</span>(<span style="font-weight: bold;">[</span>help<span style="font-weight: bold;">]</span>) :- print(<span style="font-style: italic;">'Help...'</span>), nl.
 
-<span style="color: #0000ff;">process_input</span>(<span style="color: #a020f0;">[</span>go, <span style="color: #a0522d;">Direction</span><span style="color: #a020f0;">]</span>) :-
-    current_room(<span style="color: #a0522d;">Current</span>),
-    connected(<span style="color: #a0522d;">Direction</span>, <span style="color: #a0522d;">Current</span>, <span style="color: #a0522d;">NewRoom</span>),
-    change_room(<span style="color: #a0522d;">NewRoom</span>).
+<span style="font-weight: bold;">process_input</span>(<span style="font-weight: bold;">[</span>go, <span style="font-weight: bold; font-style: italic;">Direction</span><span style="font-weight: bold;">]</span>) :-
+    current_room(<span style="font-weight: bold; font-style: italic;">Current</span>),
+    connected(<span style="font-weight: bold; font-style: italic;">Direction</span>, <span style="font-weight: bold; font-style: italic;">Current</span>, <span style="font-weight: bold; font-style: italic;">NewRoom</span>),
+    change_room(<span style="font-weight: bold; font-style: italic;">NewRoom</span>).
 
-<span style="color: #0000ff;">process_input</span>(<span style="color: #a020f0;">[</span>go, <span style="color: #a0522d;">_</span><span style="color: #a020f0;">]</span>) :-
-    print(<span style="color: #8b2252;">'No exit that direction.'</span>), nl.
+<span style="font-weight: bold;">process_input</span>(<span style="font-weight: bold;">[</span>go, <span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">]</span>) :-
+    print(<span style="font-style: italic;">'No exit that direction.'</span>), nl.
 
-<span style="color: #0000ff;">process_input</span>(<span style="color: #a020f0;">[</span><span style="color: #a0522d;">_</span><span style="color: #a020f0;">]</span>) :-
-    print(<span style="color: #8b2252;">'Huh?'</span>), nl, nl.
+<span style="font-weight: bold;">process_input</span>(<span style="font-weight: bold;">[</span><span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">]</span>) :-
+    print(<span style="font-style: italic;">'Huh?'</span>), nl, nl.
 </pre>
 
 
@@ -456,8 +456,8 @@ Finally, we define a <code>play</code> predicate that starts the whole thing:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">play</span> :-
-    retractall(current_room(<span style="color: #a0522d;">_</span>)),
+<pre class="src src-prolog"><span style="font-weight: bold;">play</span> :-
+    retractall(current_room(<span style="font-weight: bold; font-style: italic;">_</span>)),
     assertz(current_room(library)),
     print_location,
     get_input.
@@ -505,7 +505,7 @@ predicate is dynamic (will be asserted and retracted):
 
 
 
-<pre class="src src-prolog">:- <span style="color: #483d8b;">dynamic</span> <span style="color: #0000ff;">toggled/1</span>.
+<pre class="src src-prolog">:- <span style="font-weight: bold;">dynamic</span> <span style="font-weight: bold;">toggled/1</span>.
 </pre>
 
 
@@ -515,15 +515,15 @@ We&rsquo;ll also add support for typing &ldquo;toggle switch15&rdquo; or whateve
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">process_input</span>(<span style="color: #a020f0;">[</span>toggle, <span style="color: #a0522d;">Switch</span><span style="color: #a020f0;">]</span>) :-
-    toggle(<span style="color: #a0522d;">Switch</span>),
-    <span style="color: #b22222;">% retrieve a set of switches that have been toggled</span>
-    setof(<span style="color: #a0522d;">X</span>, toggled(<span style="color: #a0522d;">X</span>), <span style="color: #a0522d;">Switches</span>),
-    <span style="color: #b22222;">% print these</span>
-    print(<span style="color: #8b2252;">'Toggled switches: '</span>), print(<span style="color: #a0522d;">Switches</span>), nl.
+<pre class="src src-prolog"><span style="font-weight: bold;">process_input</span>(<span style="font-weight: bold;">[</span>toggle, <span style="font-weight: bold; font-style: italic;">Switch</span><span style="font-weight: bold;">]</span>) :-
+    toggle(<span style="font-weight: bold; font-style: italic;">Switch</span>),
+    <span style="font-weight: bold; font-style: italic;">% retrieve a set of switches that have been toggled</span>
+    setof(<span style="font-weight: bold; font-style: italic;">X</span>, toggled(<span style="font-weight: bold; font-style: italic;">X</span>), <span style="font-weight: bold; font-style: italic;">Switches</span>),
+    <span style="font-weight: bold; font-style: italic;">% print these</span>
+    print(<span style="font-style: italic;">'Toggled switches: '</span>), print(<span style="font-weight: bold; font-style: italic;">Switches</span>), nl.
 
-<span style="color: #0000ff;">process_input</span>(<span style="color: #a020f0;">[</span>toggle, <span style="color: #a0522d;">_</span><span style="color: #a020f0;">]</span>) :-
-    print(<span style="color: #8b2252;">'Cannot toggle that switch.'</span>), nl.
+<span style="font-weight: bold;">process_input</span>(<span style="font-weight: bold;">[</span>toggle, <span style="font-weight: bold; font-style: italic;">_</span><span style="font-weight: bold;">]</span>) :-
+    print(<span style="font-style: italic;">'Cannot toggle that switch.'</span>), nl.
 </pre>
 
 
@@ -535,11 +535,11 @@ requires that switch 2 is already toggled.
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">toggle</span>(switch1) :- assertz(toggled(switch1)).
+<pre class="src src-prolog"><span style="font-weight: bold;">toggle</span>(switch1) :- assertz(toggled(switch1)).
 
-<span style="color: #0000ff;">toggle</span>(switch2) :- toggled(switch1), assertz(toggled(switch2)).
+<span style="font-weight: bold;">toggle</span>(switch2) :- toggled(switch1), assertz(toggled(switch2)).
 
-<span style="color: #0000ff;">toggle</span>(switch3) :- toggled(switch2), assertz(toggled(switch3)).
+<span style="font-weight: bold;">toggle</span>(switch3) :- toggled(switch2), assertz(toggled(switch3)).
 </pre>
 
 
@@ -551,7 +551,7 @@ replace it with this one):
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">connected</span>(down, library, lair) :- toggled(switch3).
+<pre class="src src-prolog"><span style="font-weight: bold;">connected</span>(down, library, lair) :- toggled(switch3).
 </pre>
 
 
@@ -562,8 +562,8 @@ we start the game:
 
 
 
-<pre class="src src-prolog"><span style="color: #0000ff;">play</span> :-
-    retractall(current_room(<span style="color: #a0522d;">_</span>)), retractall(toggled(<span style="color: #a0522d;">_</span>)),
+<pre class="src src-prolog"><span style="font-weight: bold;">play</span> :-
+    retractall(current_room(<span style="font-weight: bold; font-style: italic;">_</span>)), retractall(toggled(<span style="font-weight: bold; font-style: italic;">_</span>)),
     assertz(current_room(library)),
     print_location,
     get_input.

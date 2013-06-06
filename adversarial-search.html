@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Adversarial search"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-05 01:02:26 EDT"/>
+<meta name="generated" content="2013-06-06 13:57:26 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -100,20 +100,23 @@
 
 <blockquote>
 
-<p>&ldquo;It was a watershed event, but it doesn&rsquo;t have to do with computers
+
+<p>
+&ldquo;It was a watershed event, but it doesn&rsquo;t have to do with computers
 becoming intelligent,&rdquo; said Douglas Hofstadter, a professor of
 computer science at Indiana University and author of several books
 about human intelligence, including <i>Gödel, Escher, Bach</i>, which won a
 Pulitzer Prize in 1980, with its witty argument about the connecting
 threads of intellect in various fields of expression. &ldquo;They&rsquo;re just
 overtaking humans in certain intellectual activities that we thought
-required intelligence. My God, I used to think chess required
-thought. Now, I realize it doesn&rsquo;t. It doesn&rsquo;t mean Kasparov isn&rsquo;t a
-deep thinker, just that you can bypass deep thinking in playing chess,
-the way you can fly without flapping your wings.&rdquo; &mdash; Bruce Weber,
-&ldquo;<a href="http://www.rci.rutgers.edu/~cfs/472_html/Intro/NYT_Intro/ChessMatch/MeanChessPlaying.html">Mean Chess-Playing Computer Tears at Meaning of Thought</a>,&rdquo; The New
-York Times, Feb 19, 1996
+required intelligence. My God, I used to think chess required thought.
+Now, I realize it doesn&rsquo;t. It doesn&rsquo;t mean Kasparov isn&rsquo;t a deep
+thinker, just that you can bypass deep thinking in playing chess, the
+way you can fly without flapping your wings.&rdquo; &mdash; Bruce Weber,
+&ldquo;<a href="http://www.rci.rutgers.edu/~cfs/472_html/Intro/NYT_Intro/ChessMatch/MeanChessPlaying.html">Mean Chess-Playing Computer Tears at Meaning of Thought</a>,&rdquo; The New York
+Times, Feb 19, 1996
 </p>
+
 </blockquote>
 
 
@@ -299,6 +302,8 @@ CODEBASE="http://active.macromedia.com/flash5/cabs/swflash.cab#version=5,0,0,0">
 PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"> 
 </EMBED>
 </OBJECT>
+<br/>
+<a href="./images/ttt-minimax-example.png">View final image</a>
 </div>
 
 
@@ -312,59 +317,59 @@ PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Vers
 
 
 
-<pre class="src src-python"><span style="color: #a020f0;">def</span> <span style="color: #0000ff;">minimax</span>(state):
-    max_trans = <span style="color: #008b8b;">None</span>
-    max_u = <span style="color: #008b8b;">None</span>
-    transitions = possible_transitions(state, <span style="color: #8b2252;">'x'</span>)
-    <span style="color: #b22222;"># Find the transition (move) that provides the maximum</span>
-    <span style="color: #b22222;"># utility, assuming the opponent also makes a best move</span>
-    <span style="color: #a020f0;">for</span> trans, nextstate <span style="color: #a020f0;">in</span> transitions.iteritems():
-        <span style="color: #b22222;"># after making our move, find the best move the</span>
-        <span style="color: #b22222;"># opponent can make (best for opponent = worse for us;</span>
-        <span style="color: #b22222;"># if we consider the opponent winning as negative</span>
-        <span style="color: #b22222;"># utility, we want to find the minimum utility move</span>
-        <span style="color: #b22222;"># of the opponent's possible moves)</span>
-        u = min_utility(nextstate, <span style="color: #8b2252;">'o'</span>)
-        <span style="color: #a020f0;">if</span> max_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &gt; max_u:
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">minimax</span>(state):
+    max_trans = <span style="font-weight: bold; text-decoration: underline;">None</span>
+    max_u = <span style="font-weight: bold; text-decoration: underline;">None</span>
+    transitions = possible_transitions(state, <span style="font-style: italic;">'x'</span>)
+    <span style="font-weight: bold; font-style: italic;"># Find the transition (move) that provides the maximum</span>
+    <span style="font-weight: bold; font-style: italic;"># utility, assuming the opponent also makes a best move</span>
+    <span style="font-weight: bold;">for</span> trans, nextstate <span style="font-weight: bold;">in</span> transitions.iteritems():
+        <span style="font-weight: bold; font-style: italic;"># after making our move, find the best move the</span>
+        <span style="font-weight: bold; font-style: italic;"># opponent can make (best for opponent = worse for us;</span>
+        <span style="font-weight: bold; font-style: italic;"># if we consider the opponent winning as negative</span>
+        <span style="font-weight: bold; font-style: italic;"># utility, we want to find the minimum utility move</span>
+        <span style="font-weight: bold; font-style: italic;"># of the opponent's possible moves)</span>
+        u = min_utility(nextstate, <span style="font-style: italic;">'o'</span>)
+        <span style="font-weight: bold;">if</span> max_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &gt; max_u:
             max_trans = trans
             max_u = u
-    <span style="color: #a020f0;">return</span> max_trans
+    <span style="font-weight: bold;">return</span> max_trans
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">min_utility</span>(state, player):
-    <span style="color: #b22222;"># if the current state is a win/loss/tie, stop searching</span>
-    <span style="color: #a020f0;">if</span> is_winning(state, player) <span style="color: #a020f0;">or</span> \
-            is_winning(state, switch_player(player)) <span style="color: #a020f0;">or</span> \
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">min_utility</span>(state, player):
+    <span style="font-weight: bold; font-style: italic;"># if the current state is a win/loss/tie, stop searching</span>
+    <span style="font-weight: bold;">if</span> is_winning(state, player) <span style="font-weight: bold;">or</span> \
+            is_winning(state, switch_player(player)) <span style="font-weight: bold;">or</span> \
             is_tie(state):
-        <span style="color: #a020f0;">return</span> utility(state, <span style="color: #8b2252;">'x'</span>)
-    <span style="color: #a020f0;">else</span>:
+        <span style="font-weight: bold;">return</span> utility(state, <span style="font-style: italic;">'x'</span>)
+    <span style="font-weight: bold;">else</span>:
         transitions = possible_transitions(state, player)
-        min_u = <span style="color: #008b8b;">None</span>
-        <span style="color: #a020f0;">for</span> nextstate <span style="color: #a020f0;">in</span> transitions.values():
-            <span style="color: #b22222;"># after making a move (current player is in the</span>
-            <span style="color: #b22222;"># "player" variable), find the minimum next</span>
-            <span style="color: #b22222;"># move and return its utility</span>
+        min_u = <span style="font-weight: bold; text-decoration: underline;">None</span>
+        <span style="font-weight: bold;">for</span> nextstate <span style="font-weight: bold;">in</span> transitions.values():
+            <span style="font-weight: bold; font-style: italic;"># after making a move (current player is in the</span>
+            <span style="font-weight: bold; font-style: italic;"># "player" variable), find the minimum next</span>
+            <span style="font-weight: bold; font-style: italic;"># move and return its utility</span>
             u = max_utility(nextstate, switch_player(player))
-            <span style="color: #a020f0;">if</span> min_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &lt; min_u:
+            <span style="font-weight: bold;">if</span> min_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &lt; min_u:
                 min_u = u
-        <span style="color: #a020f0;">return</span> min_u
+        <span style="font-weight: bold;">return</span> min_u
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">max_utility</span>(state, player):
-    <span style="color: #b22222;"># if the current state is a win/loss/tie, stop searching</span>
-    <span style="color: #a020f0;">if</span> is_winning(state, player) <span style="color: #a020f0;">or</span> \
-            is_winning(state, switch_player(player)) <span style="color: #a020f0;">or</span> \
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">max_utility</span>(state, player):
+    <span style="font-weight: bold; font-style: italic;"># if the current state is a win/loss/tie, stop searching</span>
+    <span style="font-weight: bold;">if</span> is_winning(state, player) <span style="font-weight: bold;">or</span> \
+            is_winning(state, switch_player(player)) <span style="font-weight: bold;">or</span> \
             is_tie(state):
-        <span style="color: #a020f0;">return</span> utility(state, <span style="color: #8b2252;">'x'</span>)
-    <span style="color: #a020f0;">else</span>:
+        <span style="font-weight: bold;">return</span> utility(state, <span style="font-style: italic;">'x'</span>)
+    <span style="font-weight: bold;">else</span>:
         transitions = possible_transitions(state, player)
-        max_u = <span style="color: #008b8b;">None</span>
-        <span style="color: #a020f0;">for</span> nextstate <span style="color: #a020f0;">in</span> transitions.values():
-            <span style="color: #b22222;"># after making a move (current player is in the</span>
-            <span style="color: #b22222;"># "player" variable), find the maximum next</span>
-            <span style="color: #b22222;"># move and return its utility</span>
+        max_u = <span style="font-weight: bold; text-decoration: underline;">None</span>
+        <span style="font-weight: bold;">for</span> nextstate <span style="font-weight: bold;">in</span> transitions.values():
+            <span style="font-weight: bold; font-style: italic;"># after making a move (current player is in the</span>
+            <span style="font-weight: bold; font-style: italic;"># "player" variable), find the maximum next</span>
+            <span style="font-weight: bold; font-style: italic;"># move and return its utility</span>
             u = min_utility(nextstate, switch_player(player))
-            <span style="color: #a020f0;">if</span> max_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &gt; max_u:
+            <span style="font-weight: bold;">if</span> max_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &gt; max_u:
                 max_u = u
-        <span style="color: #a020f0;">return</span> max_u
+        <span style="font-weight: bold;">return</span> max_u
 </pre>
 
 
@@ -385,37 +390,37 @@ shown here, however.
 
 
 
-<pre class="src src-python"><span style="color: #a020f0;">def</span> <span style="color: #0000ff;">switch_player</span>(player):
-    <span style="color: #a020f0;">if</span> player == <span style="color: #8b2252;">'x'</span>: <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">'o'</span>
-    <span style="color: #a020f0;">else</span>: <span style="color: #a020f0;">return</span> <span style="color: #8b2252;">'x'</span>
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">switch_player</span>(player):
+    <span style="font-weight: bold;">if</span> player == <span style="font-style: italic;">'x'</span>: <span style="font-weight: bold;">return</span> <span style="font-style: italic;">'o'</span>
+    <span style="font-weight: bold;">else</span>: <span style="font-weight: bold;">return</span> <span style="font-style: italic;">'x'</span>
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">is_winning</span>(state, player):
-    winning = <span style="color: #a020f0;">False</span>
-    <span style="color: #a020f0;">for</span> i <span style="color: #a020f0;">in</span> [0,1,2]:
-        <span style="color: #a020f0;">if</span> state[i][0] == state[i][1] == state[i][2] == player:
-            winning = <span style="color: #a020f0;">True</span>
-    <span style="color: #a020f0;">for</span> j <span style="color: #a020f0;">in</span> [0,1,2]:
-        <span style="color: #a020f0;">if</span> state[0][j] == state[1][j] == state[2][j] == player:
-            winning = <span style="color: #a020f0;">True</span>
-    <span style="color: #a020f0;">if</span> state[0][0] == state[1][1] == state[2][2] == player:
-        winning = <span style="color: #a020f0;">True</span>
-    <span style="color: #a020f0;">if</span> state[0][2] == state[1][1] == state[2][0] == player:
-        winning = <span style="color: #a020f0;">True</span>
-    <span style="color: #a020f0;">return</span> winning
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">is_winning</span>(state, player):
+    winning = <span style="font-weight: bold;">False</span>
+    <span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> [0,1,2]:
+        <span style="font-weight: bold;">if</span> state[i][0] == state[i][1] == state[i][2] == player:
+            winning = <span style="font-weight: bold;">True</span>
+    <span style="font-weight: bold;">for</span> j <span style="font-weight: bold;">in</span> [0,1,2]:
+        <span style="font-weight: bold;">if</span> state[0][j] == state[1][j] == state[2][j] == player:
+            winning = <span style="font-weight: bold;">True</span>
+    <span style="font-weight: bold;">if</span> state[0][0] == state[1][1] == state[2][2] == player:
+        winning = <span style="font-weight: bold;">True</span>
+    <span style="font-weight: bold;">if</span> state[0][2] == state[1][1] == state[2][0] == player:
+        winning = <span style="font-weight: bold;">True</span>
+    <span style="font-weight: bold;">return</span> winning
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">is_tie</span>(state):
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">is_tie</span>(state):
     blanks = 0
-    <span style="color: #a020f0;">for</span> i <span style="color: #a020f0;">in</span> [0,1,2]:
-        <span style="color: #a020f0;">for</span> j <span style="color: #a020f0;">in</span> [0,1,2]:
-            <span style="color: #a020f0;">if</span> state[i][j] == <span style="color: #8b2252;">' '</span>: blanks += 1
-    <span style="color: #a020f0;">return</span>(blanks == 0 <span style="color: #a020f0;">and</span> \
-               <span style="color: #a020f0;">not</span> is_winning(state, <span style="color: #8b2252;">'x'</span>) <span style="color: #a020f0;">and</span> \
-               <span style="color: #a020f0;">not</span> is_winning(state, <span style="color: #8b2252;">'o'</span>))
+    <span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> [0,1,2]:
+        <span style="font-weight: bold;">for</span> j <span style="font-weight: bold;">in</span> [0,1,2]:
+            <span style="font-weight: bold;">if</span> state[i][j] == <span style="font-style: italic;">' '</span>: blanks += 1
+    <span style="font-weight: bold;">return</span>(blanks == 0 <span style="font-weight: bold;">and</span> \
+               <span style="font-weight: bold;">not</span> is_winning(state, <span style="font-style: italic;">'x'</span>) <span style="font-weight: bold;">and</span> \
+               <span style="font-weight: bold;">not</span> is_winning(state, <span style="font-style: italic;">'o'</span>))
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">utility</span>(state, player):
-    <span style="color: #a020f0;">if</span> is_winning(state, player): <span style="color: #a020f0;">return</span> 1
-    <span style="color: #a020f0;">if</span> is_winning(state, switch_player(player)): <span style="color: #a020f0;">return</span> -1
-    <span style="color: #a020f0;">return</span> 0
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">utility</span>(state, player):
+    <span style="font-weight: bold;">if</span> is_winning(state, player): <span style="font-weight: bold;">return</span> 1
+    <span style="font-weight: bold;">if</span> is_winning(state, switch_player(player)): <span style="font-weight: bold;">return</span> -1
+    <span style="font-weight: bold;">return</span> 0
 </pre>
 
 
@@ -448,15 +453,15 @@ and <code>minimax</code> functions as well):
 
 
 
-<pre class="src src-python"><span style="color: #a0522d;">min_u</span> = <span style="color: #008b8b;">None</span>
-<span style="color: #a020f0;">for</span> nextstate <span style="color: #a020f0;">in</span> transitions.values():
-    <span style="color: #b22222;"># after making a move (current player is in the</span>
-    <span style="color: #b22222;"># "player" variable), find the minimum next</span>
-    <span style="color: #b22222;"># move and return its utility</span>
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">min_u</span> = <span style="font-weight: bold; text-decoration: underline;">None</span>
+<span style="font-weight: bold;">for</span> nextstate <span style="font-weight: bold;">in</span> transitions.values():
+    <span style="font-weight: bold; font-style: italic;"># after making a move (current player is in the</span>
+    <span style="font-weight: bold; font-style: italic;"># "player" variable), find the minimum next</span>
+    <span style="font-weight: bold; font-style: italic;"># move and return its utility</span>
     u = max_utility(nextstate, switch_player(player))
-    <span style="color: #a020f0;">if</span> min_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &lt; min_u:
+    <span style="font-weight: bold;">if</span> min_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &lt; min_u:
         min_u = u
-<span style="color: #a020f0;">return</span> min_u
+<span style="font-weight: bold;">return</span> min_u
 </pre>
 
 
@@ -513,6 +518,10 @@ simply does not bother checking subtrees when it is certain those
 subtrees will not change the answer produced by minimax.
 </p>
 <p>
+Check out the <a href="./images/ttt-alphabeta-example.png">final search graph</a> of another tic-tac-toe example, this time with alpha-beta
+pruning. For comparison, <a href="./images/ttt-minimax-example-2.png">this is the search graph without alpha-beta pruning</a>.
+</p>
+<p>
 Alpha-beta pruning performs <i>much</i> better than vanilla minimax:
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -547,96 +556,96 @@ pruning:
 
 
 
-<pre class="src src-python"><span style="color: #a020f0;">def</span> <span style="color: #0000ff;">minimax_ab</span>(state):
-    max_trans = <span style="color: #008b8b;">None</span>
-    max_u = <span style="color: #008b8b;">None</span>
-    alpha = <span style="color: #008b8b;">None</span>
-    beta = <span style="color: #008b8b;">None</span>
-    transitions = possible_transitions(state, <span style="color: #8b2252;">'x'</span>)
-    <span style="color: #b22222;"># Find the transition (move) that provides the maximum</span>
-    <span style="color: #b22222;"># utility, assuming the opponent also makes a best move</span>
-    <span style="color: #a020f0;">for</span> trans, nextstate <span style="color: #a020f0;">in</span> transitions.iteritems():
-        <span style="color: #b22222;"># after making our move, find the best move the</span>
-        <span style="color: #b22222;"># opponent can make (best for opponent = worse for us;</span>
-        <span style="color: #b22222;"># if we consider the opponent winning as negative</span>
-        <span style="color: #b22222;"># utility, we want to find the minimum utility move</span>
-        <span style="color: #b22222;"># of the opponent's possible moves)</span>
-        u = min_utility_ab(nextstate, <span style="color: #8b2252;">'o'</span>, alpha, beta)
-        <span style="color: #a020f0;">if</span> max_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &gt; max_u:
+<pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">minimax_ab</span>(state):
+    max_trans = <span style="font-weight: bold; text-decoration: underline;">None</span>
+    max_u = <span style="font-weight: bold; text-decoration: underline;">None</span>
+    alpha = <span style="font-weight: bold; text-decoration: underline;">None</span>
+    beta = <span style="font-weight: bold; text-decoration: underline;">None</span>
+    transitions = possible_transitions(state, <span style="font-style: italic;">'x'</span>)
+    <span style="font-weight: bold; font-style: italic;"># Find the transition (move) that provides the maximum</span>
+    <span style="font-weight: bold; font-style: italic;"># utility, assuming the opponent also makes a best move</span>
+    <span style="font-weight: bold;">for</span> trans, nextstate <span style="font-weight: bold;">in</span> transitions.iteritems():
+        <span style="font-weight: bold; font-style: italic;"># after making our move, find the best move the</span>
+        <span style="font-weight: bold; font-style: italic;"># opponent can make (best for opponent = worse for us;</span>
+        <span style="font-weight: bold; font-style: italic;"># if we consider the opponent winning as negative</span>
+        <span style="font-weight: bold; font-style: italic;"># utility, we want to find the minimum utility move</span>
+        <span style="font-weight: bold; font-style: italic;"># of the opponent's possible moves)</span>
+        u = min_utility_ab(nextstate, <span style="font-style: italic;">'o'</span>, alpha, beta)
+        <span style="font-weight: bold;">if</span> max_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &gt; max_u:
             max_trans = trans
             max_u = u
-        <span style="color: #b22222;"># if the utility we just found is greater than beta, and these</span>
-        <span style="color: #b22222;"># utilities can only get bigger (because we're in a max</span>
-        <span style="color: #b22222;"># stage), then there is no reason to check further</span>
-        <span style="color: #a020f0;">if</span> beta <span style="color: #a020f0;">is</span> <span style="color: #a020f0;">not</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">and</span> u &gt;= beta:
-            <span style="color: #a020f0;">return</span> trans
-        <span style="color: #b22222;"># if the utility we just found (from the min stage) is greater</span>
-        <span style="color: #b22222;"># than alpha, we found a new greatest min; this will restrict</span>
-        <span style="color: #b22222;"># future searches not to look further if they are minimizing</span>
-        <span style="color: #b22222;"># and they find a utility less than alpha</span>
-        <span style="color: #a020f0;">if</span> alpha <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &gt; alpha:
+        <span style="font-weight: bold; font-style: italic;"># if the utility we just found is greater than beta, and these</span>
+        <span style="font-weight: bold; font-style: italic;"># utilities can only get bigger (because we're in a max</span>
+        <span style="font-weight: bold; font-style: italic;"># stage), then there is no reason to check further</span>
+        <span style="font-weight: bold;">if</span> beta <span style="font-weight: bold;">is</span> <span style="font-weight: bold;">not</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">and</span> u &gt;= beta:
+            <span style="font-weight: bold;">return</span> trans
+        <span style="font-weight: bold; font-style: italic;"># if the utility we just found (from the min stage) is greater</span>
+        <span style="font-weight: bold; font-style: italic;"># than alpha, we found a new greatest min; this will restrict</span>
+        <span style="font-weight: bold; font-style: italic;"># future searches not to look further if they are minimizing</span>
+        <span style="font-weight: bold; font-style: italic;"># and they find a utility less than alpha</span>
+        <span style="font-weight: bold;">if</span> alpha <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &gt; alpha:
             alpha = u
-    <span style="color: #a020f0;">return</span> max_trans
+    <span style="font-weight: bold;">return</span> max_trans
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">min_utility_ab</span>(state, player, alpha, beta):
-    <span style="color: #b22222;"># if the current state is a win/loss/tie, stop searching</span>
-    <span style="color: #a020f0;">if</span> is_winning(state, player) <span style="color: #a020f0;">or</span> \
-            is_winning(state, switch_player(player)) <span style="color: #a020f0;">or</span> \
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">min_utility_ab</span>(state, player, alpha, beta):
+    <span style="font-weight: bold; font-style: italic;"># if the current state is a win/loss/tie, stop searching</span>
+    <span style="font-weight: bold;">if</span> is_winning(state, player) <span style="font-weight: bold;">or</span> \
+            is_winning(state, switch_player(player)) <span style="font-weight: bold;">or</span> \
             is_tie(state):
-        <span style="color: #a020f0;">return</span> utility(state, <span style="color: #8b2252;">'x'</span>)
-    <span style="color: #a020f0;">else</span>:
+        <span style="font-weight: bold;">return</span> utility(state, <span style="font-style: italic;">'x'</span>)
+    <span style="font-weight: bold;">else</span>:
         transitions = possible_transitions(state, player)
-        min_u = <span style="color: #008b8b;">None</span>
-        <span style="color: #a020f0;">for</span> nextstate <span style="color: #a020f0;">in</span> transitions.values():
-            <span style="color: #b22222;"># after making a move (current player is in the</span>
-            <span style="color: #b22222;"># "player" variable), find the minimum next</span>
-            <span style="color: #b22222;"># move and return its utility</span>
+        min_u = <span style="font-weight: bold; text-decoration: underline;">None</span>
+        <span style="font-weight: bold;">for</span> nextstate <span style="font-weight: bold;">in</span> transitions.values():
+            <span style="font-weight: bold; font-style: italic;"># after making a move (current player is in the</span>
+            <span style="font-weight: bold; font-style: italic;"># "player" variable), find the minimum next</span>
+            <span style="font-weight: bold; font-style: italic;"># move and return its utility</span>
             u = max_utility_ab(nextstate, switch_player(player), alpha, beta)
-            <span style="color: #a020f0;">if</span> min_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &lt; min_u:
+            <span style="font-weight: bold;">if</span> min_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &lt; min_u:
                 min_u = u
-            <span style="color: #b22222;"># if the utility we just found is smaller than alpha, and</span>
-            <span style="color: #b22222;"># these utilities can only get smaller (because we're in a</span>
-            <span style="color: #b22222;"># min stage), then there is no reason to check further</span>
-            <span style="color: #a020f0;">if</span> alpha <span style="color: #a020f0;">is</span> <span style="color: #a020f0;">not</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">and</span> u &lt;= alpha:
-                <span style="color: #a020f0;">return</span> u
-            <span style="color: #b22222;"># if the utility we just found (from the max stage) is</span>
-            <span style="color: #b22222;"># smaller than beta, we found a new smallest max; this</span>
-            <span style="color: #b22222;"># will restrict future searches not to look further if</span>
-            <span style="color: #b22222;"># they are maximizing and they find a utility greater than</span>
-            <span style="color: #b22222;"># beta</span>
-            <span style="color: #a020f0;">if</span> beta <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &lt; beta:
+            <span style="font-weight: bold; font-style: italic;"># if the utility we just found is smaller than alpha, and</span>
+            <span style="font-weight: bold; font-style: italic;"># these utilities can only get smaller (because we're in a</span>
+            <span style="font-weight: bold; font-style: italic;"># min stage), then there is no reason to check further</span>
+            <span style="font-weight: bold;">if</span> alpha <span style="font-weight: bold;">is</span> <span style="font-weight: bold;">not</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">and</span> u &lt;= alpha:
+                <span style="font-weight: bold;">return</span> u
+            <span style="font-weight: bold; font-style: italic;"># if the utility we just found (from the max stage) is</span>
+            <span style="font-weight: bold; font-style: italic;"># smaller than beta, we found a new smallest max; this</span>
+            <span style="font-weight: bold; font-style: italic;"># will restrict future searches not to look further if</span>
+            <span style="font-weight: bold; font-style: italic;"># they are maximizing and they find a utility greater than</span>
+            <span style="font-weight: bold; font-style: italic;"># beta</span>
+            <span style="font-weight: bold;">if</span> beta <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &lt; beta:
                 beta = u
-        <span style="color: #a020f0;">return</span> min_u
+        <span style="font-weight: bold;">return</span> min_u
 
-<span style="color: #a020f0;">def</span> <span style="color: #0000ff;">max_utility_ab</span>(state, player, alpha, beta):
-    <span style="color: #b22222;"># if the current state is a win/loss/tie, stop searching</span>
-    <span style="color: #a020f0;">if</span> is_winning(state, player) <span style="color: #a020f0;">or</span> \
-            is_winning(state, switch_player(player)) <span style="color: #a020f0;">or</span> \
+<span style="font-weight: bold;">def</span> <span style="font-weight: bold;">max_utility_ab</span>(state, player, alpha, beta):
+    <span style="font-weight: bold; font-style: italic;"># if the current state is a win/loss/tie, stop searching</span>
+    <span style="font-weight: bold;">if</span> is_winning(state, player) <span style="font-weight: bold;">or</span> \
+            is_winning(state, switch_player(player)) <span style="font-weight: bold;">or</span> \
             is_tie(state):
-        <span style="color: #a020f0;">return</span> utility(state, <span style="color: #8b2252;">'x'</span>)
-    <span style="color: #a020f0;">else</span>:
+        <span style="font-weight: bold;">return</span> utility(state, <span style="font-style: italic;">'x'</span>)
+    <span style="font-weight: bold;">else</span>:
         transitions = possible_transitions(state, player)
-        max_u = <span style="color: #008b8b;">None</span>
-        <span style="color: #a020f0;">for</span> nextstate <span style="color: #a020f0;">in</span> transitions.values():
-            <span style="color: #b22222;"># after making a move (current player is in the</span>
-            <span style="color: #b22222;"># "player" variable), find the maximum next</span>
-            <span style="color: #b22222;"># move and return its utility</span>
+        max_u = <span style="font-weight: bold; text-decoration: underline;">None</span>
+        <span style="font-weight: bold;">for</span> nextstate <span style="font-weight: bold;">in</span> transitions.values():
+            <span style="font-weight: bold; font-style: italic;"># after making a move (current player is in the</span>
+            <span style="font-weight: bold; font-style: italic;"># "player" variable), find the maximum next</span>
+            <span style="font-weight: bold; font-style: italic;"># move and return its utility</span>
             u = min_utility_ab(nextstate, switch_player(player), alpha, beta)
-            <span style="color: #a020f0;">if</span> max_u <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &gt; max_u:
+            <span style="font-weight: bold;">if</span> max_u <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &gt; max_u:
                 max_u = u
-            <span style="color: #b22222;"># if the utility we just found is greater than beta, and</span>
-            <span style="color: #b22222;"># these utilities can only get bigger (because we're in a</span>
-            <span style="color: #b22222;"># max stage), then there is no reason to check further</span>
-            <span style="color: #a020f0;">if</span> beta <span style="color: #a020f0;">is</span> <span style="color: #a020f0;">not</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">and</span> u &gt;= beta:
-                <span style="color: #a020f0;">return</span> u
-            <span style="color: #b22222;"># if the utility we just found (from the min stage) is</span>
-            <span style="color: #b22222;"># greater than alpha, we found a new greatest min; this</span>
-            <span style="color: #b22222;"># will restrict future searches not to look further if</span>
-            <span style="color: #b22222;"># they are minimizing and they find a utility less than</span>
-            <span style="color: #b22222;"># alpha</span>
-            <span style="color: #a020f0;">if</span> alpha <span style="color: #a020f0;">is</span> <span style="color: #008b8b;">None</span> <span style="color: #a020f0;">or</span> u &gt; alpha:
+            <span style="font-weight: bold; font-style: italic;"># if the utility we just found is greater than beta, and</span>
+            <span style="font-weight: bold; font-style: italic;"># these utilities can only get bigger (because we're in a</span>
+            <span style="font-weight: bold; font-style: italic;"># max stage), then there is no reason to check further</span>
+            <span style="font-weight: bold;">if</span> beta <span style="font-weight: bold;">is</span> <span style="font-weight: bold;">not</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">and</span> u &gt;= beta:
+                <span style="font-weight: bold;">return</span> u
+            <span style="font-weight: bold; font-style: italic;"># if the utility we just found (from the min stage) is</span>
+            <span style="font-weight: bold; font-style: italic;"># greater than alpha, we found a new greatest min; this</span>
+            <span style="font-weight: bold; font-style: italic;"># will restrict future searches not to look further if</span>
+            <span style="font-weight: bold; font-style: italic;"># they are minimizing and they find a utility less than</span>
+            <span style="font-weight: bold; font-style: italic;"># alpha</span>
+            <span style="font-weight: bold;">if</span> alpha <span style="font-weight: bold;">is</span> <span style="font-weight: bold; text-decoration: underline;">None</span> <span style="font-weight: bold;">or</span> u &gt; alpha:
                 alpha = u
-        <span style="color: #a020f0;">return</span> max_u
+        <span style="font-weight: bold;">return</span> max_u
 </pre>
 
 
