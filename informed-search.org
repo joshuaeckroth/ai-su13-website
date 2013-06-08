@@ -106,6 +106,8 @@ current state. Also, step ~2.b.~ is modified to choose the best state
 in terms of the chosen heuristic ("climb up the hill" means "maximize
 the heuristic function").
 
+*Note*: hill-climbing may be your best option, /if you are actually climbing a hill./ You can't use breadth-first search, for example, if you are a robot physically navigating around a world, because you can't simply teleport yourself back to a different state that you visited earlier. Instead, you would have to walk back to that earlier state, and the cost might be so high it is better for you to keep climbing from where you are.
+
 * Best-first search
 
 Best-first retains a record of every state that has been visited as
@@ -196,7 +198,25 @@ robot farther from the end of the maze rather than towards the end.
 
 * Comparisons
 
-Here we have the results of some experiments with the 8-puzzle
+Refer to the [[./search.html][search notes]] (at the bottom) for an explanation of the variables $n$ (total possible states), $b$ (branch factor), $d$ (search depth of least-cost solution), and $m$ (maximum search depth, which may be $\infty$).
+
+| Metric | BFS | DFS | Hill-climbing | Best-first | A* |
+|--------+---------------+---------------------+-------------------|
+| Complete? | Yes  | Yes  | No | Yes | Yes |
+| Always optimal? (informed search) | No | No | No | No | Yes |
+| Time complexity | $O(b^d)$ | $O(b^d)$ | $O(m)$ | $O(b^d)$ | $O(b^d)$ |
+| Space complexity | $O(b^d)$ | $O(m)$ or $O(n)$ | $O(m)$ | $O(b^d)$ | $O(b^d)$ |
+
+Note that A* is, in the worst case, just as bad as BFS in terms for
+time complexity. But, we can give A* a good heuristic function and its
+time complexity will decrease, while BFS will stay the same. Also, we
+know that A* is optimally efficient for some heuristic function; that
+is to say, no other algorithm can use the same heuristic function to
+find the goal faster. A* makes the best use of a heuristic function.
+
+* Experiments
+
+Now we'll look at the results of experiments with the 8-puzzle
 problem. The breadth-first search (BFS) results are the 0
 line. Results from other searches are shown as how far they differ
 from BFS. So, if a search is higher than the 0 line in these results,
@@ -263,7 +283,7 @@ solution. Interestingly, random search finds near-optimal solutions,
 possibly because it is more likely it will look at a shallow node
 (there are up to four from each state) than a deep node.
 
-* More comparisons
+* More experiments
 
 ** 8-puzzle
 
