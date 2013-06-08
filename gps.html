@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="General Problem Solver (GPS)"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-06 13:57:22 EDT"/>
+<meta name="generated" content="2013-06-07 21:44:18 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -118,6 +118,66 @@ a thing appears possible we try to do it. &mdash; Aristotle, <i>Nicomachean Ethi
 </blockquote>
 
 
+<p>
+The General Problem Solver (GPS) was the first useful AI program,
+written by Simon, Shaw, and Newell in 1959. As the name implies, it
+was intended to solve nearly any problem. This is important to note.
+Obviously, GPS was not the first software ever written; but software
+was previously written with very specific goals. The software solved
+one problem. GPS, however, was designed to solve lots of kinds of
+problems, using the same &ldquo;reasoning&rdquo; mechanism (i.e., algorithm) for
+every problem.
+</p>
+<p>
+Of course, at the time, programming was very difficult. The authors
+created a new language (IPL) in order to more efficiently program GPS.
+Even so, GPS was a very complicated piece of software. Today we can
+rewrite the essential pieces of GPS in very simple code using modern
+languages (such as Python). As we shall see, GPS is actually very
+limited as far as &ldquo;generality&rdquo; is concerned (or even as far as
+&ldquo;problem solving&rdquo; is concerned); perhaps the complexity of the
+original implementation hid some of these limitations to the authors,
+or made improvements too difficult. Modern AI software is
+substantially more complex than GPS, yet (sometimes) simpler and
+better understood than GPS was at the time.
+</p>
+<p>
+Incidentally, GPS evolved into SOAR, which is still highly influential
+as a system that purports to model cognition. It solves complex
+problems in a manner similar to human cognition, and in similar
+timeframes.
+</p>
+
+<div id="table-of-contents">
+<h2>TOC</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Means-ends analysis</a></li>
+<li><a href="#sec-2">Basic structuring of a problem</a></li>
+<li><a href="#sec-3">The driving to school problem</a></li>
+<li><a href="#sec-4">Description of the search process</a></li>
+<li><a href="#sec-5">The monkey and banana problem</a></li>
+<li><a href="#sec-6">Problems</a>
+<ul>
+<li><a href="#sec-6-1">&ldquo;Prerequisite clobbers sibling goal&rdquo;</a></li>
+<li><a href="#sec-6-2">&ldquo;Leaping before you look&rdquo;</a></li>
+<li><a href="#sec-6-3">Recursive subgoals</a></li>
+<li><a href="#sec-6-4">Lack of intermediate information</a></li>
+</ul>
+</li>
+<li><a href="#sec-7">Epilogue</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Means-ends analysis</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+Simon and Newell studied how humans solved problems, and realized that we often perform means-ends analysis. Here is one of their examples:
+</p>
 <blockquote>
 
 
@@ -135,21 +195,13 @@ Simon&rsquo;s example from their 1972 book <i>Human Problem Solving</i>
 </blockquote>
 
 
-
-<div id="table-of-contents">
-<h2>TOC</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">Basic structuring of a problem</a></li>
-<li><a href="#sec-2">The driving to school problem</a></li>
-<li><a href="#sec-3">The monkey and banana problem</a></li>
-</ul>
-</div>
 </div>
 
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Basic structuring of a problem</h2>
-<div class="outline-text-2" id="text-1">
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Basic structuring of a problem</h2>
+<div class="outline-text-2" id="text-2">
 
 
 <ul>
@@ -212,18 +264,25 @@ We&rsquo;ll say that an operator is made up of:
 </ul>
 
 
+<p>
+GPS can solve any problem that can be posed in this way. However, as
+we shall see, it employs a kind of search process that would require
+far too much time to solve complex problems (such as chess playing).
+It can suffer from a &ldquo;combinatorial explosion&rdquo; of possibilities.
+</p>
 </div>
 
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">The driving to school problem</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">The driving to school problem</h2>
+<div class="outline-text-2" id="text-3">
 
 
 <p>
-Let&rsquo;s write the goal, starting conditions, and some operators in a
-more symbolic form:
+Consider again the driving to school problem quoted above. Let&rsquo;s write
+the goal, starting conditions, and some operators in a more symbolic
+form:
 </p>
 
 
@@ -293,11 +352,69 @@ PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Vers
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">The monkey and banana problem</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Description of the search process</h2>
+<div class="outline-text-2" id="text-4">
 
 
+<p>
+The basic algorithm of the GPS search process is as follows:
+</p>
+
+
+
+<pre class="example">begin:
+- save initial conditions as "current state"
+- try to achieve all goals
+
+how to achieve all goals:
+- for each goal:
+  - try to achieve the goal
+- if all goals were achieved, return success
+
+how to achieve a goal:
+- if goal is already met (in current state), return success (it's achieved)
+- else, for each operator:
+  - if operator's "add list" contains the goal,
+    - try to apply the operator
+    - if successful, return success
+- if no operators were successful,
+  - return failure
+
+how to apply an operator:
+- try to achieve all of the operator's preconditions (treat them as goals)
+- if successful (all preconditions met),
+  - mark the operator as "applied"
+  - add conditions in the operator's "add list" to the current state
+  - delete conditions in the operator's "delete list" from the current state
+  - return success
+- else,
+  - return failure
+</pre>
+
+
+<p>
+This algorithm is clearly a means-ends search process. The ultimate goals are first considered; if they are already achieved, then we&rsquo;re done. Otherwise, one or more goals can only be achieved by applying some operators. Appropriate operators are identified (those that achieve the goals), but each operator may itself require certain goals (preconditions) to be achieved first. So then those are investigated. Etc. This is just what Aristotle said in the quote above:
+</p>
+<blockquote>
+
+<p>They assume the end and consider how and by what means it is attained; [&hellip;] if it is achieved by one only they consider how it will be achieved by this and by what means <i>this</i> will be achieved, till they come to the first cause, which in the order of discovery is last [&hellip;] And if we come on an impossibility, we give up the search [&hellip;] &mdash; Aristotle
+</p>
+</blockquote>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">The monkey and banana problem</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+Here is another famous problem.
+</p>
 
 
 
@@ -362,16 +479,23 @@ PLUGINSPAGE="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Vers
 <a href="./images/monkey-gps.png">View final image</a>
 </div>
 
+<p>
+Maybe it should be called the pigeon and banana problem.
+</p>
+
+
 <div style="text-align: center">
 <iframe width="420" height="315"
 src="http://www.youtube.com/embed/mDntbGRPeEU?rel=0" frameborder="0"
 allowfullscreen></iframe>
 </div>
 
+<p>
+This pigeon reminds me of &ldquo;Red Peter,&rdquo; a fictional ape from a short story who was captured but learned to talk and act like a proper German. He delivered a lecture to an Academy:
+</p>
 <blockquote>
 
-<p>[As delivered in a lecture by an ape who learned to act like a human.]
-It was certainly a victory for [my teacher] and for me when one
+<p>It was certainly a victory for [my teacher] and for me when one
 evening in front of a large circle of onlookers &mdash; perhaps it was a
 celebration, a gramophone was playing, an officer was wandering around
 among the people &mdash; when on this evening, at a moment when no one was
@@ -392,6 +516,140 @@ on my entire sweat-soaked body. &mdash; Franz Kafka, <i>A Report for An Academy<
 </blockquote>
 
 
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Problems</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+Our GPS algorithm is very simplistic. There are ways to improve it. However, we&rsquo;ll stay with the simple version and look at some of its inadequacies. These problems and their examples come from Norvig&rsquo;s book <i>Paradigms of artificial intelligence programming</i>, 1992.
+</p>
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1">&ldquo;Prerequisite clobbers sibling goal&rdquo;</h3>
+<div class="outline-text-3" id="text-6-1">
+
+
+<p>
+Since each goal is achieved in a certain order, we might find that achieving a subsequent goal erases the gains we made with a prior goal. For example, if we have:
+</p>
+<ul>
+<li>initial states: son at home, have money, car works
+</li>
+<li>goal states: have money, son at school
+</li>
+</ul>
+
+
+<p>
+Then the solution is:
+</p>
+<ol>
+<li>drive son to school
+</li>
+</ol>
+
+
+<p>
+However, if we have:
+</p>
+<ul>
+<li>initial states: son at home, car needs battery, have money, have phone book
+</li>
+<li>goal states: have money, son at school
+</li>
+</ul>
+
+
+<p>
+Then our simple GPS search finds the solution to be:
+</p>
+<ol>
+<li>look up number
+</li>
+<li>telephone shop
+</li>
+<li>tell shop problem
+</li>
+<li>give shop money
+</li>
+<li>shop installs battery
+</li>
+<li>drive son to school
+</li>
+</ol>
+
+
+<p>
+However, the result is we don&rsquo;t have any money, because it was spent at the shop. GPS saw &ldquo;have money&rdquo; as the first goal, and considered it already achieved (it was an initial state). So then it moved on to the next goal, which actually spent all the money. But GPS did not go back and reconsider whether the first goal was still met.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2">&ldquo;Leaping before you look&rdquo;</h3>
+<div class="outline-text-3" id="text-6-2">
+
+
+<p>
+One could reorder the goals from the prior example to be &ldquo;son at school, have money.&rdquo; In this case, GPS will indicate to us that there is no solution. However, it will still apply operators in its doomed search for a solution. If this was real life, a GPS robot would repair the car, drive the son to school, and then discover it had no money!
+</p>
+<p>
+In a simpler example, consider the goals:
+</p>
+<ul>
+<li>jump off cliff, land safely
+</li>
+</ul>
+
+
+<p>
+GPS will first find a way to achieve &ldquo;jump off cliff,&rdquo; but only once achieved, figure out how to &ldquo;land safely.&rdquo; The problem, of course, is that in our algorithm planning to take an action is interleaved with taking other actions (applying operators). Our algorithm has no way to only think about actions without doing them, and &ldquo;back up&rdquo; its search process if those actions turn out to be bad ideas.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3">Recursive subgoals</h3>
+<div class="outline-text-3" id="text-6-3">
+
+
+<p>
+Suppose we had a goal like &ldquo;call shop&rdquo; which required &ldquo;know phone number&rdquo; which can be achieved by &ldquo;ask friend for a phone number.&rdquo; Further suppose asking a friend for a phone number requires &ldquo;know phone number.&rdquo; Then GPS will get stuck in a loop trying to figure out how to get the friend&rsquo;s phone number from another friend in order to call the shop, even if other operators are available for finding a phone number (such as looking in a phone book).
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6-4" class="outline-3">
+<h3 id="sec-6-4">Lack of intermediate information</h3>
+<div class="outline-text-3" id="text-6-4">
+
+
+<p>
+Our simplistic GPS algorithm does not indicate why it failed to achieve its goals. It just says &ldquo;nope, can&rsquo;t do it.&rdquo; It would be useful to know which goals could not be achieved and, perhaps, what are the best options for us (as humans) in order to make progress.
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Epilogue</h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+<b>It must be noted that the &ldquo;problems&rdquo; listed above are not necessarily those of the real GPS program.</b> Those problems were more about our simplistic algorithm. However, GPS still failed to live up to its name. In the early days, many grandiose AI programs failed to deliver their full promises. Of course, all that has changed today is that the wise researchers avoid naming their programs &ldquo;general problem solver.&rdquo;
+</p>
 <blockquote>
 
 <p>Remember GPS? By now, &ldquo;GPS&rdquo; is a colorless term denoting a

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Search"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-06 21:49:42 EDT"/>
+<meta name="generated" content="2013-06-07 14:38:50 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -124,6 +164,13 @@ answer,&rdquo; or &ldquo;he didn&rsquo;t have to think; he did it by rote.&rdquo
 </ul>
 </li>
 <li><a href="#sec-2">Definition of a search problem</a></li>
+<li><a href="#sec-3">Comparisons of search algorithms</a>
+<ul>
+<li><a href="#sec-3-1">Time complexity</a></li>
+<li><a href="#sec-3-2">Space complexity</a></li>
+<li><a href="#sec-3-3">Search-specific analysis</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -238,7 +285,6 @@ possibly intelligent.
 <div class="outline-text-2" id="text-2">
 
 
-
 <p>
 A problem may be solvable by a search technique if the problem has
 each of the following features:
@@ -282,6 +328,90 @@ town. Of course, this is a <i>ceteris paribus</i> assumption (&ldquo;everything
 else being equal&rdquo;); if something bad happens, like a flat tire, this
 transition model is useless.
 </p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Comparisons of search algorithms</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+In computer science, we typically compare algorithms based on two criteria: &ldquo;time complexity&rdquo; and &ldquo;space complexity.&rdquo;
+</p>
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">Time complexity</h3>
+<div class="outline-text-3" id="text-3-1">
+
+
+<p>
+The time complexity of an algorithm is generally the number of operations required (e.g., basic CPU operations such as addition, subtraction, tests for equality, memory reads and writes, etc.).
+</p>
+<p>
+For example, suppose we have a <code>min</code> algorithm that finds the smallest
+value in any list. The algorithm checks every element in the list, so
+its &ldquo;time complexity&rdquo; is \(O(n)\) where \(O()\) means &ldquo;on the order of&rdquo;
+and \(n\) we&rsquo;ll say is the size of the list. This can also be read
+&ldquo;linear time&rdquo; because the algorithm requires about \(n\) steps (linear),
+not \(n^2\) steps (quadratic) or \(2^n\) steps (exponential). Regardless
+how long each step takes, a linear &ldquo;growth&rdquo; of the problem (i.e.,
+bigger and bigger lists) causes the time to grow linearly.
+</p>
+<p>
+On the other hand, inefficient sorting algorithms have \(O(n^2)\) time
+complexity because they compare every element in a list of size \(n\)
+with every other element; this is about \(n^2\) comparisons.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">Space complexity</h3>
+<div class="outline-text-3" id="text-3-2">
+
+
+<p>
+Normally, we can make an algorithm faster by using more memory. We
+could, for example, save the answers of some computations to avoid
+computing them again. The <code>min</code> function has \(O(1)\) space complexity
+(&ldquo;constant space complexity&rdquo;) because it only uses one or two
+variables (the current min, and a pointer to its position in the
+list). Some sorting algorithms, on the other hand, have linear
+(\(O(n)\)) space complexity because they make a copy of the list as they
+sort it.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3">Search-specific analysis</h3>
+<div class="outline-text-3" id="text-3-3">
+
+
+<p>
+For comparing search algorithms in particular, we&rsquo;ll often want to talk about the following values:
+</p>
+<ul>
+<li>\(n\), the total number of possible states
+
+</li>
+<li>\(b\), the branching factor; this is the maximum number of possible actions or branches we might expect from any state in the search space.
+
+</li>
+<li>\(d\), the depth in the search tree of the least-cost path, i.e., the minimum number of steps required to reach the goal
+
+</li>
+<li>\(m\), the maximum search depth, if we choose to make it a finite number (so that the algorithm might stop looking deeper and instead choose to backtrack to an earlier state), or \(\infty\) otherwise
+</li>
+</ul>
+
+
 
 
 <div style="font-size: 80%; clear: both;"> <span
@@ -309,6 +439,7 @@ href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
 <!-- End of Plupper Tracking Code -->
 
 
+</div>
 </div>
 </div>
 </div>

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Uninformed search"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-06 13:57:05 EDT"/>
+<meta name="generated" content="2013-06-07 14:38:49 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -140,6 +180,7 @@ than four movements are possible.
 </ul>
 </li>
 <li><a href="#sec-5">Breadth-first versus depth-first search</a></li>
+<li><a href="#sec-6">Comparison of uninformed search algorithms</a></li>
 </ul>
 </div>
 </div>
@@ -148,7 +189,9 @@ than four movements are possible.
 <h2 id="sec-1">Generic search algorithm</h2>
 <div class="outline-text-2" id="text-1">
 
-<p>All searches essentially follow the same algorithm:
+
+<p>
+All searches essentially follow the same algorithm:
 </p>
 
 
@@ -201,7 +244,9 @@ some choices are better (closer to the goal) than others&hellip;
 <h2 id="sec-2">Random search</h2>
 <div class="outline-text-2" id="text-2">
 
-<p>A random search, while never practical as far as I know, is
+
+<p>
+A random search, while never practical as far as I know, is
 nevertheless interesting to consider as a worst case search. To
 program this search, modify step <code>4.a.</code> so that a <i>random</i> state is
 chosen. Given enough time, the goal state should be found, but a
@@ -216,7 +261,9 @@ than any other method.
 <h2 id="sec-3">Breadth-first search</h2>
 <div class="outline-text-2" id="text-3">
 
-<p>In breadth-first search (BFS), we want to check all states (which
+
+<p>
+In breadth-first search (BFS), we want to check all states (which
 we&rsquo;ll call &ldquo;children states&rdquo;) accessible from the previous state (the
 &ldquo;parent state&rdquo;) before we check states accessible from the
 children. So if some state is to be checked, say state X, and there
@@ -310,8 +357,8 @@ well, 362,880 checks.
 </p>
 <p>
 To solve the problem of DFS going to &ldquo;deep&rdquo; into &ldquo;never-never-land,&rdquo;
-we can put a limit on the depth of DFS. Step <code>4.c.</code> is modified so
-that only states that have depth less than some constant are added to
+we can put a limit \(m\) on the depth of DFS. Step <code>4.c.</code> is modified so
+that only states that have depth less than the finite constant \(m\) are added to
 the <code>openset</code>. The depth is calculated as the number of actions or
 moves that have been applied to the starting state.
 </p>
@@ -333,16 +380,43 @@ again with depth limit 2; and so on, until the goal state is found.
 
 <p>
 Breadth-first search is a good choice when you want to evaluate every
-possible choice before moving forward. BFS ensures that the shortest
+possible choice before deciding an action. BFS ensures that the shortest
 path to the goal will be found (shortest in terms of number of moves
-or number of &ldquo;hops&rdquo;), because no path is left unchecked. However, BFS
+or number of &ldquo;hops&rdquo;), because no shorter path is left unchecked. However, BFS
 suffers when, at each state, there is an enormous number of choices to
-consider.
+consider (a high branching factor \(b\)).
 </p>
 <p>
-On the other hand, depth-first search seems a bit block-headed and
-just pushes forward whenever it has a next possible move.
+On the other hand, depth-first search might be better if the solution is very &ldquo;deep,&rdquo; such as in mazes.
 </p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Comparison of uninformed search algorithms</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+Refer to the <a href="./search.html">search notes</a> (at the bottom) for an explanation of the variables \(n\) (total possible states), \(b\) (branch factor), \(d\) (search depth of least-cost solution), and \(m\) (maximum search depth, which may be \(\infty\)).
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" /><col class="left" /><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">Metric</th><th scope="col" class="left">Random</th><th scope="col" class="left">Breadth-first</th><th scope="col" class="left">Depth-first</th><th scope="col" class="left">IDDFS</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">Complete?</td><td class="left">Yes</td><td class="left">Yes</td><td class="left">Yes</td><td class="left">Yes</td></tr>
+<tr><td class="left">Always optimal? (uninformed search)</td><td class="left">No</td><td class="left">Yes</td><td class="left">No</td><td class="left">Yes</td></tr>
+<tr><td class="left">Time complexity</td><td class="left">\(O(n)\)</td><td class="left">\(O(b^d)\)</td><td class="left">\(O(b^d)\)</td><td class="left">\(O(b^d)\)</td></tr>
+<tr><td class="left">Space complexity</td><td class="left">\(O(n)\)</td><td class="left">\(O(b^d)\)</td><td class="left">\(O(m)\) if \(m\) finite, \(O(n)\) otherwise</td><td class="left">\(O(bd)\)</td></tr>
+</tbody>
+</table>
+
+
 
 
 <div style="font-size: 80%; clear: both;"> <span
