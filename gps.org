@@ -288,29 +288,6 @@ allowfullscreen></iframe>
 </div>
 #+END_HTML
 
-This pigeon reminds me of "Red Peter," a fictional ape from a short story who was captured but learned to talk and act like a proper German. He delivered a lecture to an Academy:
-
-#+BEGIN_QUOTE
-It was certainly a victory for [my teacher] and for me when one
-evening in front of a large circle of onlookers --- perhaps it was a
-celebration, a gramophone was playing, an officer was wandering around
-among the people --- when on this evening, at a moment when no one was
-watching, I grabbed a bottle of alcohol which had been inadvertently
-left standing in front of my cage, uncorked it just as I had been
-taught, amid the rising attention of the group, set it against my
-mouth and, without hesitating, with my mouth making no grimace, like
-an expert drinker, with my eyes rolling around, splashing the liquid
-in my throat, I really and truly drank the bottle empty, and then
-threw it away, no longer in despair, but like an artist. Well, I did
-forget to scratch my belly. But instead of that, because I couldn't do
-anything else, because I had to, because my senses were roaring, I
-cried out a short and good "Hello!" breaking out into human
-sounds. And with this cry I sprang into the community of human beings,
-and I felt its echo --- "Just listen. He's talking!" --- like a kiss
-on my entire sweat-soaked body. --- Franz Kafka, /A Report for An
-Academy/ ([[http://records.viu.ca/~johnstoi/kafka/reportforacademy.htm][read online]]).
-#+END_QUOTE
-
 * Problems
 
 Our GPS algorithm is very simplistic. There are ways to improve it. However, we'll stay with the simple version and look at some of its inadequacies. These problems and their examples come from Norvig's book /Paradigms of artificial intelligence programming/, 1992.

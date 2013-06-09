@@ -69,7 +69,7 @@ elevator doors:
 2.13.3 Power Closing
 
 2.13.3.1 Power Closing or Automatic Self-Closing of Car Doors or Gates
-Wlhere Used With Manually Operated or Self-Closing Hoistway Doors
+Where Used With Manually Operated or Self-Closing Hoistway Doors
 
 2.13.3.1.1 Where a car door or gate of an automatic or
 continuous-pressure operation passenger elevator is closed by power,
@@ -259,7 +259,7 @@ development of ethical theory.
 #+BEGIN_QUOTE
 Bentham's theory is the epitome of the use of calculation in ethics
 and is worth examining in some detail because it reveals what is
-promising and what is’troubling about ethical calculations. ---
+promising and what is troubling about ethical calculations. ---
 op. cit.
 #+END_QUOTE
 

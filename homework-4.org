@@ -91,7 +91,7 @@ Read/skim "Strong and Weak Emergence" by David Chalmers from 2006
      the idea that physics is the only "real" science. What is your
      opinion? Is physics the foundation of all science, and if only
      physical laws are understood perfectly then all phenomena
-     (chemical, biological, pyschological, etc.) can be predicted and
+     (chemical, biological, psychological, etc.) can be predicted and
      explained?
 
 #+BEGIN_CENTER

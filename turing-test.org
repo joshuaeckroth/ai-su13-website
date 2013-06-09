@@ -81,8 +81,8 @@ Now, the machine is trying to convince the interrogator that it is a
 human, but the human is not. The human is trying to convince the
 interrogator that he or she is a human, but the machine is not.
 
-Just as, supposedly, a man would find it difficult to immitate a
-woman, a machine would probably find it difficult to immitate a
+Just as, supposedly, a man would find it difficult to imitate a
+woman, a machine would probably find it difficult to imitate a
 human. Yet, if the machine is not only able to act like a human but
 also (or alternatively?) to counteract the arguments produced by the
 human, then the machine is quite intelligent indeed.
@@ -135,12 +135,9 @@ it is for all practical purposes impossible for a machine to have
 enough different organs to make it act in all the contingencies of
 life in the way in which our reason makes us act. ---
 [[http://plato.stanford.edu/entries/turing-test/][Source]]
-
 #+END_QUOTE
 
 * The Turing test is quite strong
-
-#+INDEX: Dennett, D.
 
 All quotes are from Dennett, "Can Machines Think?" (1985)
 
@@ -148,7 +145,7 @@ All quotes are from Dennett, "Can Machines Think?" (1985)
 Remember, failure on the Turing test does not predict failure on those
 others, but success would surely predict success. His test was so
 severe, he thought, that nothing that could pass it fair and square
-would disappoint us in other quarters. Maybe it wouldn’t do everything
+would disappoint us in other quarters. Maybe it wouldn't do everything
 we hoped---maybe it wouldn't appreciate ballet, understand quantum
 physics, or have a good plan far world peace, but we'd all see that it
 was surely one of the intelligent, thinking entities in the
@@ -233,7 +230,7 @@ caper at best, and no doubt luck would play too great a role.
 
 * Bringsjord's strategies
 
-Selmer Bringsjord, in an article titled ``[[http://link.springer.com/chapter/10.1007/978-1-4020-6710-5_6][If I Were Judge]],'' in the
+Selmer Bringsjord, in an article titled "[[http://link.springer.com/chapter/10.1007/978-1-4020-6710-5_6][If I Were Judge]]," in the
 book [[http://link.springer.com/book/10.1007/978-1-4020-6710-5/page/1][Parsing the Turing Test]] (2009), described some strategies he
 would take if he believed the Turing test was valid (which he does
 not):
@@ -244,7 +241,7 @@ Require that each contestant pass an array of standardized IQ tests.
 
 ** Strategy 2
 
-Give each constentant problems like this one:
+Give each contestant problems like this one:
 
 #+BEGIN_QUOTE
 

@@ -34,16 +34,17 @@ this viewpoint is somewhat limiting.
 
 * The AI archetype
 
-#+BEGIN_CENTER
-[[./images/Gort_Firing.jpg]]
-
-[[http://en.wikipedia.org/wiki/Gort_(The_Day_the_Earth_Stood_Still)][Gort]], preserving peace.
-#+END_CENTER
-
-AI, as a /quality/, or a property of some artifact, or something that
-an artifact possesses, is a more provocative idea than AI as a
-field. When many people think about AI, they are thinking about
-artifacts that "have" AI.
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/Gort_Firing.jpg" />
+</div>
+<a href="http://en.wikipedia.org/wiki/Gort_(The_Day_the_Earth_Stood_Still)">Gort</a>, preserving peace.
+</div>
+<p>
+AI, as a <i>quality</i>, or a property of some artifact, or something that an artifact possesses, is a more provocative idea than AI as a field. When many people think about AI, they are thinking about artifacts that "have" AI.
+</p>
+#+END_HTML
 
 *What does an artifact "have" when it has AI?*
 
@@ -84,14 +85,16 @@ pathological literal-mindedness. Interestingly, we see the same
 feature in genies, who typically grant a literal interpretation of a
 wish.
 
-#+BEGIN_CENTER
-[[./images/chigurh.jpg]]
-
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/chigurh.jpg" />
+</div>
 Chigurh is terrifying (partly) because he strictly adheres to
 rules. (No Country for Old Men, 2007)
-#+END_CENTER
+</div>
+#+END_HTML
 
-#+INDEX: Gort
 The allure of many robots and other AI systems in science fiction is
 grounded on literalness and the *incommensurability of robot
 understanding and human understanding* of the same situations. While
@@ -114,17 +117,17 @@ alien) speaking, who brought Gort; /The Day the Earth Stood Still/
 If exceptions were possible, the emotional impact of Gort's presence
 would vanish.
 
-#+INDEX: HAL 9000
-
-#+BEGIN_CENTER
-[[./images/davebowman.jpg]]
-
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/davebowman.jpg" />
+</div>
 Dave disabling AI (seemingly) run amok.
-#+END_CENTER
-
-HAL 9000 from /2001: A Space Odyssey/, likewise, sacrifices humans for
-the sake of long-term mission objectives. This feature of the AI archetype
-is perhaps the most psychologically impactful.
+</div>
+<p>
+HAL 9000 from <i>2001: A Space Odyssey</i>, likewise, sacrifices humans for the sake of long-term mission objectives. This feature of the AI archetype is perhaps the most psychologically impactful.
+</p>
+#+END_HTML
 
 ** Presence
 
@@ -149,16 +152,18 @@ systems will yield insights about how to build biological or quantum
 intelligent systems. Or perhaps entirely new ideas must be brought to
 bear.
 
-#+BEGIN_CENTER
-[[./images/elektro_robot.jpg]]
-
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/elektro_robot.jpg" />
+</div>
 Westinghouse's Elektro robot (1939), sporting a steel gear, cam and
-motor skeleton. [[http://www.youtube.com/watch?v=T35A3g_GvSg][Elektro in action]], and [[https://vimeo.com/10553139][remixed]].
-#+END_CENTER
+motor skeleton. <a href="http://www.youtube.com/watch?v=T35A3g_GvSg">Elektro in action</a>, and <a href="https://vimeo.com/10553139">remixed</a>.
+</div>
+#+END_HTML
 
 ** Artificiality
 
-#+INDEX: Baudrillard, J.
 *Robots are not humans*. They are simulations, at best. Thus,
 typically, they are outside the purview of human rights,
 etc. Spielberg's film /A.I./ explores this issue (there,
@@ -166,14 +171,19 @@ robots/androids are demolished in public stagings). However, whether a
 robot can become "more than it is," i.e., more than just the creation
 of the watchmaker, is an open question.
 
-#+BEGIN_CENTER
-[[./images/ai-flesh-fair-1.jpg]]
+#+BEGIN_HTML
+<div style="text-align: center">
+<div class="figure">
+<img src="./images/ai-flesh-fair-1.jpg" />
+</div>
+<div class="figure">
+<img src="./images/ai-flesh-fair-2.jpg" />
+</div>
 
-[[./images/ai-flesh-fair-2.jpg]]
-
-/A.I./, directed by Spielberg, has a scene in which robots are torn
+<i>A.I.</i>, directed by Spielberg, has a scene in which robots are torn
 apart in a "flesh fair."
-#+END_CENTER
+</div>
+#+END_HTML
 
 For a sophisticated and quite provocative take on the difference
 between humans and AI, consider listening to a [[http://www.ubu.com/sound/plu_baudrillard.html][reading]] of

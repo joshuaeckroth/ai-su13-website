@@ -327,7 +327,7 @@ Table for $alarm$ ("is there a fire alarm sounding?"):
 
 Table for $tampering$ ("did somebody tamper with the fire alarm?"):
 
-| $tampering$ | $P(tamering)$ |
+| $tampering$ | $P(tampering)$ |
 |-------------+---------------|
 | true        | $0.02$        |
 
