@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Homework 2"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-06 14:17:33 EDT"/>
+<meta name="generated" content="2013-06-10 11:09:13 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -144,8 +144,8 @@
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">Task 1 (20 pts)</a></li>
-<li><a href="#sec-2">Task 2 (20 pts)</a></li>
-<li><a href="#sec-3">Task 3 (20 pts)</a></li>
+<li><a href="#sec-2">Task 2 (15 pts)</a></li>
+<li><a href="#sec-3">Task 3 (25 pts)</a></li>
 <li><a href="#sec-4">Task 4 (5 pts)</a></li>
 <li><a href="#sec-5">Task 5 (5 pts)</a></li>
 <li><a href="#sec-6">Task 6 (15 pts)</a></li>
@@ -160,46 +160,94 @@
 
 
 <p>
-Define a GPS-type problem. Give the goal condition, initial
-conditions, and operations, where for each operation the action,
-preconditions, &ldquo;add&rdquo; conditions, and &ldquo;delete&rdquo; conditions are defined.
-At least five operators must be defined.
+Define a GPS-type problem. Give the goal condition, initial conditions, and operations. For each operation, define the action, preconditions, &ldquo;add&rdquo; conditions, and &ldquo;delete&rdquo; conditions. At least five operators must be defined.
 </p>
 <p>
-Then, list a sequence of actions (in the correct order) that solve the
-problem. At least three operators must be used.
+Then, list a sequence of actions (in the correct order) that solve the problem. At least three operators must be used.
 </p>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Task 2 (20 pts)</h2>
+<h2 id="sec-2">Task 2 (15 pts)</h2>
 <div class="outline-text-2" id="text-2">
 
 
 <p>
-Give the sequence of states visited in a hill-climbing search applied
-to the <a href="./search-practice.html">Goodale routing problem</a>, starting
-at Woodruff &amp; Tuttle and ending at Goodale parking lot.
+Give the sequence of states visited (states evaluated) in a hill-climbing search applied to the <a href="./search-practice.html">Goodale routing problem</a>, starting at Woodruff &amp; Tuttle and ending at Goodale parking lot. You&rsquo;ll find the <a href="./goodale-distances.txt">goodale-distances.txt</a> file useful.
 </p>
 <p>
-Note, list the states visited, not just the states in the final route.
-There may (or may not) be some backtracking so the states visited may
-differ from the ultimate route.
+For each &ldquo;choice&rdquo; that the algorithm faces, list the options, the computed scores, and indicate the best choice.
 </p>
+<p>
+Note, give the sequence of states visited, not just the states that make up the final route. There may (or may not) be some backtracking so the states visited may differ from the route.
+</p>
+<p>
+Assume hill-climbing does not reconsider previously-visited states.
+</p>
+<p>
+Your answer should look like this:
+</p>
+
+
+
+<pre class="example">Best choice is indicated by a *
+
+- Woodruff &amp; Tuttle
+  - choices: Lane &amp; Tuttle (2.318), High &amp; Woodruff (2.103)*
+- High &amp; Woodruff
+  - choices: ...
+...
+- Goodale parking lot
+</pre>
+
+
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Task 3 (20 pts)</h2>
+<h2 id="sec-3">Task 3 (25 pts)</h2>
 <div class="outline-text-2" id="text-3">
 
 
 <p>
 Repeat task 2 but for A* search.
 </p>
+<p>
+Like before, for each &ldquo;choice&rdquo; that the algorithm faces, list the options, the computed scores, and indicate the best choice. Since A* may &ldquo;jump around,&rdquo; indicate the prior (connecting) state for each choice. Also give the current path cost for each state when that state is visited.
+</p>
+<p>
+Assume A* does not reconsider previously-visited states.
+</p>
+<p>
+Your answer should look like this:
+</p>
+
+
+
+<pre class="example">Best choice is indicated by a *
+
+Format of arithmetic in parentheses:
+  (old path cost + cost of next step + distance from next step to goal = ...)
+
+- Woodruff &amp; Tuttle (cost: 0.000)
+  - choices:
+    - Woodruff &amp; Tuttle -&gt; Lane &amp; Tuttle (0.000 + 0.170 + 2.318 = 2.488)*
+    - Woodruff &amp; Tuttle -&gt; High &amp; Woodruff (0.000 + 0.460 + 2.103 = 2.563)
+- Lane &amp; Tuttle (cost: 0.170)
+  - choices:
+    - Woodruff &amp; Tuttle -&gt; High &amp; Woodruff (0.000 + 0.460 + 2.103 = 2.563)*
+    - Lane &amp; Tuttle -&gt; SR-315 &amp; Lane (0.170 + 0.740 + 2.605 = 3.515)
+- High &amp; Woodruff (cost: 0.460)
+  - choices:
+    ...
+...
+- Goodale parking lot (cost: 2.760)
+</pre>
+
+
 </div>
 
 </div>

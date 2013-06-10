@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Practice with searching"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-08 23:08:27 EDT"/>
+<meta name="generated" content="2013-06-09 14:09:13 EDT"/>
 <meta name="author" content="Joshua Eckroth"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -208,8 +208,7 @@ intersections (in miles).
 
 
 <p>
-This map data is encoded in <a href="./Goodale.java">Java</a> and <a href="./goodale.py">Python</a> source code if you would
-like to use it in a program.
+This map data is encoded in <a href="./Goodale.java">Java</a> and <a href="./goodale.py">Python</a> source code if you would like to use it in a program.
 </p>
 <p>
 <img src="./images/goodale-route.png" alt="Goodale parking lot routes" align="right" />
@@ -305,6 +304,9 @@ like to use it in a program.
 </div>
 
 <p>
+The distance (as the crow flies) from each location to each other is collected in the <a href="./goodale-distances.txt">goodale-distances.txt</a> file.
+</p>
+<p>
 Here is some Python code for converting two long/lat coordinates into
 a measure of miles between them:
 </p>
@@ -312,6 +314,7 @@ a measure of miles between them:
 
 
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;"># from: http://www.johndcook.com/python_longitude_latitude.html</span>
+<span style="font-weight: bold;">import</span> math
 <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">dist</span>((long1, lat1), (long2, lat2)):
     <span style="font-weight: bold; font-style: italic;"># Convert latitude and longitude to </span>
     <span style="font-weight: bold; font-style: italic;"># spherical coordinates in radians.</span>
