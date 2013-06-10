@@ -8,7 +8,7 @@ that a particular AI system does /not/ meet one or more criteria of
 the AI archetype as described. Be sure to describe the AI system you
 have in mind if it is not well-known.
 
-* Task 2 (15 pts)
+* Task 2 (20 pts)
 
 Provide a cogent argument (1 paragraph) that the credibility of the
 Turing Test depends on requiring that judges meet certain
@@ -16,12 +16,12 @@ criteria. Think about what might go wrong if the judge is not "all
 there," so to speak. Also think about what might go wrong if the
 computer is allowed to choose the judge.
 
-* Task 3 (15 pts)
+* Task 3 (20 pts)
 
 Read about the [[./knowledge-level.html][knowledge level]]. Write a "knowledge level" description
 of the Roomba robot (the robot that vacuums your floor).
 
-* Task 4 (60 pts)
+* Task 4 (50 pts) OR Task 5 (50 pts), below; complete both for extra credit
 
 Read [[./coffeehouse-conversation.html][A coffeehouse conversation]], and answer the following questions:
 
@@ -38,7 +38,7 @@ Read [[./coffeehouse-conversation.html][A coffeehouse conversation]], and answer
   - Do you think the Turing test would effectively test for artificial
     intelligence? Why or why not?
 
-* Extra credit (40 pts)
+* Task 5 (50 pts) OR Task 4 (50 pts), above; complete both for extra credit
 
 Listen to the "Talking to machines" podcast near the bottom of the
 [[./turing-test.html][Turing test]] lecture notes, and answer the following questions:

@@ -29,8 +29,7 @@ The authors of the textbook decide that acting rationally is the most
 important framing of AI. They describe an "intelligent agent" as a
 system that responds to its environment, and changes it environment
 (by acting within it), in the most rational manner in order to achieve
-goals. We'll see in the [[./beyond-agents.html][Beyond "intelligent agents"]] lecture notes that
-this viewpoint is somewhat limiting.
+goals.
 
 * The AI archetype
 
@@ -111,7 +110,7 @@ this one---and preserve the peace. [...] At the first sign of
 violence they act automatically against the aggressor. And the penalty
 for provoking their action is too terrible to risk. --- Klaatu (the
 alien) speaking, who brought Gort; /The Day the Earth Stood Still/
-(1951) ([[http://www.youtube.com/watch?v=YnkuO6s2vrM&feature=youtu.be&t=12s][YouTube]])
+(1951)
 #+END_QUOTE
 
 If exceptions were possible, the emotional impact of Gort's presence

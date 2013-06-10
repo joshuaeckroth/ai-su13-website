@@ -1,15 +1,7 @@
 * Index
-** D
-   - [[file:turing-test.org][Dennett, D.]]
 ** H
    - [[file:syllabus.org::#sec-4][Hofstadter, D.]]
-** I
-   - [[file:turing-test.org][imitation game]]
-** L
-   - [[file:turing-test.org::#sec-4][Loebner Prize]]
 ** R
-   - [[file:turing-test.org::#sec-5][Radiolab]]
+   - [[file:turing-test.org::#sec-6][Radiolab]]
 ** S
    - [[file:search.org][Simon, H. A.]]
-** T
-   - [[file:turing-test.org][Turing, A.]]

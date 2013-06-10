@@ -1,10 +1,6 @@
 #+SETUPFILE: setup.org
 #+TITLE: The Turing test
 
-#+INDEX: Turing, A.
-#+INDEX: imitation game
-#+INDEX: Dennett, D.
-
 #+BEGIN_HTML
 <div style="float: right; width: 200px; margin-left: 5px; padding:
 5px; border: 1px solid #ccc;">
@@ -283,8 +279,6 @@ transformed in his bed into a gigantic insect."
 
 * We have a long way to go
 
-#+INDEX: Loebner Prize
-
 Nobody actually practices with a real Turing test. It's too hard for
 the machine. Instead, the yearly
 [[http://www.loebner.net/Prizef/loebner-prize.html][Loebner Prize]]
@@ -293,6 +287,16 @@ estimate how "closely" a computer imitates a human, and judges are not
 allowed to attempt trickery (such as typing random symbols) or delve
 into deep conversation.
 
+"Computers take the Turing Test in Reading in October 2008 to see if judges believe the machines are human during instant message conversations." ([[http://news.bbc.co.uk/2/hi/technology/8249792.stm][Source]])
+
+#+BEGIN_HTML
+<div style="text-align: center">
+<iframe width="480" height="360" src="http://www.youtube.com/embed/e8vZy8a9lSc?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+#+END_HTML
+
+* The Turing test in culture
+
 #+BEGIN_HTML
 <div style="text-align: center">
 <iframe width="640" height="360"
@@ -300,6 +304,45 @@ src="http://www.youtube.com/embed/3PiwEQQNnBk?rel=0" frameborder="0"
 allowfullscreen></iframe>
 </div>
 #+END_HTML
+
+#+BEGIN_HTML
+<div style="text-align: center">
+<iframe width="640" height="360" src="http://www.youtube.com/embed/QkNA7sy5M5s?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+#+END_HTML
+
+#+BEGIN_QUOTE
+Seated where he could catch the readings on the two gauges of the Voigt-Kampff testing
+apparatus, Rick Deckard said, "I'm going to outline a number of social situations. You are to
+express your reaction to each as quickly as possible. You will be timed, of course."
+
+"And of course," Rachael said distantly, "my verbal responses won't count. It's solely the
+eye-muscle and capillary reaction that you'll use as indices. But I'll answer; I want to go
+through this and --- " She broke off. "Go ahead, Mr. Deckard."
+
+Rick, selecting question three, said, "You are given a calfskin wallet on your birthday."
+Both gauges immediately registered past the green and onto the red; the needles swung
+violently and then subsided.
+
+"I wouldn't accept it," Rachael said. "Also I'd report the person who gave it to me to the
+police."
+
+After making a jot of notation Rick continued, turning to the eighth question of the Voigt-
+Kampff profile scale. "You have a little boy and he shows you his butterfly collection, including
+his killing jar."
+
+"I'd take him to the doctor." Rachael's voice was low but firm. Again the twin gauges
+registered, but this time not so far. He made a note of that, too.
+
+"You're sitting watching TV," he continued, "and suddenly you discover a wasp crawling on
+your wrist."
+
+Rachael said, "I'd kill it." The gauges, this time, registered almost nothing: only a feeble
+and momentary tremor. He noted that and hunted cautiously for the next question.
+
+--- from /Do Androids Dream of Electric Sheep?/, Phillip K. Dick
+#+END_QUOTE
+
 
 * Podcasts
 
