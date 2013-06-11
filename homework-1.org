@@ -18,7 +18,7 @@ computer is allowed to choose the judge.
 
 * Task 3 (20 pts)
 
-Read about the [[./knowledge-level.html][knowledge level]]. Write a "knowledge level" description
+Read about the [[./knowledge-level.html][knowledge level]]. Write a "knowledge level" explanation
 of the Roomba robot (the robot that vacuums your floor).
 
 * Task 4 (50 pts) OR Task 5 (50 pts), below; complete both for extra credit
