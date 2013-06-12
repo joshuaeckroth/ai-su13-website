@@ -1,7 +1,0 @@
-* Index
-** H
-   - [[file:syllabus.org::#sec-4][Hofstadter, D.]]
-** R
-   - [[file:turing-test.org::#sec-6][Radiolab]]
-** S
-   - [[file:search.org][Simon, H. A.]]
