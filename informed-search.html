@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Informed search"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-11 22:23:37 EDT"/>
+<meta name="generated" content="2013-06-19 14:03:03 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -149,29 +149,30 @@
 <li><a href="#sec-4">Best-first search</a></li>
 <li><a href="#sec-5">More sophisticated heuristics</a></li>
 <li><a href="#sec-6">A* search</a></li>
-<li><a href="#sec-7">Comparisons</a></li>
-<li><a href="#sec-8">Experiments</a>
+<li><a href="#sec-7">IDA* (Iterative Deepening A*)</a></li>
+<li><a href="#sec-8">Comparisons</a></li>
+<li><a href="#sec-9">Experiments</a>
 <ul>
-<li><a href="#sec-8-1">Number of checked states (time)</a></li>
-<li><a href="#sec-8-2">Maximum number of states in memory</a></li>
-<li><a href="#sec-8-3">Length of path (goodness of solutions)</a></li>
+<li><a href="#sec-9-1">Number of checked states (time)</a></li>
+<li><a href="#sec-9-2">Maximum number of states in memory</a></li>
+<li><a href="#sec-9-3">Length of path (goodness of solutions)</a></li>
 </ul>
 </li>
-<li><a href="#sec-9">More experiments</a>
+<li><a href="#sec-10">More experiments</a>
 <ul>
-<li><a href="#sec-9-1">8-puzzle</a>
+<li><a href="#sec-10-1">8-puzzle</a>
 <ul>
-<li><a href="#sec-9-1-1">Discussion</a></li>
+<li><a href="#sec-10-1-1">Discussion</a></li>
 </ul>
 </li>
-<li><a href="#sec-9-2">Goodale routing</a>
+<li><a href="#sec-10-2">Goodale routing</a>
 <ul>
-<li><a href="#sec-9-2-1">Discussion</a></li>
+<li><a href="#sec-10-2-1">Discussion</a></li>
 </ul>
 </li>
-<li><a href="#sec-9-3">Maze path-finding</a>
+<li><a href="#sec-10-3">Maze path-finding</a>
 <ul>
-<li><a href="#sec-9-3-1">Discussion</a></li>
+<li><a href="#sec-10-3-1">Discussion</a></li>
 </ul>
 </li>
 </ul>
@@ -450,8 +451,31 @@ robot farther from the end of the maze rather than towards the end.
 </div>
 
 <div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Comparisons</h2>
+<h2 id="sec-7">IDA* (Iterative Deepening A*)</h2>
 <div class="outline-text-2" id="text-7">
+
+
+<p>
+The A* algorithm has very bad space complexity (see below) because it
+might, in the worst case, keep a memory of every state ever
+visited. An alternative approach is to use an iterative deepening
+strategy, just like IDDFS, except that we bring over the complex
+heuristic \(f(s) = g(s) + h(s)\). IDA* is IDDFS except that the search
+stops looking deeper if \(f(s) &gt; t\) for some threshold \(t\). This
+threshold is increased (by \(1\), say) for every iteration. Thus, IDA*
+is the same as IDDFS except that IDDFS use a &ldquo;depth&rdquo; threshold while
+IDA* uses a heuristic cost threshold. Similar to how IDDFS improves on
+BFS, IDA* can reach &ldquo;deep&rdquo; solutions faster than A* but also find just
+as optimal solutions since it uses the same estimator function \(f(s)\)
+as A*.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Comparisons</h2>
+<div class="outline-text-2" id="text-8">
 
 
 <p>
@@ -485,9 +509,9 @@ find the goal faster. A* makes the best use of a heuristic function.
 
 </div>
 
-<div id="outline-container-8" class="outline-2">
-<h2 id="sec-8">Experiments</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9">Experiments</h2>
+<div class="outline-text-2" id="text-9">
 
 
 <p>
@@ -510,9 +534,9 @@ performance characteristics in the graphs after 10 moves.
 
 </div>
 
-<div id="outline-container-8-1" class="outline-3">
-<h3 id="sec-8-1">Number of checked states (time)</h3>
-<div class="outline-text-3" id="text-8-1">
+<div id="outline-container-9-1" class="outline-3">
+<h3 id="sec-9-1">Number of checked states (time)</h3>
+<div class="outline-text-3" id="text-9-1">
 
 
 
@@ -536,9 +560,9 @@ efficient.&rdquo;
 
 </div>
 
-<div id="outline-container-8-2" class="outline-3">
-<h3 id="sec-8-2">Maximum number of states in memory</h3>
-<div class="outline-text-3" id="text-8-2">
+<div id="outline-container-9-2" class="outline-3">
+<h3 id="sec-9-2">Maximum number of states in memory</h3>
+<div class="outline-text-3" id="text-9-2">
 
 
 
@@ -563,9 +587,9 @@ from only the best states.
 
 </div>
 
-<div id="outline-container-8-3" class="outline-3">
-<h3 id="sec-8-3">Length of path (goodness of solutions)</h3>
-<div class="outline-text-3" id="text-8-3">
+<div id="outline-container-9-3" class="outline-3">
+<h3 id="sec-9-3">Length of path (goodness of solutions)</h3>
+<div class="outline-text-3" id="text-9-3">
 
 
 
@@ -596,17 +620,17 @@ possibly because it is more likely it will look at a shallow node
 
 </div>
 
-<div id="outline-container-9" class="outline-2">
-<h2 id="sec-9">More experiments</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10">More experiments</h2>
+<div class="outline-text-2" id="text-10">
 
 
 
 </div>
 
-<div id="outline-container-9-1" class="outline-3">
-<h3 id="sec-9-1">8-puzzle</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-10-1" class="outline-3">
+<h3 id="sec-10-1">8-puzzle</h3>
+<div class="outline-text-3" id="text-10-1">
 
 
 <p>
@@ -631,9 +655,9 @@ possibly because it is more likely it will look at a shallow node
 
 </div>
 
-<div id="outline-container-9-1-1" class="outline-4">
-<h4 id="sec-9-1-1">Discussion</h4>
-<div class="outline-text-4" id="text-9-1-1">
+<div id="outline-container-10-1-1" class="outline-4">
+<h4 id="sec-10-1-1">Discussion</h4>
+<div class="outline-text-4" id="text-10-1-1">
 
 
 <p>
@@ -650,9 +674,9 @@ possibly because it is more likely it will look at a shallow node
 
 </div>
 
-<div id="outline-container-9-2" class="outline-3">
-<h3 id="sec-9-2">Goodale routing</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-10-2" class="outline-3">
+<h3 id="sec-10-2">Goodale routing</h3>
+<div class="outline-text-3" id="text-10-2">
 
 
 <p>
@@ -678,9 +702,9 @@ possibly because it is more likely it will look at a shallow node
 
 </div>
 
-<div id="outline-container-9-2-1" class="outline-4">
-<h4 id="sec-9-2-1">Discussion</h4>
-<div class="outline-text-4" id="text-9-2-1">
+<div id="outline-container-10-2-1" class="outline-4">
+<h4 id="sec-10-2-1">Discussion</h4>
+<div class="outline-text-4" id="text-10-2-1">
 
 
 <p>
@@ -692,9 +716,9 @@ possibly because it is more likely it will look at a shallow node
 
 </div>
 
-<div id="outline-container-9-3" class="outline-3">
-<h3 id="sec-9-3">Maze path-finding</h3>
-<div class="outline-text-3" id="text-9-3">
+<div id="outline-container-10-3" class="outline-3">
+<h3 id="sec-10-3">Maze path-finding</h3>
+<div class="outline-text-3" id="text-10-3">
 
 
 <p>
@@ -720,9 +744,9 @@ possibly because it is more likely it will look at a shallow node
 
 </div>
 
-<div id="outline-container-9-3-1" class="outline-4">
-<h4 id="sec-9-3-1">Discussion</h4>
-<div class="outline-text-4" id="text-9-3-1">
+<div id="outline-container-10-3-1" class="outline-4">
+<h4 id="sec-10-3-1">Discussion</h4>
+<div class="outline-text-4" id="text-10-3-1">
 
 
 <p>
