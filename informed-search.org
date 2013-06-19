@@ -196,6 +196,21 @@ If $h$ overestimates the true cost to the goal, then our search
 algorithm will obviously make the wrong choices. It will move the
 robot farther from the end of the maze rather than towards the end.
 
+* IDA* (Iterative Deepening A*)
+
+The A* algorithm has very bad space complexity (see below) because it
+might, in the worst case, keep a memory of every state ever
+visited. An alternative approach is to use an iterative deepening
+strategy, just like IDDFS, except that we bring over the complex
+heuristic $f(s) = g(s) + h(s)$. IDA* is IDDFS except that the search
+stops looking deeper if $f(s) > t$ for some threshold $t$. This
+threshold is increased (by $1$, say) for every iteration. Thus, IDA*
+is the same as IDDFS except that IDDFS use a "depth" threshold while
+IDA* uses a heuristic cost threshold. Similar to how IDDFS improves on
+BFS, IDA* can reach "deep" solutions faster than A* but also find just
+as optimal solutions since it uses the same estimator function $f(s)$
+as A*.
+
 * Comparisons
 
 Refer to the [[./search.html][search notes]] (at the bottom) for an explanation of the variables $n$ (total possible states), $b$ (branch factor), $d$ (search depth of least-cost solution), and $m$ (maximum search depth, which may be $\infty$).
