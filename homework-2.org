@@ -101,7 +101,7 @@ search]] notes.
 <td></td><td></td><td>x</td>
 </tr>
 <tr>
-<td>x</td><td>o</td><td>o</td>
+<td></td><td>o</td><td>o</td>
 </tr>
 </table>
 #+END_HTML
