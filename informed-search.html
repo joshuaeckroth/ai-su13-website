@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Informed search"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-19 14:03:03 EDT"/>
+<meta name="generated" content="2013-06-25 10:08:47 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -249,7 +249,7 @@ heuristic is a &ldquo;rule of thumb,&rdquo; or some kind of rule that&rsquo;s &l
 good idea.&rdquo; BFS and DFS have their own heuristics but their heuristics
 (how to choose the next states to check) do not change depending on
 the problem. Normally, we talk about heuristics in a more
-problem-specific sense. A heuristic would be applied in step <code>2.b.</code>,
+problem-specific sense. A heuristic would be applied in step <code>4.b.</code>,
 in which we choose the next state to check.
 </p>
 </div>
@@ -315,9 +315,9 @@ no way of fixing that error.
 </p>
 <p>
 Our general search algorithm can be modified to support hill-climbing
-search by modifying step <code>2.b.ii.</code> so that the entire &ldquo;tocheck&rdquo; list
+search by modifying step <code>4.b.ii.</code> so that the entire &ldquo;tocheck&rdquo; list
 is deleted and replaced with only those states accessible from the
-current state. Also, step <code>2.b.</code> is modified to choose the best state
+current state. Also, step <code>4.b.</code> is modified to choose the best state
 in terms of the chosen heuristic (&ldquo;climb up the hill&rdquo; means &ldquo;maximize
 the heuristic function&rdquo;).
 </p>
@@ -335,7 +335,7 @@ the heuristic function&rdquo;).
 
 <p>
 Best-first retains a record of every state that has been visited as
-well as the heuristic value of that state. At step <code>2.b.</code>, the best
+well as the heuristic value of that state. At step <code>4.b.</code>, the best
 state ever visited is retrieved and search continues from there. This
 makes best-first search appear to jump around the search tree, like a
 random search, but of course best-first search is not random. The
