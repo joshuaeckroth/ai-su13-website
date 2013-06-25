@@ -59,7 +59,7 @@ heuristic is a "rule of thumb," or some kind of rule that's "usually a
 good idea." BFS and DFS have their own heuristics but their heuristics
 (how to choose the next states to check) do not change depending on
 the problem. Normally, we talk about heuristics in a more
-problem-specific sense. A heuristic would be applied in step ~2.b.~,
+problem-specific sense. A heuristic would be applied in step ~4.b.~,
 in which we choose the next state to check.
 
 * Heuristics for 8-puzzle
@@ -100,9 +100,9 @@ search arrives at a local maximum rather than a global maximum, it has
 no way of fixing that error.
 
 Our general search algorithm can be modified to support hill-climbing
-search by modifying step ~2.b.ii.~ so that the entire "tocheck" list
+search by modifying step ~4.b.ii.~ so that the entire "tocheck" list
 is deleted and replaced with only those states accessible from the
-current state. Also, step ~2.b.~ is modified to choose the best state
+current state. Also, step ~4.b.~ is modified to choose the best state
 in terms of the chosen heuristic ("climb up the hill" means "maximize
 the heuristic function").
 
@@ -111,7 +111,7 @@ the heuristic function").
 * Best-first search
 
 Best-first retains a record of every state that has been visited as
-well as the heuristic value of that state. At step ~2.b.~, the best
+well as the heuristic value of that state. At step ~4.b.~, the best
 state ever visited is retrieved and search continues from there. This
 makes best-first search appear to jump around the search tree, like a
 random search, but of course best-first search is not random. The
