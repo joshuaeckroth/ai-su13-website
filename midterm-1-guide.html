@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Midterm 1 guide"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-11 22:23:35 EDT"/>
+<meta name="generated" content="2013-06-28 09:16:40 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -147,35 +147,37 @@ max) with notes or whatnot.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">Turing test</a></li>
-<li><a href="#sec-2">Search</a>
+<li><a href="#sec-2">General Problem Solver</a></li>
+<li><a href="#sec-3">Search</a>
 <ul>
-<li><a href="#sec-2-1">General search</a></li>
-<li><a href="#sec-2-2">Adversarial search</a></li>
+<li><a href="#sec-3-1">General search</a></li>
+<li><a href="#sec-3-2">Adversarial search</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">Knowledge representation</a>
+<li><a href="#sec-4">Knowledge representation</a>
 <ul>
-<li><a href="#sec-3-1">Boolean logic</a></li>
-<li><a href="#sec-3-2">Propositional logic</a></li>
-<li><a href="#sec-3-3">First-order logic</a></li>
-<li><a href="#sec-3-4">Prolog</a></li>
+<li><a href="#sec-4-1">Boolean logic</a></li>
+<li><a href="#sec-4-2">Propositional logic</a></li>
+<li><a href="#sec-4-3">First-order logic</a></li>
+<li><a href="#sec-4-4">Prolog</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">Answers&hellip;</a>
+<li><a href="#sec-5">Answers&hellip;</a>
 <ul>
-<li><a href="#sec-4-1">Turing test</a></li>
-<li><a href="#sec-4-2">Search</a>
+<li><a href="#sec-5-1">Turing test</a></li>
+<li><a href="#sec-5-2">General Problem Solver</a></li>
+<li><a href="#sec-5-3">Search</a>
 <ul>
-<li><a href="#sec-4-2-1">General search</a></li>
-<li><a href="#sec-4-2-2">Adversarial search</a></li>
+<li><a href="#sec-5-3-1">General search</a></li>
+<li><a href="#sec-5-3-2">Adversarial search</a></li>
 </ul>
 </li>
-<li><a href="#sec-4-3">Knowledge representation</a>
+<li><a href="#sec-5-4">Knowledge representation</a>
 <ul>
-<li><a href="#sec-4-3-1">Boolean logic</a></li>
-<li><a href="#sec-4-3-2">Propositional logic</a></li>
-<li><a href="#sec-4-3-3">First-order logic</a></li>
-<li><a href="#sec-4-3-4">Prolog</a></li>
+<li><a href="#sec-5-4-1">Boolean logic</a></li>
+<li><a href="#sec-5-4-2">Propositional logic</a></li>
+<li><a href="#sec-5-4-3">First-order logic</a></li>
+<li><a href="#sec-5-4-4">Prolog</a></li>
 </ul>
 </li>
 </ul>
@@ -211,16 +213,52 @@ just as strong a test for computer intelligence as the Turing test.
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Search</h2>
+<h2 id="sec-2">General Problem Solver</h2>
 <div class="outline-text-2" id="text-2">
+
+
+<p>
+Modify the following &ldquo;program&rdquo; so that GPS can find the solution.
+</p>
+
+
+
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">problem</span> = {
+    <span style="font-style: italic;">"start"</span>: [<span style="font-style: italic;">"door locked"</span>],
+    <span style="font-style: italic;">"finish"</span>: [<span style="font-style: italic;">"door open"</span>],
+    <span style="font-style: italic;">"ops"</span>: [
+        {
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"open door"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"door unlocked"</span>, <span style="font-style: italic;">"door closed"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"door open"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"door closed"</span>]
+            },
+        {
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"unlock door"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"door closed"</span>],
+            <span style="font-style: italic;">"add"</span>: [],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"door locked"</span>]
+            }
+        ]
+    }
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Search</h2>
+<div class="outline-text-2" id="text-3">
 
 
 
 </div>
 
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1">General search</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">General search</h3>
+<div class="outline-text-3" id="text-3-1">
 
 
 <p>
@@ -274,11 +312,11 @@ Complete the following table for weighted, finite search graphs:
 <p>
 Recall the Goodale route search problem from <a href="./search-practice.html">Practice with searching</a>
 notes. Answer the following questions for each of breadth-first
-search, depth-first search, best-first search (using distances),
-hill-climbing search, and A* search (using some heuristic like
-distance &ldquo;as the crow flies&rdquo;). Assume we start at <code>Woodruff &amp; Tuttle</code>
-and the goal is <code>Goodale parking lot</code>. For each question, there may be
-more than one correct answer.
+search, depth-first search, hill-climbing search, best-first search,
+and A* search (using some heuristic like distance &ldquo;as the crow
+flies&rdquo;). Assume we start at <code>Woodruff &amp; Tuttle</code> and the goal is
+<code>Goodale parking lot</code>. For each question, there may be more than one
+correct answer.
 </p>
 <ol>
 <li>What are the first two states (beyond <code>Woodruff &amp; Tuttle</code>) that
@@ -295,16 +333,6 @@ more than one correct answer.
 
 
 <p>
-True or false? Iterative deepening depth-first search is complete
-whenever regular depth-first search is complete for some search
-problem.
-</p>
-<p>
-True or false? Iterative deepening depth-first search can usually be
-expected to find a shorter path to the goal than regular depth-first
-search.
-</p>
-<p>
 What is the singular requirement for a heuristic to be called
 &ldquo;admissible?&rdquo;
 </p>
@@ -312,9 +340,9 @@ What is the singular requirement for a heuristic to be called
 
 </div>
 
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2">Adversarial search</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">Adversarial search</h3>
+<div class="outline-text-3" id="text-3-2">
 
 
 <p>
@@ -339,22 +367,40 @@ True or false? Alpha-beta pruning (applied to minimax) is the same
 algorithm as minimax, just faster because irrelevant computations are
 omitted.
 </p>
-</div>
-</div>
+<p>
+What is the best move, according to a minimax procedure, for &lsquo;x&rsquo; to
+make in the following tic-tac-toe board?
+</p>
+
+
+<table class="full">
+<tr>
+<td>o</td><td>o</td><td>x</td>
+</tr>
+<tr>
+<td></td><td></td><td>x</td>
+</tr>
+<tr>
+<td></td><td>x</td><td>o</td>
+</tr>
+</table>
 
 </div>
+</div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Knowledge representation</h2>
-<div class="outline-text-2" id="text-3">
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Knowledge representation</h2>
+<div class="outline-text-2" id="text-4">
 
 
 
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">Boolean logic</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1">Boolean logic</h3>
+<div class="outline-text-3" id="text-4-1">
 
 
 <p>
@@ -365,9 +411,9 @@ $$\neg(\neg x \vee \neg y) \wedge (x \wedge (y \vee \neg y))$$
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">Propositional logic</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2">Propositional logic</h3>
+<div class="outline-text-3" id="text-4-2">
 
 
 <p>
@@ -413,9 +459,9 @@ Prove (and state the rules and premises you utilize):
 
 </div>
 
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3">First-order logic</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3">First-order logic</h3>
+<div class="outline-text-3" id="text-4-3">
 
 
 <p>
@@ -451,9 +497,9 @@ $$(\exists x)(W(x) \vee \neg Q(x))$$
 
 </div>
 
-<div id="outline-container-3-4" class="outline-3">
-<h3 id="sec-3-4">Prolog</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4">Prolog</h3>
+<div class="outline-text-3" id="text-4-4">
 
 
 <p>
@@ -571,17 +617,17 @@ Draw the resolution tree for the first successful proof of <code>k(X, c)</code>.
 
 </div>
 
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Answers&hellip;</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Answers&hellip;</h2>
+<div class="outline-text-2" id="text-5">
 
 
 
 </div>
 
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1">Turing test</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1">Turing test</h3>
+<div class="outline-text-3" id="text-5-1">
 
 
 <p>
@@ -624,17 +670,54 @@ anything
 
 </div>
 
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2">Search</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2">General Problem Solver</h3>
+<div class="outline-text-3" id="text-5-2">
+
+
+<p>
+Modify the following &ldquo;program&rdquo; so that GPS can find the solution.
+</p>
+
+
+
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">problem</span> = {
+    <span style="font-style: italic;">"start"</span>: [<span style="font-style: italic;">"door closed"</span>, <span style="font-style: italic;">"door locked"</span>],
+    <span style="font-style: italic;">"finish"</span>: [<span style="font-style: italic;">"door open"</span>],
+    <span style="font-style: italic;">"ops"</span>: [
+        {
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"open door"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"door unlocked"</span>, <span style="font-style: italic;">"door closed"</span>],
+
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"door open"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"door closed"</span>]
+            },
+        {
+            <span style="font-style: italic;">"action"</span>: <span style="font-style: italic;">"unlock door"</span>,
+            <span style="font-style: italic;">"preconds"</span>: [<span style="font-style: italic;">"door closed"</span>],
+            <span style="font-style: italic;">"add"</span>: [<span style="font-style: italic;">"door unlocked"</span>],
+            <span style="font-style: italic;">"delete"</span>: [<span style="font-style: italic;">"door locked"</span>]
+            }
+        ]
+    }
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5-3" class="outline-3">
+<h3 id="sec-5-3">Search</h3>
+<div class="outline-text-3" id="text-5-3">
 
 
 
 </div>
 
-<div id="outline-container-4-2-1" class="outline-4">
-<h4 id="sec-4-2-1">General search</h4>
-<div class="outline-text-4" id="text-4-2-1">
+<div id="outline-container-5-3-1" class="outline-4">
+<h4 id="sec-5-3-1">General search</h4>
+<div class="outline-text-4" id="text-5-3-1">
 
 
 <p>
@@ -735,11 +818,11 @@ Complete the following table for weighted, finite search graphs:
 <p>
 Recall the Goodale route search problem from <a href="./search-practice.html">Practice with searching</a>
 notes. Answer the following questions for each of breadth-first
-search, depth-first search, best-first search (using distances),
-hill-climbing search, and A* search (using some heuristic like
-distance &ldquo;as the crow flies&rdquo;). Assume we start at <code>Woodruff &amp; Tuttle</code>
-and the goal is <code>Goodale parking lot</code>. For each question, there may be
-more than one correct answer.
+search, depth-first search, hill-climbing search, best-first search,
+and A* search (using some heuristic like distance &ldquo;as the crow
+flies&rdquo;). Assume we start at <code>Woodruff &amp; Tuttle</code> and the goal is
+<code>Goodale parking lot</code>. For each question, there may be more than one
+correct answer.
 </p>
 <ol>
 <li>What are the first two states (beyond <code>Woodruff &amp; Tuttle</code>) that
@@ -793,26 +876,6 @@ more than one correct answer.
 
 
 <p>
-True or false? Iterative deepening depth-first (IDDFS) search is
-complete whenever regular depth-first search is complete for some
-search problem.
-</p>
-<p>
-<b>True</b> &mdash; DFS is complete when the search space is not
-infinite. Since IDDFS performs repeated DFS (with greater depth
-limits), it too will be complete if DFS is.
-</p>
-<p>
-True or false? Iterative deepening depth-first search can usually be
-expected to find a shorter path to the goal than regular depth-first
-search.
-</p>
-<p>
-<b>True</b> &mdash; The purpose of IDDFS is to not get lost in deep searches by
-putting a limit on the DFS depth (which causes more breadth to be
-searched because it hits the depth limit).
-</p>
-<p>
 What is the singular requirement for a heuristic to be called
 &ldquo;admissible?&rdquo;
 </p>
@@ -827,9 +890,9 @@ What is the singular requirement for a heuristic to be called
 
 </div>
 
-<div id="outline-container-4-2-2" class="outline-4">
-<h4 id="sec-4-2-2">Adversarial search</h4>
-<div class="outline-text-4" id="text-4-2-2">
+<div id="outline-container-5-3-2" class="outline-4">
+<h4 id="sec-5-3-2">Adversarial search</h4>
+<div class="outline-text-4" id="text-5-3-2">
 
 
 <p>
@@ -876,22 +939,50 @@ omitted.
 <p>
 <b>True</b> &mdash; that&rsquo;s all alpha-beta pruning is; it still does minimax.
 </p>
+<p>
+What is the best move, according to a minimax procedure, for &lsquo;x&rsquo; to
+make in the following tic-tac-toe board?
+</p>
+
+
+<table class="full">
+<tr>
+<td>o</td><td>o</td><td>x</td>
+</tr>
+<tr>
+<td></td><td></td><td>x</td>
+</tr>
+<tr>
+<td></td><td>x</td><td>o</td>
+</tr>
+</table>
+
+<p>
+The answer is that &lsquo;x&rsquo; should move in the exact middle, as proved by
+this minimax search tree:
+</p>
+
+<div style="text-align: center">
+<p><img src="./images/midterm-1-guide-ttt-solution.png"  alt="./images/midterm-1-guide-ttt-solution.png" />
+</p>
+</div>
+
 </div>
 </div>
 
 </div>
 
-<div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3">Knowledge representation</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-5-4" class="outline-3">
+<h3 id="sec-5-4">Knowledge representation</h3>
+<div class="outline-text-3" id="text-5-4">
 
 
 
 </div>
 
-<div id="outline-container-4-3-1" class="outline-4">
-<h4 id="sec-4-3-1">Boolean logic</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-5-4-1" class="outline-4">
+<h4 id="sec-5-4-1">Boolean logic</h4>
+<div class="outline-text-4" id="text-5-4-1">
 
 
 <p>
@@ -919,9 +1010,9 @@ $$\neg(\neg x \vee \neg y) \wedge (x \wedge (y \vee \neg y))$$
 
 </div>
 
-<div id="outline-container-4-3-2" class="outline-4">
-<h4 id="sec-4-3-2">Propositional logic</h4>
-<div class="outline-text-4" id="text-4-3-2">
+<div id="outline-container-5-4-2" class="outline-4">
+<h4 id="sec-5-4-2">Propositional logic</h4>
+<div class="outline-text-4" id="text-5-4-2">
 
 
 <p>
@@ -1031,9 +1122,9 @@ Prove (and state the rules and premises you utilize):
 
 </div>
 
-<div id="outline-container-4-3-3" class="outline-4">
-<h4 id="sec-4-3-3">First-order logic</h4>
-<div class="outline-text-4" id="text-4-3-3">
+<div id="outline-container-5-4-3" class="outline-4">
+<h4 id="sec-5-4-3">First-order logic</h4>
+<div class="outline-text-4" id="text-5-4-3">
 
 
 <p>
@@ -1104,9 +1195,9 @@ $$\neg (\forall x)(\neg W(x) \wedge Q(x))$$
 
 </div>
 
-<div id="outline-container-4-3-4" class="outline-4">
-<h4 id="sec-4-3-4">Prolog</h4>
-<div class="outline-text-4" id="text-4-3-4">
+<div id="outline-container-5-4-4" class="outline-4">
+<h4 id="sec-5-4-4">Prolog</h4>
+<div class="outline-text-4" id="text-5-4-4">
 
 
 <p>
