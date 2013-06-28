@@ -55,11 +55,11 @@ follows:
 
 Now we'll switch to this knowledge base:
 
-#+BEGIN_PROLOG
+#+BEGIN_SRC prolog
 loves(vincent, mia).
 loves(marcellus, mia).
 jealous(A, B) :- loves(A, C), loves(B, C).
-#+END_PROLOG
+#+END_SRC
 
 How is the proof for ~jealous(X, Y)~ found, and what values to the
 variables take?
