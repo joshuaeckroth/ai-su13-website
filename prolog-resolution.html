@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Prolog resolution"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-11 22:23:29 EDT"/>
+<meta name="generated" content="2013-06-28 14:20:56 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -168,11 +168,15 @@ follows:
 <p>
 Now we&rsquo;ll switch to this knowledge base:
 </p>
-<p>
-loves(vincent, mia).
-loves(marcellus, mia).
-jealous(A, B) :- loves(A, C), loves(B, C).
-</p>
+
+
+
+<pre class="src src-prolog"><span style="font-weight: bold;">loves</span>(vincent, mia).
+<span style="font-weight: bold;">loves</span>(marcellus, mia).
+<span style="font-weight: bold;">jealous</span>(<span style="font-weight: bold; font-style: italic;">A</span>, <span style="font-weight: bold; font-style: italic;">B</span>) :- loves(<span style="font-weight: bold; font-style: italic;">A</span>, <span style="font-weight: bold; font-style: italic;">C</span>), loves(<span style="font-weight: bold; font-style: italic;">B</span>, <span style="font-weight: bold; font-style: italic;">C</span>).
+</pre>
+
+
 <p>
 How is the proof for <code>jealous(X, Y)</code> found, and what values to the
 variables take?
