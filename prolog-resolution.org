@@ -61,12 +61,12 @@ loves(marcellus, mia).
 jealous(A, B) :- loves(A, C), loves(B, C).
 #+END_SRC
 
-How is the proof for ~jealous(X, Y)~ found, and what values to the
-variables take?
+How does Prolog find the proof for ~jealous(X, Y)~, and what values to
+the variables take?
 
 The proof tree is shown below. Note that there are four smiley-face
-leaves in tree. This means there are four different ways to get a
-proof, which in this case means there are four different variable
+leaves in the tree. This means there are four different ways to get a
+proof, which means there are four different sets of variable
 assignments.
 
 #+BEGIN_CENTER
