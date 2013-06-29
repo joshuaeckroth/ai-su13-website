@@ -1,6 +1,9 @@
 #+SETUPFILE: setup.org
 #+TITLE: Homework 3
 
+*Note:* Put your solution for Task 9 in the Carmen Dropbox. It's code,
+ afterall, and the grader should be able to execute it.
+
 * Task 1 (5 pts)
 
 Build truth tables for the following formulas:
