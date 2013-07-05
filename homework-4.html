@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Homework 4"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-06-11 22:23:38 EDT"/>
+<meta name="generated" content="2013-07-05 14:50:13 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -103,38 +143,35 @@
 <h2>TOC</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Task 1 (25 pts)</a></li>
-<li><a href="#sec-2">Task 2 (25 pts)</a></li>
-<li><a href="#sec-3">Task 3 (25 pts)</a></li>
-<li><a href="#sec-4">Task 4 (25 pts)</a></li>
-<li><a href="#sec-5">Extra credit 1 (20 pts)</a></li>
-<li><a href="#sec-6">Extra credit 2 (20 pts)</a></li>
+<li><a href="#sec-1">Task 1 (10 pts)</a></li>
+<li><a href="#sec-2">Task 2 (20 pts)</a></li>
+<li><a href="#sec-3">Task 3 (20 pts)</a></li>
+<li><a href="#sec-4">Task 4 (10 pts)</a></li>
+<li><a href="#sec-5">Task 5 (20 pts)</a></li>
+<li><a href="#sec-6">Task 6 (10 pts)</a></li>
+<li><a href="#sec-7">Task 7 (10 pts)</a></li>
+<li><a href="#sec-8">Extra credit (20 pts)</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Task 1 (25 pts)</h2>
+<h2 id="sec-1">Task 1 (10 pts)</h2>
 <div class="outline-text-2" id="text-1">
 
 
 <p>
-Read/skim <a href="http://natcomp.liacs.nl/SWI/papers/cooperative.transport/cooperative.transport.by.ants.and.robots.pdf">Cooperative transport by ants and robots</a> (PDF) by Kube and
-Bonabeau (2000) (<a href="http://jmvidal.cse.sc.edu/lib/kube00a.html">full citation</a>). Answer the following questions:
+Load the PD N-Person Iterated model in NetLogo. Answer these
+questions:
 </p>
 <ol>
-<li>What is a suggested solution to the problem of many robots
-     communicating with each other?
+<li>Observe the results of running the model with a variety of
+     populations and population sizes. For example, <b>can you get      cooperate’s average payoff to be higher than defect’s?</b> <b>Can you      get Tit-for-Tat’s average payoff higher than cooperate’s?</b> <b>What      do these experiments suggest about an optimal strategy?</b> (2-3
+     sentences)
 
 </li>
-<li>What are two problems with robot swarms?
-
-</li>
-<li>How does an ant decide that &ldquo;group transport&rdquo; is needed?
-
-</li>
-<li>How was the &ldquo;stagnation&rdquo; problem solved in experiments with
-     robots?
+<li>Relate your observations from this model to real life
+     events. <b>Where might you find yourself in a similar situation?      How might the knowledge obtained from the model influence your      actions in such a situation? Why?</b> (3-4 sentences)
 </li>
 </ol>
 
@@ -144,86 +181,8 @@ Bonabeau (2000) (<a href="http://jmvidal.cse.sc.edu/lib/kube00a.html">full citat
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Task 2 (25 pts)</h2>
+<h2 id="sec-2">Task 2 (20 pts)</h2>
 <div class="outline-text-2" id="text-2">
-
-
-<p>
-Load the AIDS model in NetLogo. Read about it on the Info tab, play
-with simulations. Then, answer these questions (as found in the
-&ldquo;Things to try&rdquo; section of the Info tab):
-</p>
-<ol>
-<li>Run a number of experiments with the GO button to find out the
-     effects of different variables on the spread of HIV. Try using
-     good controls in your experiment. Good controls are when only one
-     variable is changed between trials. For instance, to find out
-     what effect the average duration of a relationship has, run four
-     experiments with the AVERAGE-COMMITMENT slider set at 1 the first
-     time, 2 the second time, 10 the third time, and 50 the last. <b>How      much does the prevalence of HIV increase in each case?</b> <b>Does      this match your expectations?</b>
-
-</li>
-<li><b>Are the effects of some slider variables mediated by the effects      of others?</b> For instance, if lower AVERAGE-COMMITMENT values seem
-     to increase the spread of HIV when all other sliders are set at
-     0, does the same thing occur if all other sliders are set at 10?
-     You can run many experiments to test different hypotheses
-     regarding the emergent public health effects associated with
-     individual sexual behaviors.
-</li>
-</ol>
-
-
-</div>
-
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Task 3 (25 pts)</h2>
-<div class="outline-text-2" id="text-3">
-
-
-<p>
-Load the PD N-Person Iterated model in NetLogo. Answer these
-questions:
-</p>
-<ol>
-<li>Observe the results of running the model with a variety of
-     populations and population sizes. For example, <b>can you get      cooperate’s average payoff to be higher than defect’s?</b> <b>Can you      get Tit-for-Tat’s average payoff higher than cooperate’s?</b> <b>What      do these experiments suggest about an optimal strategy?</b>
-
-</li>
-<li>Relate your observations from this model to real life
-     events. <b>Where might you find yourself in a similar situation?      How might the knowledge obtained from the model influence your      actions in such a situation? Why?</b>
-</li>
-</ol>
-
-
-</div>
-
-</div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Task 4 (25 pts)</h2>
-<div class="outline-text-2" id="text-4">
-
-
-<p>
-Load the Wolf Sheep Predation model in NetLogo. Run a BehaviorSpace
-experiment (Tools menu, BehaviorSpace). The goal is to find conditions
-where the populations are stable. Set some parameter ranges and more
-than one repetition. Measure <code>count wolves</code> and <code>count sheep</code>. Be sure
-to add a &ldquo;Stop condition&rdquo; like <code>count turtles &gt; 5000</code> to avoid
-explosions of sheep. Also add a time limit like 3000. Create a
-spreadsheet of the results. Include this spreadsheet in your homework
-submission as well as a written summary of what you observed (5-7
-sentences).
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">Extra credit 1 (20 pts)</h2>
-<div class="outline-text-2" id="text-5">
 
 
 <p>
@@ -233,55 +192,132 @@ Read/skim &ldquo;Strong and Weak Emergence&rdquo; by David Chalmers from 2006
 <ol>
 <li>Chalmers writes, &ldquo;We can think of strongly emergent phenomena as
      being systematically determined by low-level facts without being
-     deducible from those facts.&rdquo; Give an example that may possibly
-     satisfy this definition of strong emergence.
+     deducible from those facts.&rdquo; Give an example (1-2 sentences) that
+     may possibly satisfy this definition of strong emergence.
 
 </li>
 <li>Are the NetLogo models we have been using examples of strong or
-     weak emergence?
+     weak emergence? Provide a 1-2 sentence argument.
 
 </li>
-<li>This question of emergence is a generalization of the question of
-     whether the higher-level sciences like chemistry and biology (not
-     to mention psychology, sociology) are &ldquo;reducible&rdquo; in principle to
-     just physics. Or, do the different sciences each have an
-     essential nature that cannot be reduced &mdash; that, say, chemistry
-     is the study of laws that cannot be deduced from laws of
-     physics. You can imagine that some people are uncomfortable with
-     the idea that physics is the only &ldquo;real&rdquo; science. What is your
-     opinion? Is physics the foundation of all science, and if only
-     physical laws are understood perfectly then all phenomena
-     (chemical, biological, psychological, etc.) can be predicted and
-     explained?
+<li>What is the relation between weak emergence, as described by
+     Chalmers (second half of the reading) and <a href="./knowledge-level.html">the knowledge level</a>?
+     This is a &ldquo;compare and contrast&rdquo; type of question. Answer in one
+     paragraph (4-5 sentences).
 </li>
 </ol>
 
 
 
-<div style="text-align: center">
-<p><img src="./images/purity.png"  alt="./images/purity.png" />
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Task 3 (20 pts)</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+Execute the k-means algorithm by hand on the following data:
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="right" /><col class="right" /><col class="right" /><col class="right" /><col class="right" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="right">item #</th><th scope="col" class="right">w</th><th scope="col" class="right">x</th><th scope="col" class="right">y</th><th scope="col" class="right">z</th><th scope="col" class="left">true label</th></tr>
+</thead>
+<tbody>
+<tr><td class="right">1</td><td class="right">3.0</td><td class="right">1.0</td><td class="right">1.0</td><td class="right">1.0</td><td class="left">A</td></tr>
+<tr><td class="right">2</td><td class="right">0.0</td><td class="right">2.0</td><td class="right">1.0</td><td class="right">0.0</td><td class="left">B</td></tr>
+<tr><td class="right">3</td><td class="right">2.0</td><td class="right">2.0</td><td class="right">2.0</td><td class="right">2.0</td><td class="left">A</td></tr>
+<tr><td class="right">4</td><td class="right">1.0</td><td class="right">1.0</td><td class="right">1.0</td><td class="right">1.0</td><td class="left">B</td></tr>
+<tr><td class="right">5</td><td class="right">3.0</td><td class="right">2.0</td><td class="right">3.0</td><td class="right">2.0</td><td class="left">A</td></tr>
+<tr><td class="right">6</td><td class="right">0.0</td><td class="right">0.0</td><td class="right">1.0</td><td class="right">3.0</td><td class="left">B</td></tr>
+</tbody>
+</table>
+
+
+<p>
+Use \(k=2\). Show the centroids as they change, and give the final
+centroids. You must choose random (or not so random) starting centroid
+values. Finally, give the confusion matrix.
 </p>
 </div>
 
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Task 4 (10 pts)</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+Run the k-means algorithm in Weka using this dataset: <a href="./iris.arff">iris.arff</a> (iris
+species clustering).
+</p>
+<p>
+Find the best value of \(k\). Give the confusion matrix for this
+\(k\). Also report the percent of correctly classified instances for
+each class.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Task 5 (20 pts)</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+Execute the k-nearest neighbor algorithm by hand on the clusters found
+from task 1 (or make up random clusters by labeling the points from
+task 1). Use \(k = 2\). Classify the data point: \(&lt;1, 0, 1, 2&gt;\).
+</p>
 </div>
 
 </div>
 
 <div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Extra credit 2 (20 pts)</h2>
+<h2 id="sec-6">Task 6 (10 pts)</h2>
 <div class="outline-text-2" id="text-6">
 
 
 <p>
-Read/skim &ldquo;Strong and Weak Emergence&rdquo; by David Chalmers (<a href="./Chalmers-Emergence.pdf">PDF</a>). Answer
-one question:
+Run the k-nearest neighbor in Weka using this dataset: <a href="./letter.arff">letter.arff</a>
+(handwritten letter classification). Find the best value of
+\(k\). Report the accuracy and give the confusion matrix.
 </p>
-<ol>
-<li>What is the relation between weak emergence, as described by
-     Chalmers (second half of the reading) and <a href="./knowledge-level.html">the knowledge level</a>?
-     This is a &ldquo;compare and contrast&rdquo; type of question.
-</li>
-</ol>
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Task 7 (10 pts)</h2>
+<div class="outline-text-2" id="text-7">
+
+
+<p>
+Explain the differences between k-means and k-nearest neighbor
+algorithms. What does each accomplish, and when/why might you use
+both?
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8">Extra credit (20 pts)</h2>
+<div class="outline-text-2" id="text-8">
+
+
+<p>
+Play around with Weka. Report how well at least three different
+classification algorithms (avoid k-means and k-nn) perform on the the
+<a href="./letter.arff">letter.arff</a> data. Collect accuracies in a table.
+</p>
 
 
 
