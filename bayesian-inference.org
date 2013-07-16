@@ -170,8 +170,7 @@ Why is it interesting? Think about the medical diagnosis problem again.
 | $P(c \vert{} t) = ??$                | If somebody has a toothache, what is the chance they have a cavity?                      |
 
 This last row in the table is a very important question. It's asking
-us to determine the cause, given the effect. (Hey, that looks like
-abduction from the [[./other-logics.html][other logics]] notes!)
+us to determine the cause, given the effect.
 
 Here is the calculation, given by Bayes' formula:
 
