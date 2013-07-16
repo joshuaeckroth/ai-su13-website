@@ -23,7 +23,7 @@ subsamples, where a random 90% serves as the training set and the
 remainder serves as the test set.
 
 Use the lemmatized, stopword-removed "Ling-Spam" dataset available in
-[[./downloads/lingspam_lemm_stop.zip][lingspam_lemm_stop.zip]]. Original source:
+[[./downloads/lingspam_lemm_stop.zip][lingspam\_lemm\_stop.zip]]. Original source:
 http://csmining.org/index.php/ling-spam-datasets.html
 
 Submit your code to the dropbox. *Do not include the dataset in your
@@ -160,5 +160,8 @@ which is specified on the command line. Usage should be like this:
 bayes-train.exe mymodel                  ;; saves the model
 bayes-predict.ext mymodel mydoc.txt      ;; predicts using the model
 #+END_EXAMPLE
+
+There should be no output from ~bayes-train.exe~ and the only output
+from ~bayes-predict.exe~ should be the predicted category (spam/ham).
 
 #+INCLUDE: footer.org
