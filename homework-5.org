@@ -15,7 +15,7 @@ more probable, given that a fire has been reported: the smoke detector
 was tampered with, or there is a fire. Give the probabilities of these
 two events.
 
-* Task 2 (80 pts)
+* Task 3 (80 pts)
 
 Perform [[./naive-bayesian.html][naïve Bayesian classification]] on a spam/ham dataset. Report
 the average experimental f-score after training/testing on 10 random
