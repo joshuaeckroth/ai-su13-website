@@ -15,13 +15,14 @@ probability of this word being present in a document that is a member
 of this category." Thus, the category vector has terms $C_c = (p_{c1},
 p_{c2}, \dots, p_{ck})$, and
 
-$$p_{ci} = P(w_i|C_c) = \frac{d_{ci}+1}{d_{i}+|C|},$$
+$$p_{ci} = P(w_i|C_c) = \frac{d_{ci}+1}{d_i+n_c},$$
 
 where $d_{ci}$ is the number of documents in $C_c$ that have word $i$
 (anywhere in the document, any number of occurrences), $d_i$ is the
-number of documents in /any/ category that have word $i$, and $|C|$ is
-the number of categories. We add 1 and add $|C|$ so that $P(w_i|C_c)$
-is never equal to 0. (This is called [[http://en.wikipedia.org/wiki/Additive_smoothing][Laplace smoothing]].)
+number of documents in /any/ category that have word $i$, and $n_c$ is
+the number of documents in category $C_c$. We add 1 and add $n_c$ so
+that $P(w_i|C_c)$ is never equal to 0. (This is called [[http://en.wikipedia.org/wiki/Additive_smoothing][Laplace
+smoothing]].)
 
 ** Algorithm
 
@@ -72,33 +73,21 @@ many $p_{ci}$ terms. On a computer, the values may become so small
 that they may "underflow" (run out of bits required to represent the
 value). To prevent this, we just throw a logarithm around everything:
 
-$$\log P(\hat{X}|C_c)P(C_c) = \log P(\hat{X}|C_c) + \log P(C_c),$$
+$$-\log P(\hat{X}|C_c)P(C_c) = -\log P(\hat{X}|C_c) + \log P(C_c),$$
 
 and furthermore,
 
-$$\log P(\hat{X}|C_c) = \log \prod_i P(w_i|C_c) = \sum_i \log P(w_i|C_c)$$
+$$-\log P(\hat{X}|C_c) = -\log \prod_i P(w_i|C_c) = -\sum_i \log P(w_i|C_c)$$
 
 So our multiplications turn to sums, and we avoid the underflow
-problem. Rewriting again, we ultimately have this problem:
+problem. Note we use $-log(\dots)$ because taking the log of a value
+in the range $(0,1]$ produces values in the range $(-\infty, 0]$.
 
-$$\arg\max_{C_c} (\sum_i \log P(w_i|C_c)) + \log P(C_c)$$
+Rewriting again, we ultimately have this problem:
+
+$$\arg\max_{C_c} -\sum_i \log P(w_i|C_c) - \log P(C_c)$$
 
 ** Evaluation
-
-These graphs show the performance of the naïve Bayes approach on
-various datasets (compare with results from the [[./document-classification.html][document
-classification]] notes). The calculations described above are
-represented as the "binary" algorithm in the graphs. The "tfidf"
-algorithm, as applied in a naïve Bayes context, uses slightly
-different calculations that have not been described in these notes.
-
-#+BEGIN_CENTER
-[[./images/naivebayes-fscore-datasets.png]]
-#+END_CENTER
-
-#+BEGIN_CENTER
-[[./images/naivebayes-fscore-ai.png]]
-#+END_CENTER
 
 The book [[http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html][Introduction to Information Retrieval]] gathered some published
 results for classification tasks. We can see that naïve Bayes is
@@ -119,9 +108,6 @@ nor support vector machines (which we didn't learn about).
 | wheat    |        0.70 |               0.77 |                    0.92 |
 | corn     |        0.65 |               0.78 |                    0.90 |
 #+END_CENTER
-
-I also performed a Spam detection experiment, using the [[http://archive.ics.uci.edu/ml/datasets/Spambase][Spambase]]
-dataset. With naïve Bayes I was able to achieve ~80% accuracy.
 
 ** Benefits of naïve Bayes
 
