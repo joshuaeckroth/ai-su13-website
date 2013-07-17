@@ -73,19 +73,16 @@ many $p_{ci}$ terms. On a computer, the values may become so small
 that they may "underflow" (run out of bits required to represent the
 value). To prevent this, we just throw a logarithm around everything:
 
-$$-\log P(\hat{X}|C_c)P(C_c) = -\log P(\hat{X}|C_c) + \log P(C_c),$$
+$$\log P(\hat{X}|C_c)P(C_c) = \log P(\hat{X}|C_c) + \log P(C_c),$$
 
 and furthermore,
 
-$$-\log P(\hat{X}|C_c) = -\log \prod_i P(w_i|C_c) = -\sum_i \log P(w_i|C_c)$$
+$$\log P(\hat{X}|C_c) = \log \prod_i P(w_i|C_c) = \sum_i \log P(w_i|C_c)$$
 
 So our multiplications turn to sums, and we avoid the underflow
-problem. Note we use $-log(\dots)$ because taking the log of a value
-in the range $(0,1]$ produces values in the range $(-\infty, 0]$.
+problem. Rewriting again, we ultimately have this problem:
 
-Rewriting again, we ultimately have this problem:
-
-$$\arg\max_{C_c} [-\sum_i \log P(w_i|C_c) - \log P(C_c)]$$
+$$\arg\max_{C_c} \sum_i \log P(w_i|C_c) + \log P(C_c)$$
 
 ** Evaluation
 
