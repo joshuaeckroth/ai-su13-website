@@ -24,11 +24,11 @@ be. Read about the photo at [[http://www.cs.cmu.edu/~chuck/lennapg/lenna.shtml][
 <img align="left" src="images/blur-convolution.png" style="margin: 0 10px 10px 0;"/>
 #+END_HTML
 
-$$\text{dst}(x,y) = \sum_{0 \leq x' < kc, \quad 0 \leq y' < kr} K(x',y') * \text{src}(x + x'- ax, y + y' - ay)$$
+$$\text{dst}(x,y) = \sum_{0 \leq x' < c, \quad 0 \leq y' < r} K(x',y') * \text{src}(x + x'- x_a, y + y' - y_a)$$
 
-where $K$ is the kernel, $kc$ is the number of columns in the kernel,
-$kr$ is the number of rows in the kernel, $ax$ is the $x$ position of
-the anchor (in the kernel), and $ay$ is the $y$ position of the
+where $K$ is the kernel, $c$ is the number of columns in the kernel,
+$r$ is the number of rows in the kernel, $x_a$ is the $x$ position of
+the anchor (in the kernel), and $y_a$ is the $y$ position of the
 anchor.
 
 #+BEGIN_HTML
@@ -111,23 +111,23 @@ Here is a 90-degree rotation:
 
 \begin{eqnarray}
 M &=& \begin{bmatrix}
-\cos(\pi/2) & \sin(\pi/2) & (1-\cos(\pi/2))cx - \sin(\pi/2)cy \\
--\sin(\pi/2) & \cos(\pi/2) & \sin(pi/2)cx + (1-\cos(pi/2))cy
+\cos(\pi/2) & \sin(\pi/2) & (1-\cos(\pi/2))x_c - \sin(\pi/2)y_c \\
+-\sin(\pi/2) & \cos(\pi/2) & \sin(pi/2)x_c + (1-\cos(pi/2))y_c
 \end{bmatrix} \\
 &=& \begin{bmatrix}
-0 & 1 & cx - cy \\
--1 & 0 & cx + cy
+0 & 1 & x_c - y_c \\
+-1 & 0 & x_c + y_c
 \end{bmatrix}
 \end{eqnarray}
 
-where $cx, cy$ is the location of the center of the image.
+where $x_c, y_c$ is the location of the center of the image.
 
 Here is a 45-degree rotation:
 
 \begin{equation}
 M = \begin{bmatrix}
-\cos(\pi/4) & \sin(\pi/4) & (1-\cos(\pi/4))cx - \sin(\pi/4)cy \\
--\sin(\pi/4) & \cos(\pi/4) & \sin(pi/4)cx + (1-\cos(pi/4))cy
+\cos(\pi/4) & \sin(\pi/4) & (1-\cos(\pi/4))x_c - \sin(\pi/4)y_c \\
+-\sin(\pi/4) & \cos(\pi/4) & \sin(pi/4)x_c + (1-\cos(pi/4))y_c
 \end{bmatrix}
 \end{equation}
 
@@ -186,5 +186,10 @@ different transformations can be tested, and we can pick out the one
 that minimizes the error between chosen ground coordinates and
 predicted ground coordinates (from the transformation). This learning
 can be achieved with a single layer neural network.
+
+* Source code
+
+Grab the source code for all of these examples:
+https://github.com/joshuaeckroth/teach-computer-vision
 
 #+INCLUDE: footer.org
