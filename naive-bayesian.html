@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Naïve Bayesian classification"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-17 11:01:03 EDT"/>
+<meta name="generated" content="2013-07-17 14:46:14 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -275,26 +275,22 @@ value). To prevent this, we just throw a logarithm around everything:
 </p>
 
 
-$$-\log P(\hat{X}|C_c)P(C_c) = -\log P(\hat{X}|C_c) + \log P(C_c),$$
+$$\log P(\hat{X}|C_c)P(C_c) = \log P(\hat{X}|C_c) + \log P(C_c),$$
 
 <p>
 and furthermore,
 </p>
 
 
-$$-\log P(\hat{X}|C_c) = -\log \prod_i P(w_i|C_c) = -\sum_i \log P(w_i|C_c)$$
+$$\log P(\hat{X}|C_c) = \log \prod_i P(w_i|C_c) = \sum_i \log P(w_i|C_c)$$
 
 <p>
 So our multiplications turn to sums, and we avoid the underflow
-problem. Note we use \(-log(\dots)\) because taking the log of a value
-in the range \((0,1]\) produces values in the range \((-\infty, 0]\).
-</p>
-<p>
-Rewriting again, we ultimately have this problem:
+problem. Rewriting again, we ultimately have this problem:
 </p>
 
 
-$$\arg\max_{C_c} [-\sum_i \log P(w_i|C_c) - \log P(C_c)]$$
+$$\arg\max_{C_c} \sum_i \log P(w_i|C_c) + \log P(C_c)$$
 
 </div>
 
