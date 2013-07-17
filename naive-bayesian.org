@@ -85,7 +85,7 @@ in the range $(0,1]$ produces values in the range $(-\infty, 0]$.
 
 Rewriting again, we ultimately have this problem:
 
-$$\arg\max_{C_c} -\sum_i \log P(w_i|C_c) - \log P(C_c)$$
+$$\arg\max_{C_c} [-\sum_i \log P(w_i|C_c) - \log P(C_c)]$$
 
 ** Evaluation
 
