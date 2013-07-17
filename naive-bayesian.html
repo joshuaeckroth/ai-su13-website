@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Naïve Bayesian classification"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-16 11:38:26 EDT"/>
+<meta name="generated" content="2013-07-17 10:58:10 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -182,14 +182,14 @@ p_{c2}, \dots, p_{ck})\), and
 </p>
 
 
-$$p_{ci} = P(w_i|C_c) = \frac{d_{ci}+1}{d_{i}+|C|},$$
+$$p_{ci} = P(w_i|C_c) = \frac{d_{ci}+1}{d_i+n_c},$$
 
 <p>
 where \(d_{ci}\) is the number of documents in \(C_c\) that have word \(i\)
 (anywhere in the document, any number of occurrences), \(d_i\) is the
-number of documents in <i>any</i> category that have word \(i\), and \(|C|\) is
-the number of categories. We add 1 and add \(|C|\) so that \(P(w_i|C_c)\)
-is never equal to 0. (This is called <a href="http://en.wikipedia.org/wiki/Additive_smoothing">Laplace smoothing</a>.)
+number of documents in <i>any</i> category that have word \(i\), and \(n_c\) is
+the number of documents in category \(C_c\). We add 1 and add \(n_c\) so
+that \(P(w_i|C_c)\) is never equal to 0. (This is called <a href="http://en.wikipedia.org/wiki/Additive_smoothing">Laplace smoothing</a>.)
 </p>
 </div>
 
@@ -275,22 +275,26 @@ value). To prevent this, we just throw a logarithm around everything:
 </p>
 
 
-$$\log P(\hat{X}|C_c)P(C_c) = \log P(\hat{X}|C_c) + \log P(C_c),$$
+$$-\log P(\hat{X}|C_c)P(C_c) = -\log P(\hat{X}|C_c) + \log P(C_c),$$
 
 <p>
 and furthermore,
 </p>
 
 
-$$\log P(\hat{X}|C_c) = \log \prod_i P(w_i|C_c) = \sum_i \log P(w_i|C_c)$$
+$$-\log P(\hat{X}|C_c) = -\log \prod_i P(w_i|C_c) = -\sum_i \log P(w_i|C_c)$$
 
 <p>
 So our multiplications turn to sums, and we avoid the underflow
-problem. Rewriting again, we ultimately have this problem:
+problem. Note we use \(-log(\dots)\) because taking the log of a value
+in the range \((0,1]\) produces values in the range \((-\infty, 0]\).
+</p>
+<p>
+Rewriting again, we ultimately have this problem:
 </p>
 
 
-$$\arg\max_{C_c} (\sum_i \log P(w_i|C_c)) + \log P(C_c)$$
+$$\arg\max_{C_c} -\sum_i \log P(w_i|C_c) - \log P(C_c)$$
 
 </div>
 
@@ -300,25 +304,6 @@ $$\arg\max_{C_c} (\sum_i \log P(w_i|C_c)) + \log P(C_c)$$
 <h3 id="sec-5">Evaluation</h3>
 <div class="outline-text-3" id="text-5">
 
-
-<p>
-These graphs show the performance of the naïve Bayes approach on
-various datasets (compare with results from the <a href="./document-classification.html">document classification</a> notes). The calculations described above are
-represented as the &ldquo;binary&rdquo; algorithm in the graphs. The &ldquo;tfidf&rdquo;
-algorithm, as applied in a naïve Bayes context, uses slightly
-different calculations that have not been described in these notes.
-</p>
-
-<div style="text-align: center">
-<p><img src="./images/naivebayes-fscore-datasets.png"  alt="./images/naivebayes-fscore-datasets.png" />
-</p>
-</div>
-
-
-<div style="text-align: center">
-<p><img src="./images/naivebayes-fscore-ai.png"  alt="./images/naivebayes-fscore-ai.png" />
-</p>
-</div>
 
 <p>
 The book <a href="http://nlp.stanford.edu/IR-book/html/htmledition/irbook.html">Introduction to Information Retrieval</a> gathered some published
@@ -352,10 +337,6 @@ nor support vector machines (which we didn&rsquo;t learn about).
 
 </div>
 
-<p>
-I also performed a Spam detection experiment, using the <a href="http://archive.ics.uci.edu/ml/datasets/Spambase">Spambase</a>
-dataset. With naïve Bayes I was able to achieve ~80% accuracy.
-</p>
 </div>
 
 </div>
