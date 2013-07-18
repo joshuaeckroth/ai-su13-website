@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Computer vision</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="Computer vision"/>
+<title>Object tracking</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Object tracking"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-18 08:49:08 EDT"/>
+<meta name="generated" content="2013-07-18 10:59:33 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -83,7 +83,47 @@
  }
 /*]]>*///-->
 </script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
 
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
 </head>
 <body>
 
@@ -96,54 +136,87 @@
 </div>
 
 <div id="content">
-<h1 class="title">Computer vision</h1>
+<h1 class="title">Object tracking</h1>
 
 
 <div id="table-of-contents">
 <h2>TOC</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">A note about the photo</a></li>
-<li><a href="#sec-2">OpenCV</a></li>
+<li><a href="#sec-1">Background subtraction</a>
+<ul>
+<li><a href="#sec-1-1">Trivial background subtraction</a></li>
+<li><a href="#sec-1-2">Mixture of Gaussians</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">Finding blobs</a></li>
+<li><a href="#sec-3">Connecting blobs over time</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">A note about the photo</h2>
+<h2 id="sec-1">Background subtraction</h2>
 <div class="outline-text-2" id="text-1">
 
 
 
+</div>
 
-<img align="left" src="images/lena.jpg" alt="Lena (Lenna) Söderberg"
-title="Lena (Lenna) Söderberg" style="margin: 0 10px 10px 0;"/>
-
-<p>
-This photo of Lena (Lenna) Söderberg is the most widely used test
-image for computer vision applications. I have made a conscious
-decision to use this image for examples on this webpage. We should be
-respectful of the woman in the photo and know how this image came to
-be. Read about the photo at <a href="http://www.cs.cmu.edu/~chuck/lennapg/lenna.shtml">The Lenna story</a>.
-</p>
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1">Trivial background subtraction</h3>
+<div class="outline-text-3" id="text-1-1">
 
 
-<div style="clear: both;" />
 
+
+$$B = F - F_\text{prior}$$
+
+
+<div style="text-align: center">
+
+<iframe src="http://player.vimeo.com/video/70559329" width="745" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2">Mixture of Gaussians</h3>
+<div class="outline-text-3" id="text-1-2">
+
+
+
+<div style="text-align: center">
+
+<iframe src="http://player.vimeo.com/video/70559328" width="700" height="280" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+
+</div>
+
+</div>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">OpenCV</h2>
+<h2 id="sec-2">Finding blobs</h2>
 <div class="outline-text-2" id="text-2">
 
 
-<p>
-All the code in the computer vision examples uses OpenCV. The OpenCV
-homepage is <a href="http://opencv.org">opencv.org</a>; you&rsquo;ll want to look at their <a href="http://docs.opencv.org/2.4.3/modules/refman.html">reference manual</a>
-and <a href="http://docs.opencv.org/doc/tutorials/tutorials.html">tutorials</a>, in particular <a href="http://docs.opencv.org/doc/tutorials/introduction/table_of_content_introduction/table_of_content_introduction.html#table-of-content-introduction">tutorials about installation</a>.
-</p>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Connecting blobs over time</h2>
+<div class="outline-text-2" id="text-3">
+
+
+
 
 
 
