@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Naïve Bayesian classification"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-17 14:46:14 EDT"/>
+<meta name="generated" content="2013-07-18 09:44:18 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -139,6 +139,52 @@
 <h1 class="title">Naïve Bayesian classification</h1>
 
 
+<div class="summary"><h2>Summary</h2>
+<ul>
+<li>The &ldquo;naïve assumption&rdquo; is that the presence of a word does not give
+  any information about the probability of the presence of any other
+  word. This assumption gives us \(P(w_1, w_2, \dots|C_c) = \prod_i
+  P(w_i|C_c)\).
+</li>
+<li>\(d_i\) is the number of documents (in the training set, of course)
+  with word \(i\).
+</li>
+<li>\(d_{ci}\) is the number of documents in category \(C_c\) with the word
+  \(i\).
+</li>
+<li>\(n_c\) is the number of documents in the category \(C_c\).
+</li>
+<li>\(n\) is the number of documents.
+</li>
+<li>\(|C|\) is the number of categories.
+</li>
+<li>\(P(C_c) = \frac{n_c + 1}{n + |C|}\) is the probability of any random
+  document having category \(C_c\).
+</li>
+<li>\(\hat{X} = &lt;w_1, w_2, \dots, w_k&gt;\) is a binary document vector where
+  each \(w_i \in \{0,1\}\).
+</li>
+<li>\(P(\hat{X}|C_c) = P(w_1, w_2, \dots, w_k | C_c) = \prod_i
+  P(w_i|C_c)\) is the probability of the document having the words
+  that it does assuming that the document comes from category \(C_c\).
+</li>
+<li>\(P(w_i|C_c) = \frac{d_{ci} + 1}{d_i + n_c}\) is the probability of a
+  document from category \(C_c\) having word \(w_i\).
+</li>
+<li>\(\arg\max_{C_c} P(\hat{X}|C_c) P(C_c)\) is the question: which
+  category \(C_c\) maximizes the probability that the document has these
+  words?
+</li>
+<li>\(\arg\max_{C_c} \sum_i \log P(w_i|C_c) + \log P(C_c)\) is the new
+  question using log-probability to avoid &ldquo;underflow&rdquo; in the
+  floating-point values.
+</li>
+</ul>
+
+
+</div>
+
+
 <div id="table-of-contents">
 <h2>TOC</h2>
 <div id="text-table-of-contents">
@@ -154,22 +200,24 @@
 </div>
 </div>
 
-<div id="outline-container-1" class="outline-3">
-<h3 id="sec-1">Feature vectors</h3>
-<div class="outline-text-3" id="text-1">
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Feature vectors</h2>
+<div class="outline-text-2" id="text-1">
 
 
 <p>
-Documents are simply binary word vectors. No tf-idf transformation is
-done.
+Documents are simply binary word vectors. Each dimension in the vector
+represents a unique word. The value in this dimension is 0 or 1
+depending on whether the document has at least one occurrence of that
+word.
 </p>
 </div>
 
 </div>
 
-<div id="outline-container-2" class="outline-3">
-<h3 id="sec-2">Category vectors</h3>
-<div class="outline-text-3" id="text-2">
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Category vectors</h2>
+<div class="outline-text-2" id="text-2">
 
 
 <p>
@@ -195,9 +243,9 @@ that \(P(w_i|C_c)\) is never equal to 0. (This is called <a href="http://en.wiki
 
 </div>
 
-<div id="outline-container-3" class="outline-3">
-<h3 id="sec-3">Algorithm</h3>
-<div class="outline-text-3" id="text-3">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Algorithm</h2>
+<div class="outline-text-2" id="text-3">
 
 
 <p>
@@ -262,9 +310,9 @@ We just check all the categories, and choose the single best or top \(N\).
 
 </div>
 
-<div id="outline-container-4" class="outline-3">
-<h3 id="sec-4">A problem with tiny values</h3>
-<div class="outline-text-3" id="text-4">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">A problem with tiny values</h2>
+<div class="outline-text-2" id="text-4">
 
 
 <p>
@@ -296,9 +344,9 @@ $$\arg\max_{C_c} \sum_i \log P(w_i|C_c) + \log P(C_c)$$
 
 </div>
 
-<div id="outline-container-5" class="outline-3">
-<h3 id="sec-5">Evaluation</h3>
-<div class="outline-text-3" id="text-5">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Evaluation</h2>
+<div class="outline-text-2" id="text-5">
 
 
 <p>
@@ -337,9 +385,9 @@ nor support vector machines (which we didn&rsquo;t learn about).
 
 </div>
 
-<div id="outline-container-6" class="outline-3">
-<h3 id="sec-6">Benefits of naïve Bayes</h3>
-<div class="outline-text-3" id="text-6">
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Benefits of naïve Bayes</h2>
+<div class="outline-text-2" id="text-6">
 
 
 <ul>
@@ -356,9 +404,9 @@ nor support vector machines (which we didn&rsquo;t learn about).
 
 </div>
 
-<div id="outline-container-7" class="outline-3">
-<h3 id="sec-7">Drawbacks of naïve Bayes</h3>
-<div class="outline-text-3" id="text-7">
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7">Drawbacks of naïve Bayes</h2>
+<div class="outline-text-2" id="text-7">
 
 
 <ul>
