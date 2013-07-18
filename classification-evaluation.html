@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Classification evaluation</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Classification evaluation"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2013-07-17 23:19:36 EDT"/>
+<meta name="author" content="nil"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" href="css/worg.css" type="text/css" media="screen" />
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="MathJax/MathJax.js">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+
+<div id="preamble">
+<a href="index.html">Home</a> &nbsp; &nbsp;
+          <!-- Plupper Button -->
+          <div id="plupperButton" style="display: inline;"></div>
+          <!-- End of Plupper Button Code -->
+
+</div>
+
+<div id="content">
+<h1 class="title">Classification evaluation</h1>
+
+<p>Assume we have a classifier that adds labels (classes) to each
+document or data point. How do we evaluate how well it is doing its
+job? We have three cases, considering all predicted labels as a group:
+</p>
+<dl>
+<dt>True positive (tp)</dt><dd>predicted labels that are true labels
+
+</dd>
+<dt>False positive (fp)</dt><dd>predicted labels that are not true labels
+
+</dd>
+<dt>False negatives (fn)</dt><dd>true labels that were not predicted
+</dd>
+</dl>
+
+
+<p>
+Since these measures depend on the number of labels (predicted and
+true), and that may differ depending on the document/data point or
+experiment, we calculate the following normalized scores:
+</p>
+<dl>
+<dt>Precision</dt><dd>\(tp/(tp+fp)\) &mdash; higher precision means the labels
+               that were predicted were more often true labels
+
+</dd>
+<dt>Recall</dt><dd>\(tp/(tp+fn)\) &mdash; higher recall means more of the true
+            labels were predicted
+</dd>
+</dl>
+
+
+<p>
+We can achieve very high precision by only predicting labels for which
+we have very high confidence (until we nearly choose no labels at
+all); this would decrease recall, however. We can achieve high recall
+by predicting every label for every data point; this would decrease
+precision, however.
+</p>
+<p>
+Best would be high precision and high recall. We can measure this by
+combining precision and recall into a single formula, called the
+&ldquo;F-score&rdquo; or &ldquo;F1-measure&rdquo;:
+</p>
+<dl>
+<dt>F-score</dt><dd>\(2*precision*recall / (precision + recall)\)
+</dd>
+</dl>
+
+
+<p>
+Notice that precision and recall are treated equally in this
+calcuation. Technically, the F-score is the harmonic mean of precision
+and recall.
+</p>
+<p>
+This graph (from <a href="http://en.wikipedia.org/wiki/File:Harmonic_mean_3D_plot_from_0_to_100.png">Wikipedia</a>) shows the harmonic mean of two numbers
+(\(x\) and \(y\), which you can interpret as \(precision\) and \(recall\)). It
+shows the relationship we want: if either \(x\) or \(y\) is \(0\), the
+F-score is \(0\). Otherwise, the F-score generally increases with
+increases in \(x\) and \(y\).
+</p>
+
+<div style="text-align: center">
+<p><img src="./images/harmonic-mean.png"  alt="./images/harmonic-mean.png" />
+</p>
+</div>
+
+
+
+<div style="font-size: 80%; clear: both;"> <span
+xmlns:dct="http://purl.org/dc/terms/"
+href="http://purl.org/dc/dcmitype/Text" property="dct:title"
+rel="dct:type">AI Su13 material</span> by <a
+xmlns:cc="http://creativecommons.org/ns#"
+href="http://ai-su13.artifice.cc" property="cc:attributionName"
+rel="cc:attributionURL">Joshua Eckroth</a> is licensed under a <a
+rel="license"
+href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons
+Attribution-ShareAlike 3.0 Unported License</a>. Source code for this
+website available at <a
+href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
+</div>
+
+<!-- Plupper Tracking Code -->
+<script src="https://www.google.com/jsapi"></script>
+<script type="text/javascript"
+    src="https://static.plupper.com/js/plupper.js"></script>
+<script type="text/javascript">
+    plupper.init("joshuaeckroth@plupper.com");
+    plupper.enableCobrowsing();
+</script>
+<!-- End of Plupper Tracking Code -->
+
+
+
+</div>
+
+</body>
+</html>

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Text classification"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-16 11:38:16 EDT"/>
+<meta name="generated" content="2013-07-17 23:18:38 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -177,119 +177,43 @@ are the same as above, but every word in the text has been &ldquo;stemmed&rdquo;
 <h2>TOC</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Evaluation criteria</a></li>
-<li><a href="#sec-2">Word stemming</a></li>
-<li><a href="#sec-3">Feature vectors</a>
+<li><a href="#sec-1">Word stemming</a></li>
+<li><a href="#sec-2">Feature vectors</a>
 <ul>
-<li><a href="#sec-3-1">Binary features</a></li>
-<li><a href="#sec-3-2">Frequency count features</a></li>
-<li><a href="#sec-3-3">Normalized frequency count features</a></li>
+<li><a href="#sec-2-1">Binary features</a></li>
+<li><a href="#sec-2-2">Frequency count features</a></li>
+<li><a href="#sec-2-3">Normalized frequency count features</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">tf-idf</a>
+<li><a href="#sec-3">tf-idf</a>
 <ul>
-<li><a href="#sec-4-1">Motivation</a></li>
-<li><a href="#sec-4-2">The math</a></li>
+<li><a href="#sec-3-1">Motivation</a></li>
+<li><a href="#sec-3-2">The math</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">k-nearest neighbor</a>
+<li><a href="#sec-4">k-nearest neighbor</a>
 <ul>
-<li><a href="#sec-5-1">With binary features</a></li>
-<li><a href="#sec-5-2">With frequency count features</a></li>
-<li><a href="#sec-5-3">With tf-idf</a></li>
-<li><a href="#sec-5-4">Comparing k-nearest neighbor solutions</a></li>
-<li><a href="#sec-5-5">Take-away lessons</a></li>
+<li><a href="#sec-4-1">With binary features</a></li>
+<li><a href="#sec-4-2">With frequency count features</a></li>
+<li><a href="#sec-4-3">With tf-idf</a></li>
+<li><a href="#sec-4-4">Comparing k-nearest neighbor solutions</a></li>
+<li><a href="#sec-4-5">Take-away lessons</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">Category centroids</a>
+<li><a href="#sec-5">Category centroids</a>
 <ul>
-<li><a href="#sec-6-1">Benefits of category centroids</a></li>
-<li><a href="#sec-6-2">Drawbacks of category centroids</a></li>
+<li><a href="#sec-5-1">Benefits of category centroids</a></li>
+<li><a href="#sec-5-2">Drawbacks of category centroids</a></li>
 </ul>
 </li>
-<li><a href="#sec-7">Support vector machines</a></li>
+<li><a href="#sec-6">Support vector machines</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1">Evaluation criteria</h2>
+<h2 id="sec-1">Word stemming</h2>
 <div class="outline-text-2" id="text-1">
-
-
-<p>
-Because each document may belong to more than one category, we cannot
-just count how many categories chosen by our AI algorithm are true
-categories (chosen by a human). This metric would not penalize cases
-where false categories were chosen by the algorithm. We actually have
-three cases:
-</p>
-<dl>
-<dt>True positive (tp)</dt><dd>chosen categories that are true categories
-
-</dd>
-<dt>False positive (fp)</dt><dd>chosen categories that are not true
-       categories
-
-</dd>
-<dt>False negatives (fn)</dt><dd>true categories that are not chosen
-</dd>
-</dl>
-
-
-<p>
-Since these measures depend on the number of categories (chosen and
-true), and that differs per document, we calculate the following
-normalized scores:
-</p>
-<dl>
-<dt>Precision</dt><dd>\(tp/(tp+fp)\) &mdash; higher precision means the
-                 categories that were chosen were more often true
-                 categories
-
-</dd>
-<dt>Recall</dt><dd>\(tp/(tp+fn)\) &mdash; higher recall means more of the true
-              categories were chosen
-</dd>
-</dl>
-
-
-<p>
-We can achieve very high precision by only choosing categories for
-which we have very high confidence (until we nearly choose no
-categories at all); this would decrease recall, however. We can
-achieve high recall by choosing every category; this would decrease
-precision, however.
-</p>
-<p>
-Best would be high precision and high recall. We can measure this by
-combining precision and recall into a single formula, called the
-&ldquo;F-score&rdquo;:
-</p>
-<dl>
-<dt>F-score</dt><dd>\(2*precision*recall / (precision + recall)\)
-</dd>
-</dl>
-
-
-<p>
-Notice that precision and recall are treated equally in this
-calcuation. Technically, the F-score is the harmonic mean of precision
-and recall.
-</p>
-<p>
-We typically have multiple documents to classify (possibly each into
-multiple categories). So the global precision/recall/f-score is
-calculated at the end, after adding the TP/FP/FN values per document
-into a global TP/FP/FN.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2">Word stemming</h2>
-<div class="outline-text-2" id="text-2">
 
 
 <blockquote>
@@ -318,9 +242,9 @@ to the root word, &ldquo;fish&rdquo;. (<a href="http://en.wikipedia.org/wiki/Ste
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Feature vectors</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Feature vectors</h2>
+<div class="outline-text-2" id="text-2">
 
 
 <p>
@@ -338,9 +262,9 @@ dimensions (\(c\) dimensions).
 
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">Binary features</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1">Binary features</h3>
+<div class="outline-text-3" id="text-2-1">
 
 
 
@@ -351,9 +275,9 @@ $$x_{ji} = \cases{1 & \text{if \(j\) is in $i$} \cr 0 & \text{otherwise}}$$
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">Frequency count features</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2">Frequency count features</h3>
+<div class="outline-text-3" id="text-2-2">
 
 
 
@@ -367,9 +291,9 @@ where \(tf_{ji}\) is the frequency (count) of the term in the document.
 
 </div>
 
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3">Normalized frequency count features</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3">Normalized frequency count features</h3>
+<div class="outline-text-3" id="text-2-3">
 
 
 
@@ -381,9 +305,9 @@ $$x_{ji} = \frac{tf_{ji}}{\sqrt{\sum_{k} tf_{ki}^2}}$$
 
 </div>
 
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">tf-idf</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">tf-idf</h2>
+<div class="outline-text-2" id="text-3">
 
 
 <p>
@@ -400,9 +324,9 @@ is even more indicative of the content of that document.
 
 </div>
 
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1">Motivation</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1">Motivation</h3>
+<div class="outline-text-3" id="text-3-1">
 
 
 <blockquote>
@@ -434,9 +358,9 @@ of terms that occur rarely. (<a href="http://en.wikipedia.org/wiki/Tf*idf">Wikip
 
 </div>
 
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2">The math</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2">The math</h3>
+<div class="outline-text-3" id="text-3-2">
 
 
 <p>
@@ -485,9 +409,9 @@ found in the <a href="./doc-vectors.xls">doc-vectors.xls</a> spreadsheet.
 
 </div>
 
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5">k-nearest neighbor</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">k-nearest neighbor</h2>
+<div class="outline-text-2" id="text-4">
 
 
 <p>
@@ -501,9 +425,9 @@ database).
 
 </div>
 
-<div id="outline-container-5-1" class="outline-3">
-<h3 id="sec-5-1">With binary features</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1">With binary features</h3>
+<div class="outline-text-3" id="text-4-1">
 
 
 
@@ -519,9 +443,9 @@ classified. Thus, \(0 \leq d \leq 1\).
 
 </div>
 
-<div id="outline-container-5-2" class="outline-3">
-<h3 id="sec-5-2">With frequency count features</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2">With frequency count features</h3>
+<div class="outline-text-3" id="text-4-2">
 
 
 
@@ -536,9 +460,9 @@ vectors. Thus, \(0 \leq d &lt; \infty\).
 
 </div>
 
-<div id="outline-container-5-3" class="outline-3">
-<h3 id="sec-5-3">With tf-idf</h3>
-<div class="outline-text-3" id="text-5-3">
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3">With tf-idf</h3>
+<div class="outline-text-3" id="text-4-3">
 
 
 
@@ -572,9 +496,9 @@ equivalently, a 90-degree angle between them.
 
 </div>
 
-<div id="outline-container-5-4" class="outline-3">
-<h3 id="sec-5-4">Comparing k-nearest neighbor solutions</h3>
-<div class="outline-text-3" id="text-5-4">
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4">Comparing k-nearest neighbor solutions</h3>
+<div class="outline-text-3" id="text-4-4">
 
 
 
@@ -587,9 +511,9 @@ equivalently, a 90-degree angle between them.
 
 </div>
 
-<div id="outline-container-5-5" class="outline-3">
-<h3 id="sec-5-5">Take-away lessons</h3>
-<div class="outline-text-3" id="text-5-5">
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5">Take-away lessons</h3>
+<div class="outline-text-3" id="text-4-5">
 
 
 <ul>
@@ -615,9 +539,9 @@ equivalently, a 90-degree angle between them.
 
 </div>
 
-<div id="outline-container-6" class="outline-2">
-<h2 id="sec-6">Category centroids</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Category centroids</h2>
+<div class="outline-text-2" id="text-5">
 
 
 <p>
@@ -681,9 +605,9 @@ quite poor.
 
 </div>
 
-<div id="outline-container-6-1" class="outline-3">
-<h3 id="sec-6-1">Benefits of category centroids</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1">Benefits of category centroids</h3>
+<div class="outline-text-3" id="text-5-1">
 
 
 <ul>
@@ -699,9 +623,9 @@ quite poor.
 
 </div>
 
-<div id="outline-container-6-2" class="outline-3">
-<h3 id="sec-6-2">Drawbacks of category centroids</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2">Drawbacks of category centroids</h3>
+<div class="outline-text-3" id="text-5-2">
 
 
 <ul>
@@ -730,9 +654,9 @@ quite poor.
 
 </div>
 
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7">Support vector machines</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Support vector machines</h2>
+<div class="outline-text-2" id="text-6">
 
 
 <p>
