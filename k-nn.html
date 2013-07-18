@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="k-nearest neighbor classification"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-16 11:38:29 EDT"/>
+<meta name="generated" content="2013-07-18 09:58:13 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -138,7 +138,29 @@
 <div id="content">
 <h1 class="title">k-nearest neighbor classification</h1>
 
-<p>Suppose we measure some properties of flowers, species of iris to be
+
+<div class="summary"><h2>Summary</h2>
+<ul>
+<li>Classification is used for predicting the label on a new data point,
+  using a model built from a set of training examples where the true
+  labels were known.
+</li>
+<li>k-nearest neighbor determines the predicted label by asking the
+  \(k\)-nearest neighbor points in the training set to &ldquo;vote&rdquo; for the
+  label.
+</li>
+<li>k-nearest neighbor requires deciding upfront the value of \(k\).
+</li>
+<li>This method is very simple but requires retaining all the training
+  examples and searching through it.
+</li>
+</ul>
+
+
+</div>
+
+<p>
+Suppose we measure some properties of flowers, species of iris to be
 precise. <b>But this time</b>, we also know their true &ldquo;labels&rdquo;
 (species). We have a table like the following:
 </p>
