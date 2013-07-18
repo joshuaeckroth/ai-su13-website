@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Feature detection"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-18 11:00:19 EDT"/>
+<meta name="generated" content="2013-07-18 12:36:47 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -99,14 +99,341 @@
 <h1 class="title">Feature detection</h1>
 
 
-
 <div style="text-align: center">
 <p><img src="./images/SURF_Homography.jpg"  alt="./images/SURF_Homography.jpg" />
 </p>
 </div>
 
+<blockquote>
+
+<p>The task of finding point correspondences between two images of the
+same scene or object is part of many computer vision
+applications. Image registration, camera calibration, object
+recognition, and image retrieval are just a few.
+</p>
+<p>
+The search for discrete image point correspondences can be divided
+into three main steps. First, &lsquo;interest points&rsquo; are selected at
+distinctive locations in the image, such as corners, blobs, and
+T-junctions. The most valuable property of an interest point
+<i>detector</i> is its repeatability. The repeatability expresses the
+reliability of a detector for finding the same physical interest
+points under different viewing conditions. Next, the neighbourhood of
+every interest point is represented by a feature vector. This
+<i>descriptor</i> has to be distinctive and at the same time robust to
+noise, detection displacements and geometric and photometric
+deformations. Finally, the descriptor vectors are <i>matched</i> between
+different images. The matching is based on a distance between the
+vectors, e.g. the Mahalanobis or Euclidean distance. The dimension of
+the descriptor has a direct impact on the time this takes, and less
+dimensions are desirable for fast interest point matching. However,
+lower dimensional feature vectors are in general less distinctive than
+their high-dimensional counterparts.
+</p>
+<p>
+It has been our goal to develop both a detector and descriptor that,
+in comparison to the state-of-the-art, are fast to compute while not
+sacrificing performance. In order to succeed, one has to strike a
+balance between the above requirements like simplifying the detection
+scheme while keeping it accurate, and reducing the descriptor&rsquo;s size
+while keeping it sufficiently distinctive.
+</p>
+<p>
+Introductory text of Herbert Bay, Andreas Ess, Tinne Tuytelaars, Luc
+Van Gool, <a href="ftp://ftp.vision.ee.ethz.ch/publications/articles/eth_biwi_00517.pdf">&ldquo;SURF: Speeded Up Robust Features&rdquo;</a>, Computer Vision and
+Image Understanding (CVIU), Vol. 110, No. 3, pp. 346&ndash;359, 2008
+</p>
+</blockquote>
 
 
+<p>
+A good overview: <a href="http://mesh.brown.edu/engn1610/szeliski/04-featuredetectionandmatching.pdf">Computer Vision: Algorithms and Applications, Ch 4</a> by
+Richard Szeliski.
+</p>
+
+<div id="table-of-contents">
+<h2>TOC</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">Step 1: Detect features</a></li>
+<li><a href="#sec-2">Step 2: Create feature vectors (&ldquo;descriptors&rdquo;)</a></li>
+<li><a href="#sec-3">Step 3: Match features across images</a></li>
+<li><a href="#sec-4">Step 4: Keep only &ldquo;good&rdquo; matches</a></li>
+<li><a href="#sec-5">Step 5: Get the keypoints of the good matches</a></li>
+<li><a href="#sec-6">Step 5: Find the homography across the keypoints</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Step 1: Detect features</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+(what is a feature)
+</p>
+<p>
+SURF: &ldquo;Speeded-Up Robust Features&rdquo;
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">SurfFeatureDetector</span> <span style="font-weight: bold; font-style: italic;">detector</span>;
+
+<span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;KeyPoint&gt; <span style="font-weight: bold; font-style: italic;">keypoints_object</span>, <span style="font-weight: bold; font-style: italic;">keypoints_scene</span>;
+
+detector.detect(img_object, keypoints_object);
+detector.detect(img_scene, keypoints_scene);
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Step 2: Create feature vectors (&ldquo;descriptors&rdquo;)</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+(what is a descriptor i.e. keypoint)
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">SurfDescriptorExtractor</span> <span style="font-weight: bold; font-style: italic;">extractor</span>;
+
+<span style="font-weight: bold; text-decoration: underline;">Mat</span> <span style="font-weight: bold; font-style: italic;">descriptors_object</span>, <span style="font-weight: bold; font-style: italic;">descriptors_scene</span>;
+
+extractor.compute(img_object, keypoints_object, descriptors_object);
+extractor.compute(img_scene, keypoints_scene, descriptors_scene);
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Step 3: Match features across images</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+(nearest-neighbor search: each scene keypoint is matched with an
+object image keypoint based on the keypoints&rsquo; descriptor vectors)
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">FlannBasedMatcher</span> <span style="font-weight: bold; font-style: italic;">matcher</span>;
+<span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;DMatch&gt; <span style="font-weight: bold; font-style: italic;">matches</span>;
+matcher.match(descriptors_object, descriptors_scene, matches);
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Step 4: Keep only &ldquo;good&rdquo; matches</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+First, find the minimum and maximum distances between keypoints.
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">double</span> <span style="font-weight: bold; font-style: italic;">max_dist</span> = 0;
+<span style="font-weight: bold; text-decoration: underline;">double</span> <span style="font-weight: bold; font-style: italic;">min_dist</span> = 100;
+
+<span style="font-weight: bold;">for</span>( <span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">i</span> = 0; i &lt; descriptors_object.rows; i++ )
+{
+    <span style="font-weight: bold; text-decoration: underline;">double</span> <span style="font-weight: bold; font-style: italic;">dist</span> = matches[i].distance;
+    <span style="font-weight: bold;">if</span>(dist &lt; min_dist) min_dist = dist;
+    <span style="font-weight: bold;">if</span>(dist &gt; max_dist) max_dist = dist;
+}
+</pre>
+
+
+<p>
+Get the &ldquo;good&rdquo; matches.
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;DMatch&gt; <span style="font-weight: bold; font-style: italic;">good_matches</span>;
+
+<span style="font-weight: bold;">for</span>(<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">i</span> = 0; i &lt; descriptors_object.rows; i++)
+{
+    <span style="font-weight: bold;">if</span>(matches[i].distance &lt; 3*min_dist)
+    {
+        good_matches.push_back(matches[i]);
+    }
+}
+</pre>
+
+
+<p>
+Draw the matches on top of the images.
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">Mat</span> <span style="font-weight: bold; font-style: italic;">img_matches</span>; <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">resulting image</span>
+drawMatches(img_object, keypoints_object, img_scene, keypoints_scene,
+            good_matches, img_matches, Scalar(0, 0, 255));
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Step 5: Get the keypoints of the good matches</h2>
+<div class="outline-text-2" id="text-5">
+
+
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;Point2f&gt; <span style="font-weight: bold; font-style: italic;">obj</span>;
+<span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;Point2f&gt; <span style="font-weight: bold; font-style: italic;">scene</span>;
+
+<span style="font-weight: bold;">for</span>(<span style="font-weight: bold; text-decoration: underline;">int</span> <span style="font-weight: bold; font-style: italic;">i</span> = 0; i &lt; good_matches.size(); i++)
+{
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">queryIdx and trainIdx allow us to get the original points</span>
+    <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">of our good matches by referring back to the keypoints arrays</span>
+    obj.push_back(keypoints_object[good_matches[i].queryIdx].pt);
+    scene.push_back(keypoints_scene[good_matches[i].trainIdx].pt);
+}
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Step 5: Find the homography across the keypoints</h2>
+<div class="outline-text-2" id="text-6">
+
+
+<p>
+RANSAC method, from <a href="http://en.wikipedia.org/wiki/RANSAC">Wikipedia</a>:
+</p>
+<blockquote>
+
+<p>RANSAC is an abbreviation for &ldquo;RANdom SAmple Consensus&rdquo;. It is an
+iterative method to estimate parameters of a mathematical model from a
+set of observed data which contains outliers. It is a
+non-deterministic algorithm in the sense that it produces a reasonable
+result only with a certain probability, with this probability
+increasing as more iterations are allowed.
+</p>
+<p>
+The input to the RANSAC algorithm is a set of observed data values, a
+parameterized model which can explain or be fitted to the
+observations, and some confidence parameters.
+</p>
+<p>
+RANSAC achieves its goal by iteratively selecting a random subset of
+the original data. These data are hypothetical inliers and this
+hypothesis is then tested as follows:
+</p>
+<ol>
+<li>A model is fitted to the hypothetical inliers, i.e. all free
+   parameters of the model are reconstructed from the inliers.
+
+</li>
+<li>All other data are then tested against the fitted model and, if a
+   point fits well to the estimated model, also considered as a
+   hypothetical inlier.
+
+</li>
+<li>The estimated model is reasonably good if sufficiently many points
+   have been classified as hypothetical inliers.
+
+</li>
+<li>The model is reestimated from all hypothetical inliers, because it
+   has only been estimated from the initial set of hypothetical
+   inliers.
+
+</li>
+<li>Finally, the model is evaluated by estimating the error of the
+   inliers relative to the model. However, this might lead the
+   algorithm picking a trivial solution, with a minimal set of inliers
+   (as the model will result in zero error estimation). Instead, the
+   &ldquo;best model&rdquo; is typically chosen as the one with the largest
+   consensus set
+</li>
+</ol>
+
+
+<p>
+This procedure is repeated a fixed number of times, each time
+producing either a model which is rejected because too few points are
+classified as inliers or a refined model together with a corresponding
+error measure. In the latter case, we keep the refined model if its
+error is lower than the last saved model.
+</p>
+</blockquote>
+
+
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">Mat</span> <span style="font-weight: bold; font-style: italic;">H</span> = findHomography(obj, scene, CV_RANSAC);
+</pre>
+
+
+<p>
+Transform the boundaries in the object image to the scene image, using
+the homography.
+</p>
+
+
+
+<pre class="src src-c++"><span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;Point2f&gt; <span style="font-weight: bold;">obj_corners</span>(4);
+obj_corners[0] = cvPoint(0,0);
+obj_corners[1] = cvPoint(img_object.cols, 0);
+obj_corners[2] = cvPoint(img_object.cols, img_object.rows);
+obj_corners[3] = cvPoint(0, img_object.rows);
+<span style="font-weight: bold; text-decoration: underline;">std</span>::<span style="font-weight: bold; text-decoration: underline;">vector</span>&lt;Point2f&gt; <span style="font-weight: bold;">scene_corners</span>(4);
+
+perspectiveTransform(obj_corners, scene_corners, H);
+</pre>
+
+
+<p>
+Draw the transformed boundaries in the scene.
+</p>
+
+
+
+<pre class="src src-c++">line(img_matches,
+     scene_corners[0] + Point2f(img_object.cols, 0),
+     scene_corners[1] + Point2f(img_object.cols, 0),
+     Scalar(0, 255, 0), 4);
+line(img_matches,
+     scene_corners[1] + Point2f(img_object.cols, 0),
+     scene_corners[2] + Point2f(img_object.cols, 0),
+     Scalar(0, 255, 0), 4);
+line(img_matches,
+     scene_corners[2] + Point2f(img_object.cols, 0),
+     scene_corners[3] + Point2f(img_object.cols, 0),
+     Scalar(0, 255, 0), 4);
+line(img_matches,
+     scene_corners[3] + Point2f(img_object.cols, 0),
+     scene_corners[0] + Point2f(img_object.cols, 0),
+     Scalar(0, 255, 0), 4);
+</pre>
 
 
 <div style="font-size: 80%; clear: both;"> <span
@@ -134,6 +461,8 @@ href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
 <!-- End of Plupper Tracking Code -->
 
 
+</div>
+</div>
 </div>
 
 </body>
