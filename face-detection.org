@@ -17,6 +17,6 @@ for face detection is a set of two adjacent rectangles that lie above
 the eye and the cheek region. The position of these rectangles is
 defined relative to a detection window that acts like a bounding box
 to the target object (the face in this case).
-
+#+END_QUOTE
 
 #+INCLUDE: footer.org
