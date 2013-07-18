@@ -80,20 +80,6 @@
         color: #666;
     }
 
-    /*
-      h2:before {
-      content: "* "
-      }
-
-h3:before {
-content: "** "
-}
-
-h4:before {
-content: "*** "
-}
-*/
-
     h2 {
         font-family:Arial,sans-serif;
         font-size:1.45em;
@@ -264,6 +250,21 @@ content: "*** "
         -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
         box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
         */
+    }
+
+    div.summary {
+        padding: 15px;
+        border:1px solid #CCC;
+        border-radius:10px;
+        -moz-border-radius:10px;
+        -webkit-box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
+        -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
+        box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
+    }
+
+    div.summary h2 {
+        padding: 0;
+        margin: 0;
     }
 
     .org-info-box {
