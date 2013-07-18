@@ -1,6 +1,18 @@
 #+SETUPFILE: setup.org
 #+TITLE: k-nearest neighbor classification
 
+{{{begin-summary}}}
+- Classification is used for predicting the label on a new data point,
+  using a model built from a set of training examples where the true
+  labels were known.
+- k-nearest neighbor determines the predicted label by asking the
+  $k$-nearest neighbor points in the training set to "vote" for the
+  label.
+- k-nearest neighbor requires deciding upfront the value of $k$.
+- This method is very simple but requires retaining all the training
+  examples and searching through it.
+{{{end-summary}}}
+
 Suppose we measure some properties of flowers, species of iris to be
 precise. *But this time*, we also know their true "labels"
 (species). We have a table like the following:
