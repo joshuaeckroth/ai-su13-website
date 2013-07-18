@@ -1,6 +1,16 @@
 #+SETUPFILE: setup.org
 #+TITLE: Classification evaluation
 
+{{{begin-summary}}}
+- $precision = \frac{tp}{tp+fp}$.
+- $recall = \frac{tp}{tp+fn}$.
+- High precision can be achieved trivially, at the cost of recall; and
+  vice versa.
+- $fscore = 2*\frac{precision*recall}{precision+recall}$ is the
+  harmonic mean of precision and recall, which produces a better
+  average of the two measures than an arithmetic mean.
+{{{end-summary}}}
+
 Assume we have a classifier that adds labels (classes) to each
 document or data point. How do we evaluate how well it is doing its
 job? We have three cases, considering all predicted labels as a group:

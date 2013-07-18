@@ -1,0 +1,11 @@
+#+SETUPFILE: setup.org
+#+TITLE: Feature detection
+
+
+#+BEGIN_CENTER
+[[./images/SURF_Homography.jpg]]
+#+END_CENTER
+
+
+
+#+INCLUDE: footer.org
