@@ -31,31 +31,35 @@ Use this perceptron configuration. Determine all the weights.
 
 * Task 3 (60 pts)
 
-Write a single-layer perceptron network learning algorithm. Use the
-perceptron learning rule from the lecture notes.
+Write a single-layer /logistic/ perceptron network. Use the logistic
+perceptron learning rule from the lecture notes. Report the "loss"
+after each epoch. Divide the input file into an initial 90% for
+training, the latter 10% for testing. (The input file has already been
+shuffled.)
 
 The input file is specified on the command line. Its format is:
 
 #+BEGIN_EXAMPLE
 5620 64 10
-0 1 6 15 12 1 0 0 0 7 16 6 6 10 ... 1 0 0 0 0 0 0 0 0 0
-0 0 10 16 6 0 0 0 0 7 16 8 16 5 ... 1 0 0 0 0 0 0 0 0 0
-...
+0 0 0.0625 0.875 0.375 0 0 0 0 0 0.375 0.9375  ... 1 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0.5625 1 0.25 0 0 0 0 0.3125 0.9375 1  ... 0 0 0 0 0 0 0 0 0 1
+0 0.0625 0.375 0.9375 0.75 0.0625 0 0 0 0.4375 ... 0 1 0 0 0 0 0 0 0 0 
 #+END_EXAMPLE
 
 The first number, 5620, is the number of examples in the file, with
 one example per line, starting on the second line. The second number,
-64, is the number of inputs (or "features") for each example. The
-inputs are floating-point values (which includes integers). The third
-number, 10, is the number of /binary/ outputs for each example.
+64, is the number of inputs (or "features") for each example; the
+inputs are floating-point values. The third number, 10, is the number
+of /binary/ outputs for each example.
 
 The input file (partially) shown here is from the [[./optdigits.dat][optdigits.dat]]
-(handwritten digits) input file (from [[http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits][UCI]]). Each example has 64
-integers representing pixels followed by 10 binary numbers (0/1), such
-that the only 1 in this group of binary numbers is in the position N,
-and this N is the true digit of the example. So if the example is the
-digit 2, then the binary numbers are: "0 0 1 0 0 0 0 0 0 0 0" (first
-binary number indicates digit 0, then 1, then 2, etc.).
+(handwritten digits) input file (from [[http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits][UCI]]). Each example has 64 floats
+(integer values 0-16 divided by 16.0 to get values in the range [0,1])
+followed by 10 binary numbers (0/1), such that the only 1 in this
+group of binary numbers is in the position N, and this N is the true
+digit of the example. So if the example is the digit 2, then the
+binary numbers are: "0 0 1 0 0 0 0 0 0 0 0" (first binary number
+indicates digit 0, then 1, then 2, etc.).
 
 I have written templates for you to start with: [[./perceptron-template.cpp][C++]], [[./PerceptronTemplate.java][Java]], and
 [[./perceptron_template.py][Python]]. (Words of wisdom: Python is horrendously slow; my experiments
@@ -65,12 +69,9 @@ weights of the trained network. You need to build the network, train
 it, and finish the code that tests reserved instances from the input
 file.
 
-With $\alpha=0.01$ or so, and about 1000 epochs or so, you should be
-able to achieve ~80% correctness.
-
 You can also test, for debugging purposes, the [[./and.dat][and.dat]], [[./or.dat][or.dat]], and
-[[./not.dat][not.dat]] cases. Your network should be able to learn these with 100%
-correctness.
+[[./not.dat][not.dat]] cases. The primary test case for your code will be the
+[[./optdigits.dat][optdigits.dat]] file.
 
 * Task 4 (10 pts)
 
@@ -88,5 +89,17 @@ These are Asimov's "Three Laws of Robotics":
 Give your opinion about whether these are good "laws," how they might
 be improved, and whether we could build systems that respect
 them. (1 paragraph)
+
+* Extra credit (20 pts)
+
+Train your neural net with a different dataset you find on the
+web. Tell me about the dataset (its inputs and outputs) and describe
+the performance of your neural net.
+
+* Extra credit (10 pts)
+
+Find a dataset to load into Weka, and evaluate a MultilayerPerceptron
+(in the "functions" category). Compare its performance to naïve
+Bayesian and k-nn.
 
 #+INCLUDE: footer.org
