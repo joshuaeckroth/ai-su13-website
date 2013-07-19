@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Final guide"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-16 11:38:35 EDT"/>
+<meta name="generated" content="2013-07-19 11:27:08 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -138,8 +138,7 @@
 <div id="content">
 <h1 class="title">Final guide</h1>
 
-<p>Answers on the bottom. Also, you can <b>bring a notecard</b> (5in x 7in
-max) with notes or whatnot.
+<p>You can <b>bring a notecard</b> (5in x 7in max) with notes or whatnot.
 </p>
 
 <div id="table-of-contents">
@@ -148,17 +147,17 @@ max) with notes or whatnot.
 <ul>
 <li><a href="#sec-1">Multi-agent systems</a>
 <ul>
-<li><a href="#sec-1-1">Ant intelligence</a></li>
-<li><a href="#sec-1-2">Prisoner&rsquo;s dilemma</a></li>
+<li><a href="#sec-1-1">Prisoner&rsquo;s dilemma</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">Learning</a>
 <ul>
 <li><a href="#sec-2-1">k-means clustering</a></li>
 <li><a href="#sec-2-2">k-nearest neighbor</a></li>
-<li><a href="#sec-2-3">Document classification</a></li>
+<li><a href="#sec-2-3">Classification evaluation</a></li>
 <li><a href="#sec-2-4">Probability and Bayesian methods</a></li>
-<li><a href="#sec-2-5">Neural networks</a></li>
+<li><a href="#sec-2-5">Naïve Bayesian classification</a></li>
+<li><a href="#sec-2-6">Neural networks</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">Philosophy</a>
@@ -166,32 +165,6 @@ max) with notes or whatnot.
 <li><a href="#sec-3-1">The &ldquo;Chinese room&rdquo; argument</a></li>
 <li><a href="#sec-3-2">The &ldquo;Norvig - Chomsky&rdquo; debate</a></li>
 <li><a href="#sec-3-3">Robot ethics</a></li>
-</ul>
-</li>
-<li><a href="#sec-4">Answers</a>
-<ul>
-<li><a href="#sec-4-1">Multi-agent systems</a>
-<ul>
-<li><a href="#sec-4-1-1">Ant intelligence</a></li>
-<li><a href="#sec-4-1-2">Prisoner&rsquo;s dilemma</a></li>
-</ul>
-</li>
-<li><a href="#sec-4-2">Learning</a>
-<ul>
-<li><a href="#sec-4-2-1">k-means clustering</a></li>
-<li><a href="#sec-4-2-2">k-nearest neighbor</a></li>
-<li><a href="#sec-4-2-3">Document classification</a></li>
-<li><a href="#sec-4-2-4">Probability and Bayesian methods</a></li>
-<li><a href="#sec-4-2-5">Neural networks</a></li>
-</ul>
-</li>
-<li><a href="#sec-4-3">Philosophy</a>
-<ul>
-<li><a href="#sec-4-3-1">The &ldquo;Chinese room&rdquo; argument</a></li>
-<li><a href="#sec-4-3-2">The &ldquo;Norvig - Chomsky&rdquo; debate</a></li>
-<li><a href="#sec-4-3-3">Robot ethics</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -207,77 +180,111 @@ max) with notes or whatnot.
 What are two principles for designing agent-based simulations?
 </p>
 
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+<p>
+Here are seven:
+</p>
+<ol>
+<li>agents not functions (not functional decomposition)
+</li>
+<li>keep agents small in size
+</li>
+<li>keep agents small in time (forgetful)
+</li>
+<li>keep agents small in scope (local sensing and action)
+</li>
+<li>decentralizd system control
+</li>
+<li>support agent diversity
+</li>
+<li>provide an entropy leak
+</li>
+</ol>
+
+
+</div></div>
+
+
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1">Ant intelligence</h3>
+<h3 id="sec-1-1">Prisoner&rsquo;s dilemma</h3>
 <div class="outline-text-3" id="text-1-1">
-
-
-<p>
-Which of the following features are in the &ldquo;ant brood sorting&rdquo; model?
-</p>
-<ul>
-<li>Scent-following
-</li>
-<li>Random walks
-</li>
-<li>Always pick up an object if ant finds one
-</li>
-<li>Decide stochastically to drop an object if holding one
-</li>
-<li>Drop the object only when encountering another object (if holding
-    an object)
-</li>
-<li>Communicate directly with other ants
-</li>
-</ul>
-
-
-<p>
-(The question on the Final will ask about ant transport that you read
-for Homework 6.)
-</p>
-<p>
-Why is it important that the chemical ants leave behind when they are
-carrying food slowly evaporates?
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2">Prisoner&rsquo;s dilemma</h3>
-<div class="outline-text-3" id="text-1-2">
 
 
 <p>
 True or false? &ldquo;Defecting&rdquo; means confessing to the crime so that you
 get off the hook but your partner goes to jail.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+True
+</div></div>
+
 Describe the &ldquo;Jesus&rdquo; strategy.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Always cooperate
+</div></div>
+
 Describe the &ldquo;Lucifer&rdquo; strategy.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Always defect
+</div></div>
+
 Describe the &ldquo;Unforgiving&rdquo; strategy.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Cooperate until the partner defects, and then defect forever after.
+</div></div>
+
 Describe the &ldquo;Tit-for-tat&rdquo; a.k.a. &ldquo;Moses&rdquo; strategy. What is the first
 choice in this strategy? What are all future choices?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Tit-for-tat does the same action the partner
+did in the last time step; it just mirrors the partner. The first
+choice (if tit-for-tat goes first) is to cooperate.
+</div></div>
+
 Which of these three strategies generally performed best across random
 scenarios in the iterated prisoner&rsquo;s dilemma?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Tit-for-tat
+</div></div>
+
 If two &ldquo;Tit-for-tat&rdquo; strategies face each other in the iterated
 prisoner&rsquo;s dilemma, we will see behavior equivalent to which
 non-Tit-for-tat strategy or strategies facing each other?
 </p>
-</div>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+<p>
+Jesus (always-cooperate) strategy
+</div></div>
+
+</p></div>
 </div>
 
 </div>
@@ -291,9 +298,36 @@ non-Tit-for-tat strategy or strategies facing each other?
 Describe the difference between &ldquo;supervised&rdquo; and &ldquo;unsupervised&rdquo;
 learning.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Supervised learning uses information about the truth when
+training. Unsupervised learning does not have the truth (ever) so
+obviously cannot use this information.
+</p>
+
+
+</div></div>
+
 <p>
 What does &ldquo;10-fold cross validation&rdquo; mean?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+This happens 10 times, and the results are averaged: Take 90% of the
+input data and train the learning algorithm on it; test the learning
+algorithm on the remaining 10%. For each of the 10 iterations,
+separate the input data into a different 90/10 split.
+</p>
+
+
+</div></div>
+
 
 </div>
 
@@ -305,12 +339,37 @@ What does &ldquo;10-fold cross validation&rdquo; mean?
 <p>
 k-means clustering is an unsupervised or supervised learning strategy?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Unsupervised
+</div></div>
+
 What does the choice of \(k\) represent?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+The number of clusters.
+</div></div>
+
 How does the choice of initial clusters affect the outcome?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+The resulting clusters may be different. Initial clusters near
+outliers may result in small clusters around the outliers (which is
+usually a bad thing).
+</p>
+
+
+</div></div>
+
 </div>
 
 </div>
@@ -324,74 +383,173 @@ How does the choice of initial clusters affect the outcome?
 What does k-nearest neighbor allow us to do with a new, unknown data
 point?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Determine its category (class, label, tag, etc.).
+</div></div>
+
 k-nearest neighbor is an unsupervised or supervised learning strategy?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 <p>
+Supervised
+</div></div>
+
 What does the choice of \(k\) represent?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+The number of neighbors that get a &ldquo;vote&rdquo; during the classification
+stage.
+</p>
+
+
+</div></div>
+
 <p>
 What problem may a very small value of \(k\) cause?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Noise has too great an impact. The nearest neighbor will be chosen
+without considering the &ldquo;larger&rdquo; picture.
+</p>
+
+
+</div></div>
+
 <p>
 What problem may a very large value of \(k\) cause?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+The more common category will be chosen more often than it should.
+</p>
+
+
+</div></div>
+
 <p>
 Is there one value for \(k\) that works best for nearly all data sets?
 If so, what is it?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+There is not one best value; you need to experiment with different
+values to find the best for your dataset.
+</p>
+
+
+</div></div>
+
 <p>
 Give one benefit of k-nearest neighbor learning.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+It is a very simple algorithm and can work quite well in some cases.
+</p>
+
+
+</div></div>
+
 <p>
 Give one drawback of k-nearest neighbor learning.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+It is very slow because it checks every item in the database (unless
+KD-trees are used). It also requires one to retain all the training
+examples in the database.
+</p>
+
+
+</div></div>
+
 </div>
 
 </div>
 
 <div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3">Document classification</h3>
+<h3 id="sec-2-3">Classification evaluation</h3>
 <div class="outline-text-3" id="text-2-3">
 
 
-<p>
-What is the goal of document classification?
-</p>
 <p>
 Define true positive (TP). Define false positive (FP). Define false
 negative (FN). Define precision (in terms of TP and/or FP and/or
 FN). Define recall (in terms of TP and/or FP and/or FN). Define
 F-score (in terms of precision and/or recall).
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<dl>
+<dt>True positive (tp)</dt><dd>chosen categories that are true categories.
+
+</dd>
+<dt>False positive (fp)</dt><dd>chosen categories that are not true categories.
+
+</dd>
+<dt>False negatives (fn)</dt><dd>true categories that are not chosen.
+
+</dd>
+<dt>Precision</dt><dd>\(tp/(tp+fp)\).
+
+</dd>
+<dt>Recall</dt><dd>\(tp/(tp+fn)\).
+
+</dd>
+<dt>F-score</dt><dd>\(2 * precision * recall / (precision + recall)\).
+</dd>
+</dl>
+
+
+
+
+</div></div>
+
 <p>
 Suppose we make our classification engine more cautious; that is, it
 is less likely overall to predict any category. Does precision go up
 or down or remain unchanged? Does recall go up or down or remain
 unchanged?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
 <p>
-Give a possible result of stemming each of the following words:
-&ldquo;linguistic,&rdquo; &ldquo;dog,&rdquo; &ldquo;jumping,&rdquo; &ldquo;philosophy.&rdquo;
+Precision goes up because there are fewer \(fp\). Recall goes down
+because there are more \(fn\).
 </p>
-<p>
-Describe a &ldquo;binary feature vector&rdquo; for a text document.
-</p>
-<p>
-Calculate the tf-idf scores for a set of documents (as in Homework 8).
-</p>
-<p>
-Why do you suppose tf-idf feature vectors perform better (in terms of
-F-score) than, say, frequency count feature vectors?
-</p>
-<p>
-A common word (most documents have many occurrences of this word)
-would have a high or low tf-idf score?
-</p>
-<p>
-Given doc A as \(&lt;0, 3, 1, 0, 5&gt;\), is doc X \(&lt;0, 3, 0, 2, 3&gt;\) or doc Y
-\(&lt;1, 4, 0, 0, 5&gt;\) closer to doc A in terms of &ldquo;cosine similarity&rdquo;?
-</p>
+
+
+</div></div>
+
 </div>
 
 </div>
@@ -402,63 +560,250 @@ Given doc A as \(&lt;0, 3, 1, 0, 5&gt;\), is doc X \(&lt;0, 3, 0, 2, 3&gt;\) or 
 
 
 <p>
-Describe what \(P(A)\) means (in words).
+Describe what \(P(a)\) means (in words).
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
 <p>
-Describe what \(P(A,B)\) means (in words).
+The probability that some event \(a\) occurs.
 </p>
+
+
+</div></div>
+
 <p>
-Describe what \(P(A|B)\) means (in words).
+Describe what \(P(a,b)\) means (in words).
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
 <p>
-If events \(A\) and \(B\) are independent, and \(P(A) = 0.25\), \(P(B) =
-0.10\), what is \(P(A,B)\)? What is \(P(B,A)\)?
+The probability that two events \(A\) and \(B\) occur together.
 </p>
+
+
+</div></div>
+
+<p>
+Describe what \(P(a|b)\) means (in words).
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+The probability that some event \(a\) occurs given that we know or are
+assuming event \(b\) also occurs.
+</p>
+
+
+</div></div>
+
+<p>
+If events \(a\) and \(b\) are independent, and \(P(a) = 0.25\), \(P(b) =
+0.10\), what is \(P(a,b)\)? What is \(P(b,a)\)?
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+\(P(a,b) = P(b,a) = 0.25 * 0.10 = 0.025\)
+
+</div></div>
+
 <p>
 In the toothache graph from the <a href="./bayesian-inference.html">Bayesian inference</a> notes (the graph
 with just c, g, and t), what is \(P(t|g)\)?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+$$P(t|g) = P(t|g,c)P(c) + P(t|g,\neg c)P(\neg c) = 1.0*0.10 + 0.3*0.9
+= 0.37$$
+
+</div></div>
+
 <p>
 Write Bayes&rsquo; theorem.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+\(P(b|a) = P(a|b)P(b)/P(a)\) or equivalently \(P(a|b) = P(b|a)P(a)/P(b)\)
+
+</div></div>
+
 <p>
-Suppose I know that \(P(B|A)=0.1, P(A)=0.9, P(B)=0.25\), what is
-\(P(A|B)\)?
+Using algebra, derive Bayes&rsquo; theorem from the probability calculus
+equalities.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+TODO
+</p>
+
+
+</div></div>
+
+<p>
+Suppose I know (or believe) that \(P(b|a)=0.1, P(a)=0.9, P(b)=0.25\),
+what is \(P(a|b)\)?
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+\(P(a|b)=0.1*0.9/0.25=0.36\)
+
+</div></div>
+
 <p>
 In the toothache graph from the <a href="./bayesian-inference.html">Bayesian inference</a> notes (the graph
 with just c, g, and t), is \(P(g|t) &gt; P(c|t)\)?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+\begin{eqnarray}
+
+P(g|t) = P(t|g)P(g)/P(t) &=& (P(t|g,c)P(c) + P(t|g,\neg c)P(\neg c))P(g)/P(t) \\
+ &=& (1.0*0.10 + 0.3*0.9)*0.05/P(t)\\
+ &=& 0.0185/P(t) \\
+
+P(c|t) = P(t|c)P(c)/P(t) &=& (P(t|c,g)P(g) + P(t|c,\neg g)P(\neg g))P(c)/P(t) \\
+ &=& (1.0*0.05 + 0.6*0.95)*0.10/P(t) \\
+ &=& 0.062/P(t)
+
+\end{eqnarray}
+
+<p>
+So \(P(c|t) &gt; P(g|t)\).
+</p>
+
+
+</div></div>
+
 <p>
 What is the outcome of computing \(\arg\max X (P(x))\) where \(X\) is an
-event? (If \(\arg\max X (P(X))\) was a function, what would the output
+event? (If \(\arg\max_x (P(x))\) was a function, what would the output
 of the function be?) Describe in English.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
 <p>
-Suppose I know that \(P(B|A)=0.1, P(A)=0.9, P(B|C)=0.2, P(C)=0.8\), what
-is \(\arg\max X (P(X|B))\)?
+The outcome would be an event, not a probability.
 </p>
+
+
+</div></div>
+
 <p>
-Give one benefit of naïve Bayesian classification (as compared to
-other classification methods like k-nearest neighbor).
+Suppose I know (or believe) that \(P(b|a)=0.1, P(a)=0.9, P(b|c)=0.2,
+P(c)=0.8\), what is \(\arg\max_x (P(x|b))\)?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
 <p>
-Give one drawback of naïve Bayesian classification (as compared to
-other classification methods like support vector machines).
+The answer is \(c\) because \(P(b|a)P(a) &lt; P(b|c)P(c)\).
 </p>
+
+
+</div></div>
+
 </div>
 
 </div>
 
 <div id="outline-container-2-5" class="outline-3">
-<h3 id="sec-2-5">Neural networks</h3>
+<h3 id="sec-2-5">Naïve Bayesian classification</h3>
 <div class="outline-text-3" id="text-2-5">
+
+
+<p>
+Describe a &ldquo;binary feature vector&rdquo; for a text document.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Each unique word is a &ldquo;dimension,&rdquo; and the value for that dimension is
+1 or 0. It is 1 if the word is present in the document, 0 otherwise.
+</p>
+
+
+</div></div>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2-6" class="outline-3">
+<h3 id="sec-2-6">Neural networks</h3>
+<div class="outline-text-3" id="text-2-6">
 
 
 <p>
 What does &ldquo;all or nothing&rdquo; mean when we talk about neurons in the
 brain?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+A neuron either fires (discharges) completely or does not fire.
+</p>
+
+
+</div></div>
+
+<p>
+Explain the Hebbian learning rule.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Quotable: &ldquo;Cells that fire together, wire together.&rdquo; The rule says
+that connected neurons that both fire nearby (in time) from some
+stimulus, will strengthen their connection. Eventually, if just one or
+the other fires, it will induce the second to fire as well.
+</p>
+
+
+</div></div>
+
+<p>
+What is happening when an artificial neural network is &ldquo;learning&rdquo;?
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+The weights on the nodes&rsquo; inputs are updating.
+</p>
+
+
+</div></div>
+
 <p>
 Generate the input/output table for this perceptron:
 </p>
@@ -468,20 +813,201 @@ Generate the input/output table for this perceptron:
 </p>
 </div>
 
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="right" /><col class="right" /><col class="right" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="right">\(x_1\)</th><th scope="col" class="right">\(x_2\)</th><th scope="col" class="right">output</th></tr>
+</thead>
+<tbody>
+<tr><td class="right">0</td><td class="right">0</td><td class="right">0</td></tr>
+<tr><td class="right">0</td><td class="right">1</td><td class="right">0</td></tr>
+<tr><td class="right">1</td><td class="right">0</td><td class="right">1</td></tr>
+<tr><td class="right">1</td><td class="right">1</td><td class="right">0</td></tr>
+</tbody>
+</table>
+
+
+
+
+</div></div>
+
 <p>
 Draw perceptron and define inputs for the NAND function.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+
+<div style="text-align: center">
+<p><img src="./images/nand-perceptron.png"  alt="./images/nand-perceptron.png" />
+</p>
+</div>
+
+
+
+</div></div>
+
 <p>
 Define the word &ldquo;epoch.&rdquo;
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+An epoch is a single pass (of weight updates) through every example in
+the training set.
+</p>
+
+
+</div></div>
+
 <p>
 Write the perceptron learning rule for a single weight. Define the
 variables you use.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+$$w'_{ji} = w_{ji} + \alpha (d_j-y_j)x_i,$$
+
+<p>
+where \(w'_{ji}\) is the new weight value, \(w_{ji}\) is the old weight
+value, \(\alpha\) is a &ldquo;learning rate&rdquo; parameter, \(y_j\) is the binary
+value spit out by this perceptron, \(d_j\) is the correct value, and
+\(x_i\) is the input on this weight.
+</p>
+
+
+</div></div>
+
+<p>
+Explain why the perceptron learning rule has \(d_j-y_j\) and not
+\(y_j-d_j\) (everything else being equal).
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+If \(d_j-y_j &lt; 0\), then the predicted value is 1 but the true value is
+0; so the predicted value is too high, thus we want to adjust the
+weights <i>down</i> so that there is less chance in the future that the
+weighted sum will surpass the threshold and produce another 1 output.
+</p>
+<p>
+If \(d_j-y_j &gt; 0\), then the predicted value is 0 but the true value is
+1; and we get the opposite effect (adjust weights up so that threshold
+might be met in the future).
+</p>
+
+
+</div></div>
+
+<p>
+Give the &ldquo;loss&rdquo; function for logistic perceptrons and define the
+variables you use.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+$$L_j(d_j, p_j) = (d_j - p_j)^2,$$
+
+<p>
+where \(d_j\) is the correct answer (1.0 or 0.0, binary), and
+\(p_j=f(s_j)\) is the probability from the logistic function. Define
+your variables.
+</p>
+
+
+</div></div>
+
+<p>
+Give the logistic perceptron learning rule, with activation function
+\(1/(1+e^{-s_j})\), where \(s_j\) is the weighted sum of a perceptron&rsquo;s
+inputs.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+$$w'_{ji} = w_{ji} + \alpha (d_j-p_j) p_j (1-p_j)) x_i,$$
+
+<p>
+where \(w'_{ji}\) is the new weight value, \(w_{ji}\) is the old weight
+value, \(\alpha\) is a &ldquo;learning rate&rdquo; parameter, \(d_j\) is the correct
+value, \(p_j\) is the predicted value (a probability), and \(x_i\) is the
+input on this weight.
+</p>
+
+
+</div></div>
+
 <p>
 True or false: a single-layer perceptron network can compute any
 function.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+False: it can only compute linearly-separable functions, which does
+not include, e.g., XOR.
+</p>
+
+
+</div></div>
+
+<p>
+Describe some differences, in terms of processing power and technique,
+between a human brain and typical personal computer.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<ul>
+<li>The brain is highly parallel, but PC&rsquo;s typically process on one or a
+  small number of CPUs.
+
+</li>
+<li>Each neuron in the brain is slow (several ms per computation), while
+  each transistor or processor in a PC is fast (&lt;1 ns per
+  computation).
+
+</li>
+<li>Information is stored in the brain in a highly distributed fashion;
+  information in a PC is highly structured and linear or hierarchical
+  (in files and folders).
+
+</li>
+<li>Brains are very robust to information loss and corruption (e.g.,
+  killing brain cells from boozing); yet just a couple of bit-flips in
+  a PC can crash the system.
+
+</li>
+<li>Brains change their connectivity over time (&ldquo;synaptic plasticity&rdquo;);
+  PCs never change unless we manually upgrade the hardware. Likewise,
+  a brain is a mix of hardware and software, while the two are
+  normally quite distinct in a PC.
+</li>
+</ul>
+
+
+
+
+</div></div>
+
 </div>
 </div>
 
@@ -503,14 +1029,48 @@ function.
 <p>
 What is the essential goal of &ldquo;strong AI?&rdquo;
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Create a true &ldquo;mind,&rdquo; i.e., an intelligent thinking machine. It may
+even be conscious.
+</p>
+
+
+</div></div>
+
 <p>
 What is the most critical assumption in the Chinese room argument?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+That the person in the room does not understand Chinese.
+</p>
+
+
+</div></div>
+
 <p>
 If you believe the Chinese room argument, can you also (reasonably)
 believe that passing the Turing test gives proof that a machine
 possesses a mind (i.e., can be said to truly understand things)?
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+No.
+</p>
+
+
+</div></div>
+
 </div>
 
 </div>
@@ -523,6 +1083,21 @@ possesses a mind (i.e., can be said to truly understand things)?
 <p>
 Give a 2-3 sentence summary of the debate.
 </p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Chomsky thinks statistical methods in AI don&rsquo;t lead to any scientific
+kinds of insights about intelligence. Norvig says that we have good
+reason to believe intelligence is statistical in nature (at least for
+some things like hearing words), and besides, the statistical methods
+work.
+</p>
+
+
+</div></div>
+
 </div>
 
 </div>
@@ -535,487 +1110,42 @@ Give a 2-3 sentence summary of the debate.
 <p>
 Give two ethical issues related to the &ldquo;take your medicine robot.&rdquo;
 </p>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4">Answers</h2>
-<div class="outline-text-2" id="text-4">
 
 
-
-</div>
-
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1">Multi-agent systems</h3>
-<div class="outline-text-3" id="text-4-1">
-
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 
 <p>
-What are two principles for designing agent-based simulations?
+Some possible answers:
 </p>
-<p>
-Here are seven:
-</p>
-<ol>
-<li>agents not functions (not functional decomposition) 
-</li>
-<li>keep agents small in size 
-</li>
-<li>keep agents small in time (forgetful) 
-</li>
-<li>keep agents small in scope (local sensing and action) 
-</li>
-<li>decentralizd system control 
-</li>
-<li>support agent diversity 
-</li>
-<li>provide an entropy leak 
-</li>
-</ol>
-
-
-
-</div>
-
-<div id="outline-container-4-1-1" class="outline-4">
-<h4 id="sec-4-1-1">Ant intelligence</h4>
-<div class="outline-text-4" id="text-4-1-1">
-
-
 <ul>
-<li><b>No</b>: Scent-following
+<li>Ensure it gives medicine to the right person
 </li>
-<li><b>Yes</b>: Random walks
+<li>Ensure it gives the right medicine
 </li>
-<li><b>No</b>: Always pick up an object if ant finds one
+<li>Detect responses like &ldquo;no,&rdquo; no response, etc.
 </li>
-<li><b>Yes</b>: Decide stochastically to drop an object if holding one
+<li>Define an ethical strategy for responding to &ldquo;no,&rdquo; to no response,
+  etc.
 </li>
-<li><b>No</b>: Drop the object only when encountering another object (if
-    holding an object) &mdash; (every time step, regardless of whether
-    another object is encountered, determine whether to drop the
-    object if holding one)
+<li>Figure out if it matters whether or not the robot knows the person
+  actually took the medicine
 </li>
-<li><b>No</b>: Communicate directly with other ants
+<li>Ensure reliability of operation
+</li>
+<li>Keep records private
+</li>
+<li>Develop a mechanism for updating the robot and changing its
+  instructions.
+</li>
+<li>Define a &ldquo;hand off of control&rdquo; mechanism that&rsquo;s possibly more
+  complicated than a big red button.
 </li>
 </ul>
 
 
-<p>
-Why is it important that the chemical ants leave behind when they are
-carrying food slowly evaporates?
-</p>
-<p>
-<b>The chemical must evaporate so that the ants do not continue trying to walk to a food source that no longer exists. The ants need to &ldquo;forget&rdquo; (one of the principles of agent design).</b>
-</p>
-</div>
 
-</div>
 
-<div id="outline-container-4-1-2" class="outline-4">
-<h4 id="sec-4-1-2">Prisoner&rsquo;s dilemma</h4>
-<div class="outline-text-4" id="text-4-1-2">
-
-
-<p>
-True or false? &ldquo;Defecting&rdquo; means confessing to the crime so that you
-get off the hook but your partner goes to jail. <b>True</b>
-</p>
-<p>
-Describe the &ldquo;Jesus&rdquo; strategy. <b>Always cooperate</b>
-</p>
-<p>
-Describe the &ldquo;Lucifer&rdquo; strategy. <b>Always defect</b>
-</p>
-<p>
-Describe the &ldquo;Unforgiving&rdquo; strategy. <b>Cooperate until the partner defects, and then defect forever after.</b>
-</p>
-<p>
-Describe the &ldquo;Tit-for-tat&rdquo; a.k.a. &ldquo;Moses&rdquo; strategy. What is the first
-choice in this strategy? <b>Tit-for-tat does the same action the partner did in the last time step; it just mirrors the partner. The first choice (if tit-for-tat goes first) is to cooperate.</b>
-</p>
-<p>
-Which of these three strategies generally performed best across random
-scenarios in the iterated prisoner&rsquo;s dilemma? <b>Tit-for-tat</b>
-</p>
-<p>
-If two &ldquo;Tit-for-tat&rdquo; strategies face each other in the iterated
-prisoner&rsquo;s dilemma, we will see behavior equivalent to which
-non-Tit-for-tat strategy or strategies facing each other? <b>Jesus strategies</b>
-</p>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2">Learning</h3>
-<div class="outline-text-3" id="text-4-2">
-
-
-<p>
-Describe the difference between &ldquo;supervised&rdquo; and &ldquo;unsupervised&rdquo;
-learning.
-</p>
-<p>
-<b>Supervised learning uses information about the truth when training. Unsupervised learning does not have the truth (ever) so obviously cannot use this information.</b>
-</p>
-<p>
-What does &ldquo;10-fold cross validation&rdquo; mean?
-</p>
-<p>
-<b>This happens 10 times, and the results are averaged: Take 90% of the input data and train the learning algorithm on it; test the learning algorithm on the remaining 10%. For each of the 10 iterations, separate the input data into a different 90/10 split.</b>
-</p>
-
-</div>
-
-<div id="outline-container-4-2-1" class="outline-4">
-<h4 id="sec-4-2-1">k-means clustering</h4>
-<div class="outline-text-4" id="text-4-2-1">
-
-
-<p>
-k-means clustering is an unsupervised or supervised learning strategy?
-<b>Unsupervised</b>
-</p>
-<p>
-What does the choice of \(k\) represent? <b>The number of clusters.</b>
-</p>
-<p>
-How does the choice of initial clusters affect the outcome? <b>The resulting clusters may be different. Initial clusters near outliers may result in small clusters around the outliers (which is usually a bad thing).</b>
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4-2-2" class="outline-4">
-<h4 id="sec-4-2-2">k-nearest neighbor</h4>
-<div class="outline-text-4" id="text-4-2-2">
-
-
-<p>
-What does k-nearest neighbor allow us to do with a new, unknown data
-point? <b>Determine its category (class, label, tag, etc.).</b>
-</p>
-<p>
-k-nearest neighbor is an unsupervised or supervised learning strategy?
-<b>Supervised</b>
-</p>
-<p>
-What does the choice of \(k\) represent? <b>The number of neighbors that get a &ldquo;vote&rdquo; during the classification stage.</b>
-</p>
-<p>
-What problem may a very small value of \(k\) cause? <b>Noise has too great an impact. The nearest neighbor will be chosen without considering the &ldquo;larger&rdquo; picture.</b>
-</p>
-<p>
-What problem may a very large value of \(k\) cause? <b>The more common category will be chosen more often than it should.</b>
-</p>
-<p>
-Is there one value for \(k\) that works best for nearly all data sets?
-If so, what is it? <b>There is not one best value; you need to experiment with different values to find the best for your dataset.</b>
-</p>
-<p>
-Give one benefit of k-nearest neighbor learning. <b>It is a very simple algorithm and can work quite well in some cases.</b>
-</p>
-<p>
-Give one drawback of k-nearest neighbor learning. <b>It is very slow because it checks every item in the database (unless KD-trees are used). It also requires one to retain all the training examples in the database.</b>
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4-2-3" class="outline-4">
-<h4 id="sec-4-2-3">Document classification</h4>
-<div class="outline-text-4" id="text-4-2-3">
-
-
-<p>
-What is the goal of document classification? <b>Determine the category (class) or categories for a new document.</b>
-</p>
-<p>
-Define true positive (TP). Define false positive (FP). Define false
-negative (FN). Define precision (in terms of TP and/or FP and/or
-FN). Define recall (in terms of TP and/or FP and/or FN). Define
-F-score (in terms of precision and/or recall).
-</p>
-<p>
-<b>True positive (tp): chosen categories that are true categories.</b>
-</p>
-<p>
-<b>False positive (fp): chosen categories that are not true categories.</b>
-</p>
-<p>
-<b>False negatives (fn): true categories that are not chosen.</b>
-</p>
-<p>
-<b>Precision: \(tp/(tp+fp)\).</b>
-</p>
-<p>
-<b>Recall: \(tp/(tp+fn)\).</b>
-</p>
-<p>
-<b>F-score: \(2 * precision * recall / (precision + recall)\).</b>
-</p>
-<p>
-Suppose we make our classification engine more cautious; that is, it
-is less likely overall to predict any category. Does precision go up
-or down or remain unchanged? Does recall go up or down or remain
-unchanged? <b>Precision goes up because there are fewer \(fp\). Recall goes down because there are more \(fn\).</b>
-</p>
-<p>
-Give a possible result of stemming each of the following words:
-&ldquo;linguistic,&rdquo; &ldquo;dog,&rdquo; &ldquo;jumping,&rdquo; &ldquo;philosophy.&rdquo; <b>Maybe: &ldquo;linguist&rdquo; &ldquo;dog&rdquo; &ldquo;jump&rdquo; &ldquo;philos&rdquo;. &ldquo;Dog&rdquo; won&rsquo;t be stemmed, for example.</b>
-</p>
-<p>
-Describe a &ldquo;binary feature vector&rdquo; for a text document. <b>Each unique word is a &ldquo;dimension,&rdquo; and the value for that dimension is 1 or 0. It is 1 if the word is present in the document, 0 otherwise.</b>
-</p>
-<p>
-Calculate the tf-idf scores for a set of documents (as in Homework
-8). <b>See an example in the</b> <a href="./doc-vectors.xls">doc-vectors.xls</a> <b>file.</b>
-</p>
-<p>
-Why do you suppose tf-idf feature vectors perform better (in terms of
-F-score) than, say, frequency count feature vectors? <b>The &ldquo;contribution&rdquo; of each word is considered rather than its count.  This matters because some common words, like &ldquo;the,&rdquo; don&rsquo;t contribute any information about the document&rsquo;s category. We can detect the contribution of a word by considering how many other docs have the same word.</b>
-</p>
-<p>
-A common word (most documents have many occurrences of this word)
-would have a high or low tf-idf score? <b>A low tf-idf score.</b>
-</p>
-<p>
-Given doc A as \(&lt;0, 3, 1, 0, 5&gt;\), is doc X \(&lt;0, 3, 0, 2, 3&gt;\) or doc Y
-\(&lt;1, 4, 0, 0, 5&gt;\) closer to doc A in terms of &ldquo;cosine similarity&rdquo;?
-</p>
-<p>
-<b>doc A has magnitude 5.916, doc X has magnitude 4.69, doc Y has magnitude 6.48; doc A dot-product doc X is 24, doc A dot-product doc Y is 37; cosine similarity of doc A and doc X is 0.865, cosine similarity of doc A with doc Y is 0.965. So doc Y is closer.</b>
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4-2-4" class="outline-4">
-<h4 id="sec-4-2-4">Probability and Bayesian methods</h4>
-<div class="outline-text-4" id="text-4-2-4">
-
-
-<p>
-Describe what \(P(A)\) means (in words). <b>The probability that some event \(A\) occurs.</b>
-</p>
-<p>
-Describe what \(P(A,B)\) means (in words). <b>The probability that two events \(A\) and \(B\) occur together.</b>
-</p>
-<p>
-Describe what \(P(A|B)\) means (in words). <b>The probability that some event \(A\) occurs given that we know or are assuming event \(B\) also occurs.</b>
-</p>
-<p>
-If events \(A\) and \(B\) are independent, and \(P(A) = 0.25\), \(P(B) =
-0.10\), what is \(P(A,B)\)? <b>$0.25 * 0.10 = 0.025$</b> What is \(P(B,A)\)?
-<b>Same.</b>
-</p>
-<p>
-In the toothache graph from the <a href="./bayesian-inference.html">Bayesian inference</a> notes (the graph
-with just c, g, and t), what is \(P(t|g)\)?
-</p>
-
-
-$$P(t|g) = P(t|g,c)P(c) + P(t|g,\neg c)P(\neg c) = 1.0*0.10 + 0.3*0.9
-= 0.37$$
-
-<p>
-Write Bayes&rsquo; theorem. <b>\(P(B|A) = P(A|B)P(B)/P(A)\) or equivalently \(P(A|B) = P(B|A)P(A)/P(B)\).</b>
-</p>
-<p>
-Suppose I know that \(P(B|A)=0.1, P(A)=0.9, P(B)=0.25\), what is
-\(P(A|B)\)? <b>\(P(A|B)=0.1*0.9/0.25=0.36\).</b>
-</p>
-<p>
-In the toothache graph from the <a href="./bayesian-inference.html">Bayesian inference</a> notes (the graph
-with just c, g, and t), is \(P(g|t) &gt; P(c|t)\)?
-</p>
-
-
-\begin{eqnarray}
-
-P(g|t) = P(t|g)P(g)/P(t) &=& (P(t|g,c)P(c) + P(t|g,\neg c)P(\neg c))P(g)/P(t) \\
- &=& (1.0*0.10 + 0.3*0.9)*0.05/P(t)\\
- &=& 0.0185/P(t) \\
-
-P(c|t) = P(t|c)P(c)/P(t) &=& (P(t|c,g)P(g) + P(t|c,\neg g)P(\neg
-g))P(c)/P(t) \\
- &=& (1.0*0.05 + 0.6*0.95)*0.10/P(t) \\
- &=& 0.062/P(t)
-
-\end{eqnarray}
-
-<p>
-<b>So \(P(c|t) &gt; P(g|t)\).</b>
-</p>
-<p>
-What is the outcome of computing \(\arg\max X (P(X))\) where \(X\) is an
-event? (If \(\arg\max X (P(x))\) was a function, what would the output
-of the function be?) Describe in English. <b>The outcome would be an event, not a probability.</b>
-</p>
-<p>
-Suppose I know that \(P(B|A)=0.1, P(A)=0.9, P(B|C)=0.2, P(C)=0.8\), what
-is \(\arg\max X (P(X|B))\)? <b>The answer is \(C\) because \(P(B|A)P(A) &lt; P(B|C)P(C)\).</b>
-</p>
-<p>
-Give one benefit of naïve Bayesian classification (as compared to
-other classification methods like k-nearest neighbor). <b>It is fast.</b>
-</p>
-<p>
-Give one drawback of naïve Bayesian classification (as compared to
-other classification methods like support vector machines). <b>It is not always highly accurate.</b>
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4-2-5" class="outline-4">
-<h4 id="sec-4-2-5">Neural networks</h4>
-<div class="outline-text-4" id="text-4-2-5">
-
-
-<p>
-What does &ldquo;all or nothing&rdquo; mean when we talk about neurons in the
-brain? <b>A neuron either fires (discharges) completely or does not fire.</b>
-</p>
-<p>
-Generate the input/output table for this perceptron:
-</p>
-
-<div style="text-align: center">
-<p><img src="./images/arbitrary-perceptron.png"  alt="./images/arbitrary-perceptron.png" />
-</p>
-</div>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-<caption></caption>
-<colgroup><col class="right" /><col class="right" /><col class="right" />
-</colgroup>
-<thead>
-<tr><th scope="col" class="right">\(x_1\)</th><th scope="col" class="right">\(x_2\)</th><th scope="col" class="right">output</th></tr>
-</thead>
-<tbody>
-<tr><td class="right">0</td><td class="right">0</td><td class="right">0</td></tr>
-<tr><td class="right">0</td><td class="right">1</td><td class="right">0</td></tr>
-<tr><td class="right">1</td><td class="right">0</td><td class="right">1</td></tr>
-<tr><td class="right">1</td><td class="right">1</td><td class="right">0</td></tr>
-</tbody>
-</table>
-
-
-<p>
-Draw perceptron and define inputs for the NAND function.
-</p>
-
-<div style="text-align: center">
-<p><img src="./images/nand-perceptron.png"  alt="./images/nand-perceptron.png" />
-</p>
-</div>
-
-<p>
-Define the word &ldquo;epoch.&rdquo; <b>An epoch is a single pass (of weight updates) through every example in the training set.</b>
-</p>
-<p>
-Write the perceptron learning rule for a single weight. Define the
-variables you use.
-</p>
-
-
-$$w'_i = w_i + \alpha (d-y)x_i,$$
-
-<p>
-<b>where \(w'_i\) is the new weight value, \(w_i\) is the old weight value, \(\alpha\) is a &ldquo;learning rate&rdquo; parameter, \(d\) is the value spit out by this perceptron, \(y\) is the correct value, and \(x_i\) is the input on this weight.</b>
-</p>
-<p>
-True or false: a single-layer perceptron network can compute any
-function. <b>False: it can only compute linearly-separable functions, which does not include, e.g., XOR.</b>
-</p>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3">Philosophy</h3>
-<div class="outline-text-3" id="text-4-3">
-
-
-
-</div>
-
-<div id="outline-container-4-3-1" class="outline-4">
-<h4 id="sec-4-3-1">The &ldquo;Chinese room&rdquo; argument</h4>
-<div class="outline-text-4" id="text-4-3-1">
-
-
-<p>
-What is the essential goal of &ldquo;strong AI?&rdquo; <b>Create a true &ldquo;mind,&rdquo; i.e., an intelligent thinking machine. It may even be conscious.</b>
-</p>
-<p>
-What is the most critical assumption in the Chinese room argument?
-<b>That the person in the room does not understand Chinese.</b>
-</p>
-<p>
-If you believe the Chinese room argument, can you also (reasonably)
-believe that passing the Turing test gives proof that a machine
-possesses a mind (i.e., can be said to truly understand things)? <b>No.</b>
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4-3-2" class="outline-4">
-<h4 id="sec-4-3-2">The &ldquo;Norvig - Chomsky&rdquo; debate</h4>
-<div class="outline-text-4" id="text-4-3-2">
-
-
-<p>
-Give a 2-3 sentence summary of the debate.
-</p>
-<p>
-<b>Chomsky thinks statistical methods in AI don&rsquo;t lead to any scientific kinds of insights about intelligence. Norvig says that we have good reason to believe intelligence is statistical in nature (at least for some things like hearing words), and besides, the statistical methods work.</b>
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-4-3-3" class="outline-4">
-<h4 id="sec-4-3-3">Robot ethics</h4>
-<div class="outline-text-4" id="text-4-3-3">
-
-
-<p>
-Give two ethical issues related to the &ldquo;take your medicine robot.&rdquo;
-</p>
-<p>
-<b>Some possible answers:</b>
-</p>
-<ul>
-<li><b>Ensure it gives medicine to the right person</b>
-</li>
-<li><b>Ensure it gives the right medicine</b>
-</li>
-<li><b>Detect responses like &ldquo;no,&rdquo; no response, etc.</b>
-</li>
-<li><b>Define an ethical strategy for responding to &ldquo;no,&rdquo; to no response,   etc.</b>
-</li>
-<li><b>Figure out if it matters whether or not the robot knows the person   actually took the medicine</b>
-</li>
-<li><b>Ensure reliability of operation</b>
-</li>
-<li><b>Keep records private</b>
-</li>
-<li><b>Develop a mechanism for updating the robot and changing its   instructions.</b>
-</li>
-<li><b>Define a &ldquo;hand off of control&rdquo; mechanism that&rsquo;s possibly more   complicated than a big red button.</b>
-</li>
-</ul>
-
-
+</div></div>
 
 
 <div style="font-size: 80%; clear: both;"> <span
@@ -1042,9 +1172,18 @@ href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
 </script>
 <!-- End of Plupper Tracking Code -->
 
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script type="text/javascript">
+$('.hidden .hidden-content').hide();
+$('.hidden > strong').click(function() {
+  $(this).parent().find('.hidden-content').toggle();
+});
+</script>
 
 
-</div>
+
 </div>
 </div>
 </div>

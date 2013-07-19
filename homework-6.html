@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Homework 6"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-17 23:18:41 EDT"/>
+<meta name="generated" content="2013-07-19 11:37:01 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -147,6 +147,7 @@
 <li><a href="#sec-2">Task 2 (20 pts)</a></li>
 <li><a href="#sec-3">Task 3 (60 pts)</a></li>
 <li><a href="#sec-4">Task 4 (10 pts)</a></li>
+<li><a href="#sec-5">Extra credit (20 pts)</a></li>
 </ul>
 </div>
 </div>
@@ -214,8 +215,11 @@ Use this perceptron configuration. Determine all the weights.
 
 
 <p>
-Write a single-layer perceptron network learning algorithm. Use the
-perceptron learning rule from the lecture notes.
+Write a single-layer <i>logistic</i> perceptron network. Use the logistic
+perceptron learning rule from the lecture notes. Report the &ldquo;loss&rdquo;
+after each epoch. Divide the input file into an initial 90% for
+training, the latter 10% for testing. (The input file has already been
+shuffled.)
 </p>
 <p>
 The input file is specified on the command line. Its format is:
@@ -224,27 +228,28 @@ The input file is specified on the command line. Its format is:
 
 
 <pre class="example">5620 64 10
-0 1 6 15 12 1 0 0 0 7 16 6 6 10 ... 1 0 0 0 0 0 0 0 0 0
-0 0 10 16 6 0 0 0 0 7 16 8 16 5 ... 1 0 0 0 0 0 0 0 0 0
-...
+0 0 0.0625 0.875 0.375 0 0 0 0 0 0.375 0.9375  ... 1 0 0 0 0 0 0 0 0 0 
+0 0 0 0 0.5625 1 0.25 0 0 0 0 0.3125 0.9375 1  ... 0 0 0 0 0 0 0 0 0 1
+0 0.0625 0.375 0.9375 0.75 0.0625 0 0 0 0.4375 ... 0 1 0 0 0 0 0 0 0 0 
 </pre>
 
 
 <p>
 The first number, 5620, is the number of examples in the file, with
 one example per line, starting on the second line. The second number,
-64, is the number of inputs (or &ldquo;features&rdquo;) for each example. The
-inputs are floating-point values (which includes integers). The third
-number, 10, is the number of <i>binary</i> outputs for each example.
+64, is the number of inputs (or &ldquo;features&rdquo;) for each example; the
+inputs are floating-point values. The third number, 10, is the number
+of <i>binary</i> outputs for each example.
 </p>
 <p>
 The input file (partially) shown here is from the <a href="./optdigits.dat">optdigits.dat</a>
-(handwritten digits) input file (from <a href="http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits">UCI</a>). Each example has 64
-integers representing pixels followed by 10 binary numbers (0/1), such
-that the only 1 in this group of binary numbers is in the position N,
-and this N is the true digit of the example. So if the example is the
-digit 2, then the binary numbers are: &ldquo;0 0 1 0 0 0 0 0 0 0 0&rdquo; (first
-binary number indicates digit 0, then 1, then 2, etc.).
+(handwritten digits) input file (from <a href="http://archive.ics.uci.edu/ml/datasets/Optical+Recognition+of+Handwritten+Digits">UCI</a>). Each example has 64 floats
+(integer values 0-16 divided by 16.0 to get values in the range [0,1])
+followed by 10 binary numbers (0/1), such that the only 1 in this
+group of binary numbers is in the position N, and this N is the true
+digit of the example. So if the example is the digit 2, then the
+binary numbers are: &ldquo;0 0 1 0 0 0 0 0 0 0 0&rdquo; (first binary number
+indicates digit 0, then 1, then 2, etc.).
 </p>
 <p>
 I have written templates for you to start with: <a href="./perceptron-template.cpp">C++</a>, <a href="./PerceptronTemplate.java">Java</a>, and
@@ -256,13 +261,9 @@ it, and finish the code that tests reserved instances from the input
 file.
 </p>
 <p>
-With \(\alpha=0.01\) or so, and about 1000 epochs or so, you should be
-able to achieve ~80% correctness.
-</p>
-<p>
 You can also test, for debugging purposes, the <a href="./and.dat">and.dat</a>, <a href="./or.dat">or.dat</a>, and
-<a href="./not.dat">not.dat</a> cases. Your network should be able to learn these with 100%
-correctness.
+<a href="./not.dat">not.dat</a> cases. The primary test case for your code will be the
+<a href="./optdigits.dat">optdigits.dat</a> file.
 </p>
 </div>
 
@@ -296,6 +297,20 @@ Give your opinion about whether these are good &ldquo;laws,&rdquo; how they migh
 be improved, and whether we could build systems that respect
 them. (1 paragraph)
 </p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Extra credit (20 pts)</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+Train your neural net with a different dataset you find on the
+web. Tell me about the dataset (its inputs and outputs) and describe
+the performance of your neural net.
+</p>
 
 
 <div style="font-size: 80%; clear: both;"> <span
@@ -321,6 +336,16 @@ href="https://github.com/joshuaeckroth/ai-su13-website">GitHub</a>.
     plupper.enableCobrowsing();
 </script>
 <!-- End of Plupper Tracking Code -->
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+
+<script type="text/javascript">
+$('.hidden .hidden-content').hide();
+$('.hidden > strong').click(function() {
+  $(this).parent().find('.hidden-content').toggle();
+});
+</script>
 
 
 </div>

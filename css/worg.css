@@ -1033,3 +1033,25 @@ blockquote {
     box-shadow: 0px 0px 5px #c7c7c7;
 }
 
+div.hidden > strong {
+    margin-left: 0;
+    cursor: pointer;
+    color: #999;
+}
+
+div.hidden > strong > small {
+    margin-left: 1em;
+    font-size: 90%;
+    font-weight: normal;
+    font-style: italic;
+}
+
+div.hidden div.hidden-content {
+    padding-left: 10px;
+    border-left: 1px solid #999;
+}
+
+div.hidden {
+    margin-bottom: 1em;
+    margin-left: 2em;
+}
