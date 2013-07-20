@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Neural networks"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-19 11:27:44 EDT"/>
+<meta name="generated" content="2013-07-20 13:15:33 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -346,15 +346,14 @@ inputs. For example,
 </div>
 
 <p>
-Of course, the &ldquo;OR&rdquo; function is also possible (the homework asks you
-to show that). Outputs of perceptrons can become inputs to other
-perceptrons, allowing us to build all possible logic circuits. Thus,
-perceptrons are capable of general computation, putting them in the
-large class of fantastically different systems that are
-Turing-complete. A Turing-complete system is able to compute anything
-that can be computed; examples include electrical logic gates (i.e., a
-typical computer), the Lambda calculus, cellular automata, and now
-neural networks.
+Outputs of perceptrons can become inputs to other perceptrons,
+allowing us to build all possible logic circuits. Thus, perceptrons
+are capable of general computation, putting them in the large class of
+fantastically different systems that are Turing-complete. A
+Turing-complete system is able to compute anything that can be
+computed; examples include electrical logic gates (i.e., a typical
+computer), the Lambda calculus, cellular automata, and now neural
+networks.
 </p>
 <p>
 But can a complex network learn? When we say &ldquo;learn,&rdquo; we mean: can the
@@ -520,9 +519,9 @@ such interesting features.
 
 <p>
 When the function being learned is not linearly separable, the
-threshold function causes some oscillating (seen in some graphs
-below). This is because points near the separator are continually
-changing classifications as the weights update and move the separator.
+threshold function causes some oscillating. This is because points
+near the separator are continually changing classifications as the
+weights update and move the separator.
 </p>
 <p>
 We also may desire probabilistic answers rather than yes/no
