@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Homework 5"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-20 13:15:38 EDT"/>
+<meta name="generated" content="2013-07-22 17:00:34 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -285,7 +285,7 @@ f.open(<span style="font-style: italic;">"listing.txt"</span>);
         <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">do something with category</span>
     }
     <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">open docfile, process it a word at a time</span>
-    df.open(docfile.c_string()); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">c_string() is just a funky C++ thing</span>
+    df.open(docfile.c_str()); <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">c_str() is just a funky C++ thing</span>
     <span style="font-weight: bold;">while</span>(!df.eof()) {
         df &gt;&gt; word;
         <span style="font-weight: bold; font-style: italic;">// </span><span style="font-weight: bold; font-style: italic;">do something with word</span>
