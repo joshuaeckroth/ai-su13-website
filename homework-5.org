@@ -136,7 +136,7 @@ while(!f.eof()) { // eof() is true if the file is finished
         // do something with category
     }
     // open docfile, process it a word at a time
-    df.open(docfile.c_string()); // c_string() is just a funky C++ thing
+    df.open(docfile.c_str()); // c_str() is just a funky C++ thing
     while(!df.eof()) {
         df >> word;
         // do something with word
