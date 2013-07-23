@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Neural networks"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-20 13:15:33 EDT"/>
+<meta name="generated" content="2013-07-23 15:00:47 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -148,7 +148,13 @@
 <li><a href="#sec-3">The perceptron learning algorithm</a></li>
 <li><a href="#sec-4">Single-layer perceptron networks</a></li>
 <li><a href="#sec-5">Logistic perceptrons</a></li>
-<li><a href="#sec-6">Multilayer perceptron networks</a></li>
+<li><a href="#sec-6">Multilayer perceptron networks</a>
+<ul>
+<li><a href="#sec-6-1">Some definitions</a></li>
+<li><a href="#sec-6-2">Derivation of learning rule</a></li>
+<li><a href="#sec-6-3">Performance of multilayer perceptron on optdigits</a></li>
+</ul>
+</li>
 <li><a href="#sec-7">NetTalk example</a></li>
 </ul>
 </div>
@@ -405,19 +411,20 @@ function is not differentiable (it is a step function, discontinous at
 <p>
 Let \(d_j\) be the true (\(d\) for &ldquo;desired&rdquo;) answer for some input
 vector, and \(y_j\) but the output computed by the \(j\)&rsquo;th perceptron
-with its current weights \(w_{ji}\). We do not want to adjust the
-weights if the output is correct. If the output is 0 and we should
-have yielded a 1, then the weights are too low, and should be adjusted
-up. If the output is a 1 and we wanted a 0, the weights are too
-high. Of course, we only want to adjust a tiny bit, so we do not
-oscillate. Thus, we have the following adjustment for each weight:
+with its current weights \(w_{ij}\) (weight from input \(i\) to this
+perceptron \(j\)). We do not want to adjust the weights if the output is
+correct. If the output is 0 and we should have yielded a 1, then the
+weights are too low, and should be adjusted up. If the output is a 1
+and we wanted a 0, the weights are too high. Of course, we only want
+to adjust a tiny bit, so we do not oscillate. Thus, we have the
+following adjustment for each weight:
 </p>
 
 
-$$w'_{ji} = w_{ji} + \alpha (d_j-y_j)x_i,$$
+$$w'_{ij} = w_{ij} + \alpha (d_j-y_j)x_i,$$
 
 <p>
-where \(w'_{ji}\) is the new weight and \(\alpha\) is a small number (0.1,
+where \(w'_{ij}\) is the new weight and \(\alpha\) is a small number (0.1,
 or 0.01, etc.). Each weight is adjusted based on the input \(x_i\) that
 corresponds to that weight since some inputs are large and others
 small (possibly even negative if we get away from boolean
@@ -543,7 +550,7 @@ A good choice is the logistic function:
 $$f(s_j) = \frac{1}{1+e^{-s_j}}$$
 
 <p>
-where \(s_j = \sum_{i=1}^k x_{i} w_{ji} + w_{j0}\). This is what it
+where \(s_j = \sum_{i=1}^k x_{i} w_{ij} + w_{0j}\). This is what it
 looks like:
 </p>
 
@@ -584,30 +591,31 @@ separately.
 
 
 \begin{eqnarray}
-\frac{\partial L_j}{\partial w_{ji}}
-&=& \frac{\partial}{\partial w_{ji}} (d_j - f(s_j))^2 \\
-&=& 2 (d_j - f(s_j)) \frac{\partial}{\partial w_{ji}} (d_j - f(s_j)) \qquad \text{chain rule} \\
-&=& -2 (d_j - f(s_j)) f'(s_j) \frac{\partial}{\partial w_{ji}} s_j \qquad \text{chain rule}\\
-&=& -2 (d_j - f(s_j)) f'(s_j) \frac{\partial}{\partial w_{ji}} \sum_{i'=1}^k x_{i'} w_{ji'} + w_{j0} \qquad \text{expand } s_j\\
-&=& -2 (d_j - f(s_j)) f'(s_j) x_{i} \qquad \text{picks out } x_{i} w_{ji} \text{, whose derivative is } x_{i}
+\frac{\partial L_j}{\partial w_{ij}}
+&=& \frac{\partial}{\partial w_{ij}} (d_j - f(s_j))^2 \\
+&=& 2 (d_j - f(s_j)) \frac{\partial}{\partial w_{ij}} (d_j - f(s_j)) \qquad \text{chain rule} \\
+&=& -2 (d_j - f(s_j)) f'(s_j) \frac{\partial}{\partial w_{ij}} s_j \qquad \text{chain rule}\\
+&=& -2 (d_j - f(s_j)) f'(s_j) \frac{\partial}{\partial w_{ij}} \sum_{i'=1}^k x_{i'} w_{ij'} + w_{j0} \qquad \text{expand } s_j\\
+&=& -2 (d_j - f(s_j)) f'(s_j) x_{i} \qquad \text{picks out } x_{i} w_{ij} \text{, whose derivative is } x_{i}
 \end{eqnarray}
 
 <p>
 Note that \(f'(z) = f(z)(1-f(z))\). This makes the logistic function a
 good choice (in addition to its shape, which approximates the
-threshold function). We can push the \(-2\) into the \(\alpha\)
+threshold function). We can push the \(2\) into the \(\alpha\)
 parameter, yielding:
 </p>
 
 
-$$\frac{\partial L_j}{\partial w_{ji}} = \alpha (d_j - f(s_j)) f(s_j) (1 - f(s_j)) x_{i}$$
+$$\frac{\partial L_j}{\partial w_{ij}} = -\alpha (d_j - f(s_j)) f(s_j) (1 - f(s_j)) x_{i}$$
 
 <p>
-So our weight update is the following, with \(p_j = f(s_j)\):
+We want to update our weights in the opposite direction of the loss
+gradient. So our weight update is the following, with \(p_j = f(s_j)\):
 </p>
 
 
-$$w'_{ji} = w_{ji} + \alpha (d_j - p_j) p_j (1 - p_j)) x_{i}$$
+$$w'_{ij} = w_{ij} + \alpha (d_j - p_j) p_j (1 - p_j)) x_{i}$$
 
 <p>
 As an example, consider the task of classifying handwritten digits
@@ -643,37 +651,98 @@ reduce the input space, i.e., the number of pixels):
 </div>
 
 
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1">Some definitions</h3>
+<div class="outline-text-3" id="text-6-1">
+
+
 <p>
-The error gradient at perceptron \(j\) turns out to be,
+For convenience later, we define the output node error gradient as:
 </p>
 
 
-\begin{equation}
-\Delta_j = 
-\begin{cases}
-f'(s_j) (d_j - p_j) & \text{if perceptron } j \text{ is an output node} \\
-f'(s_j) \sum_k w_{jk} \Delta_k & \text{if perceptron } j \text{ is hidden}
-\end{cases}
-\end{equation}
+$$\Delta_k = -2 (d_k - p_k)f'(s_k)$$
 
 <p>
-In other words, \(\Delta_j\) is the normal error gradient if perceptron
-\(j\) is an output perceptron. If perceptron \(j\) is hidden, then the
-error gradient replaces the output error with the weighted error of
-the perceptrons to which \(j\) feeds forward.
-</p>
-<p>
-The result is that the update function changes to:
+And the hidden node error gradient (contribution of error of next node \(k\) on
+this node \(j\)):
 </p>
 
 
-$$w'_{ji} = w_{ji} + \alpha p_i \Delta_j$$
+$$\Delta_{jk} = \Delta_k w_{jk} f'(s_j)$$
 
 <p>
-Note that \(p_i\) is the output of the previous perceptron, attached to
-weight \(w_{ji}\). If the layer is an input layer (which we still say is
-&ldquo;hidden&rdquo;), then \(p_i = x_i\), the actual \(i\)&rsquo;th input to the network.
+And the total error on hidden node \(j\):
 </p>
+
+
+$$\Delta_j = \sum_k \Delta_k w_{jk} f'(s_j),$$
+
+<p>
+i.e., the sum across all nodes \(k\) to which the node \(j\) is connected.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2">Derivation of learning rule</h3>
+<div class="outline-text-3" id="text-6-2">
+
+
+<p>
+For an output node \(k\):
+</p>
+
+
+\begin{eqnarray}
+\frac{\partial L_k}{\partial w_{jk}}
+&=& -2(d_k - p_k) \frac{\partial p_k}{\partial w_{jk}} \\
+&=& -2(d_k - p_k) \frac{\partial f(s_k)}{\partial w_{jk}} \\
+&=& -2(d_k - p_k) f'(s_k) \frac{\partial s_k}{\partial w_{jk}} \\
+&=& -2(d_k - p_k) f'(s_k) \frac{\partial}{\partial w_{jk}}\Big( \sum_j
+w_{jk} p_j + w_{0k} \Big) \\
+&=& -2(d_k - p_k) f'(s_k) p_j \\
+&=& p_j \Delta_k
+\end{eqnarray}
+
+<p>
+For a hidden node \(j\), connected (only) to output node \(k\):
+</p>
+
+
+\begin{eqnarray}
+\frac{\partial L_k}{\partial w_{ij}}
+&=& -2(d_k - p_k) \frac{\partial p_k}{\partial w_{ij}} \\
+&=& -2(d_k - p_k) \frac{\partial f(s_k)}{\partial w_{ij}} \\
+&=& -2(d_k - p_k) f'(s_k) \frac{\partial s_k}{\partial w_{ij}} \\
+&=& \Delta_k \frac{\partial}{\partial w_{ij}} \Big( \sum_j w_{jk} p_j + w_{0k} \Big) \\
+&=& \Delta_k w_{jk} \frac{\partial p_j}{\partial w_{ij}} \\
+&=& \Delta_k w_{jk} \frac{\partial f(s_j)}{\partial w_{ij}} \\
+&=& \Delta_k w_{jk} f'(s_j) \frac{\partial s_j}{\partial w_{ij}} \\
+&=& \Delta_k w_{jk} f'(s_j) \frac{\partial}{\partial w_{ij}} \Big( \sum_i w_{ij} p_i + w_{0j} \Big) \\
+&=& \Delta_k w_{jk} f'(s_j) p_i \\
+&=& p_i \Delta_{jk}
+\end{eqnarray}
+
+<p>
+If \(j\) is connected to more nodes, we would use \(\Delta_j\) instead of
+\(\Delta_{jk}\) at the end.
+</p>
+<p>
+For input hidden node, \(p_i = x_i\).
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3">Performance of multilayer perceptron on optdigits</h3>
+<div class="outline-text-3" id="text-6-3">
+
+
 
 
 
@@ -720,6 +789,7 @@ Weighted Avg.    0.98      0.002      0.981     0.98      0.98       1
 </pre>
 
 
+</div>
 </div>
 
 </div>
