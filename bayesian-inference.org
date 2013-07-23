@@ -221,7 +221,7 @@ calculate it:
 P(c|t) > P(g|t) ? \quad
 \begin{aligned}
 P(c|t) =& \alpha P(t|c)P(c) \\
-P(g|t) =& \alpha P(g|c)P(g)
+P(g|t) =& \alpha P(t|g)P(g)
 \end{aligned}
 \end{equation}
 
