@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Final guide"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2013-07-19 11:27:08 EDT"/>
+<meta name="generated" content="2013-07-23 21:59:57 EDT"/>
 <meta name="author" content="nil"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -160,13 +160,15 @@
 <li><a href="#sec-2-6">Neural networks</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">Philosophy</a>
+<li><a href="#sec-3">Computer vision</a></li>
+<li><a href="#sec-4">Philosophy</a>
 <ul>
-<li><a href="#sec-3-1">The &ldquo;Chinese room&rdquo; argument</a></li>
-<li><a href="#sec-3-2">The &ldquo;Norvig - Chomsky&rdquo; debate</a></li>
-<li><a href="#sec-3-3">Robot ethics</a></li>
+<li><a href="#sec-4-1">The &ldquo;Chinese room&rdquo; argument</a></li>
+<li><a href="#sec-4-2">The &ldquo;Norvig - Chomsky&rdquo; debate</a></li>
+<li><a href="#sec-4-3">Robot ethics</a></li>
 </ul>
 </li>
+<li><a href="#sec-5">Extra credit</a></li>
 </ul>
 </div>
 </div>
@@ -370,6 +372,10 @@ usually a bad thing).
 
 </div></div>
 
+<p>
+<b>Note</b>: also be able to perform k-means clustering on some data as in
+ Homework 4.
+</p>
 </div>
 
 </div>
@@ -488,6 +494,10 @@ examples in the database.
 
 </div></div>
 
+<p>
+<b>Note</b>: also be able to perform k-nearest neighbor classification on
+some data as in Homework 4.
+</p>
 </div>
 
 </div>
@@ -546,6 +556,48 @@ unchanged?
 Precision goes up because there are fewer \(fp\). Recall goes down
 because there are more \(fn\).
 </p>
+
+
+</div></div>
+
+<p>
+What are the precision and recall for the following scenario:
+</p>
+<ul>
+<li>The true categories for some docs are:
+<ul>
+<li>{noise, noise, signal, noise, signal}
+</li>
+</ul>
+
+</li>
+<li>The predicted categories for the docs are (same ordering):
+<ul>
+<li>{noise, signal, signal, signal, noise}
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+<p>
+Consider &ldquo;signal&rdquo; to be a &ldquo;positive&rdquo; claim.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<ul>
+<li>tp = 1, fp = 2, fn = 1
+</li>
+<li>precision is 1/3
+</li>
+<li>recall is 1/2
+</li>
+</ul>
+
+
 
 
 </div></div>
@@ -646,9 +698,21 @@ equalities.
 
 <div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 
-<p>
-TODO
-</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">Derived</th><th scope="col" class="left">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">\(P(a \wedge b) = P(b \wedge a)\)</td><td class="left">Due to normal Boolean logic rules.</td></tr>
+<tr><td class="left">\(P(a \vert{} b) P(b) = P(b \vert{} a) P(a)\)</td><td class="left">Due to rule regarding \(P(a \wedge b)\).</td></tr>
+<tr><td class="left">\(P(a \vert{} b) = \frac{P(b \vert{} a) P(a)}{P(b)}\)</td><td class="left">Bayes&rsquo; formula. Of course, it must be that \(P(b) \neq 0\).</td></tr>
+</tbody>
+</table>
+
+
 
 
 </div></div>
@@ -733,7 +797,7 @@ The answer is \(c\) because \(P(b|a)P(a) &lt; P(b|c)P(c)\).
 
 
 <p>
-Describe a &ldquo;binary feature vector&rdquo; for a text document.
+Describe a &ldquo;binary document vector&rdquo; for a text document.
 </p>
 
 
@@ -747,8 +811,20 @@ Each unique word is a &ldquo;dimension,&rdquo; and the value for that dimension 
 
 </div></div>
 
+<p>
+Why do we use logarithms for the calculations?
+</p>
 
 
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+&ldquo;With a lot of unique words, we create very small values by
+multiplying many \(p_{ci}\) terms. On a computer, the values may become
+so small that they may &lsquo;underflow&rsquo; (run out of bits required to
+represent the value). To prevent this, we just throw a logarithm
+around everything.&rdquo;
+</p>
 </div>
 
 </div>
@@ -781,10 +857,10 @@ Explain the Hebbian learning rule.
 <div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
 
 <p>
-Quotable: &ldquo;Cells that fire together, wire together.&rdquo; The rule says
-that connected neurons that both fire nearby (in time) from some
-stimulus, will strengthen their connection. Eventually, if just one or
-the other fires, it will induce the second to fire as well.
+&ldquo;Cells that fire together, wire together.&rdquo; The rule says that
+connected neurons that both fire nearby (in time) from some stimulus,
+will strengthen their connection. Eventually, if just one or the other
+fires, it will induce the second to fire as well.
 </p>
 
 
@@ -1008,22 +1084,63 @@ between a human brain and typical personal computer.
 
 </div></div>
 
+<p>
+<b>Note</b>: be able to apply the perceptron learning rule (with the
+threshold function) to a single perceptron with a small number of
+weights.
+</p>
 </div>
 </div>
 
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3">Philosophy</h2>
+<h2 id="sec-3">Computer vision</h2>
 <div class="outline-text-2" id="text-3">
 
+
+<p>
+<b>Note</b>: be able to apply a linear convolution kernel to a 3x3 pixel
+gray-scale image.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Philosophy</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+Describe the Church-Turing thesis in a few sentences.
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+Any reasonable mechanical process that can be described or implemented
+can be programmed and realized in a computer (where &ldquo;computer&rdquo; means,
+e.g., a Turing machine). A &ldquo;reasonable&rdquo; process is a process that
+requires only finitely-many steps and finite time to follow through
+them; it must not require special (human-like) ingenuity, cleverness,
+or creativity to follow the steps; it must give the right answer every
+time.
+</p>
+<p>
+This is just a thesis because it cannot be proven.
+</p>
+
+
+</div></div>
 
 
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1">The &ldquo;Chinese room&rdquo; argument</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1">The &ldquo;Chinese room&rdquo; argument</h3>
+<div class="outline-text-3" id="text-4-1">
 
 
 <p>
@@ -1075,9 +1192,9 @@ No.
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2">The &ldquo;Norvig - Chomsky&rdquo; debate</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2">The &ldquo;Norvig - Chomsky&rdquo; debate</h3>
+<div class="outline-text-3" id="text-4-2">
 
 
 <p>
@@ -1102,9 +1219,9 @@ work.
 
 </div>
 
-<div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3">Robot ethics</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3">Robot ethics</h3>
+<div class="outline-text-3" id="text-4-3">
 
 
 <p>
@@ -1147,6 +1264,37 @@ Some possible answers:
 
 </div></div>
 
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Extra credit</h2>
+<div class="outline-text-2" id="text-5">
+
+
+<p>
+What is bigger than ant?
+</p>
+
+
+<div class="hidden"><strong>Answer <small>click to toggle</small></strong><div class="hidden-content">
+
+<p>
+These are bigger:
+</p><ul>
+<li>anteater, foot, godzilla.
+</li>
+</ul>
+
+
+<p>
+(Just kidding.)
+</p>
+
+
+</div></div>
 
 <div style="font-size: 80%; clear: both;"> <span
 xmlns:dct="http://purl.org/dc/terms/"
@@ -1184,7 +1332,6 @@ $('.hidden > strong').click(function() {
 
 
 
-</div>
 </div>
 </div>
 </div>
