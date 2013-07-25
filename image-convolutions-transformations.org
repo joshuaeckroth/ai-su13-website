@@ -26,6 +26,12 @@ We can also achieve a sharpening effect.
 
 | [[./images/sharpen-convolution.png]] | [[./images/lena-sharpen.jpg]] |
 
+#+BEGIN_CENTER
+[[./images/3D_Convolution_Animation.gif]]
+
+From [[http://en.m.wikipedia.org/wiki/File:3D_Convolution_Animation.gif][Wikipedia]]
+#+END_CENTER
+
 And we can achieve an edge effect.
 
 | [[./images/edge-convolution.png]]    | [[./images/lena-edges.jpg]]   |
