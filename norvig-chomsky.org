@@ -1,8 +1,6 @@
 #+SETUPFILE: setup.org
 #+TITLE: The Norvig - Chomsky debate
 
-
-
 * Science vs. pseudoscience (the demarcation problem)
 
 #+BEGIN_QUOTE
@@ -555,6 +553,14 @@ If either of these theories is correct, what would they offer in terms
 of "explanation" of iris species distinctions?
 
 In what sense are "species" explanatory anyway?
+
+#+BEGIN_CENTER
+#+BEGIN_HTML
+<iframe width="640" height="360"
+src="http://www.youtube.com/embed/yvDCzhbjYWs?rel=0" frameborder="0"
+allowfullscreen></iframe>
+#+END_HTML
+#+END_CENTER
 
 * Pandora vs. Netflix
 
